@@ -1,0 +1,846 @@
+VEX_rev = 1.5;
+*    SCHED vers: Release 11.5. August 3, 2018
+*    VEX/SCHED:  1.5.87
+*    Other versions: Sched:  11.5  Plot: 1.06  JPL-ephem: 1.01
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = x420a;
+*                                                      +------------+
+*                         PI revision number:          |    1.0000  |
+*                                                      +------------+
+*    mode:       6.7GHz-2p-8IF/16MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def x420a;
+     exper_name = x420a;
+     exper_description = "Fringe check hb-cd-ho";
+     PI_name = "Lucas J. Hyland";
+     PI_email = lucas.hyland@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*                
+*    phone:     +61416469903
+*    during obs: 
+*    fax:        
+*    notes:     Array: Cd-Hb-Ke-Wa
+*               Parallax of G291.2744-0.709
+*
+*    year, doy: 2021, 186
+*    date     : Mon  5 Jul 2021
+*    MJD      : 59400
+     exper_nominal_start=2021y186d05h30m00s;
+     exper_nominal_stop=2021y186d06h29m45s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    :     2.000 s
+*    number_channels:  4096
+*    number_antenna :  4
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  : 
+*                     University of Tasmania
+*    corr_notes : 
+*               Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res.
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def spirals.meth;
+     ref $PROCEDURES = Mode_01;
+     ref $FREQ = 6596.00MHz16x16MHz:Cd;
+     ref $FREQ = 6580.00MHz8x32MHz:Hb;
+     ref $FREQ = 6596.00MHz16x16MHz#02:Ho;
+     ref $IF = LO@7300MHzDPolNoTone:Cd;
+     ref $IF = LO@6000MHzDPolNoTone:Hb;
+     ref $IF = LO@7000MHzDPolNoTone:Ho;
+     ref $BBC = 16BBCs:Cd;
+     ref $BBC = 8BBCs:Hb;
+     ref $BBC = 16BBCs#02:Ho;
+     ref $TRACKS = MARK5B.16Ch2bit1to1:Cd:Ho;
+     ref $TRACKS = MARK5B.8Ch2bit1to1:Hb;
+*    ref $HEAD_POS = DiskVoid <= obsolete definition
+     ref $ROLL = NoRoll:Cd:Hb:Ho;
+*    ref $PASS_ORDER = DiskVoid <= obsolete definition
+     ref $PHASE_CAL_DETECT = NoDetect:Cd:Ho;
+     ref $PHASE_CAL_DETECT = NoDetect#02:Hb;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def Cd;
+     ref $SITE = CEDUNA;
+     ref $ANTENNA = CEDUNA;
+     ref $DAS = 1DBBC+NONE<;
+enddef;
+*
+def Hb;
+     ref $SITE = HOBART12;
+     ref $ANTENNA = HOBART12;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*
+def Ho;
+     ref $SITE = HOBART26;
+     ref $ANTENNA = HOBART26;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Mode_01;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def CEDUNA;
+     site_type = fixed;
+     site_name = CEDUNA;
+     site_ID = Cd;
+*    elev=  164.62 long=-133:48:35. lat=-31:52:03.7
+     site_position =-3753442.74570 m: 3912709.75300 m:-3348067.60950 m;
+     site_velocity = -0.041730   m/yr:  0.002670   m/yr:  0.049900  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def HOBART12;
+     site_type = fixed;
+     site_name = HOBART12;
+     site_ID = Hb;
+*    elev=   40.98 long=-147:26:17. lat=-42:48:20.1
+     site_position =-3949990.84020 m: 2522421.21910 m:-4311707.99890 m;
+     site_velocity = -0.039010   m/yr:  0.007960   m/yr:  0.041100  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2014y001d;
+     site_position_epoch =   56658;
+enddef;
+*
+def HOBART26;
+     site_type = fixed;
+     site_name = HOBART26;
+     site_ID = Ho;
+*    elev=   65.09 long=-147:26:25. lat=-42:48:12.9
+     site_position =-3950237.40300 m: 2522347.68410 m:-4311561.83350 m;
+     site_velocity = -0.039010   m/yr:  0.007960   m/yr:  0.041100  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2014y001d;
+     site_position_epoch =   56658;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def CEDUNA;
+     axis_type = az : el;
+     antenna_motion = el :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    0.00240 m;
+enddef;
+*
+def HOBART12;
+     axis_type = az : el;
+     antenna_motion = el :  75.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     antenna_motion = az : 300.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     axis_offset =    0.00000 m;
+enddef;
+*
+def HOBART26;
+     axis_type = x : yew;
+     antenna_motion = x :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = y :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    8.19440 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def 1DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 2DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :            : 0 ;
+     headstack = 2 :            : 1 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+*
+def 3C279;
+     source_name = 3C279;
+*    this source had calibrator code: V
+*    alternate source name: 1253-055
+*    alternate source name: J1256-0547
+*    alternate source name: F1256
+*    GSFC 2016a X/S astro solution,  13160 observations.
+     ra = 12h56m11.1665772s; dec = -05d47'21.525129"; ref_coord_frame = J2000;
+*    ra = 12h53m35.8313096s; dec = -05d31'07.996269"; ref_coord_frame = B1950;
+*    ra = 12h57m17.0880739s; dec = -05d54'14.335661"; ref_coord_frame = Date;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 6596.00MHz16x16MHz;
+* mode =  1    stations =Cd
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH05 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH06 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH07 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH08 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH09 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH10 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH11 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH12 : &BBC08 : &NoCal; *Lcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH13 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH14 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH15 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH16 : &BBC08 : &NoCal; *Lcp
+enddef;
+*
+def 6596.00MHz16x16MHz#02;
+* mode =  1    stations =Ho
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH05 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH06 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH07 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH08 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH09 : &BBC09 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH10 : &BBC10 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH11 : &BBC11 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH12 : &BBC12 : &NoCal; *Lcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH13 : &BBC09 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH14 : &BBC10 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH15 : &BBC11 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH16 : &BBC12 : &NoCal; *Lcp
+enddef;
+*
+def 6580.00MHz8x32MHz;
+* mode =  1    stations =Hb
+     sample_rate =    64.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6580.00 MHz : U :  32.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6612.00 MHz : U :  32.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6644.00 MHz : U :  32.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6676.00 MHz : U :  32.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6580.00 MHz : U :  32.00 MHz : &CH05 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6612.00 MHz : U :  32.00 MHz : &CH06 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6644.00 MHz : U :  32.00 MHz : &CH07 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6676.00 MHz : U :  32.00 MHz : &CH08 : &BBC08 : &NoCal; *Lcp
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@7300MHzDPolNoTone;
+* mode =  1    stations =Cd
+     if_def = &IF_A1 : A1 : R :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B1 : B1 : L :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@7000MHzDPolNoTone;
+* mode =  1    stations =Ho
+     if_def = &IF_A3 : A3 : R :  7000.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B3 : B3 : L :  7000.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@6000MHzDPolNoTone;
+* mode =  1    stations =Hb
+     if_def = &IF_A1 : A1 : R :  6000.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B4 : B4 : L :  6000.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 16BBCs;
+* mode =  1    stations =Cd
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B1;
+     BBC_assign = &BBC06 :  6 : &IF_B1;
+     BBC_assign = &BBC07 :  7 : &IF_B1;
+     BBC_assign = &BBC08 :  8 : &IF_B1;
+enddef;
+*
+def 16BBCs#02;
+* mode =  1    stations =Ho
+     BBC_assign = &BBC01 :  1 : &IF_A3;
+     BBC_assign = &BBC02 :  2 : &IF_A3;
+     BBC_assign = &BBC03 :  3 : &IF_A3;
+     BBC_assign = &BBC04 :  4 : &IF_A3;
+     BBC_assign = &BBC09 :  9 : &IF_B3;
+     BBC_assign = &BBC10 : 10 : &IF_B3;
+     BBC_assign = &BBC11 : 11 : &IF_B3;
+     BBC_assign = &BBC12 : 12 : &IF_B3;
+enddef;
+*
+def 8BBCs;
+* mode =  1    stations =Hb
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B4;
+     BBC_assign = &BBC06 :  6 : &IF_B4;
+     BBC_assign = &BBC07 :  7 : &IF_B4;
+     BBC_assign = &BBC08 :  8 : &IF_B4;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* mode =  1    stations =Cd:Ho
+     phase_cal_detect = &NoCal;
+enddef;
+*
+def NoDetect#02;
+* mode =  1    stations =Hb
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def MARK5B.16Ch2bit1to1;
+* mode =  1    stations =Cd:Ho
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1: 18;
+     fanout_def =   : &CH01 :  mag : 1: 19;
+     fanout_def =   : &CH02 : sign : 1: 20;
+     fanout_def =   : &CH02 :  mag : 1: 21;
+     fanout_def =   : &CH03 : sign : 1: 22;
+     fanout_def =   : &CH03 :  mag : 1: 23;
+     fanout_def =   : &CH04 : sign : 1: 24;
+     fanout_def =   : &CH04 :  mag : 1: 25;
+     fanout_def =   : &CH05 : sign : 1:  2;
+     fanout_def =   : &CH05 :  mag : 1:  3;
+     fanout_def =   : &CH06 : sign : 1:  4;
+     fanout_def =   : &CH06 :  mag : 1:  5;
+     fanout_def =   : &CH07 : sign : 1:  6;
+     fanout_def =   : &CH07 :  mag : 1:  7;
+     fanout_def =   : &CH08 : sign : 1:  8;
+     fanout_def =   : &CH08 :  mag : 1:  9;
+     fanout_def =   : &CH09 : sign : 1: 26;
+     fanout_def =   : &CH09 :  mag : 1: 27;
+     fanout_def =   : &CH10 : sign : 1: 28;
+     fanout_def =   : &CH10 :  mag : 1: 29;
+     fanout_def =   : &CH11 : sign : 1: 30;
+     fanout_def =   : &CH11 :  mag : 1: 31;
+     fanout_def =   : &CH12 : sign : 1: 32;
+     fanout_def =   : &CH12 :  mag : 1: 33;
+     fanout_def =   : &CH13 : sign : 1: 10;
+     fanout_def =   : &CH13 :  mag : 1: 11;
+     fanout_def =   : &CH14 : sign : 1: 12;
+     fanout_def =   : &CH14 :  mag : 1: 13;
+     fanout_def =   : &CH15 : sign : 1: 14;
+     fanout_def =   : &CH15 :  mag : 1: 15;
+     fanout_def =   : &CH16 : sign : 1: 16;
+     fanout_def =   : &CH16 :  mag : 1: 17;
+enddef;
+*
+def MARK5B.8Ch2bit1to1;
+* mode =  1    stations =Hb
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  64.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 10;
+     fanout_def =   : &CH05 :  mag : 1: 11;
+     fanout_def =   : &CH06 : sign : 1: 12;
+     fanout_def =   : &CH06 :  mag : 1: 13;
+     fanout_def =   : &CH07 : sign : 1: 14;
+     fanout_def =   : &CH07 :  mag : 1: 15;
+     fanout_def =   : &CH08 : sign : 1: 16;
+     fanout_def =   : &CH08 :  mag : 1: 17;
+enddef;
+*------------------------------------------------------------------------------
+$HEAD_POS;
+def DiskVoid;
+* mode =  1    stations =Cd:Hb:Ho
+*     Head positions irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$PASS_ORDER;
+*
+def DiskVoid;
+* mode =  1    stations =Cd:Hb:Ho
+*     Pass orders irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* mode =  1    stations =Cd:Hb:Ho
+*    barrel-roll set to 'roll_off', so reverse-roll by  0 (1 head)
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+* schedule section for experiment x420a   
+* Fringe check hb-cd-ho                                                   
+scan No0001;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h30m00s; mode=spirals.meth; source=3C279;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+endscan;
+scan No0002;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h31m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+endscan;
+scan No0003;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h32m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+endscan;
+scan No0004;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h33m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+endscan;
+scan No0005;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h34m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+endscan;
+scan No0006;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h35m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+endscan;
+scan No0007;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h36m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+endscan;
+scan No0008;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h37m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+endscan;
+scan No0009;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h38m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   46.154 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   46.154 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   46.154 GB:   :       : 1;
+endscan;
+scan No0010;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h39m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   51.923 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   51.923 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   51.923 GB:   :       : 1;
+endscan;
+scan No0011;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h40m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   57.692 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   57.692 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   57.692 GB:   :       : 1;
+endscan;
+scan No0012;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h41m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   63.461 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   63.461 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   63.461 GB:   :       : 1;
+endscan;
+scan No0013;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h42m00s; mode=spirals.meth; source=3C279;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:   69.231 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   69.231 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   69.231 GB:   :       : 1;
+endscan;
+scan No0014;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h43m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   75.000 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   75.000 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   75.000 GB:   :       : 1;
+endscan;
+scan No0015;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h44m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   80.769 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   80.769 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   80.769 GB:   :       : 1;
+endscan;
+scan No0016;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h45m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   86.538 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   86.538 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   86.538 GB:   :       : 1;
+endscan;
+scan No0017;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h46m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   92.307 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   92.307 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   92.307 GB:   :       : 1;
+endscan;
+scan No0018;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h47m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:   98.077 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:   98.077 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   98.077 GB:   :       : 1;
+endscan;
+scan No0019;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h48m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  103.846 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  103.846 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  103.846 GB:   :       : 1;
+endscan;
+scan No0020;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h49m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  109.615 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  109.615 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  109.615 GB:   :       : 1;
+endscan;
+scan No0021;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h50m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  115.384 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  115.384 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  115.384 GB:   :       : 1;
+endscan;
+scan No0022;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h51m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  121.154 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  121.154 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  121.154 GB:   :       : 1;
+endscan;
+scan No0023;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h52m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  126.923 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  126.923 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  126.923 GB:   :       : 1;
+endscan;
+scan No0024;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h53m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  132.692 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  132.692 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  132.692 GB:   :       : 1;
+endscan;
+scan No0025;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h54m00s; mode=spirals.meth; source=3C279;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:  138.461 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  138.461 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  138.461 GB:   :       : 1;
+endscan;
+scan No0026;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h55m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  144.230 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  144.230 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  144.230 GB:   :       : 1;
+endscan;
+scan No0027;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h56m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  150.000 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  150.000 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  150.000 GB:   :       : 1;
+endscan;
+scan No0028;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h57m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  155.769 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  155.769 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  155.769 GB:   :       : 1;
+endscan;
+scan No0029;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h58m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  161.538 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  161.538 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  161.538 GB:   :       : 1;
+endscan;
+scan No0030;
+* intent = "FIND_FRINGE"
+     start=2021y186d05h59m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  167.307 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  167.307 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  167.307 GB:   :       : 1;
+endscan;
+scan No0031;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h00m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  173.076 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  173.076 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  173.076 GB:   :       : 1;
+endscan;
+scan No0032;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h01m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  178.846 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  178.846 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  178.846 GB:   :       : 1;
+endscan;
+scan No0033;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h02m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  184.615 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  184.615 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  184.615 GB:   :       : 1;
+endscan;
+scan No0034;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h03m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  190.384 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  190.384 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  190.384 GB:   :       : 1;
+endscan;
+scan No0035;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h04m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  196.153 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  196.153 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  196.153 GB:   :       : 1;
+endscan;
+scan No0036;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h05m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  201.923 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  201.923 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  201.923 GB:   :       : 1;
+endscan;
+scan No0037;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h06m00s; mode=spirals.meth; source=3C279;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:  207.692 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  207.692 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  207.692 GB:   :       : 1;
+endscan;
+scan No0038;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h07m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  213.461 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  213.461 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  213.461 GB:   :       : 1;
+endscan;
+scan No0039;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h08m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  219.230 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  219.230 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  219.230 GB:   :       : 1;
+endscan;
+scan No0040;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h09m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  224.999 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  224.999 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  224.999 GB:   :       : 1;
+endscan;
+scan No0041;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h10m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  230.769 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  230.769 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  230.769 GB:   :       : 1;
+endscan;
+scan No0042;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h11m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  236.538 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  236.538 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  236.538 GB:   :       : 1;
+endscan;
+scan No0043;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h12m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  242.307 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  242.307 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  242.307 GB:   :       : 1;
+endscan;
+scan No0044;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h13m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  248.076 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  248.076 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  248.076 GB:   :       : 1;
+endscan;
+scan No0045;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h14m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  253.845 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  253.845 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  253.845 GB:   :       : 1;
+endscan;
+scan No0046;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h15m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  259.615 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  259.615 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  259.615 GB:   :       : 1;
+endscan;
+scan No0047;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h16m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  265.384 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  265.384 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  265.384 GB:   :       : 1;
+endscan;
+scan No0048;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h17m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  271.153 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  271.153 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  271.153 GB:   :       : 1;
+endscan;
+scan No0049;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h18m00s; mode=spirals.meth; source=3C279;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:  276.922 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  276.922 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  276.922 GB:   :       : 1;
+endscan;
+scan No0050;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h19m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  282.692 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  282.692 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  282.692 GB:   :       : 1;
+endscan;
+scan No0051;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h20m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  288.461 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  288.461 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  288.461 GB:   :       : 1;
+endscan;
+scan No0052;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h21m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  294.230 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  294.230 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  294.230 GB:   :       : 1;
+endscan;
+scan No0053;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h22m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  299.999 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  299.999 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  299.999 GB:   :       : 1;
+endscan;
+scan No0054;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h23m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  305.768 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  305.768 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  305.768 GB:   :       : 1;
+endscan;
+scan No0055;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h24m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  311.538 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  311.538 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  311.538 GB:   :       : 1;
+endscan;
+scan No0056;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h25m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  317.307 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  317.307 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  317.307 GB:   :       : 1;
+endscan;
+scan No0057;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h26m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  323.076 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  323.076 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  323.076 GB:   :       : 1;
+endscan;
+scan No0058;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h27m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  328.845 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  328.845 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  328.845 GB:   :       : 1;
+endscan;
+scan No0059;
+* intent = "FIND_FRINGE"
+     start=2021y186d06h28m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  334.615 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  334.615 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  334.615 GB:   :       : 1;
+endscan;
+scan No0060;
+* intent = "OBSERVE_TARGET"
+     start=2021y186d06h29m00s; mode=spirals.meth; source=3C279;
+     station=Cd:    0 sec:   45 sec:  340.384 GB:   :       : 1;
+     station=Hb:    0 sec:   45 sec:  340.384 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:  340.384 GB:   :       : 1;
+endscan;
