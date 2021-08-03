@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git pull 
+cd /home/observer/correlations2/spiralssched/ && git pull 
 
-export class=$(echo $! | sed 's/.$//')
+export class=$(echo $1 | sed 's/.$//')
 
 echo "Newsmerd for slogit"
 rsync -Puv /home/observer/correlations2/spiralssched/vex/$1.vex observer@newsmerd:/vlbobs/lba/$class/$1.vex
