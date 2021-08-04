@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/observer/correlations2/spiralssched/ && git checkout main
+cd /home/observer/correlations2/spiralssched/ && git pull
 
 export class=$(echo $1 | sed 's/.$//')
 
