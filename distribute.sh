@@ -13,6 +13,8 @@ scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfscd:/usr2/sched
 ssh oper@pcfscd 'cd /usr2/sched; rm '$1cd.*
 # Drudging
 ssh oper@pcfscd 'cd /usr2/sched; echo -e "cd\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+# Add source=stow
+ssh oper@pcfscd 'echo "source=stow" >> /usr2/sched/'$1cd.snp
 # Copying template vex over
 ssh oper@pcfscd 'cp /usr2/proc/spiralscd.prc /usr2/proc/'$1cd.prc
 
@@ -31,6 +33,8 @@ scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2hb:/usr2/sch
 # Drudg vex file
 ssh oper@pcfs-2hb 'cd /usr2/sched/; rm '$1hb.snp
 ssh oper@pcfs-2hb 'cd /usr2/sched; echo -e "hb\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+# Add source=stow
+ssh oper@pcfshb 'echo "source=stow" >> /usr2/sched/'$1hb.snp
 # Copy template proc file to /usr2/proc
 ssh oper@pcfs-2hb 'cp /usr2/proc/spirals.prc /usr2/proc/'$1hb.prc
 
@@ -50,6 +54,8 @@ scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2ke:/usr2/sch
 # Drudg vex file
 ssh oper@pcfs-2ke 'cd /usr2/sched; rm '$1ke.snp
 ssh oper@pcfs-2ke 'cd /usr2/sched; echo -e "ke\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+# Add source=stow
+ssh oper@pcfs-2ke 'echo "source=stow" >> /usr2/sched/'$1ke.snp
 # Copy template proc file to /usr2/proc
 ssh oper@pcfs-2ke 'cp /usr2/proc/spirals.prc /usr2/proc/'$1ke.prc
 
@@ -70,6 +76,11 @@ touch /home/observer/correlations2/$1/wa.filelist
 touch /home/observer/correlations2/$1/ho.filelist
 touch /home/observer/correlations2/$1/wa.filelist
 touch /home/observer/correlations2/$1/yg.filelist
+
+#date -uj
+#grep exper_nominal_start vex/$1.vex | cut -d '=' -f 2 | tr -d ";"
+#grep exper_nominal_stop vex/$1.vex | cut -d '=' -f 2 | tr -d ";"
+
 
 echo ' '
 echo "##############################"
