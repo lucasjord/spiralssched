@@ -11,28 +11,23 @@ export YEAR=$(echo $START | cut -d 'y' -f 1)
 export DOY=$(echo $START | cut -d 'y' -f 2 | cut -d 'd' -f 1)
 
 # Check year, exit if no match
-if [ $YEAR -eq $(date -uj +%Y) ]; 
-	:
-else 
-	echo 'Experiment does not take place in '$(date -uj +%Y); exit
+if [ $YEAR -eq $(date -u +%Y) ]; then :
+else echo 'Experiment does not take place in '$(date -uj +%Y); exit
 fi
 
 # Check DOY, requires response if incorrect
-if [ $DOY -eq $(date -uj +%j) ]
-	:
-else 
-	then 
-		echo 'Experiment '$1' does not take place today: '$DOY' vs. '$(date -uj +%j)', is this okay? [y|n]'
+if [ $DOY -eq $(date -u +%j) ]
+	then :
+else echo 'Experiment '$1' does not take place today: '$DOY' vs. '$(date -u +%j)', is this okay? [y|n]'
+	read RESP
+	while [ ${#RESP[@]} -eq 0 ];
+		do echo 'Please answer with y or n'
 		read RESP
-		while [ ${#RESP[@]} -eq 0 ]; 
-			do echo 'Please answer with y or n'
-			read RESP
-		done
-   		if [[ "$RESP" == y* ]] || [[ "$RESP" == Y* ]]
-      		:
-      	else 
-      		echo 'Exiting, please check vex date.'; exit
-   		fi 
+	done
+   	if [[ "$RESP" == y* ]] || [[ "$RESP" == Y* ]]
+      		then :
+      	else echo 'Exiting, please check vex date.'; exit
+   	fi
 fi
 
 # Identify experiment series/class
@@ -102,12 +97,13 @@ echo "############################################################"
 echo "Setting up correlator"
 echo ' '
 mkdir -p /home/observer/correlations2/$1
-cp /home/observer/correlations2/template/* /home/observer/correlations2/$1/*
+cp  /home/observer/correlations2/template/threads /home/observer/correlations2/$1/threads
+cp  /home/observer/correlations2/template/machines /home/observer/correlations2/$1/machines
+cp  /home/observer/correlations2/template/template.v2d /home/observer/correlations2/$1/$1.v2d
 cp /home/observer/correlations2/spiralssched/vex/$1.vex /home/observer/correlations2/$1/$1.vex
-/home/observer/correlations2/corr_scripts/kludge_vex.sh $1
+cd /home/observer/correlations2/$1/ && /home/observer/correlations2/corr_scripts/kludge_vex.sh $1
 
-# Making v2d file
-mv /home/observer/correlations2/$1/template.v2d /home/observer/correlations2/$1/$1.v2d
+echo "Making v2d file"
 /home/observer/correlations2/corr_scripts/eop.sh $YEAR $DOY >> /home/observer/correlations2/$1/$1.v2d
 sed -i "s/FAKESTART/$START/g" /home/observer/correlations2/$1/$1.v2d
 sed -i "s/FAKESTOP/$STOP/g" /home/observer/correlations2/$1/$1.v2d
