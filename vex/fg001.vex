@@ -1,0 +1,494 @@
+VEX_rev = 1.5;
+*    SCHED vers: Release 11.5. August 3, 2018
+*    VEX/SCHED:  1.5.87
+*    Other versions: Sched:  11.5  Plot: 1.06  JPL-ephem: 1.01
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = fg001;
+*                                                      +------------+
+*                         PI revision number:          |    1.0000  |
+*                                                      +------------+
+*    mode:       6.7GHz-2p-8IF/16MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def fg001;
+     exper_name = fg001;
+     exper_description = "Slewing check Ceduna";
+     PI_name = "Lucas J. Hyland";
+     PI_email = lucas.hyland@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*                
+*    phone:     +61416469903
+*    during obs: 
+*    fax:        
+*    notes:     Array: Cd-Hb-Ke-Wa
+*               Parallax of G291.2744-0.709
+*
+*    year, doy: 2021, 224
+*    date     : Thu 12 Aug 2021
+*    MJD      : 59438
+     exper_nominal_start=2021y224d05h20m00s;
+     exper_nominal_stop=2021y224d05h59m59s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    :     2.000 s
+*    number_channels:  4096
+*    number_antenna :  4
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  : 
+*                     University of Tasmania
+*    corr_notes : 
+*               Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res.
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def spirals.meth;
+     ref $PROCEDURES = Mode_01;
+     ref $FREQ = 6596.00MHz16x16MHz:Cd:Wa;
+     ref $IF = LO@7300MHzDPolNoTone:Cd;
+     ref $IF = LO@5843MHzDPolNoTone:Wa;
+     ref $BBC = 16BBCs:Cd;
+     ref $BBC = 16BBCs#02:Wa;
+     ref $TRACKS = MARK5B.16Ch2bit1to1:Cd;
+     ref $TRACKS = MARK5B.16Ch2bit1to1#02:Wa;
+*    ref $HEAD_POS = DiskVoid <= obsolete definition
+     ref $ROLL = NoRoll:Cd:Wa;
+*    ref $PASS_ORDER = DiskVoid <= obsolete definition
+     ref $PHASE_CAL_DETECT = NoDetect:Cd:Wa;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def Cd;
+     ref $SITE = CEDUNA;
+     ref $ANTENNA = CEDUNA;
+     ref $DAS = 1DBBC+NONE<;
+enddef;
+*
+def Wa;
+     ref $SITE = WARK30M;
+     ref $ANTENNA = WARK30M;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Mode_01;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def CEDUNA;
+     site_type = fixed;
+     site_name = CEDUNA;
+     site_ID = Cd;
+*    elev=  164.62 long=-133:48:35. lat=-31:52:03.7
+     site_position =-3753442.74570 m: 3912709.75300 m:-3348067.60950 m;
+     site_velocity = -0.041730   m/yr:  0.002670   m/yr:  0.049900  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def WARK30M;
+     site_type = fixed;
+     site_name = WARK30M;
+     site_ID = Wa;
+*    elev=  122.35 long=-174:39:46. lat=-36:25:59.4
+     site_position =-5115425.81800 m:  477880.24800 m:-3767042.05500 m;
+     site_velocity = -0.021220   m/yr: -0.003070   m/yr:  0.036020  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2017y235d;
+     site_position_epoch =   57988;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def CEDUNA;
+     axis_type = az : el;
+     antenna_motion = el :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    0.00240 m;
+enddef;
+*
+def WARK30M;
+     axis_type = az : el;
+     antenna_motion = el :  21.6 deg/min :  2 sec;  *    0.250 deg/sec/sec
+     antenna_motion = az :  22.0 deg/min :  2 sec;  *    0.200 deg/sec/sec
+     axis_offset =    2.47700 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def 1DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 2DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :            : 0 ;
+     headstack = 2 :            : 1 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+*
+def 1156+295;
+     source_name = 1156+295;
+*    this source had calibrator code:  
+     ra = 11h59m31.8339120s; dec =  29d14'43.826903"; ref_coord_frame = J2000;
+*    ra = 11h56m57.7862114s; dec =  29d31'25.738805"; ref_coord_frame = B1950;
+*    ra = 12h00m36.4471076s; dec =  29d07'48.219147"; ref_coord_frame = Date;
+enddef;
+*
+def 1334-127;
+     source_name = 1334-127;
+*    this source had calibrator code:  
+     ra = 13h37m39.7827787s; dec = -12d57'24.693358"; ref_coord_frame = J2000;
+*    ra = 13h34m59.8038736s; dec = -12d42'09.743084"; ref_coord_frame = B1950;
+*    ra = 13h38m47.5079582s; dec = -13d03'52.926479"; ref_coord_frame = Date;
+enddef;
+*
+def 1606+106;
+     source_name = 1606+106;
+*    this source had calibrator code:  
+     ra = 16h08m46.2031860s; dec =  10d29'07.775772"; ref_coord_frame = J2000;
+*    ra = 16h06m23.3966228s; dec =  10d36'59.801075"; ref_coord_frame = B1950;
+*    ra = 16h09m47.4585718s; dec =  10d25'55.321974"; ref_coord_frame = Date;
+enddef;
+*
+def 1622-253;
+     source_name = 1622-253;
+*    this source had calibrator code:  
+     ra = 16h25m46.8916400s; dec = -25d27'38.326879"; ref_coord_frame = J2000;
+*    ra = 16h22m44.1052989s; dec = -25d20'51.695677"; ref_coord_frame = B1950;
+*    ra = 16h27m05.3275078s; dec = -25d30'33.767803"; ref_coord_frame = Date;
+enddef;
+*
+def 1706-174;
+     source_name = 1706-174;
+*    this source had calibrator code:  
+     ra = 17h09m34.3453958s; dec = -17d28'53.365095"; ref_coord_frame = J2000;
+*    ra = 17h06m40.0931836s; dec = -17d25'08.431784"; ref_coord_frame = B1950;
+*    ra = 17h10m49.3266652s; dec = -17d30'28.381053"; ref_coord_frame = Date;
+enddef;
+*
+def 1608+243;
+     source_name = 1608+243;
+*    this source had calibrator code:  
+     ra = 16h10m42.0267745s; dec =  24d14'49.011643"; ref_coord_frame = J2000;
+*    ra = 16h08m34.9914685s; dec =  24d22'33.018971"; ref_coord_frame = B1950;
+*    ra = 16h11m36.6094376s; dec =  24d11'43.448956"; ref_coord_frame = Date;
+enddef;
+*
+def 1145-071;
+     source_name = 1145-071;
+*    this source had calibrator code:  
+     ra = 11h47m51.5540316s; dec = -07d24'41.141164"; ref_coord_frame = J2000;
+*    ra = 11h45m18.2935097s; dec = -07d08'00.714950"; ref_coord_frame = B1950;
+*    ra = 11h48m55.8927452s; dec = -07d31'43.185070"; ref_coord_frame = Date;
+enddef;
+*
+def 0627-199;
+     source_name = 0627-199;
+*    this source had calibrator code:  
+     ra = 06h29m23.7618654s; dec = -19d59'19.723624"; ref_coord_frame = J2000;
+*    ra = 06h27m14.1146743s; dec = -19d57'16.262252"; ref_coord_frame = B1950;
+*    ra = 06h30m17.9909542s; dec = -20d00'01.349848"; ref_coord_frame = Date;
+enddef;
+*
+def 0847-120;
+     source_name = 0847-120;
+*    this source had calibrator code:  
+     ra = 08h50m09.6356337s; dec = -12d13'35.376103"; ref_coord_frame = J2000;
+*    ra = 08h47m46.5232679s; dec = -12d02'21.672330"; ref_coord_frame = B1950;
+*    ra = 08h51m09.2966049s; dec = -12d18'15.759920"; ref_coord_frame = Date;
+enddef;
+*
+def 1441+252;
+     source_name = 1441+252;
+*    this source had calibrator code:  
+     ra = 14h43m56.8921884s; dec =  25d01'44.490705"; ref_coord_frame = J2000;
+*    ra = 14h41m43.5582515s; dec =  25d14'23.982837"; ref_coord_frame = B1950;
+*    ra = 14h44m53.6526389s; dec =  24d56'33.651374"; ref_coord_frame = Date;
+enddef;
+*
+def 1222+037;
+     source_name = 1222+037;
+*    this source had calibrator code:  
+     ra = 12h24m52.4219382s; dec =  03d30'50.292920"; ref_coord_frame = J2000;
+*    ra = 12h22m19.0971724s; dec =  03d47'27.066065"; ref_coord_frame = B1950;
+*    ra = 12h25m56.9590785s; dec =  03d23'52.206964"; ref_coord_frame = Date;
+enddef;
+*
+def 1435-218;
+     source_name = 1435-218;
+*    this source had calibrator code:  
+     ra = 14h38m09.4694035s; dec = -22d04'54.748473"; ref_coord_frame = J2000;
+*    ra = 14h35m18.6609500s; dec = -21d51'57.884449"; ref_coord_frame = B1950;
+*    ra = 14h39m22.1550731s; dec = -22d10'27.485812"; ref_coord_frame = Date;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 6596.00MHz16x16MHz;
+* mode =  1    stations =Cd:Wa
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH05 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH06 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH07 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH08 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH09 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH10 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH11 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH12 : &BBC08 : &NoCal; *Lcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH13 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH14 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH15 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH16 : &BBC08 : &NoCal; *Lcp
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@7300MHzDPolNoTone;
+* mode =  1    stations =Cd
+     if_def = &IF_A1 : A1 : R :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B1 : B1 : L :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@5843MHzDPolNoTone;
+* mode =  1    stations =Wa
+     if_def = &IF_A1 : A1 : R :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B2 : B2 : L :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 16BBCs;
+* mode =  1    stations =Cd
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B1;
+     BBC_assign = &BBC06 :  6 : &IF_B1;
+     BBC_assign = &BBC07 :  7 : &IF_B1;
+     BBC_assign = &BBC08 :  8 : &IF_B1;
+enddef;
+*
+def 16BBCs#02;
+* mode =  1    stations =Wa
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B2;
+     BBC_assign = &BBC06 :  6 : &IF_B2;
+     BBC_assign = &BBC07 :  7 : &IF_B2;
+     BBC_assign = &BBC08 :  8 : &IF_B2;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* mode =  1    stations =Cd:Wa
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def MARK5B.16Ch2bit1to1;
+* mode =  1    stations =Cd
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1: 18;
+     fanout_def =   : &CH01 :  mag : 1: 19;
+     fanout_def =   : &CH02 : sign : 1: 20;
+     fanout_def =   : &CH02 :  mag : 1: 21;
+     fanout_def =   : &CH03 : sign : 1: 22;
+     fanout_def =   : &CH03 :  mag : 1: 23;
+     fanout_def =   : &CH04 : sign : 1: 24;
+     fanout_def =   : &CH04 :  mag : 1: 25;
+     fanout_def =   : &CH05 : sign : 1:  2;
+     fanout_def =   : &CH05 :  mag : 1:  3;
+     fanout_def =   : &CH06 : sign : 1:  4;
+     fanout_def =   : &CH06 :  mag : 1:  5;
+     fanout_def =   : &CH07 : sign : 1:  6;
+     fanout_def =   : &CH07 :  mag : 1:  7;
+     fanout_def =   : &CH08 : sign : 1:  8;
+     fanout_def =   : &CH08 :  mag : 1:  9;
+     fanout_def =   : &CH09 : sign : 1: 26;
+     fanout_def =   : &CH09 :  mag : 1: 27;
+     fanout_def =   : &CH10 : sign : 1: 28;
+     fanout_def =   : &CH10 :  mag : 1: 29;
+     fanout_def =   : &CH11 : sign : 1: 30;
+     fanout_def =   : &CH11 :  mag : 1: 31;
+     fanout_def =   : &CH12 : sign : 1: 32;
+     fanout_def =   : &CH12 :  mag : 1: 33;
+     fanout_def =   : &CH13 : sign : 1: 10;
+     fanout_def =   : &CH13 :  mag : 1: 11;
+     fanout_def =   : &CH14 : sign : 1: 12;
+     fanout_def =   : &CH14 :  mag : 1: 13;
+     fanout_def =   : &CH15 : sign : 1: 14;
+     fanout_def =   : &CH15 :  mag : 1: 15;
+     fanout_def =   : &CH16 : sign : 1: 16;
+     fanout_def =   : &CH16 :  mag : 1: 17;
+enddef;
+*
+def MARK5B.16Ch2bit1to1#02;
+* mode =  1    stations =Wa
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 18;
+     fanout_def =   : &CH05 :  mag : 1: 19;
+     fanout_def =   : &CH06 : sign : 1: 20;
+     fanout_def =   : &CH06 :  mag : 1: 21;
+     fanout_def =   : &CH07 : sign : 1: 22;
+     fanout_def =   : &CH07 :  mag : 1: 23;
+     fanout_def =   : &CH08 : sign : 1: 24;
+     fanout_def =   : &CH08 :  mag : 1: 25;
+     fanout_def =   : &CH09 : sign : 1: 10;
+     fanout_def =   : &CH09 :  mag : 1: 11;
+     fanout_def =   : &CH10 : sign : 1: 12;
+     fanout_def =   : &CH10 :  mag : 1: 13;
+     fanout_def =   : &CH11 : sign : 1: 14;
+     fanout_def =   : &CH11 :  mag : 1: 15;
+     fanout_def =   : &CH12 : sign : 1: 16;
+     fanout_def =   : &CH12 :  mag : 1: 17;
+     fanout_def =   : &CH13 : sign : 1: 26;
+     fanout_def =   : &CH13 :  mag : 1: 27;
+     fanout_def =   : &CH14 : sign : 1: 28;
+     fanout_def =   : &CH14 :  mag : 1: 29;
+     fanout_def =   : &CH15 : sign : 1: 30;
+     fanout_def =   : &CH15 :  mag : 1: 31;
+     fanout_def =   : &CH16 : sign : 1: 32;
+     fanout_def =   : &CH16 :  mag : 1: 33;
+enddef;
+*------------------------------------------------------------------------------
+$HEAD_POS;
+def DiskVoid;
+* mode =  1    stations =Cd:Wa
+*     Head positions irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$PASS_ORDER;
+*
+def DiskVoid;
+* mode =  1    stations =Cd:Wa
+*     Pass orders irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* mode =  1    stations =Cd:Wa
+*    barrel-roll set to 'roll_off', so reverse-roll by  0 (1 head)
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+* schedule section for experiment fg001   
+* Slewing check Ceduna                                                    
+scan No0001;
+     start=2021y224d05h20m00s; mode=spirals.meth; source=1334-127;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:    0.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:    0.000 GB:   :       : 1;
+endscan;
+scan No0002;
+     start=2021y224d05h23m13s; mode=spirals.meth; source=1606+106;
+     station=Cd:    0 sec:   30 sec:    3.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:    3.846 GB:   :       : 1;
+endscan;
+scan No0003;
+     start=2021y224d05h25m38s; mode=spirals.meth; source=1706-174;
+     station=Cd:    0 sec:   30 sec:    7.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:    7.692 GB:   :       : 1;
+endscan;
+scan No0004;
+     start=2021y224d05h32m23s; mode=spirals.meth; source=1145-071;
+     station=Cd:    0 sec:   30 sec:   11.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   11.538 GB:   :       : 1;
+endscan;
+scan No0005;
+     start=2021y224d05h35m51s; mode=spirals.meth; source=0627-199;
+     station=Cd:    0 sec:   30 sec:   15.385 GB:   :       : 1;
+endscan;
+scan No0006;
+     start=2021y224d05h37m27s; mode=spirals.meth; source=0847-120;
+     station=Cd:    0 sec:   30 sec:   19.231 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   15.385 GB:   :       : 1;
+endscan;
+scan No0007;
+     start=2021y224d05h42m29s; mode=spirals.meth; source=1441+252;
+     station=Cd:    0 sec:   30 sec:   23.077 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   19.231 GB:   :       : 1;
+endscan;
+scan No0008;
+     start=2021y224d05h45m12s; mode=spirals.meth; source=1222+037;
+     station=Cd:    0 sec:   30 sec:   26.923 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   23.077 GB:   :       : 1;
+endscan;
+scan No0009;
+     start=2021y224d05h48m00s; mode=spirals.meth; source=1435-218;
+     station=Cd:    0 sec:   30 sec:   30.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   26.923 GB:   :       : 1;
+endscan;
+scan No0010;
+     start=2021y224d05h51m27s; mode=spirals.meth; source=1156+295;
+     station=Cd:    0 sec:   30 sec:   34.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   30.769 GB:   :       : 1;
+endscan;
+scan No0011;
+     start=2021y224d05h56m45s; mode=spirals.meth; source=1622-253;
+     station=Cd:    0 sec:   30 sec:   38.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   34.615 GB:   :       : 1;
+endscan;
+scan No0012;
+     start=2021y224d05h59m29s; mode=spirals.meth; source=1608+243;
+     station=Cd:    0 sec:   30 sec:   42.308 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   38.461 GB:   :       : 1;
+endscan;
