@@ -125,6 +125,6 @@ echo "##############################"
 echo "Done"
 echo ' '
 echo "Experiment starts $START"
-echo "Time is now $(date -u +%Y.%j.%H.%M.%S)"
+echo "Time is now       $(date -u +%Yy%jd%Hh%Mm%Ss)"
 echo ' '
 
