@@ -66,7 +66,7 @@ scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2hb:/usr2/sch
 ssh oper@pcfs-2hb 'cd /usr2/sched/; rm '$1hb.snp
 ssh oper@pcfs-2hb 'cd /usr2/sched; echo -e "hb\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
 # Add source=stow
-ssh oper@pcfshb 'echo "source=stow" >> /usr2/sched/'$1hb.snp
+ssh oper@pcfs-2hb 'echo "source=stow" >> /usr2/sched/'$1hb.snp
 # Copy template proc file to /usr2/proc
 ssh oper@pcfs-2hb 'cp /usr2/proc/spirals.prc /usr2/proc/'$1hb.prc
 
