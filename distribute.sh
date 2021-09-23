@@ -12,13 +12,17 @@ export DOY=$(echo $START | cut -d 'y' -f 2 | cut -d 'd' -f 1)
 
 # Check year, exit if no match
 if [ $YEAR -eq $(date -u +%Y) ]; then :
-else echo 'Experiment does not take place in '$(date -uj +%Y); exit
+else echo 'Experiment does not take place in '$(date -u +%Y%j%H%M%S); exit
 fi
 
 # Check DOY, requires response if incorrect
 if [ $DOY -eq $(date -u +%j) ]
 	then :
-else echo 'Experiment '$1' does not take place today: '$DOY' vs. '$(date -u +%j)', is this okay? [y|n]'
+else 
+    echo 'Experiment '$1' does not take place today:'
+    echo "Experiment start: $START"
+    echo "Time is now:      $(date -u +%Yy%jd%Hh%Mm%Ss)"
+    echo "Is this okay? [y|n]'"
 	read RESP
 	while [ ${#RESP[@]} -eq 0 ];
 		do echo 'Please answer with y or n'
