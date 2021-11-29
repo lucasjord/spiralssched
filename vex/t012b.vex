@@ -1,0 +1,566 @@
+VEX_rev = 1.5;
+*    SCHED vers: Release 11.5. August 3, 2018
+*    VEX/SCHED:  1.5.87
+*    Other versions: Sched:  11.5  Plot: 1.06  JPL-ephem: 1.01
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = t012b;
+*                                                      +------------+
+*                         PI revision number:          |    1.0000  |
+*                                                      +------------+
+*    mode:       6.7GHz-2p-4F/16MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def t012b;
+     exper_name = t012b;
+     exper_description = "Fringe testing new WA LNA between Cd and Wa";
+     PI_name = "Lucas J. Hyland";
+     PI_email = lucas.hyland@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*                
+*    phone:     +61416469903
+*    during obs: 
+*    fax:        
+*    notes:     Array: Cd-Wa
+*
+*    year, doy: 2021, 327
+*    date     : Tue 23 Nov 2021
+*    MJD      : 59541
+     exper_nominal_start=2021y327d01h55m41s;
+     exper_nominal_stop=2021y327d04h25m41s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    :     2.000 s
+*    number_channels:  4096
+*    number_antenna :  4
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  : 
+*                     University of Tasmania
+*    corr_notes : 
+*               Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def maser.meth;
+     ref $PROCEDURES = Mode_01;
+     ref $FREQ = 6658.50MHz8x16MHz:Cd:Wa;
+     ref $IF = LO@7300MHzDPolNoTone:Cd;
+     ref $IF = LO@5843MHzDPolNoTone:Wa;
+     ref $BBC = 8BBCs:Cd;
+     ref $BBC = 8BBCs#02:Wa;
+     ref $TRACKS = MARK5B.8Ch2bit1to1:Cd:Wa;
+*    ref $HEAD_POS = DiskVoid <= obsolete definition
+     ref $ROLL = NoRoll:Cd:Wa;
+*    ref $PASS_ORDER = DiskVoid <= obsolete definition
+     ref $PHASE_CAL_DETECT = NoDetect:Cd:Wa;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def Cd;
+     ref $SITE = CEDUNA;
+     ref $ANTENNA = CEDUNA;
+     ref $DAS = 1DBBC+NONE<;
+enddef;
+*
+def Wa;
+     ref $SITE = WARK30M;
+     ref $ANTENNA = WARK30M;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Mode_01;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def CEDUNA;
+     site_type = fixed;
+     site_name = CEDUNA;
+     site_ID = Cd;
+*    elev=  164.62 long=-133:48:35. lat=-31:52:03.7
+     site_position =-3753442.74570 m: 3912709.75300 m:-3348067.60950 m;
+     site_velocity = -0.041730   m/yr:  0.002670   m/yr:  0.049900  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def WARK30M;
+     site_type = fixed;
+     site_name = WARK30M;
+     site_ID = Wa;
+*    elev=  122.35 long=-174:39:46. lat=-36:25:59.4
+     site_position =-5115425.81800 m:  477880.24800 m:-3767042.05500 m;
+     site_velocity = -0.021220   m/yr: -0.003070   m/yr:  0.036020  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2017y235d;
+     site_position_epoch =   57988;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def CEDUNA;
+     axis_type = az : el;
+     antenna_motion = el :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    0.00240 m;
+enddef;
+*
+def WARK30M;
+     axis_type = az : el;
+     antenna_motion = el :  21.6 deg/min :  2 sec;  *    0.250 deg/sec/sec
+     antenna_motion = az :  22.0 deg/min :  2 sec;  *    0.200 deg/sec/sec
+     axis_offset =    2.47700 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def 1DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 2DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :            : 0 ;
+     headstack = 2 :            : 1 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+*
+def G009.62-0.19;
+     source_name = G009.62-0.19;
+*    this source had calibrator code:  
+*    G9
+     ra = 18h06m14.6700000s; dec = -20d31'32.400000"; ref_coord_frame = J2000;
+*    ra = 18h03m15.8694166s; dec = -20d31'53.193481"; ref_coord_frame = B1950;
+*    ra = 18h07m30.5120853s; dec = -20d31'23.120614"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       1.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G009.62_OFF;
+     source_name = G009.62_OFF;
+*    this source had calibrator code:  
+     ra = 18h10m14.6700000s; dec = -21d31'32.400000"; ref_coord_frame = J2000;
+*    ra = 18h07m14.5413019s; dec = -21d32'10.628794"; ref_coord_frame = B1950;
+*    ra = 18h11m31.0865583s; dec = -21d31'15.865256"; ref_coord_frame = Date;
+enddef;
+*
+def 1921-293;
+     source_name = 1921-293;
+*    this source had calibrator code: V
+*    alternate source name: J1924-2914
+*    alternate source name: J1924-29
+*    GSFC 2016a X/S astro solution,  63480 observations.
+     ra = 19h24m51.0559525s; dec = -29d14'30.121070"; ref_coord_frame = J2000;
+*    ra = 19h21m42.2341255s; dec = -29d20'26.353972"; ref_coord_frame = B1950;
+*    ra = 19h26m11.4102723s; dec = -29d12'00.180368"; ref_coord_frame = Date;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 6658.50MHz8x16MHz;
+* mode =  1    stations =Cd:Wa
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6658.50 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6659.50 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.50 MHz : U :  16.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6661.50 MHz : U :  16.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6658.50 MHz : U :  16.00 MHz : &CH05 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6659.50 MHz : U :  16.00 MHz : &CH06 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.50 MHz : U :  16.00 MHz : &CH07 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6661.50 MHz : U :  16.00 MHz : &CH08 : &BBC08 : &NoCal; *Lcp
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@7300MHzDPolNoTone;
+* mode =  1    stations =Cd
+     if_def = &IF_A1 : A1 : R :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B1 : B1 : L :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@5843MHzDPolNoTone;
+* mode =  1    stations =Wa
+     if_def = &IF_A1 : A1 : R :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B2 : B2 : L :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 8BBCs;
+* mode =  1    stations =Cd
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B1;
+     BBC_assign = &BBC06 :  6 : &IF_B1;
+     BBC_assign = &BBC07 :  7 : &IF_B1;
+     BBC_assign = &BBC08 :  8 : &IF_B1;
+enddef;
+*
+def 8BBCs#02;
+* mode =  1    stations =Wa
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B2;
+     BBC_assign = &BBC06 :  6 : &IF_B2;
+     BBC_assign = &BBC07 :  7 : &IF_B2;
+     BBC_assign = &BBC08 :  8 : &IF_B2;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* mode =  1    stations =Cd:Wa
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def MARK5B.8Ch2bit1to1;
+* mode =  1    stations =Cd:Wa
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 10;
+     fanout_def =   : &CH05 :  mag : 1: 11;
+     fanout_def =   : &CH06 : sign : 1: 12;
+     fanout_def =   : &CH06 :  mag : 1: 13;
+     fanout_def =   : &CH07 : sign : 1: 14;
+     fanout_def =   : &CH07 :  mag : 1: 15;
+     fanout_def =   : &CH08 : sign : 1: 16;
+     fanout_def =   : &CH08 :  mag : 1: 17;
+enddef;
+*------------------------------------------------------------------------------
+$HEAD_POS;
+def DiskVoid;
+* mode =  1    stations =Cd:Wa
+*     Head positions irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$PASS_ORDER;
+*
+def DiskVoid;
+* mode =  1    stations =Cd:Wa
+*     Pass orders irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* mode =  1    stations =Cd:Wa
+*    barrel-roll set to 'roll_off', so reverse-roll by  0 (1 head)
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+* schedule section for experiment t012b   
+* Fringe testing new WA LNA between Cd and Wa                             
+scan No0001;
+     start=2021y327d01h55m41s; mode=maser.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+endscan;
+scan No0002;
+     start=2021y327d01h56m41s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:    2.885 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:    2.885 GB:   :       : 1;
+endscan;
+scan No0003;
+     start=2021y327d01h57m41s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+endscan;
+scan No0004;
+     start=2021y327d01h58m41s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   44 sec:    8.654 GB:   :       : 1;
+     station=Wa:    0 sec:   44 sec:    8.654 GB:   :       : 1;
+endscan;
+scan No0005;
+     start=2021y327d01h59m40s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+endscan;
+scan No0006;
+     start=2021y327d02h00m40s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   14.423 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   14.423 GB:   :       : 1;
+endscan;
+scan No0007;
+     start=2021y327d02h01m40s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+endscan;
+scan No0008;
+     start=2021y327d02h02m40s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   20.192 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   20.192 GB:   :       : 1;
+endscan;
+scan No0009;
+     start=2021y327d02h03m40s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+endscan;
+scan No0010;
+     start=2021y327d02h04m40s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   44 sec:   25.961 GB:   :       : 1;
+     station=Wa:    0 sec:   44 sec:   25.961 GB:   :       : 1;
+endscan;
+scan No0011;
+     start=2021y327d02h05m39s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+endscan;
+scan No0012;
+     start=2021y327d02h06m39s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   31.731 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   31.731 GB:   :       : 1;
+endscan;
+scan No0013;
+     start=2021y327d02h07m39s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+endscan;
+scan No0014;
+     start=2021y327d02h08m39s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   37.500 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   37.500 GB:   :       : 1;
+endscan;
+scan No0015;
+     start=2021y327d02h09m39s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+endscan;
+scan No0016;
+     start=2021y327d02h10m39s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   43.269 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   43.269 GB:   :       : 1;
+endscan;
+scan No0017;
+     start=2021y327d02h11m38s; mode=maser.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   45 sec:   46.154 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   46.154 GB:   :       : 1;
+endscan;
+scan No0018;
+     start=2021y327d02h12m38s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   49.038 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   49.038 GB:   :       : 1;
+endscan;
+scan No0019;
+     start=2021y327d02h13m38s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   51.923 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   51.923 GB:   :       : 1;
+endscan;
+scan No0020;
+     start=2021y327d02h14m38s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   54.808 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   54.808 GB:   :       : 1;
+endscan;
+scan No0021;
+     start=2021y327d02h15m38s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   57.692 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   57.692 GB:   :       : 1;
+endscan;
+scan No0022;
+     start=2021y327d02h16m38s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   60.577 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   60.577 GB:   :       : 1;
+endscan;
+scan No0023;
+     start=2021y327d02h17m37s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   63.461 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   63.461 GB:   :       : 1;
+endscan;
+scan No0024;
+     start=2021y327d02h18m37s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   66.346 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   66.346 GB:   :       : 1;
+endscan;
+scan No0025;
+     start=2021y327d02h19m37s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   69.231 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   69.231 GB:   :       : 1;
+endscan;
+scan No0026;
+     start=2021y327d02h20m37s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   72.115 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   72.115 GB:   :       : 1;
+endscan;
+scan No0027;
+     start=2021y327d02h21m37s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   75.000 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   75.000 GB:   :       : 1;
+endscan;
+scan No0028;
+     start=2021y327d02h22m37s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   77.884 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   77.884 GB:   :       : 1;
+endscan;
+scan No0029;
+     start=2021y327d02h23m36s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   80.769 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   80.769 GB:   :       : 1;
+endscan;
+scan No0030;
+     start=2021y327d02h24m36s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   45 sec:   83.654 GB:   :       : 1;
+     station=Wa:    0 sec:   45 sec:   83.654 GB:   :       : 1;
+endscan;
+scan No0031;
+     start=2021y327d02h28m57s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:   86.538 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:   86.538 GB:   :       : 1;
+endscan;
+scan No0032;
+     start=2021y327d02h34m16s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  105.705 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  105.705 GB:   :       : 1;
+endscan;
+scan No0033;
+     start=2021y327d02h39m36s; mode=maser.meth; source=G009.62-0.19;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  299 sec:  124.871 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  124.871 GB:   :       : 1;
+endscan;
+scan No0034;
+     start=2021y327d02h44m55s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  144.038 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  144.038 GB:   :       : 1;
+endscan;
+scan No0035;
+     start=2021y327d02h50m15s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  300 sec:  163.205 GB:   :       : 1;
+     station=Wa:    0 sec:  300 sec:  163.205 GB:   :       : 1;
+endscan;
+scan No0036;
+     start=2021y327d02h55m36s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  182.371 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  182.371 GB:   :       : 1;
+endscan;
+scan No0037;
+     start=2021y327d03h00m57s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:  201.538 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  201.538 GB:   :       : 1;
+endscan;
+scan No0038;
+     start=2021y327d03h06m18s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  220.705 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  220.705 GB:   :       : 1;
+endscan;
+scan No0039;
+     start=2021y327d03h11m39s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:  239.871 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  239.871 GB:   :       : 1;
+endscan;
+scan No0040;
+     start=2021y327d03h17m01s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  259.038 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  259.038 GB:   :       : 1;
+endscan;
+scan No0041;
+     start=2021y327d03h25m04s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   60 sec:  278.204 GB:   :       : 1;
+     station=Wa:    1 sec:   60 sec:  278.204 GB:   :       : 1;
+endscan;
+scan No0042;
+     start=2021y327d03h29m15s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:  282.051 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  282.051 GB:   :       : 1;
+endscan;
+scan No0043;
+     start=2021y327d03h34m38s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  301.217 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  301.217 GB:   :       : 1;
+endscan;
+scan No0044;
+     start=2021y327d03h40m02s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  300 sec:  320.384 GB:   :       : 1;
+     station=Wa:    0 sec:  300 sec:  320.384 GB:   :       : 1;
+endscan;
+scan No0045;
+     start=2021y327d03h45m27s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  339.550 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  339.550 GB:   :       : 1;
+endscan;
+scan No0046;
+     start=2021y327d03h50m52s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:  358.717 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  358.717 GB:   :       : 1;
+endscan;
+scan No0047;
+     start=2021y327d03h56m18s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  377.884 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  377.884 GB:   :       : 1;
+endscan;
+scan No0048;
+     start=2021y327d04h01m45s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:  397.050 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  397.050 GB:   :       : 1;
+endscan;
+scan No0049;
+     start=2021y327d04h07m11s; mode=maser.meth; source=G009.62_OFF;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  299 sec:  416.217 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  416.217 GB:   :       : 1;
+endscan;
+scan No0050;
+     start=2021y327d04h12m40s; mode=maser.meth; source=G009.62-0.19;
+     station=Cd:    0 sec:  299 sec:  435.384 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  435.384 GB:   :       : 1;
+endscan;
+scan No0051;
+     start=2021y327d04h18m08s; mode=maser.meth; source=G009.62_OFF;
+     station=Cd:    0 sec:  299 sec:  454.550 GB:   :       : 1;
+     station=Wa:    0 sec:  299 sec:  454.550 GB:   :       : 1;
+endscan;
+scan No0052;
+     start=2021y327d04h24m41s; mode=maser.meth; source=1921-293;
+     station=Cd:    0 sec:   60 sec:  473.717 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  473.717 GB:   :       : 1;
+endscan;
