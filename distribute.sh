@@ -57,10 +57,10 @@ echo "############################################################"
 echo "Hobart12"
 echo ' '
 # Copy vex to pcfshb home area
-scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfshb:~/
+scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfshb:/usr2/sched/
 # drudg the vex file there
-ssh oper@pcfshb rm $1hb.snp
-ssh oper@pcfshb 'echo -e "hb\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+ssh oper@pcfshb rm /usr2/sched/$1hb.snp
+ssh oper@pcfshb 'echo -e "hb\n3\n0\n"|/usr2/fs/bin/drudg /usr2/sched/'$1.vex
 ssh oper@pcfshb 'echo "source=stow" >> /usr2/sched/'$1hb.snp
 # Run the snp2flex script - not anymore?
 #ssh oper@pcfshb /usr2/oper/AuscopeVLBI/fs/src/snp2flexbuff.py $1hb.snp
