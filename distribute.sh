@@ -61,8 +61,11 @@ scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfshb:~/
 # drudg the vex file there
 ssh oper@pcfshb rm $1hb.snp
 ssh oper@pcfshb 'echo -e "hb\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
-# Run the snp2flex script
-ssh oper@pcfshb /usr2/oper/AuscopeVLBI/fs/src/snp2flexbuff.py $1hb.snp
+ssh oper@pcfshb 'echo "source=stow" >> /usr2/sched/'$1hb.snp
+# Run the snp2flex script - not anymore?
+#ssh oper@pcfshb /usr2/oper/AuscopeVLBI/fs/src/snp2flexbuff.py $1hb.snp
+# Copy template proc file over
+ssh oper@pcfshb 'cp /usr2/proc/spirals.prc /usr2/proc/'$1hb.prc
 
 # Copy vex file over the pcfs-2hb sched area
 scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2hb:/usr2/sched/ 
@@ -78,13 +81,13 @@ echo ' '
 echo "############################################################"
 echo "Katherine"
 echo ' '
-# Copy vex to pcfske home area
-scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfske:~/
+# Copy vex to pcfske home area - don't really use pcfske anymore
+#scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfske:~/
 # drudg the vex file there
-ssh oper@pcfske rm $1ke.snp
-ssh oper@pcfske 'echo -e "ke\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+#ssh oper@pcfske rm $1ke.snp
+#ssh oper@pcfske 'echo -e "ke\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
 # Run the snp2flex script
-ssh oper@pcfske /usr2/oper/AuscopeVLBI/fs/src/snp2flexbuff.py $1ke.snp
+#ssh oper@pcfske /usr2/oper/AuscopeVLBI/fs/src/snp2flexbuff.py $1ke.snp
 
 # Copy vex file over the pcfs-2ke sched area
 scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2ke:/usr2/sched/ 
