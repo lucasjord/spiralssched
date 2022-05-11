@@ -72,6 +72,12 @@ scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2hb:/usr2/sch
 # Drudg vex file
 ssh oper@pcfs-2hb 'cd /usr2/sched/; rm '$1hb.snp
 ssh oper@pcfs-2hb 'cd /usr2/sched; echo -e "hb\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+ssh oper@pcfs-2hb 'cd /usr2/sched; echo -e "ke\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+
+# remove file from katherine 
+ssh oper@pcfs-2ke 'cd /usr2/sched; rm '$1ke.snp
+# drudg file on hobart then move to katherine
+ssh oper@pcfs-2hb "scp /usr2/sched/$1ke.snp oper@pcfs-2ke:/usr2/sched/"
 # Add source=stow
 ssh oper@pcfs-2hb 'echo "source=stow" >> /usr2/sched/'$1hb.snp
 # Copy template proc file to /usr2/proc
@@ -92,8 +98,8 @@ echo ' '
 # Copy vex file over the pcfs-2ke sched area
 scp /home/observer/correlations2/spiralssched/vex/$1.vex oper@pcfs-2ke:/usr2/sched/ 
 # Drudg vex file
-ssh oper@pcfs-2ke 'cd /usr2/sched; rm '$1ke.snp
-ssh oper@pcfs-2ke 'cd /usr2/sched; echo -e "ke\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
+#ssh oper@pcfs-2ke 'cd /usr2/sched; rm '$1ke.snp
+#ssh oper@pcfs-2ke 'cd /usr2/sched; echo -e "ke\n n\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
 # Add source=stow
 ssh oper@pcfs-2ke 'echo "source=stow" >> /usr2/sched/'$1ke.snp
 # Copy template proc file to /usr2/proc
