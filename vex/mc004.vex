@@ -1,0 +1,3698 @@
+VEX_rev = 1.5;
+*    SCHED vers: Release 11.5. August 3, 2018
+*    VEX/SCHED:  1.5.87
+*    Other versions: Sched:  11.5  Plot: 1.06  JPL-ephem: 1.01
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = mc004;
+*                                                      +------------+
+*                         PI revision number:          |    1.0000  |
+*                                                      +------------+
+*    mode:       6.7GHz-2p-8IF/16MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def mc004;
+     exper_name = mc004;
+     exper_description = "SPIRALS: Search for distant compact target masers";
+     PI_name = "Lucas J. Hyland";
+     PI_email = lucas.hyland@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*                
+*    phone:     +61416469903
+*    during obs: 
+*    fax:        
+*    notes:     Array: Cd-Hb-Ke-Wa
+*
+*    year, doy: 2022, 132
+*    date     : Thu 12 May 2022
+*    MJD      : 59711
+     exper_nominal_start=2022y132d10h34m31s;
+     exper_nominal_stop=2022y132d21h06m25s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    :     2.000 s
+*    number_channels:  4096
+*    number_antenna :  4
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  : 
+*                     University of Tasmania
+*    corr_notes : 
+*               Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res.
+*               Pass 2: Zoom band: 6667-6671MHz. corchan=4096, 1 kHz res.
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def spirals.meth;
+     ref $PROCEDURES = Mode_01;
+     ref $FREQ = 6596.00MHz16x16MHz:Cd:Wa;
+     ref $FREQ = 6580.00MHz8x32MHz:Hb;
+     ref $IF = LO@7300MHzDPolNoTone:Cd;
+     ref $IF = LO@6000MHzDPolNoTone:Hb;
+     ref $IF = LO@5843MHzDPolNoTone:Wa;
+     ref $BBC = 16BBCs:Cd;
+     ref $BBC = 8BBCs:Hb;
+     ref $BBC = 16BBCs#02:Wa;
+     ref $TRACKS = MARK5B.16Ch2bit1to1:Cd;
+     ref $TRACKS = MARK5B.8Ch2bit1to1:Hb;
+     ref $TRACKS = MARK5B.16Ch2bit1to1#02:Wa;
+*    ref $HEAD_POS = DiskVoid <= obsolete definition
+     ref $ROLL = NoRoll:Cd:Hb:Wa;
+*    ref $PASS_ORDER = DiskVoid <= obsolete definition
+     ref $PHASE_CAL_DETECT = NoDetect:Cd:Wa;
+     ref $PHASE_CAL_DETECT = NoDetect#02:Hb;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def Cd;
+     ref $SITE = CEDUNA;
+     ref $ANTENNA = CEDUNA;
+     ref $DAS = 1DBBC+NONE<;
+enddef;
+*
+def Hb;
+     ref $SITE = HOBART12;
+     ref $ANTENNA = HOBART12;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*
+def Wa;
+     ref $SITE = WARK30M;
+     ref $ANTENNA = WARK30M;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Mode_01;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def CEDUNA;
+     site_type = fixed;
+     site_name = CEDUNA;
+     site_ID = Cd;
+*    elev=  164.62 long=-133:48:35. lat=-31:52:03.7
+     site_position =-3753442.74570 m: 3912709.75300 m:-3348067.60950 m;
+     site_velocity = -0.041730   m/yr:  0.002670   m/yr:  0.049900  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def HOBART12;
+     site_type = fixed;
+     site_name = HOBART12;
+     site_ID = Hb;
+*    elev=   40.98 long=-147:26:17. lat=-42:48:20.1
+     site_position =-3949990.84020 m: 2522421.21910 m:-4311707.99890 m;
+     site_velocity = -0.039010   m/yr:  0.007960   m/yr:  0.041100  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2014y001d;
+     site_position_epoch =   56658;
+enddef;
+*
+def WARK30M;
+     site_type = fixed;
+     site_name = WARK30M;
+     site_ID = Wa;
+*    elev=  122.35 long=-174:39:46. lat=-36:25:59.4
+     site_position =-5115425.81800 m:  477880.24800 m:-3767042.05500 m;
+     site_velocity = -0.021220   m/yr: -0.003070   m/yr:  0.036020  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2017y235d;
+     site_position_epoch =   57988;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def CEDUNA;
+     axis_type = az : el;
+     antenna_motion = el :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    0.00240 m;
+enddef;
+*
+def HOBART12;
+     axis_type = az : el;
+     antenna_motion = el :  75.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     antenna_motion = az : 300.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     axis_offset =    0.00000 m;
+enddef;
+*
+def WARK30M;
+     axis_type = az : el;
+     antenna_motion = el :  21.6 deg/min :  2 sec;  *    0.250 deg/sec/sec
+     antenna_motion = az :  22.0 deg/min :  2 sec;  *    0.200 deg/sec/sec
+     axis_offset =    2.47700 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def 1DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 2DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :            : 0 ;
+     headstack = 2 :            : 1 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+*
+def J1346-6024;
+     source_name = J1346-6024;
+*    this source had calibrator code: V
+*    alternate source name: 1343-601
+*    rfc_2020a Petrov and Kovalev, in preparation  41 observations
+     ra = 13h46m49.0426610s; dec = -60d24'29.355700"; ref_coord_frame = J2000;
+*    ra = 13h43m23.4485433s; dec = -60d09'30.498887"; ref_coord_frame = B1950;
+*    ra = 13h48m22.2351762s; dec = -60d31'16.370978"; ref_coord_frame = Date;
+enddef;
+*
+def J1512-5640;
+     source_name = J1512-5640;
+*    this source had calibrator code: V
+*    alternate source name: 1509-564
+*    rfc_2020a Petrov and Kovalev, in preparation  106 observations
+     ra = 15h12m55.8193950s; dec = -56d40'30.643040"; ref_coord_frame = J2000;
+*    ra = 15h09m07.0753330s; dec = -56d29'16.704166"; ref_coord_frame = B1950;
+*    ra = 15h14m39.2870395s; dec = -56d45'32.322642"; ref_coord_frame = Date;
+enddef;
+*
+def J1549-5235;
+     source_name = J1549-5235;
+*    this source had calibrator code: V
+*    alternate source name: 1545-524
+*    rfc_2020a Petrov and Kovalev, in preparation  29 observations
+     ra = 15h49m11.1947810s; dec = -52d35'02.943120"; ref_coord_frame = J2000;
+*    ra = 15h45m24.5070605s; dec = -52d25'54.394018"; ref_coord_frame = B1950;
+*    ra = 15h50m53.4864862s; dec = -52d39'07.131904"; ref_coord_frame = Date;
+enddef;
+*
+def J1713-4257;
+     source_name = J1713-4257;
+*    this source had calibrator code: V
+*    alternate source name: 1710-428
+*    rfc_2020a Petrov and Kovalev, in preparation  159 observations
+     ra = 17h13m48.1806830s; dec = -42d57'21.263370"; ref_coord_frame = J2000;
+*    ra = 17h10m13.6027108s; dec = -42d53'52.899309"; ref_coord_frame = B1950;
+*    ra = 17h15m24.5088204s; dec = -42d58'51.738442"; ref_coord_frame = Date;
+enddef;
+*
+def J1632-4558;
+     source_name = J1632-4558;
+*    this source had calibrator code: V
+*    alternate source name: 1629-458
+*    rfc_2020a Petrov and Kovalev, in preparation  146 observations
+     ra = 16h32m46.7559280s; dec = -45d58'01.731500"; ref_coord_frame = J2000;
+*    ra = 16h29m09.1271571s; dec = -45d51'42.018939"; ref_coord_frame = B1950;
+*    ra = 16h34m24.6643438s; dec = -46d00'49.572642"; ref_coord_frame = Date;
+enddef;
+*
+def F1427-4206;
+     source_name = F1427-4206;
+*    this source had calibrator code: V
+*    alternate source name: 1424-418
+*    rfc_2020a Petrov and Kovalev, in preparation  93688 observations
+     ra = 14h27m56.2975600s; dec = -42d06'19.437680"; ref_coord_frame = J2000;
+*    ra = 14h24m46.6703108s; dec = -41d52'54.613529"; ref_coord_frame = B1950;
+*    ra = 14h29m21.7055520s; dec = -42d12'22.676078"; ref_coord_frame = Date;
+enddef;
+*
+def F1650-2943;
+     source_name = F1650-2943;
+*    this source had calibrator code: V
+*    alternate source name: 1647-296
+*    rfc_2020a Petrov and Kovalev, in preparation  598 observations
+     ra = 16h50m39.5441130s; dec = -29d43'46.954780"; ref_coord_frame = J2000;
+*    ra = 16h47m29.4777905s; dec = -29d38'41.695377"; ref_coord_frame = B1950;
+*    ra = 16h52m04.8561877s; dec = -29d46'03.904987"; ref_coord_frame = Date;
+enddef;
+*
+def 1657-261;
+     source_name = 1657-261;
+*    this source had calibrator code: V
+*    alternate source name: F1700-2610
+*    rfc_2020a Petrov and Kovalev, in preparation  29932 observations
+     ra = 17h00m53.1540610s; dec = -26d10'51.725440"; ref_coord_frame = J2000;
+*    ra = 16h57m47.7142378s; dec = -26d06'29.528245"; ref_coord_frame = B1950;
+*    ra = 17h02m16.3502750s; dec = -26d12'49.945677"; ref_coord_frame = Date;
+enddef;
+*
+def F1921-293;
+     source_name = F1921-293;
+*    this source had calibrator code: V
+*    alternate source name: 1921-293
+*    alternate source name: J1924-2914
+*    alternate source name: F1924
+*    GSFC 2016a X/S astro solution,  63480 observations.
+     ra = 19h24m51.0559525s; dec = -29d14'30.121070"; ref_coord_frame = J2000;
+*    ra = 19h21m42.2341255s; dec = -29d20'26.353972"; ref_coord_frame = B1950;
+*    ra = 19h26m15.1316662s; dec = -29d11'50.338266"; ref_coord_frame = Date;
+enddef;
+*
+def F1256-0547;
+     source_name = F1256-0547;
+*    this source had calibrator code: V
+*    alternate source name: 3C279
+*    alternate source name: 1253-055
+*    alternate source name: J1256-0547
+*    alternate source name: F1256
+*    GSFC 2016a X/S astro solution,  13160 observations.
+     ra = 12h56m11.1665772s; dec = -05d47'21.525129"; ref_coord_frame = J2000;
+*    ra = 12h53m35.8313096s; dec = -05d31'07.996269"; ref_coord_frame = B1950;
+*    ra = 12h57m20.7475445s; dec = -05d54'37.995615"; ref_coord_frame = Date;
+enddef;
+*
+def 3C273;
+     source_name = 3C273;
+*    this source had calibrator code: V
+*    alternate source name: 3C273B
+*    alternate source name: J1229+0203
+*    alternate source name: 1226+023
+*    alternate source name: J1229+02
+*    GSFC 2016a X/S astro solution,  32136 observations.
+     ra = 12h29m06.6997310s; dec =  02d03'08.598201"; ref_coord_frame = J2000;
+*    ra = 12h26m33.2458347s; dec =  02d19'43.305697"; ref_coord_frame = B1950;
+*    ra = 12h30m15.3486007s; dec =  01d55'44.705818"; ref_coord_frame = Date;
+enddef;
+*
+def 1334-127;
+     source_name = 1334-127;
+*    this source had calibrator code:  
+     ra = 13h37m39.7827787s; dec = -12d57'24.693358"; ref_coord_frame = J2000;
+*    ra = 13h34m59.8038736s; dec = -12d42'09.743084"; ref_coord_frame = B1950;
+*    ra = 13h38m51.5714756s; dec = -13d04'16.335801"; ref_coord_frame = Date;
+enddef;
+*
+def 1606+106;
+     source_name = 1606+106;
+*    this source had calibrator code:  
+     ra = 16h08m46.2031860s; dec =  10d29'07.775772"; ref_coord_frame = J2000;
+*    ra = 16h06m23.3966228s; dec =  10d36'59.801075"; ref_coord_frame = B1950;
+*    ra = 16h09m50.5849039s; dec =  10d25'31.846621"; ref_coord_frame = Date;
+enddef;
+*
+def 1749+096;
+     source_name = 1749+096;
+*    this source had calibrator code:  
+     ra = 17h51m32.8185736s; dec =  09d39'00.728419"; ref_coord_frame = J2000;
+*    ra = 17h49m10.3879304s; dec =  09d39'42.825866"; ref_coord_frame = B1950;
+*    ra = 17h52m36.7561248s; dec =  09d38'32.959259"; ref_coord_frame = Date;
+enddef;
+*
+def 1923+210;
+     source_name = 1923+210;
+*    this source had calibrator code:  
+     ra = 19h25m59.6053559s; dec =  21d06'26.162014"; ref_coord_frame = J2000;
+*    ra = 19h23m49.7923925s; dec =  21d00'23.304930"; ref_coord_frame = B1950;
+*    ra = 19h26m57.5488525s; dec =  21d08'53.128734"; ref_coord_frame = Date;
+enddef;
+*
+def 2113+293;
+     source_name = 2113+293;
+*    this source had calibrator code:  
+     ra = 21h15m29.4134555s; dec =  29d33'38.366909"; ref_coord_frame = J2000;
+*    ra = 21h13m20.5774681s; dec =  29d21'06.684605"; ref_coord_frame = B1950;
+*    ra = 21h16m26.2250135s; dec =  29d38'54.331154"; ref_coord_frame = Date;
+enddef;
+*
+def 2149+056;
+     source_name = 2149+056;
+*    this source had calibrator code:  
+     ra = 21h51m37.8754930s; dec =  05d52'12.954484"; ref_coord_frame = J2000;
+*    ra = 21h49m07.7012434s; dec =  05d38'06.869964"; ref_coord_frame = B1950;
+*    ra = 21h52m43.9666792s; dec =  05d58'18.155645"; ref_coord_frame = Date;
+enddef;
+*
+def 3C446;
+     source_name = 3C446;
+*    this source had calibrator code:  
+     ra = 22h25m47.2592938s; dec = -04d57'01.390824"; ref_coord_frame = J2000;
+*    ra = 22h23m11.0777671s; dec = -05d12'17.799464"; ref_coord_frame = B1950;
+*    ra = 22h26m55.8409716s; dec = -04d50'21.203511"; ref_coord_frame = Date;
+enddef;
+*
+def 0925-203;
+     source_name = 0925-203;
+*    this source had calibrator code:  
+     ra = 09h27m51.8243197s; dec = -20d34'51.232483"; ref_coord_frame = J2000;
+*    ra = 09h25m33.5432082s; dec = -20d21'44.974595"; ref_coord_frame = B1950;
+*    ra = 09h28m52.7223124s; dec = -20d40'48.444881"; ref_coord_frame = Date;
+enddef;
+*
+def 1928+154;
+     source_name = 1928+154;
+*    this source had calibrator code:  
+     ra = 19h30m52.7669975s; dec =  15d32'34.427383"; ref_coord_frame = J2000;
+*    ra = 19h28m36.0920729s; dec =  15d26'11.965989"; ref_coord_frame = B1950;
+*    ra = 19h31m53.6986334s; dec =  15d35'11.538951"; ref_coord_frame = Date;
+enddef;
+*
+def 2214+241;
+     source_name = 2214+241;
+*    this source had calibrator code:  
+     ra = 22h17m00.8211778s; dec =  24d21'45.957885"; ref_coord_frame = J2000;
+*    ra = 22h14m40.2446211s; dec =  24d06'45.635382"; ref_coord_frame = B1950;
+*    ra = 22h18m02.4562241s; dec =  24d28'09.727012"; ref_coord_frame = Date;
+enddef;
+*
+def 1608+243;
+     source_name = 1608+243;
+*    this source had calibrator code:  
+     ra = 16h10m42.0267745s; dec =  24d14'49.011643"; ref_coord_frame = J2000;
+*    ra = 16h08m34.9914685s; dec =  24d22'33.018971"; ref_coord_frame = B1950;
+*    ra = 16h11m39.5781044s; dec =  24d11'15.854125"; ref_coord_frame = Date;
+enddef;
+*
+def 1354+195;
+     source_name = 1354+195;
+*    this source had calibrator code:  
+     ra = 13h57m04.4366556s; dec =  19d19'07.372441"; ref_coord_frame = J2000;
+*    ra = 13h54m42.0858866s; dec =  19d33'43.958465"; ref_coord_frame = B1950;
+*    ra = 13h58m08.6143223s; dec =  19d12'37.126237"; ref_coord_frame = Date;
+enddef;
+*
+def 1413+135;
+     source_name = 1413+135;
+*    this source had calibrator code:  
+     ra = 14h15m58.8175112s; dec =  13d20'23.712825"; ref_coord_frame = J2000;
+*    ra = 14h13m33.9108592s; dec =  13d34'17.404587"; ref_coord_frame = B1950;
+*    ra = 14h17m04.1089338s; dec =  13d14'10.999350"; ref_coord_frame = Date;
+enddef;
+*
+def 1510-089;
+     source_name = 1510-089;
+*    this source had calibrator code:  
+     ra = 15h12m50.5329284s; dec = -09d05'59.829768"; ref_coord_frame = J2000;
+*    ra = 15h10m08.9001803s; dec = -08d54'47.619621"; ref_coord_frame = B1950;
+*    ra = 15h14m03.2146758s; dec = -09d11'03.150385"; ref_coord_frame = Date;
+enddef;
+*
+def 1751+288;
+     source_name = 1751+288;
+*    this source had calibrator code:  
+     ra = 17h53m42.4736469s; dec =  28d48'04.938932"; ref_coord_frame = J2000;
+*    ra = 17h51m45.4018746s; dec =  28d48'36.649655"; ref_coord_frame = B1950;
+*    ra = 17h54m35.3487670s; dec =  28d47'38.122433"; ref_coord_frame = Date;
+enddef;
+*
+def 1936-155;
+     source_name = 1936-155;
+*    this source had calibrator code:  
+     ra = 19h39m26.6577497s; dec = -15d25'43.058483"; ref_coord_frame = J2000;
+*    ra = 19h36m36.0262451s; dec = -15d32'38.773274"; ref_coord_frame = B1950;
+*    ra = 19h40m42.5568540s; dec = -15d22'41.393153"; ref_coord_frame = Date;
+enddef;
+*
+def 1045-188;
+     source_name = 1045-188;
+*    this source had calibrator code:  
+     ra = 10h48m06.6206169s; dec = -19d09'35.727034"; ref_coord_frame = J2000;
+*    ra = 10h45m40.0932768s; dec = -18d53'44.087401"; ref_coord_frame = B1950;
+*    ra = 10h49m11.6543559s; dec = -19d16'45.952309"; ref_coord_frame = Date;
+enddef;
+*
+def 1055+018;
+     source_name = 1055+018;
+*    this source had calibrator code:  
+     ra = 10h58m29.6052075s; dec =  01d33'58.823704"; ref_coord_frame = J2000;
+*    ra = 10h55m55.3137298s; dec =  01d50'03.537199"; ref_coord_frame = B1950;
+*    ra = 10h59m38.1549451s; dec =  01d26'48.944969"; ref_coord_frame = Date;
+enddef;
+*
+def 1145-071;
+     source_name = 1145-071;
+*    this source had calibrator code:  
+     ra = 11h47m51.5540316s; dec = -07d24'41.141164"; ref_coord_frame = J2000;
+*    ra = 11h45m18.2935097s; dec = -07d08'00.714950"; ref_coord_frame = B1950;
+*    ra = 11h48m59.9016188s; dec = -07d32'09.738356"; ref_coord_frame = Date;
+enddef;
+*
+def 1929+226;
+     source_name = 1929+226;
+*    this source had calibrator code:  
+     ra = 19h31m24.9167780s; dec =  22d43'31.258575"; ref_coord_frame = J2000;
+*    ra = 19h29m16.8948845s; dec =  22d37'06.350552"; ref_coord_frame = B1950;
+*    ra = 19h32m22.0423294s; dec =  22d46'07.466705"; ref_coord_frame = Date;
+enddef;
+*
+def 2149-306;
+     source_name = 2149-306;
+*    this source had calibrator code:  
+     ra = 21h51m55.5239736s; dec = -30d27'53.698094"; ref_coord_frame = J2000;
+*    ra = 21h49m00.5940709s; dec = -30d42'00.134447"; ref_coord_frame = B1950;
+*    ra = 21h53m12.5670091s; dec = -30d21'35.502365"; ref_coord_frame = Date;
+enddef;
+*
+def 1705+018;
+     source_name = 1705+018;
+*    this source had calibrator code:  
+     ra = 17h07m34.4152702s; dec =  01d48'45.699331"; ref_coord_frame = J2000;
+*    ra = 17h05m02.7226236s; dec =  01d52'38.293178"; ref_coord_frame = B1950;
+*    ra = 17h08m42.5680913s; dec =  01d46'55.689517"; ref_coord_frame = Date;
+enddef;
+*
+def 0109+224;
+     source_name = 0109+224;
+*    this source had calibrator code:  
+     ra = 01h12m05.8247166s; dec =  22d44'38.786294"; ref_coord_frame = J2000;
+*    ra = 01h09m23.6085237s; dec =  22d28'44.124821"; ref_coord_frame = B1950;
+*    ra = 01h13m16.2317951s; dec =  22d51'31.671433"; ref_coord_frame = Date;
+enddef;
+*
+def 1502+036;
+     source_name = 1502+036;
+*    this source had calibrator code:  
+     ra = 15h05m06.4771586s; dec =  03d26'30.812599"; ref_coord_frame = J2000;
+*    ra = 15h02m35.6690049s; dec =  03d38'07.373483"; ref_coord_frame = B1950;
+*    ra = 15h06m14.3805953s; dec =  03d21'16.921374"; ref_coord_frame = Date;
+enddef;
+*
+def 1555+001;
+     source_name = 1555+001;
+*    this source had calibrator code:  
+     ra = 15h57m51.4339728s; dec = -00d01'50.413770"; ref_coord_frame = J2000;
+*    ra = 15h55m17.6926210s; dec =  00d06'43.532836"; ref_coord_frame = B1950;
+*    ra = 15h59m00.6167649s; dec = -00d05'44.072876"; ref_coord_frame = Date;
+enddef;
+*
+def 1059+282;
+     source_name = 1059+282;
+*    this source had calibrator code:  
+     ra = 11h02m14.2884587s; dec =  27d57'08.689526"; ref_coord_frame = J2000;
+*    ra = 10h59m31.4393284s; dec =  28d13'17.493342"; ref_coord_frame = B1950;
+*    ra = 11h03m26.7538195s; dec =  27d50'05.457759"; ref_coord_frame = Date;
+enddef;
+*
+def 1441+252;
+     source_name = 1441+252;
+*    this source had calibrator code:  
+     ra = 14h43m56.8921884s; dec =  25d01'44.490705"; ref_coord_frame = J2000;
+*    ra = 14h41m43.5582515s; dec =  25d14'23.982837"; ref_coord_frame = B1950;
+*    ra = 14h44m57.2563868s; dec =  24d56'04.716736"; ref_coord_frame = Date;
+enddef;
+*
+def 1601+112;
+     source_name = 1601+112;
+*    this source had calibrator code:  
+     ra = 16h03m41.9312529s; dec =  11d05'48.679176"; ref_coord_frame = J2000;
+*    ra = 16h01m19.6396470s; dec =  11d14'00.127372"; ref_coord_frame = B1950;
+*    ra = 16h04m46.0957338s; dec =  11d02'04.249764"; ref_coord_frame = Date;
+enddef;
+*
+def 1639-062;
+     source_name = 1639-062;
+*    this source had calibrator code:  
+     ra = 16h42m02.1777147s; dec = -06d21'23.695011"; ref_coord_frame = J2000;
+*    ra = 16h39m21.4438685s; dec = -06d15'43.819367"; ref_coord_frame = B1950;
+*    ra = 16h43m14.3842976s; dec = -06d23'59.846258"; ref_coord_frame = Date;
+enddef;
+*
+def 1759-396;
+     source_name = 1759-396;
+*    this source had calibrator code:  
+     ra = 18h02m42.6800554s; dec = -39d40'07.908201"; ref_coord_frame = J2000;
+*    ra = 17h59m13.4805984s; dec = -39d40'12.120159"; ref_coord_frame = B1950;
+*    ra = 18h04m16.3322414s; dec = -39d40'03.012858"; ref_coord_frame = Date;
+enddef;
+*
+def 2215+150;
+     source_name = 2215+150;
+*    this source had calibrator code:  
+     ra = 22h18m10.9139024s; dec =  15d20'35.717417"; ref_coord_frame = J2000;
+*    ra = 22h15m45.0323548s; dec =  15d05'33.206895"; ref_coord_frame = B1950;
+*    ra = 22h19m14.9317173s; dec =  15d27'03.077799"; ref_coord_frame = Date;
+enddef;
+*
+def 1511-100;
+     source_name = 1511-100;
+*    this source had calibrator code:  
+     ra = 15h13m44.8934224s; dec = -10d12'00.264787"; ref_coord_frame = J2000;
+*    ra = 15h11m02.2505819s; dec = -10d00'50.965536"; ref_coord_frame = B1950;
+*    ra = 15h14m58.0246536s; dec = -10d17'02.286520"; ref_coord_frame = Date;
+enddef;
+*
+def 2351-154;
+     source_name = 2351-154;
+*    this source had calibrator code:  
+     ra = 23h54m30.1951713s; dec = -15d13'11.212978"; ref_coord_frame = J2000;
+*    ra = 23h51m55.8814547s; dec = -15d29'53.021490"; ref_coord_frame = B1950;
+*    ra = 23h55m37.5326926s; dec = -15d05'49.923368"; ref_coord_frame = Date;
+enddef;
+*
+def NRAO530;
+     source_name = NRAO530;
+*    this source had calibrator code:  
+     ra = 17h33m02.7057880s; dec = -13d04'49.548157"; ref_coord_frame = J2000;
+*    ra = 17h30m13.5351904s; dec = -13d02'45.839682"; ref_coord_frame = B1950;
+*    ra = 17h34m18.5208792s; dec = -13d05'48.507465"; ref_coord_frame = Date;
+enddef;
+*
+def 2244-372;
+     source_name = 2244-372;
+*    this source had calibrator code:  
+     ra = 22h47m03.9173310s; dec = -36d57'46.304117"; ref_coord_frame = J2000;
+*    ra = 22h44m14.0349742s; dec = -37d13'36.362985"; ref_coord_frame = B1950;
+*    ra = 22h48m18.3815315s; dec = -36d50'40.522875"; ref_coord_frame = Date;
+enddef;
+*
+def 2325+093;
+     source_name = 2325+093;
+*    this source had calibrator code:  
+     ra = 23h27m33.5805590s; dec =  09d40'09.462707"; ref_coord_frame = J2000;
+*    ra = 23h25m01.4513768s; dec =  09d23'38.175593"; ref_coord_frame = B1950;
+*    ra = 23h28m40.0293206s; dec =  09d47'18.745028"; ref_coord_frame = Date;
+enddef;
+*
+def 0112-017;
+     source_name = 0112-017;
+*    this source had calibrator code:  
+     ra = 01h15m17.0999565s; dec = -01d27'04.577329"; ref_coord_frame = J2000;
+*    ra = 01h12m43.9234339s; dec = -01d42'54.949268"; ref_coord_frame = B1950;
+*    ra = 01h16m23.6465181s; dec = -01d20'09.331322"; ref_coord_frame = Date;
+enddef;
+*
+def 2128+048;
+     source_name = 2128+048;
+*    this source had calibrator code:  
+     ra = 21h30m32.8774058s; dec =  05d02'17.474406"; ref_coord_frame = J2000;
+*    ra = 21h28m02.6155980s; dec =  04d49'04.298530"; ref_coord_frame = B1950;
+*    ra = 21h31m39.1268603s; dec =  05d07'59.436227"; ref_coord_frame = Date;
+enddef;
+*
+def 2155-152;
+     source_name = 2155-152;
+*    this source had calibrator code:  
+     ra = 21h58m06.2819013s; dec = -15d01'09.328021"; ref_coord_frame = J2000;
+*    ra = 21h55m23.2419035s; dec = -15d15'30.091843"; ref_coord_frame = B1950;
+*    ra = 21h59m18.0479201s; dec = -14d54'50.282911"; ref_coord_frame = Date;
+enddef;
+*
+def J1711-3744;
+     source_name = J1711-3744;
+*    this source had calibrator code:  
+     ra = 17h11m20.5135550s; dec = -37d44'15.879080"; ref_coord_frame = J2000;
+*    ra = 17h07m56.3143711s; dec = -37d40'37.379141"; ref_coord_frame = B1950;
+*    ra = 17h12m52.1435384s; dec = -37d45'52.072551"; ref_coord_frame = Date;
+enddef;
+*
+def J1712-3736;
+     source_name = J1712-3736;
+*    this source had calibrator code:  
+     ra = 17h12m38.7984370s; dec = -37d36'46.739750"; ref_coord_frame = J2000;
+*    ra = 17h09m14.7612218s; dec = -37d33'13.818458"; ref_coord_frame = B1950;
+*    ra = 17h14m10.3496771s; dec = -37d38'20.435710"; ref_coord_frame = Date;
+enddef;
+*
+def J1733-3722;
+     source_name = J1733-3722;
+*    this source had calibrator code:  
+     ra = 17h33m15.1930770s; dec = -37d22'32.399560"; ref_coord_frame = J2000;
+*    ra = 17h29m50.7906461s; dec = -37d20'28.273138"; ref_coord_frame = B1950;
+*    ra = 17h34m46.8209984s; dec = -37d23'26.011741"; ref_coord_frame = Date;
+enddef;
+*
+def J1752-3001;
+     source_name = J1752-3001;
+*    this source had calibrator code:  
+     ra = 17h52m30.9500810s; dec = -30d01'06.682450"; ref_coord_frame = J2000;
+*    ra = 17h49m18.5972570s; dec = -30d00'26.942270"; ref_coord_frame = B1950;
+*    ra = 17h53m57.0639557s; dec = -30d01'24.080544"; ref_coord_frame = Date;
+enddef;
+*
+def J1807-2506;
+     source_name = J1807-2506;
+*    this source had calibrator code:  
+     ra = 18h07m40.6876870s; dec = -25d06'25.944820"; ref_coord_frame = J2000;
+*    ra = 18h04m35.5977552s; dec = -25d06'52.771575"; ref_coord_frame = B1950;
+*    ra = 18h09m03.4786957s; dec = -25d06'14.763816"; ref_coord_frame = Date;
+enddef;
+*
+def J1825-0737;
+     source_name = J1825-0737;
+*    this source had calibrator code:  
+     ra = 18h25m37.6095530s; dec = -07d37'30.013730"; ref_coord_frame = J2000;
+*    ra = 18h22m54.9102603s; dec = -07d39'15.967646"; ref_coord_frame = B1950;
+*    ra = 18h26m50.3474691s; dec = -07d36'48.314714"; ref_coord_frame = Date;
+enddef;
+*
+def J1833-0323;
+     source_name = J1833-0323;
+*    this source had calibrator code:  
+     ra = 18h33m23.9051440s; dec = -03d23'31.448150"; ref_coord_frame = J2000;
+*    ra = 18h30m46.1734313s; dec = -03d25'51.309129"; ref_coord_frame = B1950;
+*    ra = 18h34m34.4089710s; dec = -03d22'35.892997"; ref_coord_frame = Date;
+enddef;
+*
+def J1857-0048;
+     source_name = J1857-0048;
+*    this source had calibrator code:  
+     ra = 18h57m51.3588380s; dec = -00d48'21.937340"; ref_coord_frame = J2000;
+*    ra = 18h55m16.6208392s; dec = -00d52'26.806865"; ref_coord_frame = B1950;
+*    ra = 18h59m00.4247953s; dec = -00d46'40.687246"; ref_coord_frame = Date;
+enddef;
+*
+def G311.23-0.03;
+     source_name = G311.23-0.03;
+*    this source had calibrator code:  
+*    alternate source name: G311.230-0.0
+     ra = 14h02m27.4700000s; dec = -61d45'14.400000"; ref_coord_frame = J2000;
+*    ra = 13h58m51.5149953s; dec = -61d30'47.698188"; ref_coord_frame = B1950;
+*    ra = 14h04m05.4722370s; dec = -61d51'46.062699"; ref_coord_frame = Date;
+enddef;
+*
+def G320.42+0.08;
+     source_name = G320.42+0.08;
+*    this source had calibrator code:  
+*    alternate source name: G320.424+0.0
+     ra = 15h09m41.5600000s; dec = -58d00'29.200000"; ref_coord_frame = J2000;
+*    ra = 15h05m49.9148781s; dec = -57d49'04.764485"; ref_coord_frame = B1950;
+*    ra = 15h11m26.4100147s; dec = -58d05'35.610630"; ref_coord_frame = Date;
+enddef;
+*
+def G329.61+0.11;
+     source_name = G329.61+0.11;
+*    this source had calibrator code:  
+*    alternate source name: G329.610+0.1
+     ra = 16h02m03.1400000s; dec = -52d35'33.500000"; ref_coord_frame = J2000;
+*    ra = 15h58m13.8545231s; dec = -52d27'12.806085"; ref_coord_frame = B1950;
+*    ra = 16h03m46.5619767s; dec = -52d39'15.656837"; ref_coord_frame = Date;
+enddef;
+*
+def G337.70-0.05;
+     source_name = G337.70-0.05;
+*    this source had calibrator code:  
+*    alternate source name: G337.705-0.0
+     ra = 16h38m29.6300000s; dec = -47d00'35.500000"; ref_coord_frame = J2000;
+*    ra = 16h34m48.9710744s; dec = -46d54'38.927897"; ref_coord_frame = B1950;
+*    ra = 16h40m08.8983191s; dec = -47d03'12.590722"; ref_coord_frame = Date;
+enddef;
+*
+def G342.95-0.01;
+     source_name = G342.95-0.01;
+*    this source had calibrator code:  
+*    alternate source name: G342.954-0.0
+     ra = 16h57m30.6600000s; dec = -42d58'34.800000"; ref_coord_frame = J2000;
+*    ra = 16h53m57.1305884s; dec = -42d53'57.359223"; ref_coord_frame = B1950;
+*    ra = 16h59m06.5863601s; dec = -43d00'36.637367"; ref_coord_frame = Date;
+enddef;
+*
+def G345.44+0.20;
+     source_name = G345.44+0.20;
+*    this source had calibrator code:  
+*    alternate source name: G345.441+0.2
+     ra = 17h04m46.8700000s; dec = -40d52'38.000000"; ref_coord_frame = J2000;
+*    ra = 17h01m17.0972702s; dec = -40d48'31.385799"; ref_coord_frame = B1950;
+*    ra = 17h06m21.0560230s; dec = -40d54'26.271699"; ref_coord_frame = Date;
+enddef;
+*
+def G348.72-0.07;
+     source_name = G348.72-0.07;
+*    this source had calibrator code:  
+*    alternate source name: G348.723-0.0
+     ra = 17h16m04.7700000s; dec = -38d24'08.800000"; ref_coord_frame = J2000;
+*    ra = 17h12m39.1188402s; dec = -38d20'50.513638"; ref_coord_frame = B1950;
+*    ra = 17h17m37.0378888s; dec = -38d25'35.704141"; ref_coord_frame = Date;
+enddef;
+*
+def G349.88+0.23;
+     source_name = G349.88+0.23;
+*    this source had calibrator code:  
+*    alternate source name: G349.884+0.2
+     ra = 17h18m12.3700000s; dec = -37d16'40.000000"; ref_coord_frame = J2000;
+*    ra = 17h14m48.6848734s; dec = -37d13'30.912020"; ref_coord_frame = B1950;
+*    ra = 17h19m43.7387016s; dec = -37d18'02.989470"; ref_coord_frame = Date;
+enddef;
+*
+def G354.49+0.08;
+     source_name = G354.49+0.08;
+*    this source had calibrator code:  
+*    alternate source name: G354.496+0.0
+     ra = 17h31m31.7700000s; dec = -33d32'44.000000"; ref_coord_frame = J2000;
+*    ra = 17h28m14.0949354s; dec = -33d30'32.646830"; ref_coord_frame = B1950;
+*    ra = 17h33m00.3680297s; dec = -33d33'41.768310"; ref_coord_frame = Date;
+enddef;
+*
+def G358.72-0.12;
+     source_name = G358.72-0.12;
+*    this source had calibrator code:  
+*    alternate source name: G358.721-0.1
+     ra = 17h43m02.3100000s; dec = -30d05'29.900000"; ref_coord_frame = J2000;
+*    ra = 17h39m49.9491551s; dec = -30d04'08.790017"; ref_coord_frame = B1950;
+*    ra = 17h44m28.4673571s; dec = -30d06'05.871672"; ref_coord_frame = Date;
+enddef;
+*
+def G000.49+0.18;
+     source_name = G000.49+0.18;
+*    this source had calibrator code:  
+*    alternate source name: G000.496+0.1
+     ra = 17h46m03.9600000s; dec = -28d24'52.800000"; ref_coord_frame = J2000;
+*    ra = 17h42m54.1212064s; dec = -28d23'44.988071"; ref_coord_frame = B1950;
+*    ra = 17h47m28.9714757s; dec = -28d25'23.206092"; ref_coord_frame = Date;
+enddef;
+*
+def G001.71-0.08;
+     source_name = G001.71-0.08;
+*    this source had calibrator code:  
+*    alternate source name: G001.719-0.0
+     ra = 17h49m59.8400000s; dec = -27d30'36.900000"; ref_coord_frame = J2000;
+*    ra = 17h46m51.3109310s; dec = -27d29'46.299866"; ref_coord_frame = B1950;
+*    ra = 17h51m24.2473068s; dec = -27d30'59.803660"; ref_coord_frame = Date;
+enddef;
+*
+def G004.43+0.12;
+     source_name = G004.43+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G004.434+0.1
+     ra = 17h55m19.7400000s; dec = -25d03'44.800000"; ref_coord_frame = J2000;
+*    ra = 17h52m14.7249000s; dec = -25d03'17.630248"; ref_coord_frame = B1950;
+*    ra = 17h56m42.5496617s; dec = -25d03'57.813971"; ref_coord_frame = Date;
+enddef;
+*
+def G006.88+0.09;
+     source_name = G006.88+0.09;
+*    this source had calibrator code:  
+*    alternate source name: G006.881+0.0
+     ra = 18h00m49.3800000s; dec = -22d57'42.600000"; ref_coord_frame = J2000;
+*    ra = 17h57m47.2850421s; dec = -22d57'39.562727"; ref_coord_frame = B1950;
+*    ra = 18h02m10.8596668s; dec = -22d57'45.348607"; ref_coord_frame = Date;
+enddef;
+*
+def G020.08-0.13;
+     source_name = G020.08-0.13;
+*    this source had calibrator code:  
+*    alternate source name: G020.081-0.1
+     ra = 18h28m10.3200000s; dec = -11d28'47.600000"; ref_coord_frame = J2000;
+*    ra = 18h25m23.0365076s; dec = -11d30'44.446275"; ref_coord_frame = B1950;
+*    ra = 18h29m25.0811614s; dec = -11d28'00.002030"; ref_coord_frame = Date;
+enddef;
+*
+def G021.88+0.01;
+     source_name = G021.88+0.01;
+*    this source had calibrator code:  
+*    alternate source name: G021.880+0.0
+     ra = 18h31m01.7500000s; dec = -09d49'00.500000"; ref_coord_frame = J2000;
+*    ra = 18h28m16.4768230s; dec = -09d51'09.819369"; ref_coord_frame = B1950;
+*    ra = 18h32m15.6059480s; dec = -09d48'07.828716"; ref_coord_frame = Date;
+enddef;
+*
+def G024.14-0.00;
+     source_name = G024.14-0.00;
+*    this source had calibrator code:  
+*    alternate source name: G024.148-0.0
+     ra = 18h35m20.9400000s; dec = -07d48'55.700000"; ref_coord_frame = J2000;
+*    ra = 18h32m38.0582159s; dec = -07d51'23.814509"; ref_coord_frame = B1950;
+*    ra = 18h36m33.7158811s; dec = -07d47'55.254222"; ref_coord_frame = Date;
+enddef;
+*
+def G027.36-0.16;
+     source_name = G027.36-0.16;
+*    this source had calibrator code:  
+*    alternate source name: G027.365-0.1
+     ra = 18h41m51.0600000s; dec = -05d01'43.500000"; ref_coord_frame = J2000;
+*    ra = 18h39m11.4563930s; dec = -05d04'39.789318"; ref_coord_frame = B1950;
+*    ra = 18h43m02.3539187s; dec = -05d00'31.362346"; ref_coord_frame = Date;
+enddef;
+*
+def G028.52+0.12;
+     source_name = G028.52+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G028.523+0.1
+     ra = 18h42m55.8900000s; dec = -03d51'55.400000"; ref_coord_frame = J2000;
+*    ra = 18h40m17.6331174s; dec = -03d54'56.386903"; ref_coord_frame = B1950;
+*    ra = 18h44m06.5828372s; dec = -03d50'41.515104"; ref_coord_frame = Date;
+enddef;
+*
+def G030.78+0.23;
+     source_name = G030.78+0.23;
+*    this source had calibrator code:  
+*    alternate source name: G030.780+0.2
+     ra = 18h46m41.5200000s; dec = -01d48'37.100000"; ref_coord_frame = J2000;
+*    ra = 18h44m05.6302934s; dec = -01d51'54.319828"; ref_coord_frame = B1950;
+*    ra = 18h47m51.1483306s; dec = -01d47'16.621924"; ref_coord_frame = Date;
+enddef;
+*
+def G032.74-0.07;
+     source_name = G032.74-0.07;
+*    this source had calibrator code:  
+*    alternate source name: G032.744-0.0
+     ra = 18h51m21.8700000s; dec = -00d12'05.000000"; ref_coord_frame = J2000;
+*    ra = 18h48m47.8183599s; dec = -00d15'42.274584"; ref_coord_frame = B1950;
+*    ra = 18h52m30.6638998s; dec = -00d10'36.120164"; ref_coord_frame = Date;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 6596.00MHz16x16MHz;
+* mode =  1    stations =Cd:Wa
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH05 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH06 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH07 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH08 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH09 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH10 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH11 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH12 : &BBC08 : &NoCal; *Lcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH13 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH14 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH15 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH16 : &BBC08 : &NoCal; *Lcp
+enddef;
+*
+def 6580.00MHz8x32MHz;
+* mode =  1    stations =Hb
+     sample_rate =    64.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6580.00 MHz : U :  32.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6612.00 MHz : U :  32.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6644.00 MHz : U :  32.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6676.00 MHz : U :  32.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6580.00 MHz : U :  32.00 MHz : &CH05 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6612.00 MHz : U :  32.00 MHz : &CH06 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6644.00 MHz : U :  32.00 MHz : &CH07 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6676.00 MHz : U :  32.00 MHz : &CH08 : &BBC08 : &NoCal; *Lcp
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@7300MHzDPolNoTone;
+* mode =  1    stations =Cd
+     if_def = &IF_A1 : A1 : R :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B1 : B1 : L :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@6000MHzDPolNoTone;
+* mode =  1    stations =Hb
+     if_def = &IF_A1 : A1 : R :  6000.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B4 : B4 : L :  6000.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@5843MHzDPolNoTone;
+* mode =  1    stations =Wa
+     if_def = &IF_A1 : A1 : R :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B2 : B2 : L :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 16BBCs;
+* mode =  1    stations =Cd
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B1;
+     BBC_assign = &BBC06 :  6 : &IF_B1;
+     BBC_assign = &BBC07 :  7 : &IF_B1;
+     BBC_assign = &BBC08 :  8 : &IF_B1;
+enddef;
+*
+def 8BBCs;
+* mode =  1    stations =Hb
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B4;
+     BBC_assign = &BBC06 :  6 : &IF_B4;
+     BBC_assign = &BBC07 :  7 : &IF_B4;
+     BBC_assign = &BBC08 :  8 : &IF_B4;
+enddef;
+*
+def 16BBCs#02;
+* mode =  1    stations =Wa
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B2;
+     BBC_assign = &BBC06 :  6 : &IF_B2;
+     BBC_assign = &BBC07 :  7 : &IF_B2;
+     BBC_assign = &BBC08 :  8 : &IF_B2;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* mode =  1    stations =Cd:Wa
+     phase_cal_detect = &NoCal;
+enddef;
+*
+def NoDetect#02;
+* mode =  1    stations =Hb
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def MARK5B.16Ch2bit1to1;
+* mode =  1    stations =Cd
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1: 18;
+     fanout_def =   : &CH01 :  mag : 1: 19;
+     fanout_def =   : &CH02 : sign : 1: 20;
+     fanout_def =   : &CH02 :  mag : 1: 21;
+     fanout_def =   : &CH03 : sign : 1: 22;
+     fanout_def =   : &CH03 :  mag : 1: 23;
+     fanout_def =   : &CH04 : sign : 1: 24;
+     fanout_def =   : &CH04 :  mag : 1: 25;
+     fanout_def =   : &CH05 : sign : 1:  2;
+     fanout_def =   : &CH05 :  mag : 1:  3;
+     fanout_def =   : &CH06 : sign : 1:  4;
+     fanout_def =   : &CH06 :  mag : 1:  5;
+     fanout_def =   : &CH07 : sign : 1:  6;
+     fanout_def =   : &CH07 :  mag : 1:  7;
+     fanout_def =   : &CH08 : sign : 1:  8;
+     fanout_def =   : &CH08 :  mag : 1:  9;
+     fanout_def =   : &CH09 : sign : 1: 26;
+     fanout_def =   : &CH09 :  mag : 1: 27;
+     fanout_def =   : &CH10 : sign : 1: 28;
+     fanout_def =   : &CH10 :  mag : 1: 29;
+     fanout_def =   : &CH11 : sign : 1: 30;
+     fanout_def =   : &CH11 :  mag : 1: 31;
+     fanout_def =   : &CH12 : sign : 1: 32;
+     fanout_def =   : &CH12 :  mag : 1: 33;
+     fanout_def =   : &CH13 : sign : 1: 10;
+     fanout_def =   : &CH13 :  mag : 1: 11;
+     fanout_def =   : &CH14 : sign : 1: 12;
+     fanout_def =   : &CH14 :  mag : 1: 13;
+     fanout_def =   : &CH15 : sign : 1: 14;
+     fanout_def =   : &CH15 :  mag : 1: 15;
+     fanout_def =   : &CH16 : sign : 1: 16;
+     fanout_def =   : &CH16 :  mag : 1: 17;
+enddef;
+*
+def MARK5B.8Ch2bit1to1;
+* mode =  1    stations =Hb
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  64.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 10;
+     fanout_def =   : &CH05 :  mag : 1: 11;
+     fanout_def =   : &CH06 : sign : 1: 12;
+     fanout_def =   : &CH06 :  mag : 1: 13;
+     fanout_def =   : &CH07 : sign : 1: 14;
+     fanout_def =   : &CH07 :  mag : 1: 15;
+     fanout_def =   : &CH08 : sign : 1: 16;
+     fanout_def =   : &CH08 :  mag : 1: 17;
+enddef;
+*
+def MARK5B.16Ch2bit1to1#02;
+* mode =  1    stations =Wa
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 18;
+     fanout_def =   : &CH05 :  mag : 1: 19;
+     fanout_def =   : &CH06 : sign : 1: 20;
+     fanout_def =   : &CH06 :  mag : 1: 21;
+     fanout_def =   : &CH07 : sign : 1: 22;
+     fanout_def =   : &CH07 :  mag : 1: 23;
+     fanout_def =   : &CH08 : sign : 1: 24;
+     fanout_def =   : &CH08 :  mag : 1: 25;
+     fanout_def =   : &CH09 : sign : 1: 10;
+     fanout_def =   : &CH09 :  mag : 1: 11;
+     fanout_def =   : &CH10 : sign : 1: 12;
+     fanout_def =   : &CH10 :  mag : 1: 13;
+     fanout_def =   : &CH11 : sign : 1: 14;
+     fanout_def =   : &CH11 :  mag : 1: 15;
+     fanout_def =   : &CH12 : sign : 1: 16;
+     fanout_def =   : &CH12 :  mag : 1: 17;
+     fanout_def =   : &CH13 : sign : 1: 26;
+     fanout_def =   : &CH13 :  mag : 1: 27;
+     fanout_def =   : &CH14 : sign : 1: 28;
+     fanout_def =   : &CH14 :  mag : 1: 29;
+     fanout_def =   : &CH15 : sign : 1: 30;
+     fanout_def =   : &CH15 :  mag : 1: 31;
+     fanout_def =   : &CH16 : sign : 1: 32;
+     fanout_def =   : &CH16 :  mag : 1: 33;
+enddef;
+*------------------------------------------------------------------------------
+$HEAD_POS;
+def DiskVoid;
+* mode =  1    stations =Cd:Hb:Wa
+*     Head positions irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$PASS_ORDER;
+*
+def DiskVoid;
+* mode =  1    stations =Cd:Hb:Wa
+*     Pass orders irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* mode =  1    stations =Cd:Hb:Wa
+*    barrel-roll set to 'roll_off', so reverse-roll by  0 (1 head)
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+* schedule section for experiment mc004   
+* SPIRALS: Search for distant compact target masers                       
+scan No0001;
+     start=2022y132d10h34m31s; mode=spirals.meth; source=3C273;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   15 sec:    0.000 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:    0.000 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:    0.000 GB:   :       : 1;
+endscan;
+scan No0002;
+     start=2022y132d10h35m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:    1.923 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:    1.923 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:    1.923 GB:   :       : 1;
+endscan;
+scan No0003;
+     start=2022y132d10h36m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:    3.846 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:    3.846 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:    3.846 GB:   :       : 1;
+endscan;
+scan No0004;
+     start=2022y132d10h37m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:    5.769 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:    5.769 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:    5.769 GB:   :       : 1;
+endscan;
+scan No0005;
+     start=2022y132d10h38m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:    7.692 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:    7.692 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:    7.692 GB:   :       : 1;
+endscan;
+scan No0006;
+     start=2022y132d10h39m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:    9.615 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:    9.615 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:    9.615 GB:   :       : 1;
+endscan;
+scan No0007;
+     start=2022y132d10h40m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   11.538 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   11.538 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   11.538 GB:   :       : 1;
+endscan;
+scan No0008;
+     start=2022y132d10h41m30s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   14 sec:   13.462 GB:   :       : 1;
+     station=Hb:    0 sec:   14 sec:   13.462 GB:   :       : 1;
+     station=Wa:    0 sec:   14 sec:   13.462 GB:   :       : 1;
+endscan;
+scan No0009;
+     start=2022y132d10h42m29s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   15.385 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   15.385 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   15.385 GB:   :       : 1;
+endscan;
+scan No0010;
+     start=2022y132d10h43m29s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   17.308 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   17.308 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   17.308 GB:   :       : 1;
+endscan;
+scan No0011;
+     start=2022y132d10h44m29s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   19.231 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   19.231 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   19.231 GB:   :       : 1;
+endscan;
+scan No0012;
+     start=2022y132d10h45m29s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   21.154 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   21.154 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   21.154 GB:   :       : 1;
+endscan;
+scan No0013;
+     start=2022y132d10h46m29s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   23.077 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   23.077 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   23.077 GB:   :       : 1;
+endscan;
+scan No0014;
+     start=2022y132d10h47m29s; mode=spirals.meth; source=3C273;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   14 sec:   25.000 GB:   :       : 1;
+     station=Hb:    0 sec:   14 sec:   25.000 GB:   :       : 1;
+     station=Wa:    0 sec:   14 sec:   25.000 GB:   :       : 1;
+endscan;
+scan No0015;
+     start=2022y132d10h48m28s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   26.923 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   26.923 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   26.923 GB:   :       : 1;
+endscan;
+scan No0016;
+     start=2022y132d10h49m28s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   28.846 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   28.846 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   28.846 GB:   :       : 1;
+endscan;
+scan No0017;
+     start=2022y132d10h50m28s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   30.769 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   30.769 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   30.769 GB:   :       : 1;
+endscan;
+scan No0018;
+     start=2022y132d10h51m28s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   32.692 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   32.692 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   32.692 GB:   :       : 1;
+endscan;
+scan No0019;
+     start=2022y132d10h52m28s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   34.615 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   34.615 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   34.615 GB:   :       : 1;
+endscan;
+scan No0020;
+     start=2022y132d10h53m28s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   14 sec:   36.538 GB:   :       : 1;
+     station=Hb:    0 sec:   14 sec:   36.538 GB:   :       : 1;
+     station=Wa:    0 sec:   14 sec:   36.538 GB:   :       : 1;
+endscan;
+scan No0021;
+     start=2022y132d10h54m27s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   38.461 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   38.461 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   38.461 GB:   :       : 1;
+endscan;
+scan No0022;
+     start=2022y132d10h55m27s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   40.385 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   40.385 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   40.385 GB:   :       : 1;
+endscan;
+scan No0023;
+     start=2022y132d10h56m27s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   42.308 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   42.308 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   42.308 GB:   :       : 1;
+endscan;
+scan No0024;
+     start=2022y132d10h57m27s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   44.231 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   44.231 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   44.231 GB:   :       : 1;
+endscan;
+scan No0025;
+     start=2022y132d10h58m27s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   46.154 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   46.154 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   46.154 GB:   :       : 1;
+endscan;
+scan No0026;
+     start=2022y132d10h59m27s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   48.077 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   48.077 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   48.077 GB:   :       : 1;
+endscan;
+scan No0027;
+     start=2022y132d11h00m26s; mode=spirals.meth; source=3C273;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   15 sec:   50.000 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   50.000 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   50.000 GB:   :       : 1;
+endscan;
+scan No0028;
+     start=2022y132d11h01m26s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   51.923 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   51.923 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   51.923 GB:   :       : 1;
+endscan;
+scan No0029;
+     start=2022y132d11h02m26s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   53.846 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   53.846 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   53.846 GB:   :       : 1;
+endscan;
+scan No0030;
+     start=2022y132d11h03m26s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   55.769 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   55.769 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   55.769 GB:   :       : 1;
+endscan;
+scan No0031;
+     start=2022y132d11h04m26s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   57.692 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   57.692 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   57.692 GB:   :       : 1;
+endscan;
+scan No0032;
+     start=2022y132d11h05m26s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   59.615 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   59.615 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   59.615 GB:   :       : 1;
+endscan;
+scan No0033;
+     start=2022y132d11h06m25s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   61.538 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   61.538 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   61.538 GB:   :       : 1;
+endscan;
+scan No0034;
+     start=2022y132d11h07m25s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   63.461 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   63.461 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   63.461 GB:   :       : 1;
+endscan;
+scan No0035;
+     start=2022y132d11h08m25s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   65.384 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   65.384 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   65.384 GB:   :       : 1;
+endscan;
+scan No0036;
+     start=2022y132d11h09m25s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   67.308 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   67.308 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   67.308 GB:   :       : 1;
+endscan;
+scan No0037;
+     start=2022y132d11h10m25s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   69.231 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   69.231 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   69.231 GB:   :       : 1;
+endscan;
+scan No0038;
+     start=2022y132d11h11m25s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   71.154 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   71.154 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   71.154 GB:   :       : 1;
+endscan;
+scan No0039;
+     start=2022y132d11h12m24s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   73.077 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   73.077 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   73.077 GB:   :       : 1;
+endscan;
+scan No0040;
+     start=2022y132d11h13m24s; mode=spirals.meth; source=3C273;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   15 sec:   75.000 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   75.000 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   75.000 GB:   :       : 1;
+endscan;
+scan No0041;
+     start=2022y132d11h14m24s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   76.923 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   76.923 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   76.923 GB:   :       : 1;
+endscan;
+scan No0042;
+     start=2022y132d11h15m24s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   78.846 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   78.846 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   78.846 GB:   :       : 1;
+endscan;
+scan No0043;
+     start=2022y132d11h16m24s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   80.769 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   80.769 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   80.769 GB:   :       : 1;
+endscan;
+scan No0044;
+     start=2022y132d11h17m24s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   82.692 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   82.692 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   82.692 GB:   :       : 1;
+endscan;
+scan No0045;
+     start=2022y132d11h18m23s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   84.615 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   84.615 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   84.615 GB:   :       : 1;
+endscan;
+scan No0046;
+     start=2022y132d11h19m23s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   86.538 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   86.538 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   86.538 GB:   :       : 1;
+endscan;
+scan No0047;
+     start=2022y132d11h20m23s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   88.461 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   88.461 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   88.461 GB:   :       : 1;
+endscan;
+scan No0048;
+     start=2022y132d11h21m23s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   90.384 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   90.384 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   90.384 GB:   :       : 1;
+endscan;
+scan No0049;
+     start=2022y132d11h22m23s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   92.307 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   92.307 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   92.307 GB:   :       : 1;
+endscan;
+scan No0050;
+     start=2022y132d11h23m23s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   94.231 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   94.231 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   94.231 GB:   :       : 1;
+endscan;
+scan No0051;
+     start=2022y132d11h24m22s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   96.154 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   96.154 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   96.154 GB:   :       : 1;
+endscan;
+scan No0052;
+     start=2022y132d11h25m22s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:   98.077 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:   98.077 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:   98.077 GB:   :       : 1;
+endscan;
+scan No0053;
+     start=2022y132d11h26m22s; mode=spirals.meth; source=3C273;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   15 sec:  100.000 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  100.000 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  100.000 GB:   :       : 1;
+endscan;
+scan No0054;
+     start=2022y132d11h27m22s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  101.923 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  101.923 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  101.923 GB:   :       : 1;
+endscan;
+scan No0055;
+     start=2022y132d11h28m22s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  103.846 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  103.846 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  103.846 GB:   :       : 1;
+endscan;
+scan No0056;
+     start=2022y132d11h29m22s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  105.769 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  105.769 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  105.769 GB:   :       : 1;
+endscan;
+scan No0057;
+     start=2022y132d11h30m21s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  107.692 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  107.692 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  107.692 GB:   :       : 1;
+endscan;
+scan No0058;
+     start=2022y132d11h31m21s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  109.615 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  109.615 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  109.615 GB:   :       : 1;
+endscan;
+scan No0059;
+     start=2022y132d11h32m21s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  111.538 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  111.538 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  111.538 GB:   :       : 1;
+endscan;
+scan No0060;
+     start=2022y132d11h33m21s; mode=spirals.meth; source=3C273;
+     station=Cd:    0 sec:   15 sec:  113.461 GB:   :       : 1;
+     station=Hb:    0 sec:   15 sec:  113.461 GB:   :       : 1;
+     station=Wa:    0 sec:   15 sec:  113.461 GB:   :       : 1;
+endscan;
+scan No0061;
+     start=2022y132d11h35m12s; mode=spirals.meth; source=1059+282;
+     station=Cd:    0 sec:   60 sec:  115.384 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  115.384 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  115.384 GB:   :       : 1;
+endscan;
+scan No0062;
+     start=2022y132d11h38m25s; mode=spirals.meth; source=1441+252;
+     station=Cd:    0 sec:   60 sec:  123.077 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  123.077 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  123.077 GB:   :       : 1;
+endscan;
+scan No0063;
+     start=2022y132d11h41m07s; mode=spirals.meth; source=1334-127;
+     station=Cd:    0 sec:   60 sec:  130.769 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  130.769 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  130.769 GB:   :       : 1;
+endscan;
+scan No0064;
+     start=2022y132d11h43m24s; mode=spirals.meth; source=1413+135;
+     station=Cd:    0 sec:   60 sec:  138.461 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  138.461 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  138.461 GB:   :       : 1;
+endscan;
+scan No0065;
+     start=2022y132d11h45m51s; mode=spirals.meth; source=1608+243;
+     station=Cd:    0 sec:   60 sec:  146.154 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  146.154 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  146.154 GB:   :       : 1;
+endscan;
+scan No0066;
+     start=2022y132d11h47m31s; mode=spirals.meth; source=1601+112;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   60 sec:  153.846 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  153.846 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  153.846 GB:   :       : 1;
+endscan;
+scan No0067;
+     start=2022y132d11h49m41s; mode=spirals.meth; source=1511-100;
+     station=Cd:    0 sec:   59 sec:  161.538 GB:   :       : 1;
+     station=Hb:    0 sec:   59 sec:  161.538 GB:   :       : 1;
+     station=Wa:    0 sec:   59 sec:  161.538 GB:   :       : 1;
+endscan;
+scan No0068;
+     start=2022y132d11h54m29s; mode=spirals.meth; source=1055+018;
+     station=Cd:    0 sec:   60 sec:  169.230 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  169.230 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  169.230 GB:   :       : 1;
+endscan;
+scan No0069;
+     start=2022y132d11h56m20s; mode=spirals.meth; source=1145-071;
+     station=Cd:    0 sec:   60 sec:  176.923 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  176.923 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  176.923 GB:   :       : 1;
+endscan;
+scan No0070;
+     start=2022y132d11h59m30s; mode=spirals.meth; source=0925-203;
+     station=Cd:    0 sec:   59 sec:  184.615 GB:   :       : 1;
+     station=Hb:    0 sec:   59 sec:  184.615 GB:   :       : 1;
+     station=Wa:    0 sec:   59 sec:  184.615 GB:   :       : 1;
+endscan;
+scan No0071;
+     start=2022y132d12h01m27s; mode=spirals.meth; source=1045-188;
+     station=Cd:    0 sec:   60 sec:  192.307 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  192.307 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  192.307 GB:   :       : 1;
+endscan;
+scan No0072;
+     start=2022y132d12h04m57s; mode=spirals.meth; source=F1256-0547;
+     station=Cd:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+endscan;
+scan No0073;
+     start=2022y132d12h10m22s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+endscan;
+scan No0074;
+     start=2022y132d12h11m12s; mode=spirals.meth; source=G311.23-0.03;
+     station=Cd:    0 sec:   99 sec:  207.692 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  207.692 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  207.692 GB:   :       : 1;
+endscan;
+scan No0075;
+     start=2022y132d12h13m11s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   25 sec:  220.512 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  220.512 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  220.512 GB:   :       : 1;
+endscan;
+scan No0076;
+     start=2022y132d12h13m56s; mode=spirals.meth; source=G311.23-0.03;
+     station=Cd:    0 sec:   99 sec:  223.717 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  223.717 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  223.717 GB:   :       : 1;
+endscan;
+scan No0077;
+     start=2022y132d12h15m55s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   25 sec:  236.538 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  236.538 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  236.538 GB:   :       : 1;
+endscan;
+scan No0078;
+     start=2022y132d12h32m01s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   24 sec:  239.743 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec:  239.743 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec:  239.743 GB:   :       : 1;
+endscan;
+scan No0079;
+     start=2022y132d12h32m46s; mode=spirals.meth; source=G320.42+0.08;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec:  242.948 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  242.948 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  242.948 GB:   :       : 1;
+endscan;
+scan No0080;
+     start=2022y132d12h34m46s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec:  255.769 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  255.769 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  255.769 GB:   :       : 1;
+endscan;
+scan No0081;
+     start=2022y132d12h35m32s; mode=spirals.meth; source=G320.42+0.08;
+     station=Cd:    0 sec:   99 sec:  258.974 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  258.974 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  258.974 GB:   :       : 1;
+endscan;
+scan No0082;
+     start=2022y132d12h37m32s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec:  271.794 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  271.794 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  271.794 GB:   :       : 1;
+endscan;
+scan No0083;
+     start=2022y132d12h38m43s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec:  274.999 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  274.999 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  274.999 GB:   :       : 1;
+endscan;
+scan No0084;
+     start=2022y132d12h39m30s; mode=spirals.meth; source=G329.61+0.11;
+     station=Cd:    0 sec:   99 sec:  278.204 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  278.204 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  278.204 GB:   :       : 1;
+endscan;
+scan No0085;
+     start=2022y132d12h41m32s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec:  291.025 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  291.025 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  291.025 GB:   :       : 1;
+endscan;
+scan No0086;
+     start=2022y132d12h42m19s; mode=spirals.meth; source=G329.61+0.11;
+     station=Cd:    0 sec:  100 sec:  294.230 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  294.230 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  294.230 GB:   :       : 1;
+endscan;
+scan No0087;
+     start=2022y132d12h44m21s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec:  307.051 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  307.051 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  307.051 GB:   :       : 1;
+endscan;
+scan No0088;
+     start=2022y132d12h46m29s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec:  310.256 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  310.256 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  310.256 GB:   :       : 1;
+endscan;
+scan No0089;
+     start=2022y132d12h47m10s; mode=spirals.meth; source=G337.70-0.05;
+     station=Cd:    0 sec:  100 sec:  313.461 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  313.461 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  313.461 GB:   :       : 1;
+endscan;
+scan No0090;
+     start=2022y132d12h49m07s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec:  326.281 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  326.281 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  326.281 GB:   :       : 1;
+endscan;
+scan No0091;
+     start=2022y132d12h49m49s; mode=spirals.meth; source=G337.70-0.05;
+     station=Cd:    0 sec:   99 sec:  329.486 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  329.486 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  329.486 GB:   :       : 1;
+endscan;
+scan No0092;
+     start=2022y132d12h51m45s; mode=spirals.meth; source=J1632-4558;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec:  342.307 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  342.307 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  342.307 GB:   :       : 1;
+endscan;
+scan No0093;
+     start=2022y132d12h53m21s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec:  345.512 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  345.512 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  345.512 GB:   :       : 1;
+endscan;
+scan No0094;
+     start=2022y132d12h54m09s; mode=spirals.meth; source=G342.95-0.01;
+     station=Cd:    0 sec:  100 sec:  348.717 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  348.717 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  348.717 GB:   :       : 1;
+endscan;
+scan No0095;
+     start=2022y132d12h56m11s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec:  361.538 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  361.538 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  361.538 GB:   :       : 1;
+endscan;
+scan No0096;
+     start=2022y132d12h56m59s; mode=spirals.meth; source=G342.95-0.01;
+     station=Cd:    0 sec:  100 sec:  364.743 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  364.743 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  364.743 GB:   :       : 1;
+endscan;
+scan No0097;
+     start=2022y132d12h59m01s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec:  377.563 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  377.563 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  377.563 GB:   :       : 1;
+endscan;
+scan No0098;
+*    start=2022y132d12h59m28s <= original start, modified for tape start.
+     start=2022y132d12h59m26s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    3 sec:   27 sec:  380.768 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  380.768 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  380.768 GB:   :       : 1;
+endscan;
+scan No0099;
+     start=2022y132d13h00m16s; mode=spirals.meth; source=G345.44+0.20;
+     station=Cd:    0 sec:  100 sec:  384.230 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  384.230 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  384.230 GB:   :       : 1;
+endscan;
+scan No0100;
+     start=2022y132d13h02m19s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec:  397.050 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  397.050 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  397.050 GB:   :       : 1;
+endscan;
+scan No0101;
+     start=2022y132d13h03m07s; mode=spirals.meth; source=G345.44+0.20;
+     station=Cd:    0 sec:  100 sec:  400.255 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  400.255 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  400.255 GB:   :       : 1;
+endscan;
+scan No0102;
+     start=2022y132d13h05m10s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec:  413.076 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  413.076 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  413.076 GB:   :       : 1;
+endscan;
+scan No0103;
+     start=2022y132d13h06m35s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec:  416.281 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  416.281 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  416.281 GB:   :       : 1;
+endscan;
+scan No0104;
+     start=2022y132d13h07m15s; mode=spirals.meth; source=G348.72-0.07;
+     station=Cd:    0 sec:  100 sec:  419.486 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  419.486 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  419.486 GB:   :       : 1;
+endscan;
+scan No0105;
+     start=2022y132d13h09m10s; mode=spirals.meth; source=J1711-3744;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   24 sec:  432.307 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec:  432.307 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec:  432.307 GB:   :       : 1;
+endscan;
+scan No0106;
+     start=2022y132d13h09m49s; mode=spirals.meth; source=G348.72-0.07;
+     station=Cd:    0 sec:  100 sec:  435.512 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  435.512 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  435.512 GB:   :       : 1;
+endscan;
+scan No0107;
+     start=2022y132d13h11m44s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec:  448.332 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  448.332 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  448.332 GB:   :       : 1;
+endscan;
+scan No0108;
+*    start=2022y132d13h12m17s <= original start, modified for tape start.
+     start=2022y132d13h12m09s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    8 sec:   33 sec:  451.537 GB:   :       : 1;
+     station=Hb:    3 sec:   33 sec:  451.537 GB:   :       : 1;
+     station=Wa:    5 sec:   33 sec:  451.537 GB:   :       : 1;
+endscan;
+scan No0109;
+     start=2022y132d13h12m56s; mode=spirals.meth; source=G349.88+0.23;
+     station=Cd:    0 sec:  100 sec:  455.768 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  455.768 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  455.768 GB:   :       : 1;
+endscan;
+scan No0110;
+     start=2022y132d13h14m51s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec:  468.588 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  468.588 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  468.588 GB:   :       : 1;
+endscan;
+scan No0111;
+     start=2022y132d13h15m31s; mode=spirals.meth; source=G349.88+0.23;
+     station=Cd:    0 sec:   99 sec:  471.794 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  471.794 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  471.794 GB:   :       : 1;
+endscan;
+scan No0112;
+     start=2022y132d13h17m25s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec:  484.614 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  484.614 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  484.614 GB:   :       : 1;
+endscan;
+scan No0113;
+     start=2022y132d13h18m16s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec:  487.819 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  487.819 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  487.819 GB:   :       : 1;
+endscan;
+scan No0114;
+     start=2022y132d13h19m25s; mode=spirals.meth; source=G354.49+0.08;
+     station=Cd:    0 sec:  100 sec:  491.024 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  491.024 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  491.024 GB:   :       : 1;
+endscan;
+scan No0115;
+     start=2022y132d13h21m49s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec:  503.845 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  503.845 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  503.845 GB:   :       : 1;
+endscan;
+scan No0116;
+     start=2022y132d13h23m00s; mode=spirals.meth; source=G354.49+0.08;
+     station=Cd:    0 sec:  100 sec:  507.050 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  507.050 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  507.050 GB:   :       : 1;
+endscan;
+scan No0117;
+     start=2022y132d13h25m26s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec:  519.870 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  519.870 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  519.870 GB:   :       : 1;
+endscan;
+scan No0118;
+     start=2022y132d13h26m56s; mode=spirals.meth; source=J1752-3001;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec:  523.075 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  523.075 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  523.075 GB:   :       : 1;
+endscan;
+scan No0119;
+     start=2022y132d13h27m40s; mode=spirals.meth; source=G358.72-0.12;
+     station=Cd:    0 sec:  100 sec:  526.281 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  526.281 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  526.281 GB:   :       : 1;
+endscan;
+scan No0120;
+     start=2022y132d13h29m38s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec:  539.101 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  539.101 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  539.101 GB:   :       : 1;
+endscan;
+scan No0121;
+     start=2022y132d13h30m22s; mode=spirals.meth; source=G358.72-0.12;
+     station=Cd:    0 sec:  100 sec:  542.306 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  542.306 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  542.306 GB:   :       : 1;
+endscan;
+scan No0122;
+     start=2022y132d13h32m21s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec:  555.127 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  555.127 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  555.127 GB:   :       : 1;
+endscan;
+scan No0123;
+*    start=2022y132d13h32m48s <= original start, modified for tape start.
+     start=2022y132d13h32m46s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    3 sec:   26 sec:  558.332 GB:   :       : 1;
+     station=Hb:    2 sec:   26 sec:  558.332 GB:   :       : 1;
+     station=Wa:    2 sec:   26 sec:  558.332 GB:   :       : 1;
+endscan;
+scan No0124;
+     start=2022y132d13h33m35s; mode=spirals.meth; source=G000.49+0.18;
+     station=Cd:    0 sec:  100 sec:  561.793 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  561.793 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  561.793 GB:   :       : 1;
+endscan;
+scan No0125;
+     start=2022y132d13h35m38s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   24 sec:  574.614 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec:  574.614 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec:  574.614 GB:   :       : 1;
+endscan;
+scan No0126;
+     start=2022y132d13h36m26s; mode=spirals.meth; source=G000.49+0.18;
+     station=Cd:    0 sec:  100 sec:  577.819 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  577.819 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  577.819 GB:   :       : 1;
+endscan;
+scan No0127;
+     start=2022y132d13h38m29s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec:  590.640 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  590.640 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  590.640 GB:   :       : 1;
+endscan;
+scan No0128;
+*    start=2022y132d13h38m56s <= original start, modified for tape start.
+     start=2022y132d13h38m54s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    3 sec:   27 sec:  593.845 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  593.845 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  593.845 GB:   :       : 1;
+endscan;
+scan No0129;
+     start=2022y132d13h39m47s; mode=spirals.meth; source=G001.71-0.08;
+     station=Cd:    0 sec:  100 sec:  597.306 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  597.306 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  597.306 GB:   :       : 1;
+endscan;
+scan No0130;
+     start=2022y132d13h41m53s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec:  610.127 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  610.127 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  610.127 GB:   :       : 1;
+endscan;
+scan No0131;
+     start=2022y132d13h42m46s; mode=spirals.meth; source=G001.71-0.08;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   99 sec:  613.332 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  613.332 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  613.332 GB:   :       : 1;
+endscan;
+scan No0132;
+     start=2022y132d13h44m52s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec:  626.152 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  626.152 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  626.152 GB:   :       : 1;
+endscan;
+scan No0133;
+     start=2022y132d13h45m45s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec:  629.357 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  629.357 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  629.357 GB:   :       : 1;
+endscan;
+scan No0134;
+     start=2022y132d13h46m32s; mode=spirals.meth; source=G004.43+0.12;
+     station=Cd:    0 sec:   99 sec:  632.563 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  632.563 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  632.563 GB:   :       : 1;
+endscan;
+scan No0135;
+     start=2022y132d13h48m32s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec:  645.383 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  645.383 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  645.383 GB:   :       : 1;
+endscan;
+scan No0136;
+     start=2022y132d13h49m19s; mode=spirals.meth; source=G004.43+0.12;
+     station=Cd:    0 sec:  100 sec:  648.588 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  648.588 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  648.588 GB:   :       : 1;
+endscan;
+scan No0137;
+     start=2022y132d13h51m20s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec:  661.409 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  661.409 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  661.409 GB:   :       : 1;
+endscan;
+scan No0138;
+*    start=2022y132d13h51m47s <= original start, modified for tape start.
+     start=2022y132d13h51m45s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    3 sec:   27 sec:  664.614 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  664.614 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  664.614 GB:   :       : 1;
+endscan;
+scan No0139;
+     start=2022y132d13h52m37s; mode=spirals.meth; source=G006.88+0.09;
+     station=Cd:    0 sec:  100 sec:  668.075 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  668.075 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  668.075 GB:   :       : 1;
+endscan;
+scan No0140;
+     start=2022y132d13h54m41s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec:  680.896 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  680.896 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  680.896 GB:   :       : 1;
+endscan;
+scan No0141;
+     start=2022y132d13h55m32s; mode=spirals.meth; source=G006.88+0.09;
+     station=Cd:    0 sec:  100 sec:  684.101 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  684.101 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  684.101 GB:   :       : 1;
+endscan;
+scan No0142;
+     start=2022y132d13h57m37s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec:  696.922 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  696.922 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  696.922 GB:   :       : 1;
+endscan;
+scan No0143;
+     start=2022y132d13h58m55s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec:  700.127 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  700.127 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  700.127 GB:   :       : 1;
+endscan;
+scan No0144;
+     start=2022y132d13h59m46s; mode=spirals.meth; source=G020.08-0.13;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec:  703.332 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  703.332 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  703.332 GB:   :       : 1;
+endscan;
+scan No0145;
+     start=2022y132d14h01m52s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec:  716.152 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  716.152 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  716.152 GB:   :       : 1;
+endscan;
+scan No0146;
+     start=2022y132d14h02m43s; mode=spirals.meth; source=G020.08-0.13;
+     station=Cd:    0 sec:  100 sec:  719.357 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  719.357 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  719.357 GB:   :       : 1;
+endscan;
+scan No0147;
+     start=2022y132d14h04m50s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   24 sec:  732.178 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec:  732.178 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec:  732.178 GB:   :       : 1;
+endscan;
+scan No0148;
+*    start=2022y132d14h05m16s <= original start, modified for tape start.
+     start=2022y132d14h05m14s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    3 sec:   27 sec:  735.383 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  735.383 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  735.383 GB:   :       : 1;
+endscan;
+scan No0149;
+     start=2022y132d14h06m04s; mode=spirals.meth; source=G021.88+0.01;
+     station=Cd:    0 sec:   99 sec:  738.845 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  738.845 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  738.845 GB:   :       : 1;
+endscan;
+scan No0150;
+     start=2022y132d14h08m06s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec:  751.665 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  751.665 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  751.665 GB:   :       : 1;
+endscan;
+scan No0151;
+     start=2022y132d14h08m53s; mode=spirals.meth; source=G021.88+0.01;
+     station=Cd:    0 sec:  100 sec:  754.870 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  754.870 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  754.870 GB:   :       : 1;
+endscan;
+scan No0152;
+     start=2022y132d14h10m56s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec:  767.691 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  767.691 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  767.691 GB:   :       : 1;
+endscan;
+scan No0153;
+*    start=2022y132d14h11m23s <= original start, modified for tape start.
+     start=2022y132d14h11m21s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    3 sec:   27 sec:  770.896 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  770.896 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  770.896 GB:   :       : 1;
+endscan;
+scan No0154;
+     start=2022y132d14h12m06s; mode=spirals.meth; source=G024.14-0.00;
+     station=Cd:    0 sec:  100 sec:  774.357 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  774.357 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  774.357 GB:   :       : 1;
+endscan;
+scan No0155;
+     start=2022y132d14h14m05s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec:  787.178 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  787.178 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  787.178 GB:   :       : 1;
+endscan;
+scan No0156;
+     start=2022y132d14h14m48s; mode=spirals.meth; source=G024.14-0.00;
+     station=Cd:    0 sec:  100 sec:  790.383 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  790.383 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  790.383 GB:   :       : 1;
+endscan;
+scan No0157;
+     start=2022y132d14h16m47s; mode=spirals.meth; source=J1825-0737;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec:  803.204 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  803.204 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  803.204 GB:   :       : 1;
+endscan;
+scan No0158;
+     start=2022y132d14h17m38s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   24 sec:  806.409 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec:  806.409 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec:  806.409 GB:   :       : 1;
+endscan;
+scan No0159;
+     start=2022y132d14h18m24s; mode=spirals.meth; source=G027.36-0.16;
+     station=Cd:    0 sec:  100 sec:  809.614 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  809.614 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  809.614 GB:   :       : 1;
+endscan;
+scan No0160;
+     start=2022y132d14h20m27s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec:  822.434 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  822.434 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  822.434 GB:   :       : 1;
+endscan;
+scan No0161;
+     start=2022y132d14h21m14s; mode=spirals.meth; source=G027.36-0.16;
+     station=Cd:    0 sec:   99 sec:  825.640 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  825.640 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  825.640 GB:   :       : 1;
+endscan;
+scan No0162;
+     start=2022y132d14h23m16s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec:  838.460 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  838.460 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  838.460 GB:   :       : 1;
+endscan;
+scan No0163;
+*    start=2022y132d14h23m43s <= original start, modified for tape start.
+     start=2022y132d14h23m41s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    3 sec:   27 sec:  841.665 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  841.665 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  841.665 GB:   :       : 1;
+endscan;
+scan No0164;
+     start=2022y132d14h24m26s; mode=spirals.meth; source=G028.52+0.12;
+     station=Cd:    0 sec:  100 sec:  845.127 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  845.127 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  845.127 GB:   :       : 1;
+endscan;
+scan No0165;
+     start=2022y132d14h26m25s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec:  857.947 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  857.947 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  857.947 GB:   :       : 1;
+endscan;
+scan No0166;
+     start=2022y132d14h27m09s; mode=spirals.meth; source=G028.52+0.12;
+     station=Cd:    0 sec:   99 sec:  861.152 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec:  861.152 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec:  861.152 GB:   :       : 1;
+endscan;
+scan No0167;
+     start=2022y132d14h29m07s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec:  873.973 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  873.973 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  873.973 GB:   :       : 1;
+endscan;
+scan No0168;
+     start=2022y132d14h30m05s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   24 sec:  877.178 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec:  877.178 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec:  877.178 GB:   :       : 1;
+endscan;
+scan No0169;
+     start=2022y132d14h30m52s; mode=spirals.meth; source=G030.78+0.23;
+     station=Cd:    0 sec:  100 sec:  880.383 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  880.383 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  880.383 GB:   :       : 1;
+endscan;
+scan No0170;
+     start=2022y132d14h32m54s; mode=spirals.meth; source=J1857-0048;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec:  893.204 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  893.204 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  893.204 GB:   :       : 1;
+endscan;
+scan No0171;
+     start=2022y132d14h33m41s; mode=spirals.meth; source=G030.78+0.23;
+     station=Cd:    0 sec:  100 sec:  896.409 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  896.409 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  896.409 GB:   :       : 1;
+endscan;
+scan No0172;
+     start=2022y132d14h35m43s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec:  909.229 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  909.229 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  909.229 GB:   :       : 1;
+endscan;
+scan No0173;
+*    start=2022y132d14h36m10s <= original start, modified for tape start.
+     start=2022y132d14h36m08s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    3 sec:   27 sec:  912.434 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec:  912.434 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec:  912.434 GB:   :       : 1;
+endscan;
+scan No0174;
+     start=2022y132d14h36m52s; mode=spirals.meth; source=G032.74-0.07;
+     station=Cd:    0 sec:  100 sec:  915.896 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  915.896 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  915.896 GB:   :       : 1;
+endscan;
+scan No0175;
+     start=2022y132d14h38m49s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec:  928.716 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  928.716 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  928.716 GB:   :       : 1;
+endscan;
+scan No0176;
+     start=2022y132d14h39m31s; mode=spirals.meth; source=G032.74-0.07;
+     station=Cd:    0 sec:  100 sec:  931.922 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec:  931.922 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec:  931.922 GB:   :       : 1;
+endscan;
+scan No0177;
+     start=2022y132d14h41m28s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec:  944.742 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec:  944.742 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec:  944.742 GB:   :       : 1;
+endscan;
+scan No0178;
+     start=2022y132d14h43m12s; mode=spirals.meth; source=1749+096;
+     station=Cd:    0 sec:   60 sec:  947.947 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  947.947 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  947.947 GB:   :       : 1;
+endscan;
+scan No0179;
+     start=2022y132d14h45m21s; mode=spirals.meth; source=1923+210;
+     station=Cd:    0 sec:   60 sec:  955.639 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  955.639 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  955.639 GB:   :       : 1;
+endscan;
+scan No0180;
+     start=2022y132d14h48m44s; mode=spirals.meth; source=1608+243;
+     station=Cd:    0 sec:   60 sec:  963.332 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  963.332 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  963.332 GB:   :       : 1;
+endscan;
+scan No0181;
+     start=2022y132d14h51m11s; mode=spirals.meth; source=1354+195;
+     station=Cd:    0 sec:   60 sec:  971.024 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  971.024 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  971.024 GB:   :       : 1;
+endscan;
+scan No0182;
+     start=2022y132d14h55m14s; mode=spirals.meth; source=1657-261;
+     station=Cd:    0 sec:   60 sec:  978.716 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  978.716 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  978.716 GB:   :       : 1;
+endscan;
+scan No0183;
+     start=2022y132d14h57m39s; mode=spirals.meth; source=1639-062;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   60 sec:  986.409 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  986.409 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  986.409 GB:   :       : 1;
+endscan;
+scan No0184;
+     start=2022y132d14h59m42s; mode=spirals.meth; source=1606+106;
+     station=Cd:    0 sec:   60 sec:  994.101 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec:  994.101 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec:  994.101 GB:   :       : 1;
+endscan;
+scan No0185;
+     start=2022y132d15h02m08s; mode=spirals.meth; source=1510-089;
+     station=Cd:    0 sec:   60 sec: 1001.793 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1001.793 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1001.793 GB:   :       : 1;
+endscan;
+scan No0186;
+     start=2022y132d15h03m53s; mode=spirals.meth; source=1502+036;
+     station=Cd:    0 sec:   60 sec: 1009.485 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1009.485 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1009.485 GB:   :       : 1;
+endscan;
+scan No0187;
+     start=2022y132d15h07m07s; mode=spirals.meth; source=NRAO530;
+     station=Cd:    0 sec:   60 sec: 1017.178 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1017.178 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1017.178 GB:   :       : 1;
+endscan;
+scan No0188;
+     start=2022y132d15h10m03s; mode=spirals.meth; source=1751+288;
+     station=Cd:    0 sec:   60 sec: 1024.870 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1024.870 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1024.870 GB:   :       : 1;
+endscan;
+scan No0189;
+     start=2022y132d15h14m20s; mode=spirals.meth; source=F1650-2943;
+     station=Cd:    0 sec:   30 sec: 1032.562 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1032.562 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1032.562 GB:   :       : 1;
+endscan;
+scan No0190;
+     start=2022y132d15h18m09s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   30 sec: 1036.408 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1036.408 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1036.408 GB:   :       : 1;
+endscan;
+scan No0191;
+     start=2022y132d15h19m05s; mode=spirals.meth; source=G311.23-0.03;
+     station=Cd:    0 sec:  100 sec: 1040.255 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1040.255 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1040.255 GB:   :       : 1;
+endscan;
+scan No0192;
+     start=2022y132d15h21m11s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   25 sec: 1053.075 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1053.075 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1053.075 GB:   :       : 1;
+endscan;
+scan No0193;
+     start=2022y132d15h22m02s; mode=spirals.meth; source=G311.23-0.03;
+     station=Cd:    0 sec:  100 sec: 1056.280 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1056.280 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1056.280 GB:   :       : 1;
+endscan;
+scan No0194;
+     start=2022y132d15h24m09s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   25 sec: 1069.100 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1069.100 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1069.100 GB:   :       : 1;
+endscan;
+scan No0195;
+     start=2022y132d15h25m23s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec: 1072.306 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1072.306 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1072.306 GB:   :       : 1;
+endscan;
+scan No0196;
+     start=2022y132d15h26m04s; mode=spirals.meth; source=G320.42+0.08;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec: 1075.511 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1075.511 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1075.511 GB:   :       : 1;
+endscan;
+scan No0197;
+     start=2022y132d15h28m00s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec: 1088.331 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1088.331 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1088.331 GB:   :       : 1;
+endscan;
+scan No0198;
+     start=2022y132d15h28m42s; mode=spirals.meth; source=G320.42+0.08;
+     station=Cd:    0 sec:   99 sec: 1091.536 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1091.536 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1091.536 GB:   :       : 1;
+endscan;
+scan No0199;
+     start=2022y132d15h30m37s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec: 1104.357 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1104.357 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1104.357 GB:   :       : 1;
+endscan;
+scan No0200;
+     start=2022y132d15h31m45s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec: 1107.562 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1107.562 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1107.562 GB:   :       : 1;
+endscan;
+scan No0201;
+     start=2022y132d15h32m40s; mode=spirals.meth; source=G329.61+0.11;
+     station=Cd:    0 sec:   99 sec: 1110.767 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1110.767 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1110.767 GB:   :       : 1;
+endscan;
+scan No0202;
+     start=2022y132d15h34m50s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec: 1123.587 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1123.587 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1123.587 GB:   :       : 1;
+endscan;
+scan No0203;
+     start=2022y132d15h35m44s; mode=spirals.meth; source=G329.61+0.11;
+     station=Cd:    0 sec:  100 sec: 1126.792 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1126.792 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1126.792 GB:   :       : 1;
+endscan;
+scan No0204;
+     start=2022y132d15h37m55s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec: 1139.613 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1139.613 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1139.613 GB:   :       : 1;
+endscan;
+scan No0205;
+     start=2022y132d15h39m26s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec: 1142.818 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1142.818 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1142.818 GB:   :       : 1;
+endscan;
+scan No0206;
+     start=2022y132d15h40m07s; mode=spirals.meth; source=G337.70-0.05;
+     station=Cd:    0 sec:   99 sec: 1146.023 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1146.023 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1146.023 GB:   :       : 1;
+endscan;
+scan No0207;
+     start=2022y132d15h42m03s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec: 1158.843 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1158.843 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1158.843 GB:   :       : 1;
+endscan;
+scan No0208;
+     start=2022y132d15h42m44s; mode=spirals.meth; source=G337.70-0.05;
+     station=Cd:    0 sec:   99 sec: 1162.048 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1162.048 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1162.048 GB:   :       : 1;
+endscan;
+scan No0209;
+     start=2022y132d15h44m40s; mode=spirals.meth; source=J1632-4558;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 1174.869 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1174.869 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1174.869 GB:   :       : 1;
+endscan;
+scan No0210;
+     start=2022y132d15h46m09s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 1178.074 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1178.074 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1178.074 GB:   :       : 1;
+endscan;
+scan No0211;
+     start=2022y132d15h47m06s; mode=spirals.meth; source=G342.95-0.01;
+     station=Cd:    0 sec:  100 sec: 1181.279 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1181.279 GB:   :       : 1;
+endscan;
+scan No0212;
+     start=2022y132d15h49m18s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 1194.099 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1181.279 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1194.099 GB:   :       : 1;
+endscan;
+scan No0213;
+     start=2022y132d15h50m17s; mode=spirals.meth; source=G342.95-0.01;
+     station=Cd:    0 sec:   99 sec: 1197.304 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1197.304 GB:   :       : 1;
+endscan;
+scan No0214;
+     start=2022y132d15h52m29s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 1210.125 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1184.484 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1210.125 GB:   :       : 1;
+endscan;
+scan No0215;
+*    start=2022y132d15h52m56s <= original start, modified for tape start.
+     start=2022y132d15h52m54s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    3 sec:   27 sec: 1213.330 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1187.689 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1213.330 GB:   :       : 1;
+endscan;
+scan No0216;
+     start=2022y132d15h54m21s; mode=spirals.meth; source=G345.44+0.20;
+     station=Cd:    0 sec:   99 sec: 1216.792 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1191.151 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1216.792 GB:   :       : 1;
+endscan;
+scan No0217;
+     start=2022y132d15h56m22s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 1229.612 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1229.612 GB:   :       : 1;
+endscan;
+scan No0218;
+     start=2022y132d15h57m08s; mode=spirals.meth; source=G345.44+0.20;
+     station=Cd:    0 sec:  100 sec: 1232.817 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1203.971 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1232.817 GB:   :       : 1;
+endscan;
+scan No0219;
+     start=2022y132d15h59m09s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 1245.637 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1245.637 GB:   :       : 1;
+endscan;
+scan No0220;
+     start=2022y132d16h00m25s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec: 1248.843 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1216.792 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1248.843 GB:   :       : 1;
+endscan;
+scan No0221;
+     start=2022y132d16h01m05s; mode=spirals.meth; source=G348.72-0.07;
+     station=Cd:    0 sec:   99 sec: 1252.048 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1219.997 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1252.048 GB:   :       : 1;
+endscan;
+scan No0222;
+     start=2022y132d16h02m59s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec: 1264.868 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1232.817 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1264.868 GB:   :       : 1;
+endscan;
+scan No0223;
+     start=2022y132d16h03m39s; mode=spirals.meth; source=G348.72-0.07;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec: 1268.073 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1236.022 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1268.073 GB:   :       : 1;
+endscan;
+scan No0224;
+     start=2022y132d16h05m33s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec: 1280.894 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1248.843 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1280.894 GB:   :       : 1;
+endscan;
+scan No0225;
+     start=2022y132d16h06m12s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec: 1284.099 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1252.048 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1284.099 GB:   :       : 1;
+endscan;
+scan No0226;
+     start=2022y132d16h07m01s; mode=spirals.meth; source=G349.88+0.23;
+     station=Cd:    0 sec:  100 sec: 1287.304 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1255.253 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1287.304 GB:   :       : 1;
+endscan;
+scan No0227;
+     start=2022y132d16h09m07s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec: 1300.124 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1268.073 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1300.124 GB:   :       : 1;
+endscan;
+scan No0228;
+     start=2022y132d16h09m56s; mode=spirals.meth; source=G349.88+0.23;
+     station=Cd:    0 sec:  100 sec: 1303.329 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1271.278 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1303.329 GB:   :       : 1;
+endscan;
+scan No0229;
+     start=2022y132d16h12m03s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec: 1316.150 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1284.099 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1316.150 GB:   :       : 1;
+endscan;
+scan No0230;
+     start=2022y132d16h13m04s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec: 1319.355 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1287.304 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1319.355 GB:   :       : 1;
+endscan;
+scan No0231;
+     start=2022y132d16h14m18s; mode=spirals.meth; source=G354.49+0.08;
+     station=Cd:    0 sec:  100 sec: 1322.560 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1290.509 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1322.560 GB:   :       : 1;
+endscan;
+scan No0232;
+     start=2022y132d16h16m48s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec: 1335.380 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1303.329 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1335.380 GB:   :       : 1;
+endscan;
+scan No0233;
+     start=2022y132d16h18m04s; mode=spirals.meth; source=G354.49+0.08;
+     station=Cd:    0 sec:   99 sec: 1338.585 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1306.534 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1338.585 GB:   :       : 1;
+endscan;
+scan No0234;
+     start=2022y132d16h20m35s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec: 1351.406 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1319.355 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1351.406 GB:   :       : 1;
+endscan;
+scan No0235;
+     start=2022y132d16h22m12s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 1354.611 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1322.560 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1354.611 GB:   :       : 1;
+endscan;
+scan No0236;
+     start=2022y132d16h22m57s; mode=spirals.meth; source=G358.72-0.12;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   99 sec: 1357.816 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1325.765 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1357.816 GB:   :       : 1;
+endscan;
+scan No0237;
+     start=2022y132d16h24m55s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 1370.636 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1338.585 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1370.636 GB:   :       : 1;
+endscan;
+scan No0238;
+     start=2022y132d16h25m39s; mode=spirals.meth; source=G358.72-0.12;
+     station=Cd:    0 sec:  100 sec: 1373.841 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1341.790 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1373.841 GB:   :       : 1;
+endscan;
+scan No0239;
+     start=2022y132d16h27m38s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 1386.662 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1354.611 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1386.662 GB:   :       : 1;
+endscan;
+scan No0240;
+*    start=2022y132d16h28m05s <= original start, modified for tape start.
+     start=2022y132d16h28m03s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    3 sec:   27 sec: 1389.867 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1357.816 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1389.867 GB:   :       : 1;
+endscan;
+scan No0241;
+     start=2022y132d16h29m06s; mode=spirals.meth; source=G000.49+0.18;
+     station=Cd:    0 sec:   99 sec: 1393.328 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1361.277 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1393.328 GB:   :       : 1;
+endscan;
+scan No0242;
+     start=2022y132d16h31m21s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 1406.149 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1374.098 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1406.149 GB:   :       : 1;
+endscan;
+scan No0243;
+     start=2022y132d16h32m23s; mode=spirals.meth; source=G000.49+0.18;
+     station=Cd:    0 sec:   99 sec: 1409.354 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1377.303 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1409.354 GB:   :       : 1;
+endscan;
+scan No0244;
+     start=2022y132d16h34m39s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 1422.174 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1390.123 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1422.174 GB:   :       : 1;
+endscan;
+scan No0245;
+*    start=2022y132d16h35m06s <= original start, modified for tape start.
+     start=2022y132d16h35m04s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    3 sec:   27 sec: 1425.380 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1393.328 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1425.380 GB:   :       : 1;
+endscan;
+scan No0246;
+     start=2022y132d16h36m13s; mode=spirals.meth; source=G001.71-0.08;
+     station=Cd:    0 sec:  100 sec: 1428.841 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1396.790 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1428.841 GB:   :       : 1;
+endscan;
+scan No0247;
+     start=2022y132d16h38m35s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 1441.661 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1409.610 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1441.661 GB:   :       : 1;
+endscan;
+scan No0248;
+     start=2022y132d16h39m44s; mode=spirals.meth; source=G001.71-0.08;
+     station=Cd:    0 sec:   99 sec: 1444.867 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1412.816 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1444.867 GB:   :       : 1;
+endscan;
+scan No0249;
+     start=2022y132d16h42m07s; mode=spirals.meth; source=J1752-3001;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 1457.687 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1425.636 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1457.687 GB:   :       : 1;
+endscan;
+scan No0250;
+     start=2022y132d16h43m19s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 1460.892 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1428.841 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1460.892 GB:   :       : 1;
+endscan;
+scan No0251;
+     start=2022y132d16h44m15s; mode=spirals.meth; source=G004.43+0.12;
+     station=Cd:    0 sec:  100 sec: 1464.097 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1432.046 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1464.097 GB:   :       : 1;
+endscan;
+scan No0252;
+     start=2022y132d16h46m25s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 1476.918 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1444.867 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1476.918 GB:   :       : 1;
+endscan;
+scan No0253;
+     start=2022y132d16h47m22s; mode=spirals.meth; source=G004.43+0.12;
+     station=Cd:    0 sec:   99 sec: 1480.123 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1448.072 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1480.123 GB:   :       : 1;
+endscan;
+scan No0254;
+     start=2022y132d16h49m33s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   24 sec: 1492.943 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec: 1460.892 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec: 1492.943 GB:   :       : 1;
+endscan;
+scan No0255;
+*    start=2022y132d16h49m59s <= original start, modified for tape start.
+     start=2022y132d16h49m57s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    3 sec:   27 sec: 1496.148 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1464.097 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1496.148 GB:   :       : 1;
+endscan;
+scan No0256;
+     start=2022y132d16h51m05s; mode=spirals.meth; source=G006.88+0.09;
+     station=Cd:    0 sec:  100 sec: 1499.610 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1467.559 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1499.610 GB:   :       : 1;
+endscan;
+scan No0257;
+     start=2022y132d16h53m26s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   24 sec: 1512.430 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec: 1480.379 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec: 1512.430 GB:   :       : 1;
+endscan;
+scan No0258;
+     start=2022y132d16h54m32s; mode=spirals.meth; source=G006.88+0.09;
+     station=Cd:    0 sec:  100 sec: 1515.635 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1483.584 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1515.635 GB:   :       : 1;
+endscan;
+scan No0259;
+     start=2022y132d16h56m53s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 1528.456 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1496.405 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1528.456 GB:   :       : 1;
+endscan;
+scan No0260;
+     start=2022y132d16h58m44s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   24 sec: 1531.661 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec: 1499.610 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec: 1531.661 GB:   :       : 1;
+endscan;
+scan No0261;
+     start=2022y132d16h59m39s; mode=spirals.meth; source=G020.08-0.13;
+     station=Cd:    0 sec:   99 sec: 1534.866 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1502.815 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1534.866 GB:   :       : 1;
+endscan;
+scan No0262;
+     start=2022y132d17h01m50s; mode=spirals.meth; source=J1825-0737;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 1547.686 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1515.635 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1547.686 GB:   :       : 1;
+endscan;
+scan No0263;
+     start=2022y132d17h02m45s; mode=spirals.meth; source=G020.08-0.13;
+     station=Cd:    0 sec:  100 sec: 1550.891 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1518.840 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1550.891 GB:   :       : 1;
+endscan;
+scan No0264;
+     start=2022y132d17h04m56s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 1563.712 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1531.661 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1563.712 GB:   :       : 1;
+endscan;
+scan No0265;
+*    start=2022y132d17h05m23s <= original start, modified for tape start.
+     start=2022y132d17h05m21s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    3 sec:   27 sec: 1566.917 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1534.866 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1566.917 GB:   :       : 1;
+endscan;
+scan No0266;
+     start=2022y132d17h06m16s; mode=spirals.meth; source=G021.88+0.01;
+     station=Cd:    0 sec:   99 sec: 1570.378 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1538.327 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1570.378 GB:   :       : 1;
+endscan;
+scan No0267;
+     start=2022y132d17h08m24s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 1583.199 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1551.148 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1583.199 GB:   :       : 1;
+endscan;
+scan No0268;
+     start=2022y132d17h09m17s; mode=spirals.meth; source=G021.88+0.01;
+     station=Cd:    0 sec:  100 sec: 1586.404 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1554.353 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1586.404 GB:   :       : 1;
+endscan;
+scan No0269;
+     start=2022y132d17h11m26s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 1599.224 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1567.173 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1599.224 GB:   :       : 1;
+endscan;
+scan No0270;
+*    start=2022y132d17h11m53s <= original start, modified for tape start.
+     start=2022y132d17h11m51s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    3 sec:   27 sec: 1602.429 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1570.378 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1602.429 GB:   :       : 1;
+endscan;
+scan No0271;
+     start=2022y132d17h12m45s; mode=spirals.meth; source=G024.14-0.00;
+     station=Cd:    0 sec:  100 sec: 1605.891 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1573.840 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1605.891 GB:   :       : 1;
+endscan;
+scan No0272;
+     start=2022y132d17h14m54s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 1618.711 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1586.660 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1618.711 GB:   :       : 1;
+endscan;
+scan No0273;
+     start=2022y132d17h15m46s; mode=spirals.meth; source=G024.14-0.00;
+     station=Cd:    0 sec:  100 sec: 1621.917 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1589.865 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1621.917 GB:   :       : 1;
+endscan;
+scan No0274;
+     start=2022y132d17h17m55s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 1634.737 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1602.686 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1634.737 GB:   :       : 1;
+endscan;
+scan No0275;
+     start=2022y132d17h18m48s; mode=spirals.meth; source=J1833-0323;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 1637.942 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1605.891 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1637.942 GB:   :       : 1;
+endscan;
+scan No0276;
+     start=2022y132d17h19m41s; mode=spirals.meth; source=G027.36-0.16;
+     station=Cd:    0 sec:  100 sec: 1641.147 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1609.096 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1641.147 GB:   :       : 1;
+endscan;
+scan No0277;
+     start=2022y132d17h21m50s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 1653.968 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1621.917 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1653.968 GB:   :       : 1;
+endscan;
+scan No0278;
+     start=2022y132d17h22m44s; mode=spirals.meth; source=G027.36-0.16;
+     station=Cd:    0 sec:   99 sec: 1657.173 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1625.122 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1657.173 GB:   :       : 1;
+endscan;
+scan No0279;
+     start=2022y132d17h24m53s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 1669.993 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1637.942 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1669.993 GB:   :       : 1;
+endscan;
+scan No0280;
+*    start=2022y132d17h25m20s <= original start, modified for tape start.
+     start=2022y132d17h25m18s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    3 sec:   27 sec: 1673.198 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1641.147 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1673.198 GB:   :       : 1;
+endscan;
+scan No0281;
+     start=2022y132d17h26m12s; mode=spirals.meth; source=G028.52+0.12;
+     station=Cd:    0 sec:  100 sec: 1676.660 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1644.609 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1676.660 GB:   :       : 1;
+endscan;
+scan No0282;
+     start=2022y132d17h28m20s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 1689.480 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1657.429 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1689.480 GB:   :       : 1;
+endscan;
+scan No0283;
+     start=2022y132d17h29m12s; mode=spirals.meth; source=G028.52+0.12;
+     station=Cd:    0 sec:  100 sec: 1692.685 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1660.634 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1692.685 GB:   :       : 1;
+endscan;
+scan No0284;
+     start=2022y132d17h31m20s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 1705.506 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1673.455 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1705.506 GB:   :       : 1;
+endscan;
+scan No0285;
+     start=2022y132d17h32m22s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 1708.711 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1676.660 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1708.711 GB:   :       : 1;
+endscan;
+scan No0286;
+     start=2022y132d17h33m13s; mode=spirals.meth; source=G030.78+0.23;
+     station=Cd:    0 sec:   99 sec: 1711.916 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1679.865 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1711.916 GB:   :       : 1;
+endscan;
+scan No0287;
+     start=2022y132d17h35m17s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 1724.736 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1692.685 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1724.736 GB:   :       : 1;
+endscan;
+scan No0288;
+     start=2022y132d17h36m08s; mode=spirals.meth; source=G030.78+0.23;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec: 1727.941 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1695.890 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1727.941 GB:   :       : 1;
+endscan;
+scan No0289;
+     start=2022y132d17h38m13s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 1740.762 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1708.711 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1740.762 GB:   :       : 1;
+endscan;
+scan No0290;
+*    start=2022y132d17h38m40s <= original start, modified for tape start.
+     start=2022y132d17h38m38s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    3 sec:   27 sec: 1743.967 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 1711.916 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 1743.967 GB:   :       : 1;
+endscan;
+scan No0291;
+     start=2022y132d17h39m29s; mode=spirals.meth; source=G032.74-0.07;
+     station=Cd:    0 sec:  100 sec: 1747.428 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1715.377 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1747.428 GB:   :       : 1;
+endscan;
+scan No0292;
+     start=2022y132d17h41m31s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 1760.249 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1728.198 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1760.249 GB:   :       : 1;
+endscan;
+scan No0293;
+     start=2022y132d17h42m20s; mode=spirals.meth; source=G032.74-0.07;
+     station=Cd:    0 sec:   99 sec: 1763.454 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1731.403 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1763.454 GB:   :       : 1;
+endscan;
+scan No0294;
+     start=2022y132d17h44m22s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 1776.274 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1744.223 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1776.274 GB:   :       : 1;
+endscan;
+scan No0295;
+     start=2022y132d17h48m32s; mode=spirals.meth; source=2155-152;
+     station=Cd:    0 sec:   60 sec: 1779.479 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1747.428 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1779.479 GB:   :       : 1;
+endscan;
+scan No0296;
+     start=2022y132d17h51m26s; mode=spirals.meth; source=2113+293;
+     station=Cd:    0 sec:   60 sec: 1787.172 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1755.121 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1787.172 GB:   :       : 1;
+endscan;
+scan No0297;
+     start=2022y132d17h53m30s; mode=spirals.meth; source=2149+056;
+     station=Cd:    0 sec:   60 sec: 1794.864 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1762.813 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1794.864 GB:   :       : 1;
+endscan;
+scan No0298;
+     start=2022y132d17h55m27s; mode=spirals.meth; source=2214+241;
+     station=Cd:    0 sec:   60 sec: 1802.556 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1770.505 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1802.556 GB:   :       : 1;
+endscan;
+scan No0299;
+     start=2022y132d17h58m54s; mode=spirals.meth; source=2351-154;
+     station=Cd:    0 sec:   60 sec: 1810.248 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1778.197 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1810.248 GB:   :       : 1;
+endscan;
+scan No0300;
+     start=2022y132d18h01m09s; mode=spirals.meth; source=2244-372;
+     station=Cd:    0 sec:   60 sec: 1817.941 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1785.890 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1817.941 GB:   :       : 1;
+endscan;
+scan No0301;
+     start=2022y132d18h03m52s; mode=spirals.meth; source=2149-306;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   60 sec: 1825.633 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1793.582 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1825.633 GB:   :       : 1;
+endscan;
+scan No0302;
+     start=2022y132d18h08m53s; mode=spirals.meth; source=1929+226;
+     station=Cd:    0 sec:   60 sec: 1833.325 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1801.274 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1833.325 GB:   :       : 1;
+endscan;
+scan No0303;
+     start=2022y132d18h12m00s; mode=spirals.meth; source=1705+018;
+     station=Cd:    0 sec:   60 sec: 1841.017 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1808.966 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1841.017 GB:   :       : 1;
+endscan;
+scan No0304;
+     start=2022y132d18h13m59s; mode=spirals.meth; source=1555+001;
+     station=Cd:    0 sec:   60 sec: 1848.710 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 1816.659 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 1848.710 GB:   :       : 1;
+endscan;
+scan No0305;
+     start=2022y132d18h17m12s; mode=spirals.meth; source=F1427-4206;
+     station=Cd:    0 sec:   30 sec: 1856.402 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1824.351 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1856.402 GB:   :       : 1;
+endscan;
+scan No0306;
+     start=2022y132d18h18m45s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   29 sec: 1860.248 GB:   :       : 1;
+     station=Hb:    0 sec:   29 sec: 1828.197 GB:   :       : 1;
+     station=Wa:    0 sec:   29 sec: 1860.248 GB:   :       : 1;
+endscan;
+scan No0307;
+     start=2022y132d18h19m33s; mode=spirals.meth; source=G311.23-0.03;
+     station=Cd:    0 sec:  100 sec: 1864.094 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1832.043 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1864.094 GB:   :       : 1;
+endscan;
+scan No0308;
+     start=2022y132d18h21m31s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   25 sec: 1876.915 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1844.864 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1876.915 GB:   :       : 1;
+endscan;
+scan No0309;
+     start=2022y132d18h22m15s; mode=spirals.meth; source=G311.23-0.03;
+     station=Cd:    0 sec:   99 sec: 1880.120 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1848.069 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1880.120 GB:   :       : 1;
+endscan;
+scan No0310;
+     start=2022y132d18h24m13s; mode=spirals.meth; source=J1346-6024;
+     station=Cd:    0 sec:   25 sec: 1892.940 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1860.889 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1892.940 GB:   :       : 1;
+endscan;
+scan No0311;
+     start=2022y132d18h25m20s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec: 1896.145 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1864.094 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1896.145 GB:   :       : 1;
+endscan;
+scan No0312;
+     start=2022y132d18h26m03s; mode=spirals.meth; source=G320.42+0.08;
+     station=Cd:    0 sec:  100 sec: 1899.350 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1867.299 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1899.350 GB:   :       : 1;
+endscan;
+scan No0313;
+     start=2022y132d18h28m01s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec: 1912.171 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1880.120 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1912.171 GB:   :       : 1;
+endscan;
+scan No0314;
+     start=2022y132d18h28m44s; mode=spirals.meth; source=G320.42+0.08;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   99 sec: 1915.376 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1883.325 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1915.376 GB:   :       : 1;
+endscan;
+scan No0315;
+     start=2022y132d18h30m41s; mode=spirals.meth; source=J1512-5640;
+     station=Cd:    0 sec:   25 sec: 1928.196 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1896.145 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1928.196 GB:   :       : 1;
+endscan;
+scan No0316;
+     start=2022y132d18h31m37s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec: 1931.401 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1899.350 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1931.401 GB:   :       : 1;
+endscan;
+scan No0317;
+     start=2022y132d18h32m21s; mode=spirals.meth; source=G329.61+0.11;
+     station=Cd:    0 sec:   99 sec: 1934.607 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1902.556 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 1934.607 GB:   :       : 1;
+endscan;
+scan No0318;
+     start=2022y132d18h34m19s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   25 sec: 1947.427 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1915.376 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1947.427 GB:   :       : 1;
+endscan;
+scan No0319;
+     start=2022y132d18h35m02s; mode=spirals.meth; source=G329.61+0.11;
+     station=Cd:    0 sec:  100 sec: 1950.632 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1918.581 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1950.632 GB:   :       : 1;
+endscan;
+scan No0320;
+     start=2022y132d18h37m01s; mode=spirals.meth; source=J1549-5235;
+     station=Cd:    0 sec:   24 sec: 1963.453 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec: 1931.401 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec: 1963.453 GB:   :       : 1;
+endscan;
+scan No0321;
+     start=2022y132d18h38m02s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec: 1966.658 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1934.607 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1966.658 GB:   :       : 1;
+endscan;
+scan No0322;
+     start=2022y132d18h38m48s; mode=spirals.meth; source=G337.70-0.05;
+     station=Cd:    0 sec:  100 sec: 1969.863 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1937.812 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1969.863 GB:   :       : 1;
+endscan;
+scan No0323;
+     start=2022y132d18h40m49s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec: 1982.683 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1950.632 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1982.683 GB:   :       : 1;
+endscan;
+scan No0324;
+     start=2022y132d18h41m35s; mode=spirals.meth; source=G337.70-0.05;
+     station=Cd:    0 sec:  100 sec: 1985.888 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1953.837 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 1985.888 GB:   :       : 1;
+endscan;
+scan No0325;
+     start=2022y132d18h43m35s; mode=spirals.meth; source=J1632-4558;
+     station=Cd:    0 sec:   25 sec: 1998.709 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1966.658 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 1998.709 GB:   :       : 1;
+endscan;
+scan No0326;
+     start=2022y132d18h44m36s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 2001.914 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1969.863 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2001.914 GB:   :       : 1;
+endscan;
+scan No0327;
+     start=2022y132d18h45m23s; mode=spirals.meth; source=G342.95-0.01;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec: 2005.119 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 1973.068 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2005.119 GB:   :       : 1;
+endscan;
+scan No0328;
+     start=2022y132d18h47m25s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 2017.939 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 1985.888 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2017.939 GB:   :       : 1;
+endscan;
+scan No0329;
+     start=2022y132d18h48m13s; mode=spirals.meth; source=G342.95-0.01;
+     station=Cd:    0 sec:   99 sec: 2021.144 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 1989.093 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2021.144 GB:   :       : 1;
+endscan;
+scan No0330;
+     start=2022y132d18h50m14s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 2033.965 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2001.914 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2033.965 GB:   :       : 1;
+endscan;
+scan No0331;
+*    start=2022y132d18h50m41s <= original start, modified for tape start.
+     start=2022y132d18h50m39s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    3 sec:   27 sec: 2037.170 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2005.119 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2037.170 GB:   :       : 1;
+endscan;
+scan No0332;
+     start=2022y132d18h51m37s; mode=spirals.meth; source=G345.44+0.20;
+     station=Cd:    0 sec:  100 sec: 2040.631 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2008.580 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2040.631 GB:   :       : 1;
+endscan;
+scan No0333;
+     start=2022y132d18h53m47s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 2053.452 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2021.401 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2053.452 GB:   :       : 1;
+endscan;
+scan No0334;
+     start=2022y132d18h54m42s; mode=spirals.meth; source=G345.44+0.20;
+     station=Cd:    0 sec:   99 sec: 2056.657 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2024.606 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2056.657 GB:   :       : 1;
+endscan;
+scan No0335;
+     start=2022y132d18h56m51s; mode=spirals.meth; source=J1713-4257;
+     station=Cd:    0 sec:   25 sec: 2069.478 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2037.426 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2069.478 GB:   :       : 1;
+endscan;
+scan No0336;
+     start=2022y132d18h58m00s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec: 2072.683 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2040.631 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2072.683 GB:   :       : 1;
+endscan;
+scan No0337;
+     start=2022y132d18h58m42s; mode=spirals.meth; source=G348.72-0.07;
+     station=Cd:    0 sec:  100 sec: 2075.888 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2043.836 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2075.888 GB:   :       : 1;
+endscan;
+scan No0338;
+     start=2022y132d19h00m40s; mode=spirals.meth; source=J1711-3744;
+     station=Cd:    0 sec:   25 sec: 2088.708 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2056.657 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2088.708 GB:   :       : 1;
+endscan;
+scan No0339;
+     start=2022y132d19h01m22s; mode=spirals.meth; source=G348.72-0.07;
+     station=Cd:    0 sec:  100 sec: 2091.913 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2059.862 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2091.913 GB:   :       : 1;
+endscan;
+scan No0340;
+     start=2022y132d19h03m19s; mode=spirals.meth; source=J1711-3744;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 2104.734 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2072.683 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2104.734 GB:   :       : 1;
+endscan;
+scan No0341;
+*    start=2022y132d19h03m52s <= original start, modified for tape start.
+     start=2022y132d19h03m44s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    8 sec:   33 sec: 2107.939 GB:   :       : 1;
+     station=Hb:    3 sec:   33 sec: 2075.888 GB:   :       : 1;
+     station=Wa:    4 sec:   33 sec: 2107.939 GB:   :       : 1;
+endscan;
+scan No0342;
+     start=2022y132d19h04m32s; mode=spirals.meth; source=G349.88+0.23;
+     station=Cd:    0 sec:   99 sec: 2112.170 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2080.118 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2112.170 GB:   :       : 1;
+endscan;
+scan No0343;
+     start=2022y132d19h06m26s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec: 2124.990 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2092.939 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2124.990 GB:   :       : 1;
+endscan;
+scan No0344;
+     start=2022y132d19h07m06s; mode=spirals.meth; source=G349.88+0.23;
+     station=Cd:    0 sec:   99 sec: 2128.195 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2096.144 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2128.195 GB:   :       : 1;
+endscan;
+scan No0345;
+     start=2022y132d19h09m00s; mode=spirals.meth; source=J1712-3736;
+     station=Cd:    0 sec:   25 sec: 2141.016 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2108.965 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2141.016 GB:   :       : 1;
+endscan;
+scan No0346;
+     start=2022y132d19h09m51s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec: 2144.221 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2112.170 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2144.221 GB:   :       : 1;
+endscan;
+scan No0347;
+     start=2022y132d19h10m55s; mode=spirals.meth; source=G354.49+0.08;
+     station=Cd:    0 sec:  100 sec: 2147.426 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2115.375 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2147.426 GB:   :       : 1;
+endscan;
+scan No0348;
+     start=2022y132d19h13m13s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec: 2160.247 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2128.195 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2160.247 GB:   :       : 1;
+endscan;
+scan No0349;
+     start=2022y132d19h14m17s; mode=spirals.meth; source=G354.49+0.08;
+     station=Cd:    0 sec:   99 sec: 2163.452 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2131.400 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2163.452 GB:   :       : 1;
+endscan;
+scan No0350;
+     start=2022y132d19h16m34s; mode=spirals.meth; source=J1733-3722;
+     station=Cd:    0 sec:   25 sec: 2176.272 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2144.221 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2176.272 GB:   :       : 1;
+endscan;
+scan No0351;
+     start=2022y132d19h17m54s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 2179.477 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2147.426 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2179.477 GB:   :       : 1;
+endscan;
+scan No0352;
+     start=2022y132d19h18m38s; mode=spirals.meth; source=G358.72-0.12;
+     station=Cd:    0 sec:  100 sec: 2182.682 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2150.631 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2182.682 GB:   :       : 1;
+endscan;
+scan No0353;
+     start=2022y132d19h20m37s; mode=spirals.meth; source=J1752-3001;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 2195.503 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2163.452 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2195.503 GB:   :       : 1;
+endscan;
+scan No0354;
+     start=2022y132d19h21m21s; mode=spirals.meth; source=G358.72-0.12;
+     station=Cd:    0 sec:  100 sec: 2198.708 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2166.657 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2198.708 GB:   :       : 1;
+endscan;
+scan No0355;
+     start=2022y132d19h23m19s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 2211.529 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2179.477 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2211.529 GB:   :       : 1;
+endscan;
+scan No0356;
+*    start=2022y132d19h23m46s <= original start, modified for tape start.
+     start=2022y132d19h23m44s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    3 sec:   27 sec: 2214.734 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2182.682 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2214.734 GB:   :       : 1;
+endscan;
+scan No0357;
+     start=2022y132d19h24m34s; mode=spirals.meth; source=G000.49+0.18;
+     station=Cd:    0 sec:  100 sec: 2218.195 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2186.144 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2218.195 GB:   :       : 1;
+endscan;
+scan No0358;
+     start=2022y132d19h26m36s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 2231.016 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2198.964 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2231.016 GB:   :       : 1;
+endscan;
+scan No0359;
+     start=2022y132d19h27m24s; mode=spirals.meth; source=G000.49+0.18;
+     station=Cd:    0 sec:  100 sec: 2234.221 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2202.169 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2234.221 GB:   :       : 1;
+endscan;
+scan No0360;
+     start=2022y132d19h29m26s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 2247.041 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2214.990 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2247.041 GB:   :       : 1;
+endscan;
+scan No0361;
+*    start=2022y132d19h29m53s <= original start, modified for tape start.
+     start=2022y132d19h29m51s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    3 sec:   27 sec: 2250.246 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2218.195 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2250.246 GB:   :       : 1;
+endscan;
+scan No0362;
+     start=2022y132d19h30m48s; mode=spirals.meth; source=G001.71-0.08;
+     station=Cd:    0 sec:  100 sec: 2253.708 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2221.656 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2253.708 GB:   :       : 1;
+endscan;
+scan No0363;
+     start=2022y132d19h32m57s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 2266.528 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2234.477 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2266.528 GB:   :       : 1;
+endscan;
+scan No0364;
+     start=2022y132d19h33m52s; mode=spirals.meth; source=G001.71-0.08;
+     station=Cd:    0 sec:   99 sec: 2269.733 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2237.682 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2269.733 GB:   :       : 1;
+endscan;
+scan No0365;
+     start=2022y132d19h36m01s; mode=spirals.meth; source=J1752-3001;
+     station=Cd:    0 sec:   25 sec: 2282.554 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2250.503 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2282.554 GB:   :       : 1;
+endscan;
+scan No0366;
+     start=2022y132d19h37m12s; mode=spirals.meth; source=J1807-2506;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 2285.759 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2253.708 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2285.759 GB:   :       : 1;
+endscan;
+scan No0367;
+     start=2022y132d19h37m58s; mode=spirals.meth; source=G004.43+0.12;
+     station=Cd:    0 sec:  100 sec: 2288.964 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2256.913 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2288.964 GB:   :       : 1;
+endscan;
+scan No0368;
+     start=2022y132d19h39m59s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 2301.785 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2269.733 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2301.785 GB:   :       : 1;
+endscan;
+scan No0369;
+     start=2022y132d19h40m46s; mode=spirals.meth; source=G004.43+0.12;
+     station=Cd:    0 sec:  100 sec: 2304.990 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2272.938 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2304.990 GB:   :       : 1;
+endscan;
+scan No0370;
+     start=2022y132d19h42m47s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 2317.810 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2285.759 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2317.810 GB:   :       : 1;
+endscan;
+scan No0371;
+*    start=2022y132d19h43m14s <= original start, modified for tape start.
+     start=2022y132d19h43m12s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    3 sec:   27 sec: 2321.015 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2288.964 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2321.015 GB:   :       : 1;
+endscan;
+scan No0372;
+     start=2022y132d19h44m01s; mode=spirals.meth; source=G006.88+0.09;
+     station=Cd:    0 sec:  100 sec: 2324.477 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2292.426 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2324.477 GB:   :       : 1;
+endscan;
+scan No0373;
+     start=2022y132d19h46m04s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 2337.297 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2305.246 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2337.297 GB:   :       : 1;
+endscan;
+scan No0374;
+     start=2022y132d19h46m51s; mode=spirals.meth; source=G006.88+0.09;
+     station=Cd:    0 sec:  100 sec: 2340.502 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2308.451 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2340.502 GB:   :       : 1;
+endscan;
+scan No0375;
+     start=2022y132d19h48m53s; mode=spirals.meth; source=J1807-2506;
+     station=Cd:    0 sec:   25 sec: 2353.323 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2321.272 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2353.323 GB:   :       : 1;
+endscan;
+scan No0376;
+     start=2022y132d19h50m34s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2356.528 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2324.477 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2356.528 GB:   :       : 1;
+endscan;
+scan No0377;
+     start=2022y132d19h51m26s; mode=spirals.meth; source=G020.08-0.13;
+     station=Cd:    0 sec:   99 sec: 2359.733 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2327.682 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2359.733 GB:   :       : 1;
+endscan;
+scan No0378;
+     start=2022y132d19h53m31s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2372.554 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2340.502 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2372.554 GB:   :       : 1;
+endscan;
+scan No0379;
+     start=2022y132d19h54m22s; mode=spirals.meth; source=G020.08-0.13;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec: 2375.759 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2343.708 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2375.759 GB:   :       : 1;
+endscan;
+scan No0380;
+     start=2022y132d19h56m28s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2388.579 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2356.528 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2388.579 GB:   :       : 1;
+endscan;
+scan No0381;
+*    start=2022y132d19h56m55s <= original start, modified for tape start.
+     start=2022y132d19h56m53s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    3 sec:   27 sec: 2391.784 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2359.733 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2391.784 GB:   :       : 1;
+endscan;
+scan No0382;
+     start=2022y132d19h57m40s; mode=spirals.meth; source=G021.88+0.01;
+     station=Cd:    0 sec:  100 sec: 2395.246 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2363.195 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2395.246 GB:   :       : 1;
+endscan;
+scan No0383;
+     start=2022y132d19h59m41s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2408.066 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2376.015 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2408.066 GB:   :       : 1;
+endscan;
+scan No0384;
+     start=2022y132d20h00m27s; mode=spirals.meth; source=G021.88+0.01;
+     station=Cd:    0 sec:  100 sec: 2411.271 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2379.220 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2411.271 GB:   :       : 1;
+endscan;
+scan No0385;
+     start=2022y132d20h02m28s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2424.092 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2392.041 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2424.092 GB:   :       : 1;
+endscan;
+scan No0386;
+*    start=2022y132d20h02m55s <= original start, modified for tape start.
+     start=2022y132d20h02m53s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    3 sec:   27 sec: 2427.297 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2395.246 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2427.297 GB:   :       : 1;
+endscan;
+scan No0387;
+     start=2022y132d20h03m42s; mode=spirals.meth; source=G024.14-0.00;
+     station=Cd:    0 sec:  100 sec: 2430.759 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2398.707 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2430.759 GB:   :       : 1;
+endscan;
+scan No0388;
+     start=2022y132d20h05m44s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2443.579 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2411.528 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2443.579 GB:   :       : 1;
+endscan;
+scan No0389;
+     start=2022y132d20h06m31s; mode=spirals.meth; source=G024.14-0.00;
+     station=Cd:    0 sec:   99 sec: 2446.784 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2414.733 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2446.784 GB:   :       : 1;
+endscan;
+scan No0390;
+     start=2022y132d20h08m33s; mode=spirals.meth; source=J1825-0737;
+     station=Cd:    0 sec:   25 sec: 2459.605 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2427.553 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2459.605 GB:   :       : 1;
+endscan;
+scan No0391;
+     start=2022y132d20h09m31s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 2462.810 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2430.759 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2462.810 GB:   :       : 1;
+endscan;
+scan No0392;
+     start=2022y132d20h10m17s; mode=spirals.meth; source=G027.36-0.16;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:  100 sec: 2466.015 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2433.964 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2466.015 GB:   :       : 1;
+endscan;
+scan No0393;
+     start=2022y132d20h12m18s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 2478.835 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2446.784 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2478.835 GB:   :       : 1;
+endscan;
+scan No0394;
+     start=2022y132d20h13m04s; mode=spirals.meth; source=G027.36-0.16;
+     station=Cd:    0 sec:  100 sec: 2482.041 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2449.989 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2482.041 GB:   :       : 1;
+endscan;
+scan No0395;
+     start=2022y132d20h15m06s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 2494.861 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2462.810 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2494.861 GB:   :       : 1;
+endscan;
+scan No0396;
+*    start=2022y132d20h15m33s <= original start, modified for tape start.
+     start=2022y132d20h15m31s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    3 sec:   27 sec: 2498.066 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2466.015 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2498.066 GB:   :       : 1;
+endscan;
+scan No0397;
+     start=2022y132d20h16m18s; mode=spirals.meth; source=G028.52+0.12;
+     station=Cd:    0 sec:  100 sec: 2501.528 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2469.476 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2501.528 GB:   :       : 1;
+endscan;
+scan No0398;
+     start=2022y132d20h18m18s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 2514.348 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2482.297 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2514.348 GB:   :       : 1;
+endscan;
+scan No0399;
+     start=2022y132d20h19m03s; mode=spirals.meth; source=G028.52+0.12;
+     station=Cd:    0 sec:  100 sec: 2517.553 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2485.502 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2517.553 GB:   :       : 1;
+endscan;
+scan No0400;
+     start=2022y132d20h21m04s; mode=spirals.meth; source=J1833-0323;
+     station=Cd:    0 sec:   25 sec: 2530.374 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2498.323 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2530.374 GB:   :       : 1;
+endscan;
+scan No0401;
+     start=2022y132d20h22m08s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 2533.579 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2501.528 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2533.579 GB:   :       : 1;
+endscan;
+scan No0402;
+     start=2022y132d20h23m01s; mode=spirals.meth; source=G030.78+0.23;
+     station=Cd:    0 sec:   99 sec: 2536.784 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2504.733 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2536.784 GB:   :       : 1;
+endscan;
+scan No0403;
+     start=2022y132d20h25m07s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 2549.604 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2517.553 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2549.604 GB:   :       : 1;
+endscan;
+scan No0404;
+     start=2022y132d20h26m00s; mode=spirals.meth; source=G030.78+0.23;
+     station=Cd:    0 sec:   99 sec: 2552.810 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2520.758 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2552.810 GB:   :       : 1;
+endscan;
+scan No0405;
+     start=2022y132d20h28m06s; mode=spirals.meth; source=J1857-0048;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   25 sec: 2565.630 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2533.579 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2565.630 GB:   :       : 1;
+endscan;
+scan No0406;
+*    start=2022y132d20h28m33s <= original start, modified for tape start.
+     start=2022y132d20h28m31s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    3 sec:   27 sec: 2568.835 GB:   :       : 1;
+     station=Hb:    2 sec:   27 sec: 2536.784 GB:   :       : 1;
+     station=Wa:    2 sec:   27 sec: 2568.835 GB:   :       : 1;
+endscan;
+scan No0407;
+     start=2022y132d20h29m15s; mode=spirals.meth; source=G032.74-0.07;
+     station=Cd:    0 sec:   99 sec: 2572.297 GB:   :       : 1;
+     station=Hb:    0 sec:   99 sec: 2540.245 GB:   :       : 1;
+     station=Wa:    0 sec:   99 sec: 2572.297 GB:   :       : 1;
+endscan;
+scan No0408;
+     start=2022y132d20h31m11s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   25 sec: 2585.117 GB:   :       : 1;
+     station=Hb:    0 sec:   25 sec: 2553.066 GB:   :       : 1;
+     station=Wa:    0 sec:   25 sec: 2585.117 GB:   :       : 1;
+endscan;
+scan No0409;
+     start=2022y132d20h31m52s; mode=spirals.meth; source=G032.74-0.07;
+     station=Cd:    0 sec:  100 sec: 2588.322 GB:   :       : 1;
+     station=Hb:    0 sec:  100 sec: 2556.271 GB:   :       : 1;
+     station=Wa:    0 sec:  100 sec: 2588.322 GB:   :       : 1;
+endscan;
+scan No0410;
+     start=2022y132d20h33m49s; mode=spirals.meth; source=J1857-0048;
+     station=Cd:    0 sec:   24 sec: 2601.143 GB:   :       : 1;
+     station=Hb:    0 sec:   24 sec: 2569.092 GB:   :       : 1;
+     station=Wa:    0 sec:   24 sec: 2601.143 GB:   :       : 1;
+endscan;
+scan No0411;
+     start=2022y132d20h36m46s; mode=spirals.meth; source=2215+150;
+     station=Cd:    0 sec:   60 sec: 2604.348 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2572.297 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2604.348 GB:   :       : 1;
+endscan;
+scan No0412;
+     start=2022y132d20h39m30s; mode=spirals.meth; source=2351-154;
+     station=Cd:    0 sec:   60 sec: 2612.040 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2579.989 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2612.040 GB:   :       : 1;
+endscan;
+scan No0413;
+     start=2022y132d20h41m42s; mode=spirals.meth; source=2325+093;
+     station=Cd:    0 sec:   60 sec: 2619.733 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2587.681 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2619.733 GB:   :       : 1;
+endscan;
+scan No0414;
+     start=2022y132d20h44m38s; mode=spirals.meth; source=0112-017;
+     station=Cd:    0 sec:   60 sec: 2627.425 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2595.374 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2627.425 GB:   :       : 1;
+endscan;
+scan No0415;
+     start=2022y132d20h46m43s; mode=spirals.meth; source=0109+224;
+     station=Cd:    0 sec:   59 sec: 2635.117 GB:   :       : 1;
+     station=Hb:    0 sec:   59 sec: 2603.066 GB:   :       : 1;
+     station=Wa:    0 sec:   59 sec: 2635.117 GB:   :       : 1;
+endscan;
+scan No0416;
+     start=2022y132d20h50m51s; mode=spirals.meth; source=2128+048;
+     station=Cd:    0 sec:   60 sec: 2642.810 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2610.759 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2642.810 GB:   :       : 1;
+endscan;
+scan No0417;
+     start=2022y132d20h52m57s; mode=spirals.meth; source=2113+293;
+     station=Cd:    0 sec:   60 sec: 2650.502 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2618.451 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2650.502 GB:   :       : 1;
+endscan;
+scan No0418;
+     start=2022y132d20h55m46s; mode=spirals.meth; source=3C446;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   60 sec: 2658.195 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2626.143 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2658.195 GB:   :       : 1;
+endscan;
+scan No0419;
+     start=2022y132d20h58m54s; mode=spirals.meth; source=1928+154;
+     station=Cd:    0 sec:   60 sec: 2665.887 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2633.836 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2665.887 GB:   :       : 1;
+endscan;
+scan No0420;
+     start=2022y132d21h01m04s; mode=spirals.meth; source=1936-155;
+     station=Cd:    0 sec:   60 sec: 2673.579 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2641.528 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2673.579 GB:   :       : 1;
+endscan;
+scan No0421;
+     start=2022y132d21h03m54s; mode=spirals.meth; source=1759-396;
+     station=Cd:    0 sec:   60 sec: 2681.272 GB:   :       : 1;
+     station=Hb:    0 sec:   60 sec: 2649.220 GB:   :       : 1;
+     station=Wa:    0 sec:   60 sec: 2681.272 GB:   :       : 1;
+endscan;
+scan No0422;
+     start=2022y132d21h05m55s; mode=spirals.meth; source=F1921-293;
+     station=Cd:    0 sec:   30 sec: 2688.964 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 2656.913 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 2688.964 GB:   :       : 1;
+endscan;
