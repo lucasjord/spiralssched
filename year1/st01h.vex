@@ -1,0 +1,3372 @@
+VEX_rev = 1.5;
+*    SCHED vers: Release 11.5; September 2018
+*    VEX/SCHED:  1.5.87
+*    Other versions: Sched:  11.5  Plot: 1.06  JPL-ephem: 1.01
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = st01h;
+*                                                      +------------+
+*                         PI revision number:          |    1.0000  |
+*                                                      +------------+
+*    mode:       6.7GHz-2p-8IF/16MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def st01h;
+     exper_name = st01h;
+     exper_description = "SPIRALS: Fringe check";
+     PI_name = "Gabor Orosz";
+     PI_email = gabor.orosz@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*                
+*    phone:     +61416469903
+*    during obs: 
+*    fax:        
+*    notes:     Array: Cd-Hb-Ke-Wa
+*               Spirals test. Fringe check session.
+*
+*    year, doy: 2020, 283
+*    date     : Fri  9 Oct 2020
+*    MJD      : 59131
+     exper_nominal_start=2020y283d08h00m00s;
+     exper_nominal_stop=2020y283d13h59m30s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    :     2.000 s
+*    number_channels:  4096
+*    number_antenna :  4
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  : 
+*                     University of Tasmania
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def spirals.meth;
+     ref $PROCEDURES = Mode_01;
+     ref $FREQ = 6596.00MHz16x16MHz:Cd:Wa;
+     ref $FREQ = 6580.00MHz8x32MHz:Hb:Ke;
+     ref $IF = LO@7300MHzDPolNoTone:Cd;
+     ref $IF = LO@6000MHzDPolNoTone:Hb:Ke;
+     ref $IF = LO@5843MHzDPolNoTone:Wa;
+     ref $BBC = 16BBCs:Cd;
+     ref $BBC = 8BBCs:Hb:Ke;
+     ref $BBC = 16BBCs#02:Wa;
+     ref $TRACKS = MARK5B.16Ch2bit1to1:Cd;
+     ref $TRACKS = MARK5B.8Ch2bit1to1:Hb:Ke;
+     ref $TRACKS = MARK5B.16Ch2bit1to1#02:Wa;
+*    ref $HEAD_POS = DiskVoid <= obsolete definition
+     ref $ROLL = NoRoll:Cd:Hb:Ke:Wa;
+*    ref $PASS_ORDER = DiskVoid <= obsolete definition
+     ref $PHASE_CAL_DETECT = NoDetect:Cd:Wa;
+     ref $PHASE_CAL_DETECT = NoDetect#02:Hb:Ke;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def Cd;
+     ref $SITE = CEDUNA;
+     ref $ANTENNA = CEDUNA;
+     ref $DAS = 1DBBC+NONE<;
+enddef;
+*
+def Hb;
+     ref $SITE = HOBART12;
+     ref $ANTENNA = HOBART12;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*
+def Ke;
+     ref $SITE = KATH12M;
+     ref $ANTENNA = KATH12M;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*
+def Wa;
+     ref $SITE = WARK30M;
+     ref $ANTENNA = WARK30M;
+     ref $DAS = 2DBBC+NONE<;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Mode_01;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def CEDUNA;
+     site_type = fixed;
+     site_name = CEDUNA;
+     site_ID = Cd;
+*    elev=  164.62 long=-133:48:35. lat=-31:52:03.7
+     site_position =-3753442.74570 m: 3912709.75300 m:-3348067.60950 m;
+     site_velocity = -0.041730   m/yr:  0.002670   m/yr:  0.049900  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def HOBART12;
+     site_type = fixed;
+     site_name = HOBART12;
+     site_ID = Hb;
+*    elev=   40.98 long=-147:26:17. lat=-42:48:20.1
+     site_position =-3949990.84020 m: 2522421.21910 m:-4311707.99890 m;
+     site_velocity = -0.039010   m/yr:  0.007960   m/yr:  0.041100  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2014y001d;
+     site_position_epoch =   56658;
+enddef;
+*
+def KATH12M;
+     site_type = fixed;
+     site_name = KATH12M;
+     site_ID = Ke;
+*    elev=  189.27 long=-132:09:08. lat=-14:22:31.7
+     site_position =-4147354.69130 m: 4581542.37720 m:-1573303.15650 m;
+     site_velocity = -0.037710   m/yr: -0.011590   m/yr:  0.056300  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2014y001d;
+     site_position_epoch =   56658;
+enddef;
+*
+def WARK30M;
+     site_type = fixed;
+     site_name = WARK30M;
+     site_ID = Wa;
+*    elev=  122.35 long=-174:39:46. lat=-36:25:59.4
+     site_position =-5115425.81800 m:  477880.24800 m:-3767042.05500 m;
+     site_velocity = -0.021220   m/yr: -0.003070   m/yr:  0.036020  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2017y235d;
+     site_position_epoch =   57988;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def CEDUNA;
+     axis_type = az : el;
+     antenna_motion = el :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    0.00240 m;
+enddef;
+*
+def HOBART12;
+     axis_type = az : el;
+     antenna_motion = el :  75.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     antenna_motion = az : 300.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     axis_offset =    0.00000 m;
+enddef;
+*
+def KATH12M;
+     axis_type = az : el;
+     antenna_motion = el :  75.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     antenna_motion = az : 300.0 deg/min :  2 sec;  *    1.300 deg/sec/sec
+     axis_offset =    0.00000 m;
+enddef;
+*
+def WARK30M;
+     axis_type = az : el;
+     antenna_motion = el :  21.6 deg/min :  2 sec;  *    0.250 deg/sec/sec
+     antenna_motion = az :  22.0 deg/min :  2 sec;  *    0.200 deg/sec/sec
+     axis_offset =    2.47700 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def 1DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 2DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :            : 0 ;
+     headstack = 2 :            : 1 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+*
+def 1921-293;
+     source_name = 1921-293;
+*    this source had calibrator code: V
+*    alternate source name: J1924-2914
+*    alternate source name: F1924
+*    GSFC 2016a X/S astro solution,  63480 observations.
+     ra = 19h24m51.0559525s; dec = -29d14'30.121070"; ref_coord_frame = J2000;
+*    ra = 19h21m42.2341255s; dec = -29d20'26.353972"; ref_coord_frame = B1950;
+*    ra = 19h26m08.1200700s; dec = -29d12'04.891969"; ref_coord_frame = Date;
+enddef;
+*
+def 0208-512;
+     source_name = 0208-512;
+*    this source had calibrator code: V
+*    alternate source name: J0210-5101
+*    alternate source name: F0210
+*    GSFC 2016a X/S astro solution,   8885 observations.
+     ra = 02h10m46.2004254s; dec = -51d01'01.891903"; ref_coord_frame = J2000;
+*    ra = 02h08m56.9471739s; dec = -51d15'07.679127"; ref_coord_frame = B1950;
+*    ra = 02h11m32.8044262s; dec = -50d55'08.655286"; ref_coord_frame = Date;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 6596.00MHz16x16MHz;
+* mode =  1    stations =Cd:Wa
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH05 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH06 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH07 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH08 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6596.00 MHz : U :  16.00 MHz : &CH09 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : U :  16.00 MHz : &CH10 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : U :  16.00 MHz : &CH11 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : U :  16.00 MHz : &CH12 : &BBC08 : &NoCal; *Lcp
+     chan_def = :  6596.00 MHz : L :  16.00 MHz : &CH13 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6628.00 MHz : L :  16.00 MHz : &CH14 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6660.00 MHz : L :  16.00 MHz : &CH15 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6692.00 MHz : L :  16.00 MHz : &CH16 : &BBC08 : &NoCal; *Lcp
+enddef;
+*
+def 6580.00MHz8x32MHz;
+* mode =  1    stations =Hb:Ke
+     sample_rate =    64.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6580.00 MHz : U :  32.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6612.00 MHz : U :  32.00 MHz : &CH02 : &BBC02 : &NoCal; *Rcp
+     chan_def = :  6644.00 MHz : U :  32.00 MHz : &CH03 : &BBC03 : &NoCal; *Rcp
+     chan_def = :  6676.00 MHz : U :  32.00 MHz : &CH04 : &BBC04 : &NoCal; *Rcp
+     chan_def = :  6580.00 MHz : U :  32.00 MHz : &CH05 : &BBC05 : &NoCal; *Lcp
+     chan_def = :  6612.00 MHz : U :  32.00 MHz : &CH06 : &BBC06 : &NoCal; *Lcp
+     chan_def = :  6644.00 MHz : U :  32.00 MHz : &CH07 : &BBC07 : &NoCal; *Lcp
+     chan_def = :  6676.00 MHz : U :  32.00 MHz : &CH08 : &BBC08 : &NoCal; *Lcp
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@7300MHzDPolNoTone;
+* mode =  1    stations =Cd
+     if_def = &IF_A1 : A1 : R :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B1 : B1 : L :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@6000MHzDPolNoTone;
+* mode =  1    stations =Hb:Ke
+     if_def = &IF_A1 : A1 : R :  6000.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B4 : B4 : L :  6000.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@5843MHzDPolNoTone;
+* mode =  1    stations =Wa
+     if_def = &IF_A1 : A1 : R :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B2 : B2 : L :  5843.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 16BBCs;
+* mode =  1    stations =Cd
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B1;
+     BBC_assign = &BBC06 :  6 : &IF_B1;
+     BBC_assign = &BBC07 :  7 : &IF_B1;
+     BBC_assign = &BBC08 :  8 : &IF_B1;
+enddef;
+*
+def 8BBCs;
+* mode =  1    stations =Hb:Ke
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B4;
+     BBC_assign = &BBC06 :  6 : &IF_B4;
+     BBC_assign = &BBC07 :  7 : &IF_B4;
+     BBC_assign = &BBC08 :  8 : &IF_B4;
+enddef;
+*
+def 16BBCs#02;
+* mode =  1    stations =Wa
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC03 :  3 : &IF_A1;
+     BBC_assign = &BBC04 :  4 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B2;
+     BBC_assign = &BBC06 :  6 : &IF_B2;
+     BBC_assign = &BBC07 :  7 : &IF_B2;
+     BBC_assign = &BBC08 :  8 : &IF_B2;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* mode =  1    stations =Cd:Wa
+     phase_cal_detect = &NoCal;
+enddef;
+*
+def NoDetect#02;
+* mode =  1    stations =Hb:Ke
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def MARK5B.16Ch2bit1to1;
+* mode =  1    stations =Cd
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1: 18;
+     fanout_def =   : &CH01 :  mag : 1: 19;
+     fanout_def =   : &CH02 : sign : 1: 20;
+     fanout_def =   : &CH02 :  mag : 1: 21;
+     fanout_def =   : &CH03 : sign : 1: 22;
+     fanout_def =   : &CH03 :  mag : 1: 23;
+     fanout_def =   : &CH04 : sign : 1: 24;
+     fanout_def =   : &CH04 :  mag : 1: 25;
+     fanout_def =   : &CH05 : sign : 1:  2;
+     fanout_def =   : &CH05 :  mag : 1:  3;
+     fanout_def =   : &CH06 : sign : 1:  4;
+     fanout_def =   : &CH06 :  mag : 1:  5;
+     fanout_def =   : &CH07 : sign : 1:  6;
+     fanout_def =   : &CH07 :  mag : 1:  7;
+     fanout_def =   : &CH08 : sign : 1:  8;
+     fanout_def =   : &CH08 :  mag : 1:  9;
+     fanout_def =   : &CH09 : sign : 1: 26;
+     fanout_def =   : &CH09 :  mag : 1: 27;
+     fanout_def =   : &CH10 : sign : 1: 28;
+     fanout_def =   : &CH10 :  mag : 1: 29;
+     fanout_def =   : &CH11 : sign : 1: 30;
+     fanout_def =   : &CH11 :  mag : 1: 31;
+     fanout_def =   : &CH12 : sign : 1: 32;
+     fanout_def =   : &CH12 :  mag : 1: 33;
+     fanout_def =   : &CH13 : sign : 1: 10;
+     fanout_def =   : &CH13 :  mag : 1: 11;
+     fanout_def =   : &CH14 : sign : 1: 12;
+     fanout_def =   : &CH14 :  mag : 1: 13;
+     fanout_def =   : &CH15 : sign : 1: 14;
+     fanout_def =   : &CH15 :  mag : 1: 15;
+     fanout_def =   : &CH16 : sign : 1: 16;
+     fanout_def =   : &CH16 :  mag : 1: 17;
+enddef;
+*
+def MARK5B.8Ch2bit1to1;
+* mode =  1    stations =Hb:Ke
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  64.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 10;
+     fanout_def =   : &CH05 :  mag : 1: 11;
+     fanout_def =   : &CH06 : sign : 1: 12;
+     fanout_def =   : &CH06 :  mag : 1: 13;
+     fanout_def =   : &CH07 : sign : 1: 14;
+     fanout_def =   : &CH07 :  mag : 1: 15;
+     fanout_def =   : &CH08 : sign : 1: 16;
+     fanout_def =   : &CH08 :  mag : 1: 17;
+enddef;
+*
+def MARK5B.16Ch2bit1to1#02;
+* mode =  1    stations =Wa
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+     fanout_def =   : &CH03 : sign : 1:  6;
+     fanout_def =   : &CH03 :  mag : 1:  7;
+     fanout_def =   : &CH04 : sign : 1:  8;
+     fanout_def =   : &CH04 :  mag : 1:  9;
+     fanout_def =   : &CH05 : sign : 1: 18;
+     fanout_def =   : &CH05 :  mag : 1: 19;
+     fanout_def =   : &CH06 : sign : 1: 20;
+     fanout_def =   : &CH06 :  mag : 1: 21;
+     fanout_def =   : &CH07 : sign : 1: 22;
+     fanout_def =   : &CH07 :  mag : 1: 23;
+     fanout_def =   : &CH08 : sign : 1: 24;
+     fanout_def =   : &CH08 :  mag : 1: 25;
+     fanout_def =   : &CH09 : sign : 1: 10;
+     fanout_def =   : &CH09 :  mag : 1: 11;
+     fanout_def =   : &CH10 : sign : 1: 12;
+     fanout_def =   : &CH10 :  mag : 1: 13;
+     fanout_def =   : &CH11 : sign : 1: 14;
+     fanout_def =   : &CH11 :  mag : 1: 15;
+     fanout_def =   : &CH12 : sign : 1: 16;
+     fanout_def =   : &CH12 :  mag : 1: 17;
+     fanout_def =   : &CH13 : sign : 1: 26;
+     fanout_def =   : &CH13 :  mag : 1: 27;
+     fanout_def =   : &CH14 : sign : 1: 28;
+     fanout_def =   : &CH14 :  mag : 1: 29;
+     fanout_def =   : &CH15 : sign : 1: 30;
+     fanout_def =   : &CH15 :  mag : 1: 31;
+     fanout_def =   : &CH16 : sign : 1: 32;
+     fanout_def =   : &CH16 :  mag : 1: 33;
+enddef;
+*------------------------------------------------------------------------------
+$HEAD_POS;
+def DiskVoid;
+* mode =  1    stations =Cd:Hb:Ke:Wa
+*     Head positions irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$PASS_ORDER;
+*
+def DiskVoid;
+* mode =  1    stations =Cd:Hb:Ke:Wa
+*     Pass orders irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* mode =  1    stations =Cd:Hb:Ke:Wa
+*    barrel-roll set to 'roll_off', so reverse-roll by  0 (1 head)
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+* schedule section for experiment st01h   
+* SPIRALS: Fringe check                                                   
+scan No0001;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h00m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:    0.000 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:    0.000 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:    0.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:    0.000 GB:   :       : 1;
+endscan;
+scan No0002;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h01m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:    3.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:    3.846 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:    3.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:    3.846 GB:   :       : 1;
+endscan;
+scan No0003;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h02m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:    7.692 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:    7.692 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:    7.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:    7.692 GB:   :       : 1;
+endscan;
+scan No0004;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h03m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   11.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   11.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   11.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   11.538 GB:   :       : 1;
+endscan;
+scan No0005;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h04m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   15.385 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   15.385 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   15.385 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   15.385 GB:   :       : 1;
+endscan;
+scan No0006;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h05m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   19.231 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   19.231 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   19.231 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   19.231 GB:   :       : 1;
+endscan;
+scan No0007;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h06m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   23.077 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   23.077 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   23.077 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   23.077 GB:   :       : 1;
+endscan;
+scan No0008;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h07m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   26.923 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   26.923 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   26.923 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   26.923 GB:   :       : 1;
+endscan;
+scan No0009;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h08m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   30.769 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   30.769 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   30.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   30.769 GB:   :       : 1;
+endscan;
+scan No0010;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h09m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   34.615 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   34.615 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   34.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   34.615 GB:   :       : 1;
+endscan;
+scan No0011;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h10m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:   38.461 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   38.461 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   38.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   38.461 GB:   :       : 1;
+endscan;
+scan No0012;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h11m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   42.308 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   42.308 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   42.308 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   42.308 GB:   :       : 1;
+endscan;
+scan No0013;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h12m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   46.154 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   46.154 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   46.154 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   46.154 GB:   :       : 1;
+endscan;
+scan No0014;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h13m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   50.000 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   50.000 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   50.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   50.000 GB:   :       : 1;
+endscan;
+scan No0015;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h14m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   53.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   53.846 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   53.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   53.846 GB:   :       : 1;
+endscan;
+scan No0016;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h15m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   57.692 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   57.692 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   57.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   57.692 GB:   :       : 1;
+endscan;
+scan No0017;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h16m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   61.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   61.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   61.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   61.538 GB:   :       : 1;
+endscan;
+scan No0018;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h17m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   65.384 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   65.384 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   65.384 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   65.384 GB:   :       : 1;
+endscan;
+scan No0019;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h18m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   69.231 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   69.231 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   69.231 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   69.231 GB:   :       : 1;
+endscan;
+scan No0020;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h19m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   73.077 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   73.077 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   73.077 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   73.077 GB:   :       : 1;
+endscan;
+scan No0021;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h20m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:   76.923 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   76.923 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   76.923 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   76.923 GB:   :       : 1;
+endscan;
+scan No0022;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h21m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   80.769 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   80.769 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   80.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   80.769 GB:   :       : 1;
+endscan;
+scan No0023;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h22m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   84.615 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   84.615 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   84.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   84.615 GB:   :       : 1;
+endscan;
+scan No0024;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h23m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   88.461 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   88.461 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   88.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   88.461 GB:   :       : 1;
+endscan;
+scan No0025;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h24m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   92.307 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   92.307 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   92.307 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   92.307 GB:   :       : 1;
+endscan;
+scan No0026;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h25m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:   96.154 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:   96.154 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:   96.154 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:   96.154 GB:   :       : 1;
+endscan;
+scan No0027;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h26m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  100.000 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  100.000 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  100.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  100.000 GB:   :       : 1;
+endscan;
+scan No0028;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h27m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  103.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  103.846 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  103.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  103.846 GB:   :       : 1;
+endscan;
+scan No0029;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h28m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  107.692 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  107.692 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  107.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  107.692 GB:   :       : 1;
+endscan;
+scan No0030;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h29m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  111.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  111.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  111.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  111.538 GB:   :       : 1;
+endscan;
+scan No0031;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h30m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  115.384 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  115.384 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  115.384 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  115.384 GB:   :       : 1;
+endscan;
+scan No0032;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h31m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  119.230 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  119.230 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  119.230 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  119.230 GB:   :       : 1;
+endscan;
+scan No0033;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h32m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  123.077 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  123.077 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  123.077 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  123.077 GB:   :       : 1;
+endscan;
+scan No0034;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h33m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  126.923 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  126.923 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  126.923 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  126.923 GB:   :       : 1;
+endscan;
+scan No0035;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h34m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  130.769 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  130.769 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  130.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  130.769 GB:   :       : 1;
+endscan;
+scan No0036;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h35m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  134.615 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  134.615 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  134.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  134.615 GB:   :       : 1;
+endscan;
+scan No0037;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h36m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  138.461 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  138.461 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  138.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  138.461 GB:   :       : 1;
+endscan;
+scan No0038;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h37m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  142.307 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  142.307 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  142.307 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  142.307 GB:   :       : 1;
+endscan;
+scan No0039;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h38m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  146.154 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  146.154 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  146.154 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  146.154 GB:   :       : 1;
+endscan;
+scan No0040;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h39m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  150.000 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  150.000 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  150.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  150.000 GB:   :       : 1;
+endscan;
+scan No0041;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h40m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  153.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  153.846 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  153.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  153.846 GB:   :       : 1;
+endscan;
+scan No0042;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h41m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  157.692 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  157.692 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  157.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  157.692 GB:   :       : 1;
+endscan;
+scan No0043;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h42m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  161.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  161.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  161.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  161.538 GB:   :       : 1;
+endscan;
+scan No0044;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h43m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  165.384 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  165.384 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  165.384 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  165.384 GB:   :       : 1;
+endscan;
+scan No0045;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h44m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  169.230 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  169.230 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  169.230 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  169.230 GB:   :       : 1;
+endscan;
+scan No0046;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h45m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  173.077 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  173.077 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  173.077 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  173.077 GB:   :       : 1;
+endscan;
+scan No0047;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h46m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  176.923 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  176.923 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  176.923 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  176.923 GB:   :       : 1;
+endscan;
+scan No0048;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h47m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  180.769 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  180.769 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  180.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  180.769 GB:   :       : 1;
+endscan;
+scan No0049;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h48m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  184.615 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  184.615 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  184.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  184.615 GB:   :       : 1;
+endscan;
+scan No0050;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h49m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  188.461 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  188.461 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  188.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  188.461 GB:   :       : 1;
+endscan;
+scan No0051;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h50m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  192.307 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  192.307 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  192.307 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  192.307 GB:   :       : 1;
+endscan;
+scan No0052;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h51m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  196.153 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  196.153 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  196.153 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  196.153 GB:   :       : 1;
+endscan;
+scan No0053;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h52m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  200.000 GB:   :       : 1;
+endscan;
+scan No0054;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h53m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  203.846 GB:   :       : 1;
+endscan;
+scan No0055;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h54m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  207.692 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  207.692 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  207.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  207.692 GB:   :       : 1;
+endscan;
+scan No0056;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h55m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  211.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  211.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  211.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  211.538 GB:   :       : 1;
+endscan;
+scan No0057;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h56m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  215.384 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  215.384 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  215.384 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  215.384 GB:   :       : 1;
+endscan;
+scan No0058;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h57m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  219.230 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  219.230 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  219.230 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  219.230 GB:   :       : 1;
+endscan;
+scan No0059;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h58m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  223.076 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  223.076 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  223.076 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  223.076 GB:   :       : 1;
+endscan;
+scan No0060;
+* intent = "FIND_FRINGE"
+     start=2020y283d08h59m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  226.923 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  226.923 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  226.923 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  226.923 GB:   :       : 1;
+endscan;
+scan No0061;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h00m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  230.769 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  230.769 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  230.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  230.769 GB:   :       : 1;
+endscan;
+scan No0062;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h01m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  234.615 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  234.615 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  234.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  234.615 GB:   :       : 1;
+endscan;
+scan No0063;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h02m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  238.461 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  238.461 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  238.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  238.461 GB:   :       : 1;
+endscan;
+scan No0064;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h03m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  242.307 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  242.307 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  242.307 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  242.307 GB:   :       : 1;
+endscan;
+scan No0065;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h04m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  246.153 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  246.153 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  246.153 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  246.153 GB:   :       : 1;
+endscan;
+scan No0066;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h05m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  249.999 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  249.999 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  249.999 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  249.999 GB:   :       : 1;
+endscan;
+scan No0067;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h06m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  253.846 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  253.846 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  253.846 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  253.846 GB:   :       : 1;
+endscan;
+scan No0068;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h07m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  257.692 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  257.692 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  257.692 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  257.692 GB:   :       : 1;
+endscan;
+scan No0069;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h08m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  261.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  261.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  261.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  261.538 GB:   :       : 1;
+endscan;
+scan No0070;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h09m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  265.384 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  265.384 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  265.384 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  265.384 GB:   :       : 1;
+endscan;
+scan No0071;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h10m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  269.230 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  269.230 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  269.230 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  269.230 GB:   :       : 1;
+endscan;
+scan No0072;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h11m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  273.076 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  273.076 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  273.076 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  273.076 GB:   :       : 1;
+endscan;
+scan No0073;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h12m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  276.922 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  276.922 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  276.922 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  276.922 GB:   :       : 1;
+endscan;
+scan No0074;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h13m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  280.769 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  280.769 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  280.769 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  280.769 GB:   :       : 1;
+endscan;
+scan No0075;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h14m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  284.615 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  284.615 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  284.615 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  284.615 GB:   :       : 1;
+endscan;
+scan No0076;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h15m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  288.461 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  288.461 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  288.461 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  288.461 GB:   :       : 1;
+endscan;
+scan No0077;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h16m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  292.307 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  292.307 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  292.307 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  292.307 GB:   :       : 1;
+endscan;
+scan No0078;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h17m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  296.153 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  296.153 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  296.153 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  296.153 GB:   :       : 1;
+endscan;
+scan No0079;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h18m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  299.999 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  299.999 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  299.999 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  299.999 GB:   :       : 1;
+endscan;
+scan No0080;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h19m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  303.845 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  303.845 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  303.845 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  303.845 GB:   :       : 1;
+endscan;
+scan No0081;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h20m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  307.691 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  307.691 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  307.691 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  307.691 GB:   :       : 1;
+endscan;
+scan No0082;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h21m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  311.538 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  311.538 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  311.538 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  311.538 GB:   :       : 1;
+endscan;
+scan No0083;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h22m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  315.384 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  315.384 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  315.384 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  315.384 GB:   :       : 1;
+endscan;
+scan No0084;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h23m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  319.230 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  319.230 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  319.230 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  319.230 GB:   :       : 1;
+endscan;
+scan No0085;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h24m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  323.076 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  323.076 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  323.076 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  323.076 GB:   :       : 1;
+endscan;
+scan No0086;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h25m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  326.922 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  326.922 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  326.922 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  326.922 GB:   :       : 1;
+endscan;
+scan No0087;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h26m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  330.768 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  330.768 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  330.768 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  330.768 GB:   :       : 1;
+endscan;
+scan No0088;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h27m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  334.614 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  334.614 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  334.614 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  334.614 GB:   :       : 1;
+endscan;
+scan No0089;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h28m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  338.460 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  338.460 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  338.460 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  338.460 GB:   :       : 1;
+endscan;
+scan No0090;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h29m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  342.307 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  342.307 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  342.307 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  342.307 GB:   :       : 1;
+endscan;
+scan No0091;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h30m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  346.153 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  346.153 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  346.153 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  346.153 GB:   :       : 1;
+endscan;
+scan No0092;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h31m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  349.999 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  349.999 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  349.999 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  349.999 GB:   :       : 1;
+endscan;
+scan No0093;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h32m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  353.845 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  353.845 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  353.845 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  353.845 GB:   :       : 1;
+endscan;
+scan No0094;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h33m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  357.691 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  357.691 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  357.691 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  357.691 GB:   :       : 1;
+endscan;
+scan No0095;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h34m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  361.537 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  361.537 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  361.537 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  361.537 GB:   :       : 1;
+endscan;
+scan No0096;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h35m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  365.383 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  365.383 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  365.383 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  365.383 GB:   :       : 1;
+endscan;
+scan No0097;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h36m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  369.230 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  369.230 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  369.230 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  369.230 GB:   :       : 1;
+endscan;
+scan No0098;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h37m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  373.076 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  373.076 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  373.076 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  373.076 GB:   :       : 1;
+endscan;
+scan No0099;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h38m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  376.922 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  376.922 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  376.922 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  376.922 GB:   :       : 1;
+endscan;
+scan No0100;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h39m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  380.768 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  380.768 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  380.768 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  380.768 GB:   :       : 1;
+endscan;
+scan No0101;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h40m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  384.614 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  384.614 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  384.614 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  384.614 GB:   :       : 1;
+endscan;
+scan No0102;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h41m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  388.460 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  388.460 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  388.460 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  388.460 GB:   :       : 1;
+endscan;
+scan No0103;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h42m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  392.306 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  392.306 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  392.306 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  392.306 GB:   :       : 1;
+endscan;
+scan No0104;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h43m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  396.152 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  396.152 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  396.152 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  396.152 GB:   :       : 1;
+endscan;
+scan No0105;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h44m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  399.999 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  399.999 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  399.999 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  399.999 GB:   :       : 1;
+endscan;
+scan No0106;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h45m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  403.845 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  403.845 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  403.845 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  403.845 GB:   :       : 1;
+endscan;
+scan No0107;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h46m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  407.691 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  407.691 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  407.691 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  407.691 GB:   :       : 1;
+endscan;
+scan No0108;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h47m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  411.537 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  411.537 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  411.537 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  411.537 GB:   :       : 1;
+endscan;
+scan No0109;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h48m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  415.383 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  415.383 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  415.383 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  415.383 GB:   :       : 1;
+endscan;
+scan No0110;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h49m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  419.229 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  419.229 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  419.229 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  419.229 GB:   :       : 1;
+endscan;
+scan No0111;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h50m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  423.075 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  423.075 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  423.075 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  423.075 GB:   :       : 1;
+endscan;
+scan No0112;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h51m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  426.921 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  426.921 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  426.921 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  426.921 GB:   :       : 1;
+endscan;
+scan No0113;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h52m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  430.768 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  430.768 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  430.768 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  430.768 GB:   :       : 1;
+endscan;
+scan No0114;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h53m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  434.614 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  434.614 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  434.614 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  434.614 GB:   :       : 1;
+endscan;
+scan No0115;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h54m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  438.460 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  438.460 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  438.460 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  438.460 GB:   :       : 1;
+endscan;
+scan No0116;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h55m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  442.306 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  442.306 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  442.306 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  442.306 GB:   :       : 1;
+endscan;
+scan No0117;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h56m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  446.152 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  446.152 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  446.152 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  446.152 GB:   :       : 1;
+endscan;
+scan No0118;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h57m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  449.998 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  449.998 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  449.998 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  449.998 GB:   :       : 1;
+endscan;
+scan No0119;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h58m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  453.844 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  453.844 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  453.844 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  453.844 GB:   :       : 1;
+endscan;
+scan No0120;
+* intent = "FIND_FRINGE"
+     start=2020y283d09h59m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  457.691 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  457.691 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  457.691 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  457.691 GB:   :       : 1;
+endscan;
+scan No0121;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h00m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  461.537 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  461.537 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  461.537 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  461.537 GB:   :       : 1;
+endscan;
+scan No0122;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h01m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  465.383 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  465.383 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  465.383 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  465.383 GB:   :       : 1;
+endscan;
+scan No0123;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h02m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  469.229 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  469.229 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  469.229 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  469.229 GB:   :       : 1;
+endscan;
+scan No0124;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h03m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  473.075 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  473.075 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  473.075 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  473.075 GB:   :       : 1;
+endscan;
+scan No0125;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h04m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  476.921 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  476.921 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  476.921 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  476.921 GB:   :       : 1;
+endscan;
+scan No0126;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h05m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  480.767 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  480.767 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  480.767 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  480.767 GB:   :       : 1;
+endscan;
+scan No0127;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h06m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  484.613 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  484.613 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  484.613 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  484.613 GB:   :       : 1;
+endscan;
+scan No0128;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h07m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  488.460 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  488.460 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  488.460 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  488.460 GB:   :       : 1;
+endscan;
+scan No0129;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h08m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  492.306 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  492.306 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  492.306 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  492.306 GB:   :       : 1;
+endscan;
+scan No0130;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h09m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  496.152 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  496.152 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  496.152 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  496.152 GB:   :       : 1;
+endscan;
+scan No0131;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h10m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  499.998 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  499.998 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  499.998 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  499.998 GB:   :       : 1;
+endscan;
+scan No0132;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h11m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  503.844 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  503.844 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  503.844 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  503.844 GB:   :       : 1;
+endscan;
+scan No0133;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h12m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  507.690 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  507.690 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  507.690 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  507.690 GB:   :       : 1;
+endscan;
+scan No0134;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h13m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  511.536 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  511.536 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  511.536 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  511.536 GB:   :       : 1;
+endscan;
+scan No0135;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h14m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  515.383 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  515.383 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  515.383 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  515.383 GB:   :       : 1;
+endscan;
+scan No0136;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h15m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  519.229 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  519.229 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  519.229 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  519.229 GB:   :       : 1;
+endscan;
+scan No0137;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h16m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  523.075 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  523.075 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  523.075 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  523.075 GB:   :       : 1;
+endscan;
+scan No0138;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h17m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  526.921 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  526.921 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  526.921 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  526.921 GB:   :       : 1;
+endscan;
+scan No0139;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h18m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  530.767 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  530.767 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  530.767 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  530.767 GB:   :       : 1;
+endscan;
+scan No0140;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h19m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  534.613 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  534.613 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  534.613 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  534.613 GB:   :       : 1;
+endscan;
+scan No0141;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h20m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  538.459 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  538.459 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  538.459 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  538.459 GB:   :       : 1;
+endscan;
+scan No0142;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h21m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  542.305 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  542.305 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  542.305 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  542.305 GB:   :       : 1;
+endscan;
+scan No0143;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h22m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  546.152 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  546.152 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  546.152 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  546.152 GB:   :       : 1;
+endscan;
+scan No0144;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h23m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  549.998 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  549.998 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  549.998 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  549.998 GB:   :       : 1;
+endscan;
+scan No0145;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h24m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  553.844 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  553.844 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  553.844 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  553.844 GB:   :       : 1;
+endscan;
+scan No0146;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h25m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  557.690 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  557.690 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  557.690 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  557.690 GB:   :       : 1;
+endscan;
+scan No0147;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h26m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  561.536 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  561.536 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  561.536 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  561.536 GB:   :       : 1;
+endscan;
+scan No0148;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h27m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  565.382 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  565.382 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  565.382 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  565.382 GB:   :       : 1;
+endscan;
+scan No0149;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h28m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  569.228 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  569.228 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  569.228 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  569.228 GB:   :       : 1;
+endscan;
+scan No0150;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h29m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  573.074 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  573.074 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  573.074 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  573.074 GB:   :       : 1;
+endscan;
+scan No0151;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h30m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  576.921 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  576.921 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  576.921 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  576.921 GB:   :       : 1;
+endscan;
+scan No0152;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h31m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  580.767 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  580.767 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  580.767 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  580.767 GB:   :       : 1;
+endscan;
+scan No0153;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h32m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  584.613 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  584.613 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  584.613 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  584.613 GB:   :       : 1;
+endscan;
+scan No0154;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h33m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  588.459 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  588.459 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  588.459 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  588.459 GB:   :       : 1;
+endscan;
+scan No0155;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h34m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  592.305 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  592.305 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  592.305 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  592.305 GB:   :       : 1;
+endscan;
+scan No0156;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h35m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  596.151 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  596.151 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  596.151 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  596.151 GB:   :       : 1;
+endscan;
+scan No0157;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h36m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  599.997 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  599.997 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  599.997 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  599.997 GB:   :       : 1;
+endscan;
+scan No0158;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h37m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  603.844 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  603.844 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  603.844 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  603.844 GB:   :       : 1;
+endscan;
+scan No0159;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h38m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  607.690 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  607.690 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  607.690 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  607.690 GB:   :       : 1;
+endscan;
+scan No0160;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h39m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  611.536 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  611.536 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  611.536 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  611.536 GB:   :       : 1;
+endscan;
+scan No0161;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h40m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  615.382 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  615.382 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  615.382 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  615.382 GB:   :       : 1;
+endscan;
+scan No0162;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h41m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  619.228 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  619.228 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  619.228 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  619.228 GB:   :       : 1;
+endscan;
+scan No0163;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h42m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  623.074 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  623.074 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  623.074 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  623.074 GB:   :       : 1;
+endscan;
+scan No0164;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h43m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  626.920 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  626.920 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  626.920 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  626.920 GB:   :       : 1;
+endscan;
+scan No0165;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h44m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  630.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  630.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  630.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  630.766 GB:   :       : 1;
+endscan;
+scan No0166;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h45m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  634.613 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  634.613 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  634.613 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  634.613 GB:   :       : 1;
+endscan;
+scan No0167;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h46m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  638.459 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  638.459 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  638.459 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  638.459 GB:   :       : 1;
+endscan;
+scan No0168;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h47m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  642.305 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  642.305 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  642.305 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  642.305 GB:   :       : 1;
+endscan;
+scan No0169;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h48m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  646.151 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  646.151 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  646.151 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  646.151 GB:   :       : 1;
+endscan;
+scan No0170;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h49m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  649.997 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  649.997 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  649.997 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  649.997 GB:   :       : 1;
+endscan;
+scan No0171;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h50m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  653.843 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  653.843 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  653.843 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  653.843 GB:   :       : 1;
+endscan;
+scan No0172;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h51m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  657.689 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  657.689 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  657.689 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  657.689 GB:   :       : 1;
+endscan;
+scan No0173;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h52m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  661.535 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  661.535 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  661.535 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  661.535 GB:   :       : 1;
+endscan;
+scan No0174;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h53m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  665.382 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  665.382 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  665.382 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  665.382 GB:   :       : 1;
+endscan;
+scan No0175;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h54m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  669.228 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  669.228 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  669.228 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  669.228 GB:   :       : 1;
+endscan;
+scan No0176;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h55m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  673.074 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  673.074 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  673.074 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  673.074 GB:   :       : 1;
+endscan;
+scan No0177;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h56m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  676.920 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  676.920 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  676.920 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  676.920 GB:   :       : 1;
+endscan;
+scan No0178;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h57m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  680.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  680.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  680.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  680.766 GB:   :       : 1;
+endscan;
+scan No0179;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h58m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  684.612 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  684.612 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  684.612 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  684.612 GB:   :       : 1;
+endscan;
+scan No0180;
+* intent = "FIND_FRINGE"
+     start=2020y283d10h59m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  688.458 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  688.458 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  688.458 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  688.458 GB:   :       : 1;
+endscan;
+scan No0181;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h00m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  692.305 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  692.305 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  692.305 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  692.305 GB:   :       : 1;
+endscan;
+scan No0182;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h01m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  696.151 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  696.151 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  696.151 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  696.151 GB:   :       : 1;
+endscan;
+scan No0183;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h02m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  699.997 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  699.997 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  699.997 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  699.997 GB:   :       : 1;
+endscan;
+scan No0184;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h03m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  703.843 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  703.843 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  703.843 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  703.843 GB:   :       : 1;
+endscan;
+scan No0185;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h04m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  707.689 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  707.689 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  707.689 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  707.689 GB:   :       : 1;
+endscan;
+scan No0186;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h05m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  711.535 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  711.535 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  711.535 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  711.535 GB:   :       : 1;
+endscan;
+scan No0187;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h06m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  715.381 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  715.381 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  715.381 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  715.381 GB:   :       : 1;
+endscan;
+scan No0188;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h07m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  719.227 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  719.227 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  719.227 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  719.227 GB:   :       : 1;
+endscan;
+scan No0189;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h08m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  723.074 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  723.074 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  723.074 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  723.074 GB:   :       : 1;
+endscan;
+scan No0190;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h09m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  726.920 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  726.920 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  726.920 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  726.920 GB:   :       : 1;
+endscan;
+scan No0191;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h10m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  730.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  730.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  730.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  730.766 GB:   :       : 1;
+endscan;
+scan No0192;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h11m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  734.612 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  734.612 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  734.612 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  734.612 GB:   :       : 1;
+endscan;
+scan No0193;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h12m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  738.458 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  738.458 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  738.458 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  738.458 GB:   :       : 1;
+endscan;
+scan No0194;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h13m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  742.304 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  742.304 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  742.304 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  742.304 GB:   :       : 1;
+endscan;
+scan No0195;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h14m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  746.150 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  746.150 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  746.150 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  746.150 GB:   :       : 1;
+endscan;
+scan No0196;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h15m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  749.996 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  749.996 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  749.996 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  749.996 GB:   :       : 1;
+endscan;
+scan No0197;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h16m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  753.843 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  753.843 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  753.843 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  753.843 GB:   :       : 1;
+endscan;
+scan No0198;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h17m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  757.689 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  757.689 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  757.689 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  757.689 GB:   :       : 1;
+endscan;
+scan No0199;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h18m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  761.535 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  761.535 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  761.535 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  761.535 GB:   :       : 1;
+endscan;
+scan No0200;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h19m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  765.381 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  765.381 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  765.381 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  765.381 GB:   :       : 1;
+endscan;
+scan No0201;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h20m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  769.227 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  769.227 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  769.227 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  769.227 GB:   :       : 1;
+endscan;
+scan No0202;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h21m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  773.073 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  773.073 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  773.073 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  773.073 GB:   :       : 1;
+endscan;
+scan No0203;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h22m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  776.919 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  776.919 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  776.919 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  776.919 GB:   :       : 1;
+endscan;
+scan No0204;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h23m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  780.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  780.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  780.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  780.766 GB:   :       : 1;
+endscan;
+scan No0205;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h24m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  784.612 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  784.612 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  784.612 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  784.612 GB:   :       : 1;
+endscan;
+scan No0206;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h25m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  788.458 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  788.458 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  788.458 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  788.458 GB:   :       : 1;
+endscan;
+scan No0207;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h26m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  792.304 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  792.304 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  792.304 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  792.304 GB:   :       : 1;
+endscan;
+scan No0208;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h27m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  796.150 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  796.150 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  796.150 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  796.150 GB:   :       : 1;
+endscan;
+scan No0209;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h28m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  799.996 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  799.996 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  799.996 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  799.996 GB:   :       : 1;
+endscan;
+scan No0210;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h29m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  803.842 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  803.842 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  803.842 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  803.842 GB:   :       : 1;
+endscan;
+scan No0211;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h30m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  807.688 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  807.688 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  807.688 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  807.688 GB:   :       : 1;
+endscan;
+scan No0212;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h31m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  811.535 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  811.535 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  811.535 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  811.535 GB:   :       : 1;
+endscan;
+scan No0213;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h32m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  815.381 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  815.381 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  815.381 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  815.381 GB:   :       : 1;
+endscan;
+scan No0214;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h33m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  819.227 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  819.227 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  819.227 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  819.227 GB:   :       : 1;
+endscan;
+scan No0215;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h34m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  823.073 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  823.073 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  823.073 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  823.073 GB:   :       : 1;
+endscan;
+scan No0216;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h35m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  826.919 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  826.919 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  826.919 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  826.919 GB:   :       : 1;
+endscan;
+scan No0217;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h36m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  830.765 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  830.765 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  830.765 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  830.765 GB:   :       : 1;
+endscan;
+scan No0218;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h37m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  834.611 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  834.611 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  834.611 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  834.611 GB:   :       : 1;
+endscan;
+scan No0219;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h38m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  838.457 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  838.457 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  838.457 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  838.457 GB:   :       : 1;
+endscan;
+scan No0220;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h39m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  842.304 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  842.304 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  842.304 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  842.304 GB:   :       : 1;
+endscan;
+scan No0221;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h40m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  846.150 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  846.150 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  846.150 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  846.150 GB:   :       : 1;
+endscan;
+scan No0222;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h41m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  849.996 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  849.996 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  849.996 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  849.996 GB:   :       : 1;
+endscan;
+scan No0223;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h42m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  853.842 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  853.842 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  853.842 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  853.842 GB:   :       : 1;
+endscan;
+scan No0224;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h43m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  857.688 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  857.688 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  857.688 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  857.688 GB:   :       : 1;
+endscan;
+scan No0225;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h44m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  861.534 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  861.534 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  861.534 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  861.534 GB:   :       : 1;
+endscan;
+scan No0226;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h45m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  865.380 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  865.380 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  865.380 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  865.380 GB:   :       : 1;
+endscan;
+scan No0227;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h46m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  869.227 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  869.227 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  869.227 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  869.227 GB:   :       : 1;
+endscan;
+scan No0228;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h47m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  873.073 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  873.073 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  873.073 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  873.073 GB:   :       : 1;
+endscan;
+scan No0229;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h48m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  876.919 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  876.919 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  876.919 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  876.919 GB:   :       : 1;
+endscan;
+scan No0230;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h49m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  880.765 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  880.765 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  880.765 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  880.765 GB:   :       : 1;
+endscan;
+scan No0231;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h50m00s; mode=spirals.meth; source=1921-293;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  884.611 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  884.611 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  884.611 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  884.611 GB:   :       : 1;
+endscan;
+scan No0232;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h51m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  888.457 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  888.457 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  888.457 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  888.457 GB:   :       : 1;
+endscan;
+scan No0233;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h52m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  892.303 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  892.303 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  892.303 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  892.303 GB:   :       : 1;
+endscan;
+scan No0234;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h53m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  896.149 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  896.149 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  896.149 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  896.149 GB:   :       : 1;
+endscan;
+scan No0235;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h54m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  899.996 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  899.996 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  899.996 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  899.996 GB:   :       : 1;
+endscan;
+scan No0236;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h55m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  903.842 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  903.842 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  903.842 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  903.842 GB:   :       : 1;
+endscan;
+scan No0237;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h56m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  907.688 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  907.688 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  907.688 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  907.688 GB:   :       : 1;
+endscan;
+scan No0238;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h57m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  911.534 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  911.534 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  911.534 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  911.534 GB:   :       : 1;
+endscan;
+scan No0239;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h58m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  915.380 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  915.380 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  915.380 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  915.380 GB:   :       : 1;
+endscan;
+scan No0240;
+* intent = "FIND_FRINGE"
+     start=2020y283d11h59m00s; mode=spirals.meth; source=1921-293;
+     station=Cd:    0 sec:   30 sec:  919.226 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  919.226 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  919.226 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  919.226 GB:   :       : 1;
+endscan;
+scan No0241;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h00m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Hb:    5 sec:   30 sec:  923.072 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  923.072 GB:   :       : 1;
+endscan;
+scan No0242;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h01m00s; mode=spirals.meth; source=0208-512;
+     station=Hb:    0 sec:   30 sec:  926.918 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  926.918 GB:   :       : 1;
+endscan;
+scan No0243;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h02m00s; mode=spirals.meth; source=0208-512;
+     station=Hb:    0 sec:   30 sec:  930.765 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  930.765 GB:   :       : 1;
+endscan;
+scan No0244;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h03m00s; mode=spirals.meth; source=0208-512;
+     station=Hb:    0 sec:   30 sec:  934.611 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  934.611 GB:   :       : 1;
+endscan;
+scan No0245;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h04m00s; mode=spirals.meth; source=0208-512;
+     station=Hb:    0 sec:   30 sec:  938.457 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  938.457 GB:   :       : 1;
+endscan;
+scan No0246;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h05m00s; mode=spirals.meth; source=0208-512;
+     station=Hb:    0 sec:   30 sec:  942.303 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  942.303 GB:   :       : 1;
+endscan;
+scan No0247;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h06m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  923.072 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  946.149 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  946.149 GB:   :       : 1;
+endscan;
+scan No0248;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h07m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  926.918 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  949.995 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  949.995 GB:   :       : 1;
+endscan;
+scan No0249;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h08m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  930.765 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  953.841 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  953.841 GB:   :       : 1;
+endscan;
+scan No0250;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h09m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  934.611 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  957.688 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  957.688 GB:   :       : 1;
+endscan;
+scan No0251;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h10m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  938.457 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  961.534 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  961.534 GB:   :       : 1;
+endscan;
+scan No0252;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h11m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  942.303 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  965.380 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  965.380 GB:   :       : 1;
+     station=Wa:   11 sec:   30 sec:  923.072 GB:   :       : 1;
+endscan;
+scan No0253;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h12m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  946.149 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  969.226 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  969.226 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  926.918 GB:   :       : 1;
+endscan;
+scan No0254;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h13m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  949.995 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  973.072 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  973.072 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  930.765 GB:   :       : 1;
+endscan;
+scan No0255;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h14m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  953.841 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  976.918 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  976.918 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  934.611 GB:   :       : 1;
+endscan;
+scan No0256;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h15m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  957.688 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  980.764 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  980.764 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  938.457 GB:   :       : 1;
+endscan;
+scan No0257;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h16m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  961.534 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  984.610 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  984.610 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  942.303 GB:   :       : 1;
+endscan;
+scan No0258;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h17m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  965.380 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  988.457 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  988.457 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  946.149 GB:   :       : 1;
+endscan;
+scan No0259;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h18m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  969.226 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  992.303 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  992.303 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  949.995 GB:   :       : 1;
+endscan;
+scan No0260;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h19m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  973.072 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  996.149 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  996.149 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  953.841 GB:   :       : 1;
+endscan;
+scan No0261;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h20m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  976.918 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec:  999.995 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec:  999.995 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  957.688 GB:   :       : 1;
+endscan;
+scan No0262;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h21m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  980.764 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1003.841 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1003.841 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  961.534 GB:   :       : 1;
+endscan;
+scan No0263;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h22m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec:  984.610 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1007.687 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1007.687 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  965.380 GB:   :       : 1;
+endscan;
+scan No0264;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h23m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  988.457 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1011.533 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1011.533 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  969.226 GB:   :       : 1;
+endscan;
+scan No0265;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h24m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  992.303 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1015.379 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1015.379 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  973.072 GB:   :       : 1;
+endscan;
+scan No0266;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h25m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  996.149 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1019.226 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1019.226 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  976.918 GB:   :       : 1;
+endscan;
+scan No0267;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h26m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec:  999.995 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1023.072 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1023.072 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  980.764 GB:   :       : 1;
+endscan;
+scan No0268;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h27m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1003.841 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1026.918 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1026.918 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  984.610 GB:   :       : 1;
+endscan;
+scan No0269;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h28m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1007.687 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1030.764 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1030.764 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  988.457 GB:   :       : 1;
+endscan;
+scan No0270;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h29m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1011.533 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1034.610 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1034.610 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  992.303 GB:   :       : 1;
+endscan;
+scan No0271;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h30m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1015.379 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1038.456 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1038.456 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  996.149 GB:   :       : 1;
+endscan;
+scan No0272;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h31m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1019.226 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1042.303 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1042.303 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec:  999.995 GB:   :       : 1;
+endscan;
+scan No0273;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h32m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1023.072 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1046.149 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1046.149 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1003.841 GB:   :       : 1;
+endscan;
+scan No0274;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h33m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1026.918 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1049.995 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1049.995 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1007.687 GB:   :       : 1;
+endscan;
+scan No0275;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h34m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1030.764 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1053.841 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1053.841 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1011.533 GB:   :       : 1;
+endscan;
+scan No0276;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h35m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1034.610 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1057.687 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1057.687 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1015.379 GB:   :       : 1;
+endscan;
+scan No0277;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h36m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1038.456 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1061.534 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1061.534 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1019.226 GB:   :       : 1;
+endscan;
+scan No0278;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h37m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1042.303 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1065.380 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1065.380 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1023.072 GB:   :       : 1;
+endscan;
+scan No0279;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h38m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1046.149 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1069.226 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1069.226 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1026.918 GB:   :       : 1;
+endscan;
+scan No0280;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h39m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1049.995 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1073.072 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1073.072 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1030.764 GB:   :       : 1;
+endscan;
+scan No0281;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h40m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1053.841 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1076.918 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1076.918 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1034.610 GB:   :       : 1;
+endscan;
+scan No0282;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h41m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1057.687 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1080.765 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1080.765 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1038.456 GB:   :       : 1;
+endscan;
+scan No0283;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h42m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1061.534 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1084.611 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1084.611 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1042.303 GB:   :       : 1;
+endscan;
+scan No0284;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h43m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1065.380 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1088.457 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1088.457 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1046.149 GB:   :       : 1;
+endscan;
+scan No0285;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h44m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1069.226 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1092.303 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1092.303 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1049.995 GB:   :       : 1;
+endscan;
+scan No0286;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h45m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1073.072 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1096.149 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1096.149 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1053.841 GB:   :       : 1;
+endscan;
+scan No0287;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h46m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1076.918 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1099.995 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1099.995 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1057.687 GB:   :       : 1;
+endscan;
+scan No0288;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h47m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1080.765 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1103.842 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1103.842 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1061.534 GB:   :       : 1;
+endscan;
+scan No0289;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h48m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1084.611 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1107.688 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1107.688 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1065.380 GB:   :       : 1;
+endscan;
+scan No0290;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h49m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1088.457 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1111.534 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1111.534 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1069.226 GB:   :       : 1;
+endscan;
+scan No0291;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h50m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1092.303 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1115.380 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1115.380 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1073.072 GB:   :       : 1;
+endscan;
+scan No0292;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h51m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1096.149 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1119.226 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1119.226 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1076.918 GB:   :       : 1;
+endscan;
+scan No0293;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h52m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1099.995 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1123.073 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1123.073 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1080.765 GB:   :       : 1;
+endscan;
+scan No0294;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h53m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1103.842 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1126.919 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1126.919 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1084.611 GB:   :       : 1;
+endscan;
+scan No0295;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h54m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1107.688 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1130.765 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1130.765 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1088.457 GB:   :       : 1;
+endscan;
+scan No0296;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h55m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1111.534 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1134.611 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1134.611 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1092.303 GB:   :       : 1;
+endscan;
+scan No0297;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h56m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1115.380 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1138.457 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1138.457 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1096.149 GB:   :       : 1;
+endscan;
+scan No0298;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h57m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1119.226 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1142.304 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1142.304 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1099.995 GB:   :       : 1;
+endscan;
+scan No0299;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h58m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1123.073 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1146.150 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1146.150 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1103.842 GB:   :       : 1;
+endscan;
+scan No0300;
+* intent = "FIND_FRINGE"
+     start=2020y283d12h59m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1126.919 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1149.996 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1149.996 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1107.688 GB:   :       : 1;
+endscan;
+scan No0301;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h00m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1130.765 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1153.842 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1153.842 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1111.534 GB:   :       : 1;
+endscan;
+scan No0302;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h01m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1134.611 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1157.688 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1157.688 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1115.380 GB:   :       : 1;
+endscan;
+scan No0303;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h02m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1138.457 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1161.535 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1161.535 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1119.226 GB:   :       : 1;
+endscan;
+scan No0304;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h03m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1142.304 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1165.381 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1165.381 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1123.073 GB:   :       : 1;
+endscan;
+scan No0305;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h04m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1146.150 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1169.227 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1169.227 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1126.919 GB:   :       : 1;
+endscan;
+scan No0306;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h05m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1149.996 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1173.073 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1173.073 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1130.765 GB:   :       : 1;
+endscan;
+scan No0307;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h06m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1153.842 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1176.919 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1176.919 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1134.611 GB:   :       : 1;
+endscan;
+scan No0308;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h07m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1157.688 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1180.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1180.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1138.457 GB:   :       : 1;
+endscan;
+scan No0309;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h08m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1161.535 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1184.612 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1184.612 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1142.304 GB:   :       : 1;
+endscan;
+scan No0310;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h09m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1165.381 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1188.458 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1188.458 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1146.150 GB:   :       : 1;
+endscan;
+scan No0311;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h10m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1169.227 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1192.304 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1192.304 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1149.996 GB:   :       : 1;
+endscan;
+scan No0312;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h11m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1173.073 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1196.150 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1196.150 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1153.842 GB:   :       : 1;
+endscan;
+scan No0313;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h12m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1176.919 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1199.996 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1199.996 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1157.688 GB:   :       : 1;
+endscan;
+scan No0314;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h13m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1180.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1203.843 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1203.843 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1161.535 GB:   :       : 1;
+endscan;
+scan No0315;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h14m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1184.612 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1207.689 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1207.689 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1165.381 GB:   :       : 1;
+endscan;
+scan No0316;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h15m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1188.458 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1211.535 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1211.535 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1169.227 GB:   :       : 1;
+endscan;
+scan No0317;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h16m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1192.304 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1215.381 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1215.381 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1173.073 GB:   :       : 1;
+endscan;
+scan No0318;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h17m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1196.150 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1219.227 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1219.227 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1176.919 GB:   :       : 1;
+endscan;
+scan No0319;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h18m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1199.996 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1223.074 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1223.074 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1180.766 GB:   :       : 1;
+endscan;
+scan No0320;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h19m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1203.843 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1226.920 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1226.920 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1184.612 GB:   :       : 1;
+endscan;
+scan No0321;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h20m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1207.689 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1230.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1230.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1188.458 GB:   :       : 1;
+endscan;
+scan No0322;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h21m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1211.535 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1234.612 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1234.612 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1192.304 GB:   :       : 1;
+endscan;
+scan No0323;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h22m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1215.381 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1238.458 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1238.458 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1196.150 GB:   :       : 1;
+endscan;
+scan No0324;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h23m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1219.227 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1242.305 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1242.305 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1199.996 GB:   :       : 1;
+endscan;
+scan No0325;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h24m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1223.074 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1246.151 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1246.151 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1203.843 GB:   :       : 1;
+endscan;
+scan No0326;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h25m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1226.920 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1249.997 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1249.997 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1207.689 GB:   :       : 1;
+endscan;
+scan No0327;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h26m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1230.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1253.843 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1253.843 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1211.535 GB:   :       : 1;
+endscan;
+scan No0328;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h27m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1234.612 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1257.689 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1257.689 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1215.381 GB:   :       : 1;
+endscan;
+scan No0329;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h28m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1238.458 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1261.536 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1261.536 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1219.227 GB:   :       : 1;
+endscan;
+scan No0330;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h29m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1242.305 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1265.382 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1265.382 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1223.074 GB:   :       : 1;
+endscan;
+scan No0331;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h30m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1246.151 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1269.228 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1269.228 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1226.920 GB:   :       : 1;
+endscan;
+scan No0332;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h31m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1249.997 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1273.074 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1273.074 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1230.766 GB:   :       : 1;
+endscan;
+scan No0333;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h32m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1253.843 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1276.920 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1276.920 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1234.612 GB:   :       : 1;
+endscan;
+scan No0334;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h33m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1257.689 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1280.766 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1280.766 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1238.458 GB:   :       : 1;
+endscan;
+scan No0335;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h34m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1261.536 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1284.613 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1284.613 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1242.305 GB:   :       : 1;
+endscan;
+scan No0336;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h35m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1265.382 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1288.459 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1288.459 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1246.151 GB:   :       : 1;
+endscan;
+scan No0337;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h36m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1269.228 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1292.305 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1292.305 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1249.997 GB:   :       : 1;
+endscan;
+scan No0338;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h37m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1273.074 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1296.151 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1296.151 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1253.843 GB:   :       : 1;
+endscan;
+scan No0339;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h38m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1276.920 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1299.997 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1299.997 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1257.689 GB:   :       : 1;
+endscan;
+scan No0340;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h39m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1280.766 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1303.844 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1303.844 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1261.536 GB:   :       : 1;
+endscan;
+scan No0341;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h40m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1284.613 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1307.690 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1307.690 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1265.382 GB:   :       : 1;
+endscan;
+scan No0342;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h41m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1288.459 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1311.536 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1311.536 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1269.228 GB:   :       : 1;
+endscan;
+scan No0343;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h42m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1292.305 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1315.382 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1315.382 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1273.074 GB:   :       : 1;
+endscan;
+scan No0344;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h43m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1296.151 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1319.228 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1319.228 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1276.920 GB:   :       : 1;
+endscan;
+scan No0345;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h44m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1299.997 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1323.075 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1323.075 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1280.766 GB:   :       : 1;
+endscan;
+scan No0346;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h45m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1303.844 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1326.921 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1326.921 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1284.613 GB:   :       : 1;
+endscan;
+scan No0347;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h46m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1307.690 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1330.767 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1330.767 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1288.459 GB:   :       : 1;
+endscan;
+scan No0348;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h47m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1311.536 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1334.613 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1334.613 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1292.305 GB:   :       : 1;
+endscan;
+scan No0349;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h48m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1315.382 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1338.459 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1338.459 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1296.151 GB:   :       : 1;
+endscan;
+scan No0350;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h49m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1319.228 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1342.306 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1342.306 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1299.997 GB:   :       : 1;
+endscan;
+scan No0351;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h50m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1323.075 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1346.152 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1346.152 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1303.844 GB:   :       : 1;
+endscan;
+scan No0352;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h51m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1326.921 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1349.998 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1349.998 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1307.690 GB:   :       : 1;
+endscan;
+scan No0353;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h52m00s; mode=spirals.meth; source=0208-512;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=Cd:    0 sec:   30 sec: 1330.767 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1353.844 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1353.844 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1311.536 GB:   :       : 1;
+endscan;
+scan No0354;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h53m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1334.613 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1357.690 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1357.690 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1315.382 GB:   :       : 1;
+endscan;
+scan No0355;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h54m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1338.459 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1361.536 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1361.536 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1319.228 GB:   :       : 1;
+endscan;
+scan No0356;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h55m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1342.306 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1365.383 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1365.383 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1323.075 GB:   :       : 1;
+endscan;
+scan No0357;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h56m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1346.152 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1369.229 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1369.229 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1326.921 GB:   :       : 1;
+endscan;
+scan No0358;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h57m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1349.998 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1373.075 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1373.075 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1330.767 GB:   :       : 1;
+endscan;
+scan No0359;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h58m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1353.844 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1376.921 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1376.921 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1334.613 GB:   :       : 1;
+endscan;
+scan No0360;
+* intent = "FIND_FRINGE"
+     start=2020y283d13h59m00s; mode=spirals.meth; source=0208-512;
+     station=Cd:    0 sec:   30 sec: 1357.690 GB:   :       : 1;
+     station=Hb:    0 sec:   30 sec: 1380.767 GB:   :       : 1;
+     station=Ke:    0 sec:   30 sec: 1380.767 GB:   :       : 1;
+     station=Wa:    0 sec:   30 sec: 1338.459 GB:   :       : 1;
+endscan;

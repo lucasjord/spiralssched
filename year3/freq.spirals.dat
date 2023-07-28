@@ -1,0 +1,88 @@
+!!  Frequency catalog for SPIRALS.
+!!  Last updated on 2020-09-21
+!!
+!! 6.7 GHz setups
+Name = wa5cm_dual Station = WARK30M    priority = 0
+rf1 =  5910, 5910     ifname = 'A1','B2'
+rf2 =  6924, 6924
+pol =  RCP, LCP       lo1 = 5843, 5843
+note = 'Changed from 5900 to 5843 re request from Stuart Weston, 20200813.'
+/
+! From ATNF maser catalog.
+!Name = ho5cm_dual  Station = HOBART26   priority = 0
+!  rf1 = 6250, 6250    ifname = 'A3','B3'
+!  rf2 = 6950, 6950
+!  pol =  RCP, LCP    lo1 = 7000, 7000
+!  note = 'Confirmed 11/06/2003 email from Brett Reid'
+!  ! Edited LO from 4300 to 7000, based on website.
+!  ! Jamie has 6500 to 7000, assuming DBBC filter 2.
+!  ! CoMo input changed from A1, B1 to A3, B3 re suggestion by Jamie, 20200921.
+/
+Name = cd4cm_dual  Station = CEDUNA   priority = 0
+  rf1 = 6200, 6200    ifname = 'A1','B1'
+  rf2 = 6900, 6900
+  pol =  RCP, LCP    lo1 = 7300, 7300
+  ! updates June 2003 CJP by info from Simon Ellingsen
+  ! Edited LO from 5000 to 7300, based on website.
+/
+Name = aus5cm_dual  Station = KATH12M, YARRA12M, HOBART12  priority = 0
+  rf1 =  6000, 6000     ifname = 'A1','B4'
+  rf2 =  9000, 9000
+  pol =  RCP, LCP      lo1 = 6000, 6000
+  ! Dummy setup for SCHED, wideband setup is not vex controlled.
+/
+Name = hob5cm_pol Station = HOBART26 priority = 0
+  rf1 =  6500, 6500     ifname = 'A3',  'B3'
+  rf2 =  7000, 7000
+  pol =  RCP,  LCP      lo1 = 7000, 7000
+  note = 'Added by Jamie MC Jul 2018'
+  ! rf1, rf2 assume DBBC filter  2
+/
+!! 8.4 GHz setups
+!Name = ww3cm Station = WARK12M   priority = 1
+!  rf1 =  8112, 8112     ifname = 'A1',  'B2'
+!  rf2 =  8624, 8624     altifn = 'B1',  'A2'
+!  pol =  RCP,  LCP      lo1 = 7600, 7600
+!  note = 'From Stuart Weston, 2013/04/04'
+!/
+!Name = wa3cm Station = WARK30M   priority = 1
+!  ifname = 'A1', 'B2', 'C1', 'D2'
+!  altifn = 'B1', 'A2', 'D1', 'C2'
+!  rf1 =  8112, 8112, 8112, 8112
+!  rf2 =  8624, 8624, 8624, 8624
+!  pol =  RCP,  LCP,  RCP,  LCP
+!  lo1 =  8000, 8000, 8000, 8000
+!  note = 'From Stuart Weston, 2017/06/27'
+!/
+!Name = ho3cm_low  Station = HOBART26 priority = 0
+! rf1 = 7776, 7776    ifname = A1, B1
+! rf2 = 8288, 8288    fe = '3cm', '3cm'
+! pol = RCP, LCP    lo1 = 8800, 8800
+! ! rf1, rf2 assume filter 2.
+!/
+!Name = ho3cm_high  Station = HOBART26 priority = 0
+! rf1 = 8288, 8288    ifname = A1, B1
+! rf2 = 8800, 8800    fe = '3cm', '3cm'
+! pol = RCP, LCP    lo1 = 8800, 8800
+! ! rf1, rf2 assume filter 2.
+!/
+!Name = cd3cm_low  Station = CEDUNA priority = 0
+!rf1 = 8016, 8016    ifname = A1, B1
+!rf2 = 8528, 8528    fe = '3cm', '3cm'
+!pol = RCP, LCP    lo1 = 9040, 9040
+!! rf1, rf2 assume DBBC filter 1.
+!/
+!Name = cd3cm_high  Station = CEDUNA priority = 0
+!rf1 = 8528, 8528    ifname = A1, B1
+!rf2 = 9030, 9030    fe = '3cm', '3cm'
+!pol = RCP, LCP    lo1 = 9040, 9040
+!! rf1, rf2 assume DBBC filter 2.
+!/
+!Name = aus3cm Station = KATH12M, YARRA12M, HOBART12   priority = 1
+!  rf1 =  7610, 7610     ifname = A1,  B1
+!  rf2 =  8624, 8624     altifn = B4,  A2
+!  pol =  RCP,  LCP      lo1 = 7600, 7600
+!  note = 'From Jim Lovell 2013'
+!  ! rf1, rf2 assume DBBC filter 1 or 2
+!/
+!
