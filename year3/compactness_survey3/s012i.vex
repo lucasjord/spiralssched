@@ -1,0 +1,2224 @@
+VEX_rev = 1.5;
+*    SCHED vers: Release 11.5. August 3, 2018
+*    VEX/SCHED:  1.5.87
+*    Other versions: Sched:  11.5  Plot: 1.06  JPL-ephem: 1.01
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = s012i;
+*                                                      +------------+
+*                         PI revision number:          |    2.0000  |
+*                                                      +------------+
+*    mode:       6.7GHz-2p-1IF/16MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def s012i;
+     exper_name = s012i;
+     exper_description = "SPIRALS: Search for distant compact target masers";
+     PI_name = "Lucas J. Hyland";
+     PI_email = lucas.hyland@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*                
+*    phone:     +61416469903
+*    during obs: 
+*    fax:        
+*    notes:     Array: At-Cd-Ho
+*
+*    year, doy: 2023, 264
+*    date     : Thu 21 Sep 2023
+*    MJD      : 60208
+     exper_nominal_start=2023y264d23h00m00s;
+     exper_nominal_stop=2023y265d12h27m15s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    :     2.000 s
+*    number_channels:  4096
+*    number_antenna :  3
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  : 
+*                     University of Tasmania
+*    corr_notes : 
+*               Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res.
+*               Pass 2: Zoom band: 6664-6672MHz. corchan=4096, 2 kHz res.
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def spirals.meth;
+     ref $PROCEDURES = Mode_01;
+     ref $FREQ = 6659.00MHz2x16MHz#02:At;
+     ref $FREQ = 6659.00MHz2x16MHz:Cd:Ho;
+     ref $IF = LO@4500MHzDPolNoTone:At;
+     ref $IF = LO@7300MHzDPolNoTone:Cd:Ho;
+     ref $BBC = 2BBCs#02:At;
+     ref $BBC = 2BBCs:Cd:Ho;
+     ref $TRACKS = LBA_.2Ch2bit1to1:At;
+     ref $TRACKS = MARK5B.2Ch2bit1to1:Cd:Ho;
+     ref $HEAD_POS = LBAVoid:At;
+*    ref $HEAD_POS = DiskVoid <= obsolete definition
+     ref $ROLL = NoRoll:At:Cd:Ho;
+     ref $PASS_ORDER = LBADummy:At;
+*    ref $PASS_ORDER = DiskVoid <= obsolete definition
+     ref $PHASE_CAL_DETECT = NoDetect:At:Cd:Ho;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def At;
+     ref $SITE = ATCA;
+     ref $ANTENNA = ATCA;
+     ref $DAS = 1LBA+NONE<LBADR;
+enddef;
+*
+def Cd;
+     ref $SITE = CDDBBC;
+     ref $ANTENNA = CDDBBC;
+     ref $DAS = 1DBBC+NONE<;
+enddef;
+*
+def Ho;
+     ref $SITE = HOB_DBBC;
+     ref $ANTENNA = HOB_DBBC;
+     ref $DAS = 2DBBC+MARK5B<;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Mode_01;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def ATCA;
+     site_type = fixed;
+     site_name = ATCA;
+     site_ID = At;
+*    elev=  252.02 long=-149:33:53. lat=-30:18:46.4
+     site_position =-4751639.85972 m: 2791700.35670 m:-3200491.11339 m;
+     site_velocity = -0.030990   m/yr: -0.004580   m/yr:  0.042030  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def CDDBBC;
+     site_type = fixed;
+     site_name = CDDBBC;
+     site_ID = Cd;
+*    elev=  164.62 long=-133:48:35. lat=-31:52:03.7
+     site_position =-3753442.74570 m: 3912709.75300 m:-3348067.60950 m;
+     site_velocity = -0.041730   m/yr:  0.002670   m/yr:  0.049900  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 1997y001d;
+     site_position_epoch =   50449;
+enddef;
+*
+def HOB_DBBC;
+     site_type = fixed;
+     site_name = HOB_DBBC;
+     site_ID = Ho;
+*    elev=   65.09 long=-147:26:25. lat=-42:48:12.9
+     site_position =-3950237.40300 m: 2522347.68410 m:-4311561.83350 m;
+     site_velocity = -0.039010   m/yr:  0.007960   m/yr:  0.041100  m/yr;
+*    First line below is VEX standard format.  Use only when readers are ready.
+*    site_position_epoch = 2014y001d;
+     site_position_epoch =   56658;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def ATCA;
+     axis_type = az : el;
+     antenna_motion = el :  20.0 deg/min :  3 sec;  *    0.222 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  3 sec;  *    0.222 deg/sec/sec
+     axis_offset =    0.00000 m;
+enddef;
+*
+def CDDBBC;
+     axis_type = az : el;
+     antenna_motion = el :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = az :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    0.00240 m;
+enddef;
+*
+def HOB_DBBC;
+     axis_type = x : yew;
+     antenna_motion = x :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     antenna_motion = y :  40.0 deg/min :  2 sec;  *    0.028 deg/sec/sec
+     axis_offset =    8.19440 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def 1LBA+NONE<LBADR;
+     record_transport_type = S2;
+     electronics_rack_type = LBA;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 1DBBC+NONE<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :            : 0 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*
+def 2DBBC+MARK5B<;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :            : 0 ;
+     headstack = 2 :            : 1 ;
+     tape_motion = adaptive : 0 min: 0 min: 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+*
+def G292.46+0.16;
+     source_name = G292.46+0.16;
+*    this source had calibrator code:  
+*    alternate source name: G292.468+0.1
+     ra = 11h23m42.1700000s; dec = -60d54'33.500000"; ref_coord_frame = J2000;
+*    ra = 11h21m27.8287989s; dec = -60d38'04.430938"; ref_coord_frame = B1950;
+*    ra = 11h24m42.2403774s; dec = -61d02'12.422917"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      10.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G299.01+0.12;
+     source_name = G299.01+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G299.013+0.1
+     ra = 12h17m24.6000000s; dec = -62d29'03.700000"; ref_coord_frame = J2000;
+*    ra = 12h14m41.9172855s; dec = -62d12'23.740712"; ref_coord_frame = B1950;
+*    ra = 12h18m38.0272510s; dec = -62d36'52.988624"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      18.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G299.77-0.00;
+     source_name = G299.77-0.00;
+*    this source had calibrator code:  
+*    alternate source name: G299.772-0.0
+     ra = 12h23m48.9700000s; dec = -62d42'25.300000"; ref_coord_frame = J2000;
+*    ra = 12h21m02.6328536s; dec = -62d25'47.676785"; ref_coord_frame = B1950;
+*    ra = 12h25m04.1297005s; dec = -62d50'14.100443"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -6.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G300.50-0.17;
+     source_name = G300.50-0.17;
+*    this source had calibrator code:  
+*    alternate source name: G300.504-0.1
+     ra = 12h30m03.5800000s; dec = -62d56'48.700000"; ref_coord_frame = J2000;
+*    ra = 12h27m13.6079491s; dec = -62d40'14.096011"; ref_coord_frame = B1950;
+*    ra = 12h31m20.4630267s; dec = -63d04'36.672944"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       7.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G311.23-0.03;
+     source_name = G311.23-0.03;
+*    this source had calibrator code:  
+*    alternate source name: G311.230-0.0
+     ra = 14h02m27.4700000s; dec = -61d45'14.400000"; ref_coord_frame = J2000;
+*    ra = 13h58m51.5149953s; dec = -61d30'47.698188"; ref_coord_frame = B1950;
+*    ra = 14h04m06.8639248s; dec = -61d52'09.220996"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      24.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G312.69+0.12;
+     source_name = G312.69+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G312.698+0.1
+     ra = 14h13m49.8500000s; dec = -61d10'24.100000"; ref_coord_frame = J2000;
+*    ra = 14h10m10.2705244s; dec = -60d56'23.377684"; ref_coord_frame = B1950;
+*    ra = 14h15m31.0943873s; dec = -61d17'07.328160"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      29.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G313.46+0.19;
+     source_name = G313.46+0.19;
+*    this source had calibrator code:  
+*    alternate source name: G313.469+0.1
+     ra = 14h19m40.9400000s; dec = -60d51'47.300000"; ref_coord_frame = J2000;
+*    ra = 14h15m59.6606477s; dec = -60d38'00.754191"; ref_coord_frame = B1950;
+*    ra = 14h21m23.0580699s; dec = -60d58'24.165128"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -9.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G313.99-0.08;
+     source_name = G313.99-0.08;
+*    this source had calibrator code:  
+*    alternate source name: G313.994-0.0
+     ra = 14h24m30.7800000s; dec = -60d56'28.300000"; ref_coord_frame = J2000;
+*    ra = 14h20m47.2221774s; dec = -60d42'53.842249"; ref_coord_frame = B1950;
+*    ra = 14h26m14.0126373s; dec = -61d02'59.782503"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -4.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G320.42+0.08;
+     source_name = G320.42+0.08;
+*    this source had calibrator code:  
+*    alternate source name: G320.424+0.0
+     ra = 15h09m41.5600000s; dec = -58d00'29.200000"; ref_coord_frame = J2000;
+*    ra = 15h05m49.9148781s; dec = -57d49'04.764485"; ref_coord_frame = B1950;
+*    ra = 15h11m29.1538669s; dec = -58d06'01.351854"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -8.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G320.78+0.24;
+     source_name = G320.78+0.24;
+*    this source had calibrator code:  
+*    alternate source name: G320.780+0.2
+     ra = 15h11m23.4800000s; dec = -57d41'25.100000"; ref_coord_frame = J2000;
+*    ra = 15h07m32.2520879s; dec = -57d30'06.123627"; ref_coord_frame = B1950;
+*    ra = 15h13m10.9036653s; dec = -57d46'54.699470"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -5.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G324.91+0.15;
+     source_name = G324.91+0.15;
+*    this source had calibrator code:  
+*    alternate source name: G324.915+0.1
+     ra = 15h36m51.1700000s; dec = -55d29'22.900000"; ref_coord_frame = J2000;
+*    ra = 15h32m59.2761713s; dec = -55d19'29.854411"; ref_coord_frame = B1950;
+*    ra = 15h38m39.1990483s; dec = -55d34'12.686520"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -2.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G328.38+0.13;
+     source_name = G328.38+0.13;
+*    this source had calibrator code:  
+*    alternate source name: G328.385+0.1
+     ra = 15h55m47.3300000s; dec = -53d22'30.800000"; ref_coord_frame = J2000;
+*    ra = 15h51m57.1336428s; dec = -53d13'46.532727"; ref_coord_frame = B1950;
+*    ra = 15h57m34.7691652s; dec = -53d26'48.432712"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      29.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G329.61+0.11;
+     source_name = G329.61+0.11;
+*    this source had calibrator code:  
+*    alternate source name: G329.610+0.1
+     ra = 16h02m03.1400000s; dec = -52d35'33.500000"; ref_coord_frame = J2000;
+*    ra = 15h58m13.8545231s; dec = -52d27'12.806085"; ref_coord_frame = B1950;
+*    ra = 16h03m50.2171853s; dec = -52d39'40.060589"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     -60.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G337.70-0.05;
+     source_name = G337.70-0.05;
+*    this source had calibrator code:  
+*    alternate source name: G337.705-0.0
+     ra = 16h38m29.6300000s; dec = -47d00'35.500000"; ref_coord_frame = J2000;
+*    ra = 16h34m48.9710744s; dec = -46d54'38.927897"; ref_coord_frame = B1950;
+*    ra = 16h40m13.0084192s; dec = -47d03'33.787690"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     -54.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G339.47+0.04;
+     source_name = G339.47+0.04;
+*    this source had calibrator code:  
+*    alternate source name: G339.477+0.0
+     ra = 16h44m50.9800000s; dec = -45d36'56.100000"; ref_coord_frame = J2000;
+*    ra = 16h41m12.8431726s; dec = -45d31'25.732035"; ref_coord_frame = B1950;
+*    ra = 16h46m33.2306691s; dec = -45d39'41.807566"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -9.70 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G340.78-0.09;
+     source_name = G340.78-0.09;
+*    this source had calibrator code:  
+*    alternate source name: G340.785-0.0
+     ra = 16h50m14.8400000s; dec = -44d42'26.300000"; ref_coord_frame = J2000;
+*    ra = 16h46m38.2082719s; dec = -44d37'18.364483"; ref_coord_frame = B1950;
+*    ra = 16h51m56.4289747s; dec = -44d45'01.296909"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =    -105.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G342.36+0.14;
+     source_name = G342.36+0.14;
+*    this source had calibrator code:  
+*    alternate source name: G342.368+0.1
+     ra = 16h54m49.1500000s; dec = -43d20'03.600000"; ref_coord_frame = J2000;
+*    ra = 16h51m15.0802334s; dec = -43d15'14.845833"; ref_coord_frame = B1950;
+*    ra = 16h56m29.5749075s; dec = -43d22'29.264832"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -5.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G342.95-0.01;
+     source_name = G342.95-0.01;
+*    this source had calibrator code:  
+*    alternate source name: G342.954-0.0
+     ra = 16h57m30.6600000s; dec = -42d58'34.800000"; ref_coord_frame = J2000;
+*    ra = 16h53m57.1305884s; dec = -42d53'57.359223"; ref_coord_frame = B1950;
+*    ra = 16h59m10.8521875s; dec = -43d00'55.078856"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -4.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G343.92+0.12;
+     source_name = G343.92+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G343.929+0.1
+     ra = 17h00m10.9100000s; dec = -42d07'19.300000"; ref_coord_frame = J2000;
+*    ra = 16h56m38.9477474s; dec = -42d02'53.159701"; ref_coord_frame = B1950;
+*    ra = 17h01m50.3880373s; dec = -42d09'34.057726"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      14.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G344.58-0.02;
+     source_name = G344.58-0.02;
+*    this source had calibrator code:  
+*    alternate source name: G344.581-0.0
+     ra = 17h02m57.7100000s; dec = -41d41'53.800000"; ref_coord_frame = J2000;
+*    ra = 16h59m26.4160567s; dec = -41d37'39.425708"; ref_coord_frame = B1950;
+*    ra = 17h04m36.8953982s; dec = -41d44'02.935061"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       1.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G345.44+0.20;
+     source_name = G345.44+0.20;
+*    this source had calibrator code:  
+*    alternate source name: G345.441+0.2
+     ra = 17h04m46.8700000s; dec = -40d52'38.000000"; ref_coord_frame = J2000;
+*    ra = 17h01m17.0972702s; dec = -40d48'31.385799"; ref_coord_frame = B1950;
+*    ra = 17h06m25.3556900s; dec = -40d54'43.271478"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       0.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G346.48+0.13;
+     source_name = G346.48+0.13;
+*    this source had calibrator code:  
+*    alternate source name: G346.481+0.1
+     ra = 17h08m22.7200000s; dec = -40d05'25.600000"; ref_coord_frame = J2000;
+*    ra = 17h04m54.2680665s; dec = -40d01'34.314434"; ref_coord_frame = B1950;
+*    ra = 17h10m00.6123558s; dec = -40d07'23.470435"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -5.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G345.19-0.03;
+     source_name = G345.19-0.03;
+*    this source had calibrator code:  
+*    alternate source name: G345.198-0.0
+     ra = 17h04m59.4900000s; dec = -41d12'45.700000"; ref_coord_frame = J2000;
+*    ra = 17h01m29.0381801s; dec = -41d08'39.952757"; ref_coord_frame = B1950;
+*    ra = 17h06m38.2955464s; dec = -41d14'50.660936"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -0.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G346.03+0.04;
+     source_name = G346.03+0.04;
+*    this source had calibrator code:  
+*    alternate source name: G346.036+0.0
+     ra = 17h07m20.0200000s; dec = -40d29'49.000000"; ref_coord_frame = J2000;
+*    ra = 17h03m50.8380465s; dec = -40d25'53.243034"; ref_coord_frame = B1950;
+*    ra = 17h08m58.2471726s; dec = -40d31'49.080643"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -6.40 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G346.52+0.08;
+     source_name = G346.52+0.08;
+*    this source had calibrator code:  
+*    alternate source name: G346.522+0.0
+     ra = 17h08m42.2900000s; dec = -40d05'07.800000"; ref_coord_frame = J2000;
+*    ra = 17h05m13.8288698s; dec = -40d01'17.902364"; ref_coord_frame = B1950;
+*    ra = 17h10m20.1890036s; dec = -40d07'05.019054"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       5.70 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G348.72-0.07;
+     source_name = G348.72-0.07;
+*    this source had calibrator code:  
+*    alternate source name: G348.723-0.0
+     ra = 17h16m04.7700000s; dec = -38d24'08.800000"; ref_coord_frame = J2000;
+*    ra = 17h12m39.1188402s; dec = -38d20'50.513638"; ref_coord_frame = B1950;
+*    ra = 17h17m41.4027477s; dec = -38d25'50.718325"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      11.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G348.89-0.18;
+     source_name = G348.89-0.18;
+*    this source had calibrator code:  
+*    alternate source name: G348.892-0.1
+     ra = 17h17m00.2300000s; dec = -38d19'28.900000"; ref_coord_frame = J2000;
+*    ra = 17h13m34.6805334s; dec = -38d16'14.581742"; ref_coord_frame = B1950;
+*    ra = 17h18m36.8214551s; dec = -38d21'08.935031"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       1.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G349.06-0.01;
+     source_name = G349.06-0.01;
+*    this source had calibrator code:  
+*    alternate source name: G349.067-0.0
+     ra = 17h16m50.7400000s; dec = -38d05'14.300000"; ref_coord_frame = J2000;
+*    ra = 17h13m25.6371036s; dec = -38d01'59.319643"; ref_coord_frame = B1950;
+*    ra = 17h18m27.1207287s; dec = -38d06'54.575724"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      11.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G349.15+0.02;
+     source_name = G349.15+0.02;
+*    this source had calibrator code:  
+*    alternate source name: G349.151+0.0
+     ra = 17h16m55.8800000s; dec = -37d59'47.900000"; ref_coord_frame = J2000;
+*    ra = 17h13m30.9402591s; dec = -37d56'33.293193"; ref_coord_frame = B1950;
+*    ra = 17h18m32.1847355s; dec = -38d01'27.973887"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      14.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G349.88+0.23;
+     source_name = G349.88+0.23;
+*    this source had calibrator code:  
+*    alternate source name: G349.884+0.2
+     ra = 17h18m12.3700000s; dec = -37d16'40.000000"; ref_coord_frame = J2000;
+*    ra = 17h14m48.6848734s; dec = -37d13'30.912020"; ref_coord_frame = B1950;
+*    ra = 17h19m48.0945474s; dec = -37d18'17.273461"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      16.20 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G350.11+0.22;
+     source_name = G350.11+0.22;
+*    this source had calibrator code:  
+*    alternate source name: G350.116+0.2
+     ra = 17h18m55.1100000s; dec = -37d05'38.100000"; ref_coord_frame = J2000;
+*    ra = 17h15m31.7261713s; dec = -37d02'32.083561"; ref_coord_frame = B1950;
+*    ra = 17h20m30.6979686s; dec = -37d07'13.878286"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       4.20 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G350.47+0.02;
+     source_name = G350.47+0.02;
+*    this source had calibrator code:  
+*    alternate source name: G350.470+0.0
+     ra = 17h20m43.2400000s; dec = -36d54'46.600000"; ref_coord_frame = J2000;
+*    ra = 17h17m20.1074079s; dec = -36d51'48.343470"; ref_coord_frame = B1950;
+*    ra = 17h22m18.7223145s; dec = -36d56'18.684287"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -6.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G354.30-0.11;
+     source_name = G354.30-0.11;
+*    this source had calibrator code:  
+*    alternate source name: G354.308-0.1
+     ra = 17h31m48.5600000s; dec = -33d48'29.100000"; ref_coord_frame = J2000;
+*    ra = 17h28m30.4395045s; dec = -33d46'18.943604"; ref_coord_frame = B1950;
+*    ra = 17h33m21.7612323s; dec = -33d49'37.662184"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      18.70 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G354.49+0.08;
+     source_name = G354.49+0.08;
+*    this source had calibrator code:  
+*    alternate source name: G354.496+0.0
+     ra = 17h31m31.7700000s; dec = -33d32'44.000000"; ref_coord_frame = J2000;
+*    ra = 17h28m14.0949354s; dec = -33d30'32.646830"; ref_coord_frame = B1950;
+*    ra = 17h33m04.7599668s; dec = -33d33'53.044131"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      26.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G355.34+0.14;
+     source_name = G355.34+0.14;
+*    this source had calibrator code:  
+*    alternate source name: G355.344+0.1
+     ra = 17h33m29.0600000s; dec = -32d47'58.900000"; ref_coord_frame = J2000;
+*    ra = 17h30m12.5665460s; dec = -32d45'56.071235"; ref_coord_frame = B1950;
+*    ra = 17h35m01.5070450s; dec = -32d49'03.708939"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      19.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G357.96-0.16;
+     source_name = G357.96-0.16;
+*    this source had calibrator code:  
+*    alternate source name: G357.965-0.1
+     ra = 17h41m20.1400000s; dec = -30d45'14.400000"; ref_coord_frame = J2000;
+*    ra = 17h38m06.7707297s; dec = -30d43'45.831897"; ref_coord_frame = B1950;
+*    ra = 17h42m51.1673955s; dec = -30d46'02.463466"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -8.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G358.72-0.12;
+     source_name = G358.72-0.12;
+*    this source had calibrator code:  
+*    alternate source name: G358.721-0.1
+     ra = 17h43m02.3100000s; dec = -30d05'29.900000"; ref_coord_frame = J2000;
+*    ra = 17h39m49.9491551s; dec = -30d04'08.790017"; ref_coord_frame = B1950;
+*    ra = 17h44m32.8734446s; dec = -30d06'14.247047"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      10.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G359.13+0.03;
+     source_name = G359.13+0.03;
+*    this source had calibrator code:  
+*    alternate source name: G359.138+0.0
+     ra = 17h43m25.6700000s; dec = -29d39'17.300000"; ref_coord_frame = J2000;
+*    ra = 17h40m13.9786951s; dec = -29d37'57.912306"; ref_coord_frame = B1950;
+*    ra = 17h44m55.9206942s; dec = -29d40'00.699523"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -3.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G359.61-0.24;
+     source_name = G359.61-0.24;
+*    this source had calibrator code:  
+*    alternate source name: G359.615-0.2
+     ra = 17h45m39.0900000s; dec = -29d23'30.000000"; ref_coord_frame = J2000;
+*    ra = 17h42m27.7733217s; dec = -29d22'20.324254"; ref_coord_frame = B1950;
+*    ra = 17h47m09.1781655s; dec = -29d24'08.745806"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      22.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G359.93+0.17;
+     source_name = G359.93+0.17;
+*    this source had calibrator code:  
+*    alternate source name: G359.938+0.1
+     ra = 17h44m48.5500000s; dec = -28d53'59.400000"; ref_coord_frame = J2000;
+*    ra = 17h41m37.9937067s; dec = -28d52'46.078292"; ref_coord_frame = B1950;
+*    ra = 17h46m18.2749210s; dec = -28d54'39.707114"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -0.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G000.49+0.18;
+     source_name = G000.49+0.18;
+*    this source had calibrator code:  
+*    alternate source name: G000.496+0.1
+     ra = 17h46m03.9600000s; dec = -28d24'52.800000"; ref_coord_frame = J2000;
+*    ra = 17h42m54.1212064s; dec = -28d23'44.988071"; ref_coord_frame = B1950;
+*    ra = 17h47m33.3548383s; dec = -28d25'30.360510"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       0.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G000.83+0.18;
+     source_name = G000.83+0.18;
+*    this source had calibrator code:  
+*    alternate source name: G000.836+0.1
+     ra = 17h46m52.8600000s; dec = -28d07'34.800000"; ref_coord_frame = J2000;
+*    ra = 17h43m43.4444821s; dec = -28d06'30.560443"; ref_coord_frame = B1950;
+*    ra = 17h48m22.0605248s; dec = -28d08'10.587614"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       3.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G001.14-0.12;
+     source_name = G001.14-0.12;
+*    this source had calibrator code:  
+*    alternate source name: G001.147-0.1
+     ra = 17h48m48.5300000s; dec = -28d01'11.200000"; ref_coord_frame = J2000;
+*    ra = 17h45m39.2540262s; dec = -28d00'15.381546"; ref_coord_frame = B1950;
+*    ra = 17h50m17.6766230s; dec = -28d01'42.988866"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     -15.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G001.32+0.15;
+     source_name = G001.32+0.15;
+*    this source had calibrator code:  
+*    alternate source name: G001.329+0.1
+     ra = 17h48m10.3100000s; dec = -27d43'20.700000"; ref_coord_frame = J2000;
+*    ra = 17h45m01.4831674s; dec = -27d42'22.117105"; ref_coord_frame = B1950;
+*    ra = 17h49m39.2411860s; dec = -27d43'53.696453"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     -12.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G001.71-0.08;
+     source_name = G001.71-0.08;
+*    this source had calibrator code:  
+*    alternate source name: G001.719-0.0
+     ra = 17h49m59.8400000s; dec = -27d30'36.900000"; ref_coord_frame = J2000;
+*    ra = 17h46m51.3109310s; dec = -27d29'46.299866"; ref_coord_frame = B1950;
+*    ra = 17h51m28.6420709s; dec = -27d31'06.070034"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -8.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G002.59-0.02;
+     source_name = G002.59-0.02;
+*    this source had calibrator code:  
+*    alternate source name: G002.591-0.0
+     ra = 17h51m46.6900000s; dec = -26d43'51.200000"; ref_coord_frame = J2000;
+*    ra = 17h48m39.2928106s; dec = -26d43'08.421899"; ref_coord_frame = B1950;
+*    ra = 17h53m14.9696559s; dec = -26d44'16.438372"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -8.20 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G003.25+0.01;
+     source_name = G003.25+0.01;
+*    this source had calibrator code:  
+*    alternate source name: G003.253+0.0
+     ra = 17h53m05.9600000s; dec = -26d08'13.000000"; ref_coord_frame = J2000;
+*    ra = 17h49m59.4170448s; dec = -26d07'36.027145"; ref_coord_frame = B1950;
+*    ra = 17h54m33.8451341s; dec = -26d08'35.314592"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       2.20 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G004.39+0.07;
+     source_name = G004.39+0.07;
+*    this source had calibrator code:  
+*    alternate source name: G004.393+0.0
+     ra = 17h55m25.7700000s; dec = -25d07'23.600000"; ref_coord_frame = J2000;
+*    ra = 17h52m20.6680599s; dec = -25d06'56.866349"; ref_coord_frame = B1950;
+*    ra = 17h56m52.9899971s; dec = -25d07'40.766743"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       2.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G004.43+0.12;
+     source_name = G004.43+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G004.434+0.1
+     ra = 17h55m19.7400000s; dec = -25d03'44.800000"; ref_coord_frame = J2000;
+*    ra = 17h52m14.7249000s; dec = -25d03'17.630248"; ref_coord_frame = B1950;
+*    ra = 17h56m46.9184733s; dec = -25d04'02.152839"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -0.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G005.61-0.08;
+     source_name = G005.61-0.08;
+*    this source had calibrator code:  
+*    alternate source name: G005.618-0.0
+     ra = 17h58m44.7800000s; dec = -24d08'40.100000"; ref_coord_frame = J2000;
+*    ra = 17h55m41.0476093s; dec = -24d08'27.920059"; ref_coord_frame = B1950;
+*    ra = 18h00m11.3740771s; dec = -24d08'50.094351"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     -27.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G006.58-0.19;
+     source_name = G006.58-0.19;
+*    this source had calibrator code:  
+*    alternate source name: G006.588-0.1
+     ra = 18h01m16.0900000s; dec = -23d21'27.300000"; ref_coord_frame = J2000;
+*    ra = 17h58m13.4485797s; dec = -23d21'26.189094"; ref_coord_frame = B1950;
+*    ra = 18h02m42.1845056s; dec = -23d21'31.823748"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       5.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G006.61-0.08;
+     source_name = G006.61-0.08;
+*    this source had calibrator code:  
+*    alternate source name: G006.610-0.0
+     ra = 18h00m54.0300000s; dec = -23d17'03.100000"; ref_coord_frame = J2000;
+*    ra = 17h57m51.4904743s; dec = -23d17'00.385024"; ref_coord_frame = B1950;
+*    ra = 18h02m20.0743134s; dec = -23d17'08.356559"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       0.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G006.88+0.09;
+     source_name = G006.88+0.09;
+*    this source had calibrator code:  
+*    alternate source name: G006.881+0.0
+     ra = 18h00m49.3800000s; dec = -22d57'42.600000"; ref_coord_frame = J2000;
+*    ra = 17h57m47.2850421s; dec = -22d57'39.562727"; ref_coord_frame = B1950;
+*    ra = 18h02m15.2142459s; dec = -22d57'47.905174"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -2.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G008.83-0.02;
+     source_name = G008.83-0.02;
+*    this source had calibrator code:  
+*    alternate source name: G008.832-0.0
+     ra = 18h05m25.6700000s; dec = -21d19'25.100000"; ref_coord_frame = J2000;
+*    ra = 18h02m25.8018689s; dec = -21d19'42.282867"; ref_coord_frame = B1950;
+*    ra = 18h06m50.4806951s; dec = -21d19'20.343701"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      -3.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G014.52+0.15;
+     source_name = G014.52+0.15;
+*    this source had calibrator code:  
+*    alternate source name: G014.521+0.1
+     ra = 18h16m20.7300000s; dec = -16d15'05.500000"; ref_coord_frame = J2000;
+*    ra = 18h13m27.4960145s; dec = -16d16'10.629045"; ref_coord_frame = B1950;
+*    ra = 18h17m42.4715247s; dec = -16d14'36.490747"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =       4.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G020.08-0.13;
+     source_name = G020.08-0.13;
+*    this source had calibrator code:  
+*    alternate source name: G020.081-0.1
+     ra = 18h28m10.3200000s; dec = -11d28'47.600000"; ref_coord_frame = J2000;
+*    ra = 18h25m23.0365076s; dec = -11d30'44.446275"; ref_coord_frame = B1950;
+*    ra = 18h29m29.3154010s; dec = -11d27'52.651899"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      43.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G020.96-0.07;
+     source_name = G020.96-0.07;
+*    this source had calibrator code:  
+*    alternate source name: G020.963-0.0
+     ra = 18h29m37.3400000s; dec = -10d40'12.600000"; ref_coord_frame = J2000;
+*    ra = 18h26m51.0388931s; dec = -10d42'15.778829"; ref_coord_frame = B1950;
+*    ra = 18h30m55.8790154s; dec = -10d39'14.405964"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      34.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G021.02-0.06;
+     source_name = G021.02-0.06;
+*    this source had calibrator code:  
+*    alternate source name: G021.023-0.0
+     ra = 18h29m41.5500000s; dec = -10d36'42.300000"; ref_coord_frame = J2000;
+*    ra = 18h26m55.3193159s; dec = -10d38'45.785908"; ref_coord_frame = B1950;
+*    ra = 18h31m00.0561197s; dec = -10d35'43.942576"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      31.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G021.56-0.03;
+     source_name = G021.56-0.03;
+*    this source had calibrator code:  
+*    alternate source name: G021.562-0.0
+     ra = 18h30m36.0700000s; dec = -10d07'10.900000"; ref_coord_frame = J2000;
+*    ra = 18h27m50.4331505s; dec = -10d09'18.349891"; ref_coord_frame = B1950;
+*    ra = 18h31m54.3003737s; dec = -10d06'10.515812"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     117.20 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G021.88+0.01;
+     source_name = G021.88+0.01;
+*    this source had calibrator code:  
+*    alternate source name: G021.880+0.0
+     ra = 18h31m01.7500000s; dec = -09d49'00.500000"; ref_coord_frame = J2000;
+*    ra = 18h28m16.4768230s; dec = -09d51'09.819369"; ref_coord_frame = B1950;
+*    ra = 18h32m19.8108223s; dec = -09d47'59.137942"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      20.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G022.33-0.15;
+     source_name = G022.33-0.15;
+*    this source had calibrator code:  
+*    alternate source name: G022.335-0.1
+     ra = 18h32m29.4100000s; dec = -09d29'29.700000"; ref_coord_frame = J2000;
+*    ra = 18h29m44.5322152s; dec = -09d31'45.366515"; ref_coord_frame = B1950;
+*    ra = 18h33m47.2916391s; dec = -09d28'25.237801"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      35.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G023.88+0.06;
+     source_name = G023.88+0.06;
+*    this source had calibrator code:  
+*    alternate source name: G023.885+0.0
+     ra = 18h34m36.8400000s; dec = -08d01'00.700000"; ref_coord_frame = J2000;
+*    ra = 18h31m53.7175323s; dec = -08d03'25.626247"; ref_coord_frame = B1950;
+*    ra = 18h35m53.9033983s; dec = -07d59'51.405019"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      45.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G023.99-0.10;
+     source_name = G023.99-0.10;
+*    this source had calibrator code:  
+*    alternate source name: G023.996-0.1
+     ra = 18h35m23.4900000s; dec = -07d59'29.800000"; ref_coord_frame = J2000;
+*    ra = 18h32m40.4013597s; dec = -08d01'58.090790"; ref_coord_frame = B1950;
+*    ra = 18h36m40.5414053s; dec = -07d58'18.907543"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      68.20 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G024.14-0.00;
+     source_name = G024.14-0.00;
+*    this source had calibrator code:  
+*    alternate source name: G024.148-0.0
+     ra = 18h35m20.9400000s; dec = -07d48'55.700000"; ref_coord_frame = J2000;
+*    ra = 18h32m38.0582159s; dec = -07d51'23.814509"; ref_coord_frame = B1950;
+*    ra = 18h36m37.8934657s; dec = -07d47'44.836419"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      17.40 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G024.94+0.07;
+     source_name = G024.94+0.07;
+*    this source had calibrator code:  
+*    alternate source name: G024.943+0.0
+     ra = 18h36m31.5600000s; dec = -07d04'16.800000"; ref_coord_frame = J2000;
+*    ra = 18h33m49.5567820s; dec = -07d06'50.034751"; ref_coord_frame = B1950;
+*    ra = 18h37m48.1044300s; dec = -07d03'03.287930"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      46.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G026.59-0.02;
+     source_name = G026.59-0.02;
+*    this source had calibrator code:  
+*    alternate source name: G026.598-0.0
+     ra = 18h39m55.9300000s; dec = -05d38'44.600000"; ref_coord_frame = J2000;
+*    ra = 18h37m15.6037029s; dec = -05d41'32.597330"; ref_coord_frame = B1950;
+*    ra = 18h41m11.6994465s; dec = -05d37'23.676593"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      24.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G027.28+0.15;
+     source_name = G027.28+0.15;
+*    this source had calibrator code:  
+*    alternate source name: G027.286+0.1
+     ra = 18h40m34.5100000s; dec = -04d57'14.400000"; ref_coord_frame = J2000;
+*    ra = 18h37m54.9881389s; dec = -05d00'05.197624"; ref_coord_frame = B1950;
+*    ra = 18h41m49.9026222s; dec = -04d55'51.943455"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      34.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G027.50+0.10;
+     source_name = G027.50+0.10;
+*    this source had calibrator code:  
+*    alternate source name: G027.500+0.1
+     ra = 18h41m07.3800000s; dec = -04d47'02.300000"; ref_coord_frame = J2000;
+*    ra = 18h38m28.0568647s; dec = -04d49'55.464808"; ref_coord_frame = B1950;
+*    ra = 18h42m22.6814806s; dec = -04d45'38.673503"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      87.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G027.78+0.05;
+     source_name = G027.78+0.05;
+*    this source had calibrator code:  
+*    alternate source name: G027.784+0.0
+     ra = 18h41m49.5800000s; dec = -04d33'13.800000"; ref_coord_frame = J2000;
+*    ra = 18h39m10.5253493s; dec = -04d36'10.002918"; ref_coord_frame = B1950;
+*    ra = 18h43m04.7581534s; dec = -04d31'48.668444"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     111.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G028.32-0.01;
+     source_name = G028.32-0.01;
+*    this source had calibrator code:  
+*    alternate source name: G028.321-0.0
+     ra = 18h43m03.1100000s; dec = -04d06'26.400000"; ref_coord_frame = J2000;
+*    ra = 18h40m24.5746356s; dec = -04d09'27.894398"; ref_coord_frame = B1950;
+*    ra = 18h44m18.0489255s; dec = -04d04'58.633628"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =     104.80 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G028.52+0.12;
+     source_name = G028.52+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G028.523+0.1
+     ra = 18h42m55.8900000s; dec = -03d51'55.400000"; ref_coord_frame = J2000;
+*    ra = 18h40m17.6331174s; dec = -03d54'56.386903"; ref_coord_frame = B1950;
+*    ra = 18h44m10.6967519s; dec = -03d50'27.800735"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      39.60 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G028.53+0.12;
+     source_name = G028.53+0.12;
+*    this source had calibrator code:  
+*    alternate source name: G028.532+0.1
+     ra = 18h42m56.5000000s; dec = -03d51'21.600000"; ref_coord_frame = J2000;
+*    ra = 18h40m18.2539647s; dec = -03d54'22.631018"; ref_coord_frame = B1950;
+*    ra = 18h44m11.3016775s; dec = -03d49'53.977072"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      27.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G029.32-0.16;
+     source_name = G029.32-0.16;
+*    this source had calibrator code:  
+*    alternate source name: G029.320-0.1
+     ra = 18h45m25.1600000s; dec = -03d17'16.900000"; ref_coord_frame = J2000;
+*    ra = 18h42m47.5740285s; dec = -03d20'28.599875"; ref_coord_frame = B1950;
+*    ra = 18h46m39.6621137s; dec = -03d15'44.065803"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      48.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G030.58-0.04;
+     source_name = G030.58-0.04;
+*    this source had calibrator code:  
+*    alternate source name: G030.589-0.0
+     ra = 18h47m18.8600000s; dec = -02d06'17.200000"; ref_coord_frame = J2000;
+*    ra = 18h44m42.6341422s; dec = -02d09'37.075150"; ref_coord_frame = B1950;
+*    ra = 18h48m32.7288165s; dec = -02d04'40.151379"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      43.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G030.78+0.23;
+     source_name = G030.78+0.23;
+*    this source had calibrator code:  
+*    alternate source name: G030.780+0.2
+     ra = 18h46m41.5200000s; dec = -01d48'37.100000"; ref_coord_frame = J2000;
+*    ra = 18h44m05.6302934s; dec = -01d51'54.319828"; ref_coord_frame = B1950;
+*    ra = 18h47m55.2269354s; dec = -01d47'01.219095"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      48.90 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G031.12+0.06;
+     source_name = G031.12+0.06;
+*    this source had calibrator code:  
+*    alternate source name: G031.122+0.0
+     ra = 18h47m54.6800000s; dec = -01d34'56.900000"; ref_coord_frame = J2000;
+*    ra = 18h45m19.0521645s; dec = -01d38'19.353871"; ref_coord_frame = B1950;
+*    ra = 18h49m08.2691887s; dec = -01d33'18.478943"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      48.00 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G031.15+0.04;
+     source_name = G031.15+0.04;
+*    this source had calibrator code:  
+*    alternate source name: G031.158+0.0
+     ra = 18h48m02.4000000s; dec = -01d33'26.800000"; ref_coord_frame = J2000;
+*    ra = 18h45m26.8008915s; dec = -01d36'49.805884"; ref_coord_frame = B1950;
+*    ra = 18h49m15.9762461s; dec = -01d31'48.110756"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      41.10 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G031.18-0.14;
+     source_name = G031.18-0.14;
+*    this source had calibrator code:  
+*    alternate source name: G031.182-0.1
+     ra = 18h48m46.4100000s; dec = -01d37'28.100000"; ref_coord_frame = J2000;
+*    ra = 18h46m10.7350537s; dec = -01d40'54.243011"; ref_coord_frame = B1950;
+*    ra = 18h50m00.0256717s; dec = -01d35'47.948131"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      46.30 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def G032.74-0.07;
+     source_name = G032.74-0.07;
+*    this source had calibrator code:  
+*    alternate source name: G032.744-0.0
+     ra = 18h51m21.8700000s; dec = -00d12'05.000000"; ref_coord_frame = J2000;
+*    ra = 18h48m47.8183599s; dec = -00d15'42.274584"; ref_coord_frame = B1950;
+*    ra = 18h52m34.7312936s; dec = -00d10'19.172817"; ref_coord_frame = Date;
+*    velocity_wrt_LSR =      38.50 km/sec; * warning, only given here for 1st channel
+*    calculations used radio definition 
+enddef;
+*
+def F0537-441;
+     source_name = F0537-441;
+*    this source had calibrator code:  
+     ra = 05h38m50.3615595s; dec = -44d05'08.939023"; ref_coord_frame = J2000;
+*    ra = 05h37m21.0714249s; dec = -44d06'44.666339"; ref_coord_frame = B1950;
+*    ra = 05h39m32.6564988s; dec = -44d03'58.693466"; ref_coord_frame = Date;
+enddef;
+*
+def F1131-5818;
+     source_name = F1131-5818;
+*    this source had calibrator code:  
+     ra = 11h31m43.2880035s; dec = -58d18'53.443372"; ref_coord_frame = J2000;
+*    ra = 11h29m23.3298855s; dec = -58d02'19.313071"; ref_coord_frame = B1950;
+*    ra = 11h32m46.2830399s; dec = -58d26'35.257946"; ref_coord_frame = Date;
+enddef;
+*
+def F1650-5044;
+     source_name = F1650-5044;
+*    this source had calibrator code:  
+     ra = 16h50m16.6271570s; dec = -50d44'48.210690"; ref_coord_frame = J2000;
+*    ra = 16h46m25.1519906s; dec = -50d39'39.869707"; ref_coord_frame = B1950;
+*    ra = 16h52m05.1623517s; dec = -50d47'24.941117"; ref_coord_frame = Date;
+enddef;
+*
+def F1733-3722;
+     source_name = F1733-3722;
+*    this source had calibrator code:  
+     ra = 17h33m15.1930916s; dec = -37d22'32.397614"; ref_coord_frame = J2000;
+*    ra = 17h29m50.7906617s; dec = -37d20'28.271192"; ref_coord_frame = B1950;
+*    ra = 17h34m51.3578533s; dec = -37d23'39.203720"; ref_coord_frame = Date;
+enddef;
+*
+def F1713-2658;
+     source_name = F1713-2658;
+*    this source had calibrator code:  
+     ra = 17h13m31.2756086s; dec = -26d58'52.526740"; ref_coord_frame = J2000;
+*    ra = 17h10m24.2596277s; dec = -26d55'23.976050"; ref_coord_frame = B1950;
+*    ra = 17h14m59.1446121s; dec = -27d00'35.771650"; ref_coord_frame = Date;
+enddef;
+*
+def F1825-1718;
+     source_name = F1825-1718;
+*    this source had calibrator code:  
+     ra = 18h25m36.5322860s; dec = -17d18'49.846887"; ref_coord_frame = J2000;
+*    ra = 18h22m42.0138348s; dec = -17d20'35.288002"; ref_coord_frame = B1950;
+*    ra = 18h26m58.9312528s; dec = -17d18'02.138652"; ref_coord_frame = Date;
+enddef;
+*
+def F1825-0737;
+     source_name = F1825-0737;
+*    this source had calibrator code:  
+     ra = 18h25m37.6095388s; dec = -07d37'30.013135"; ref_coord_frame = J2000;
+*    ra = 18h22m54.9102463s; dec = -07d39'15.967050"; ref_coord_frame = B1950;
+*    ra = 18h26m54.4269611s; dec = -07d36'39.004269"; ref_coord_frame = Date;
+enddef;
+*
+def F1921-293;
+     source_name = F1921-293;
+*    this source had calibrator code:  
+     ra = 19h24m51.0559525s; dec = -29d14'30.121025"; ref_coord_frame = J2000;
+*    ra = 19h21m42.2341256s; dec = -29d20'26.353927"; ref_coord_frame = B1950;
+*    ra = 19h26m20.5749661s; dec = -29d11'47.223872"; ref_coord_frame = Date;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 6659.00MHz2x16MHz;
+* mode =  1    stations =Cd:Ho
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6659.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6659.00 MHz : U :  16.00 MHz : &CH02 : &BBC05 : &NoCal; *Lcp
+enddef;
+*
+def 6659.00MHz2x16MHz#02;
+* mode =  1    stations =At
+     sample_rate =    32.000 Ms/sec;  * (2bits/sample)
+     chan_def = :  6659.00 MHz : U :  16.00 MHz : &CH01 : &BBC01 : &NoCal; *Rcp
+     chan_def = :  6659.00 MHz : U :  16.00 MHz : &CH02 : &BBC02 : &NoCal; *Lcp
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@7300MHzDPolNoTone;
+* mode =  1    stations =Cd:Ho
+     if_def = &IF_A1 : A1 : R :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_B1 : B1 : L :  7300.00 MHz : L ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*
+def LO@4500MHzDPolNoTone;
+* mode =  1    stations =At
+     if_def = &IF_2N : 2N : R :  4500.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+     if_def = &IF_1N : 1N : L :  4500.00 MHz : U ; * PCall off!   0.0   0.0  NA     0 NA
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 2BBCs;
+* mode =  1    stations =Cd:Ho
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC05 :  5 : &IF_B1;
+enddef;
+*
+def 2BBCs#02;
+* mode =  1    stations =At
+     BBC_assign = &BBC01 :  1 : &IF_2N;
+     BBC_assign = &BBC02 :  2 : &IF_1N;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* mode =  1    stations =At:Cd:Ho
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def MARK5B.2Ch2bit1to1;
+* mode =  1    stations =Cd:Ho
+*    firmware_type = DBBC_DDC;
+*    format = MARK5B, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     track_frame_format = MARK5B;
+     fanout_def =   : &CH01 : sign : 1:  2;
+     fanout_def =   : &CH01 :  mag : 1:  3;
+     fanout_def =   : &CH02 : sign : 1:  4;
+     fanout_def =   : &CH02 :  mag : 1:  5;
+enddef;
+*
+def LBA_.2Ch2bit1to1;
+* mode =  1    stations =At
+*    format = LBA, and fan-out = 1
+*    mode requires  32.00Mb/s/tr; stations using disks
+     S2_data_source = VLBA;
+     S2_recording_mode = none;
+     fanout_def =   : &CH01 : sign : 1:  0;
+     fanout_def =   : &CH01 :  mag : 1:  1;
+     fanout_def =   : &CH02 : sign : 1:  2;
+     fanout_def =   : &CH02 :  mag : 1:  3;
+enddef;
+*------------------------------------------------------------------------------
+$HEAD_POS;
+def DiskVoid;
+* mode =  1    stations =Cd:Ho
+*     Head positions irrelevant for Disk: empty def
+enddef;
+def LBAVoid;
+* mode =  1    stations =At
+*     Head positions irrelevant for Disk: empty def
+enddef;
+*------------------------------------------------------------------------------
+$PASS_ORDER;
+*
+def DiskVoid;
+* mode =  1    stations =Cd:Ho
+*     Pass orders irrelevant for Disk: empty def
+enddef;
+*
+def LBADummy;
+* mode =  1    stations =At
+* LBA masquerading as S2 needs a dummy value
+     S2_group_order = 0;
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* mode =  1    stations =At:Cd:Ho
+*    barrel-roll set to 'roll_off', so reverse-roll by  0 (1 head)
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+* schedule section for experiment s012i   
+* SPIRALS: Search for distant compact target masers                       
+scan No0001;
+     start=2023y264d23h00m00s; mode=spirals.meth; source=F0537-441;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:   45 sec:    0.000 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    0.000 GB:   :       : 1;
+endscan;
+scan No0002;
+     start=2023y264d23h01m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    0.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    0.721 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    0.721 GB:   :       : 1;
+endscan;
+scan No0003;
+     start=2023y264d23h02m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    1.440 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    1.442 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    1.442 GB:   :       : 1;
+endscan;
+scan No0004;
+     start=2023y264d23h03m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    2.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    2.163 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    2.163 GB:   :       : 1;
+endscan;
+scan No0005;
+     start=2023y264d23h04m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    2.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    2.885 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    2.885 GB:   :       : 1;
+endscan;
+scan No0006;
+     start=2023y264d23h05m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    3.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    3.606 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    3.606 GB:   :       : 1;
+endscan;
+scan No0007;
+     start=2023y264d23h06m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    4.320 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    4.327 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    4.327 GB:   :       : 1;
+endscan;
+scan No0008;
+     start=2023y264d23h07m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    5.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    5.048 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    5.048 GB:   :       : 1;
+endscan;
+scan No0009;
+     start=2023y264d23h08m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    5.760 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    5.769 GB:   :       : 1;
+endscan;
+scan No0010;
+     start=2023y264d23h09m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    6.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    6.490 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    6.490 GB:   :       : 1;
+endscan;
+scan No0011;
+     start=2023y264d23h10m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    7.200 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    7.212 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    7.212 GB:   :       : 1;
+endscan;
+scan No0012;
+     start=2023y264d23h11m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    7.920 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    7.933 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    7.933 GB:   :       : 1;
+endscan;
+scan No0013;
+     start=2023y264d23h12m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:    8.640 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    8.654 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    8.654 GB:   :       : 1;
+endscan;
+scan No0014;
+     start=2023y264d23h13m00s; mode=spirals.meth; source=F0537-441;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:   45 sec:    9.360 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:    9.375 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:    9.375 GB:   :       : 1;
+endscan;
+scan No0015;
+     start=2023y264d23h14m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   10.080 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   10.096 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   10.096 GB:   :       : 1;
+endscan;
+scan No0016;
+     start=2023y264d23h15m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   10.800 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   10.817 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   10.817 GB:   :       : 1;
+endscan;
+scan No0017;
+     start=2023y264d23h16m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   11.520 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   11.538 GB:   :       : 1;
+endscan;
+scan No0018;
+     start=2023y264d23h17m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   12.240 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   12.260 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   12.260 GB:   :       : 1;
+endscan;
+scan No0019;
+     start=2023y264d23h18m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   12.960 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   12.981 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   12.981 GB:   :       : 1;
+endscan;
+scan No0020;
+     start=2023y264d23h19m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   13.680 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   13.702 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   13.702 GB:   :       : 1;
+endscan;
+scan No0021;
+     start=2023y264d23h20m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   14.400 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   14.423 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   14.423 GB:   :       : 1;
+endscan;
+scan No0022;
+     start=2023y264d23h21m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   15.120 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   15.144 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   15.144 GB:   :       : 1;
+endscan;
+scan No0023;
+     start=2023y264d23h22m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   15.840 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   15.865 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   15.865 GB:   :       : 1;
+endscan;
+scan No0024;
+     start=2023y264d23h23m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   16.560 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   16.587 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   16.587 GB:   :       : 1;
+endscan;
+scan No0025;
+     start=2023y264d23h24m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   17.280 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   17.308 GB:   :       : 1;
+endscan;
+scan No0026;
+     start=2023y264d23h25m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   18.000 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   18.029 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   18.029 GB:   :       : 1;
+endscan;
+scan No0027;
+     start=2023y264d23h26m00s; mode=spirals.meth; source=F0537-441;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:   45 sec:   18.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   18.750 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   18.750 GB:   :       : 1;
+endscan;
+scan No0028;
+     start=2023y264d23h27m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   19.440 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   19.471 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   19.471 GB:   :       : 1;
+endscan;
+scan No0029;
+     start=2023y264d23h28m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   20.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   20.192 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   20.192 GB:   :       : 1;
+endscan;
+scan No0030;
+     start=2023y264d23h29m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   20.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   20.913 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   20.913 GB:   :       : 1;
+endscan;
+scan No0031;
+     start=2023y264d23h30m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   21.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   21.635 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   21.635 GB:   :       : 1;
+endscan;
+scan No0032;
+     start=2023y264d23h31m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   22.320 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   22.356 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   22.356 GB:   :       : 1;
+endscan;
+scan No0033;
+     start=2023y264d23h32m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   23.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   23.077 GB:   :       : 1;
+endscan;
+scan No0034;
+     start=2023y264d23h33m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   23.760 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   23.798 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   23.798 GB:   :       : 1;
+endscan;
+scan No0035;
+     start=2023y264d23h34m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   24.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   24.519 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   24.519 GB:   :       : 1;
+endscan;
+scan No0036;
+     start=2023y264d23h35m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   25.200 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   25.240 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   25.240 GB:   :       : 1;
+endscan;
+scan No0037;
+     start=2023y264d23h36m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   25.920 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   25.961 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   25.961 GB:   :       : 1;
+endscan;
+scan No0038;
+     start=2023y264d23h37m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   26.640 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   26.683 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   26.683 GB:   :       : 1;
+endscan;
+scan No0039;
+     start=2023y264d23h38m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   27.360 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   27.404 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   27.404 GB:   :       : 1;
+endscan;
+scan No0040;
+     start=2023y264d23h39m00s; mode=spirals.meth; source=F0537-441;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:   45 sec:   28.080 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   28.125 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   28.125 GB:   :       : 1;
+endscan;
+scan No0041;
+     start=2023y264d23h40m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   28.800 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   28.846 GB:   :       : 1;
+endscan;
+scan No0042;
+     start=2023y264d23h41m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   29.520 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   29.567 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   29.567 GB:   :       : 1;
+endscan;
+scan No0043;
+     start=2023y264d23h42m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   30.240 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   30.288 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   30.288 GB:   :       : 1;
+endscan;
+scan No0044;
+     start=2023y264d23h43m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   30.960 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   31.010 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   31.010 GB:   :       : 1;
+endscan;
+scan No0045;
+     start=2023y264d23h44m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   31.680 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   31.731 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   31.731 GB:   :       : 1;
+endscan;
+scan No0046;
+     start=2023y264d23h45m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   32.400 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   32.452 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   32.452 GB:   :       : 1;
+endscan;
+scan No0047;
+     start=2023y264d23h46m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   33.120 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   33.173 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   33.173 GB:   :       : 1;
+endscan;
+scan No0048;
+     start=2023y264d23h47m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   33.840 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   33.894 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   33.894 GB:   :       : 1;
+endscan;
+scan No0049;
+     start=2023y264d23h48m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   34.560 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   34.615 GB:   :       : 1;
+endscan;
+scan No0050;
+     start=2023y264d23h49m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   35.280 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   35.336 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   35.336 GB:   :       : 1;
+endscan;
+scan No0051;
+     start=2023y264d23h50m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   36.000 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   36.058 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   36.058 GB:   :       : 1;
+endscan;
+scan No0052;
+     start=2023y264d23h51m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   36.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   36.779 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   36.779 GB:   :       : 1;
+endscan;
+scan No0053;
+     start=2023y264d23h52m00s; mode=spirals.meth; source=F0537-441;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:   45 sec:   37.440 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   37.500 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   37.500 GB:   :       : 1;
+endscan;
+scan No0054;
+     start=2023y264d23h53m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   38.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   38.221 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   38.221 GB:   :       : 1;
+endscan;
+scan No0055;
+     start=2023y264d23h54m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   38.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   38.942 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   38.942 GB:   :       : 1;
+endscan;
+scan No0056;
+     start=2023y264d23h55m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   39.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   39.663 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   39.663 GB:   :       : 1;
+endscan;
+scan No0057;
+     start=2023y264d23h56m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   40.320 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   40.385 GB:   :       : 1;
+endscan;
+scan No0058;
+     start=2023y264d23h57m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   41.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   41.106 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   41.106 GB:   :       : 1;
+endscan;
+scan No0059;
+     start=2023y264d23h58m00s; mode=spirals.meth; source=F0537-441;
+     station=At:    0 sec:   45 sec:   41.760 GB:   0 :       : 1;
+     station=Cd:    0 sec:   45 sec:   41.827 GB:   :       : 1;
+     station=Ho:    0 sec:   45 sec:   41.827 GB:   :       : 1;
+endscan;
+scan No0060;
+* intent = "AUTOPHASE_DETERMINE"
+     start=2023y265d00h06m45s; mode=spirals.meth; source=F1131-5818;
+     station=At:    0 sec:   60 sec:   42.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:   60 sec:   42.548 GB:   :       : 1;
+     station=Ho:    0 sec:   60 sec:   42.548 GB:   :       : 1;
+endscan;
+scan No0061;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d00h08m45s; mode=spirals.meth; source=G292.46+0.16;
+     station=At:    0 sec:  480 sec:   43.440 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   43.510 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   43.510 GB:   :       : 1;
+endscan;
+scan No0062;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d00h17m45s; mode=spirals.meth; source=G299.01+0.12;
+     station=At:    0 sec:  480 sec:   51.120 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   51.202 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   51.202 GB:   :       : 1;
+endscan;
+scan No0063;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d00h26m45s; mode=spirals.meth; source=G299.77-0.00;
+     station=At:    0 sec:  480 sec:   58.800 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   58.894 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   58.894 GB:   :       : 1;
+endscan;
+scan No0064;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d00h35m45s; mode=spirals.meth; source=G300.50-0.17;
+     station=At:    0 sec:  480 sec:   66.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   66.586 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   66.586 GB:   :       : 1;
+endscan;
+scan No0065;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d00h44m45s; mode=spirals.meth; source=G311.23-0.03;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:   74.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   74.279 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   74.279 GB:   :       : 1;
+endscan;
+scan No0066;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d00h53m45s; mode=spirals.meth; source=G312.69+0.12;
+     station=At:    0 sec:  480 sec:   81.840 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   81.971 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   81.971 GB:   :       : 1;
+endscan;
+scan No0067;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h02m45s; mode=spirals.meth; source=G313.46+0.19;
+     station=At:    0 sec:  480 sec:   89.520 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   89.663 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   89.663 GB:   :       : 1;
+endscan;
+scan No0068;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h11m45s; mode=spirals.meth; source=G313.99-0.08;
+     station=At:    0 sec:  480 sec:   97.200 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:   97.356 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:   97.356 GB:   :       : 1;
+endscan;
+scan No0069;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h20m45s; mode=spirals.meth; source=G320.42+0.08;
+     station=At:    0 sec:  480 sec:  104.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  105.048 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  105.048 GB:   :       : 1;
+endscan;
+scan No0070;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h29m45s; mode=spirals.meth; source=G320.78+0.24;
+     station=At:    0 sec:  480 sec:  112.560 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  112.740 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  112.740 GB:   :       : 1;
+endscan;
+scan No0071;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h38m45s; mode=spirals.meth; source=G324.91+0.15;
+     station=At:    0 sec:  480 sec:  120.240 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  120.432 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  120.432 GB:   :       : 1;
+endscan;
+scan No0072;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h47m45s; mode=spirals.meth; source=G328.38+0.13;
+     station=At:    0 sec:  480 sec:  127.920 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  128.125 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  128.125 GB:   :       : 1;
+endscan;
+scan No0073;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d01h56m45s; mode=spirals.meth; source=G329.61+0.11;
+     station=At:    0 sec:  480 sec:  135.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  135.817 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  135.817 GB:   :       : 1;
+endscan;
+scan No0074;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d02h05m45s; mode=spirals.meth; source=G337.70-0.05;
+     station=At:    0 sec:  480 sec:  143.280 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  143.509 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  143.509 GB:   :       : 1;
+endscan;
+scan No0075;
+* intent = "AUTOPHASE_DETERMINE"
+     start=2023y265d02h14m15s; mode=spirals.meth; source=F1650-5044;
+     station=At:    0 sec:   60 sec:  150.960 GB:   0 :       : 1;
+     station=Cd:    0 sec:   60 sec:  151.202 GB:   :       : 1;
+     station=Ho:    0 sec:   60 sec:  151.202 GB:   :       : 1;
+endscan;
+scan No0076;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d02h16m15s; mode=spirals.meth; source=G339.47+0.04;
+     station=At:    0 sec:  480 sec:  151.920 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  152.163 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  152.163 GB:   :       : 1;
+endscan;
+scan No0077;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d02h25m15s; mode=spirals.meth; source=G340.78-0.09;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:  159.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  159.855 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  159.855 GB:   :       : 1;
+endscan;
+scan No0078;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d02h34m15s; mode=spirals.meth; source=G342.36+0.14;
+     station=At:    0 sec:  480 sec:  167.280 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  167.548 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  167.548 GB:   :       : 1;
+endscan;
+scan No0079;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d02h43m15s; mode=spirals.meth; source=G342.95-0.01;
+     station=At:    0 sec:  480 sec:  174.960 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  175.240 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  175.240 GB:   :       : 1;
+endscan;
+scan No0080;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d02h52m15s; mode=spirals.meth; source=G343.92+0.12;
+     station=At:    0 sec:  480 sec:  182.640 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  182.932 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  182.932 GB:   :       : 1;
+endscan;
+scan No0081;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h01m15s; mode=spirals.meth; source=G344.58-0.02;
+     station=At:    0 sec:  480 sec:  190.320 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  190.625 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  190.625 GB:   :       : 1;
+endscan;
+scan No0082;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h10m15s; mode=spirals.meth; source=G345.44+0.20;
+     station=At:    0 sec:  480 sec:  198.000 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  198.317 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  198.317 GB:   :       : 1;
+endscan;
+scan No0083;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h19m15s; mode=spirals.meth; source=G346.48+0.13;
+     station=At:    0 sec:  480 sec:  205.680 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  206.009 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  206.009 GB:   :       : 1;
+endscan;
+scan No0084;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h28m15s; mode=spirals.meth; source=G345.19-0.03;
+     station=At:    0 sec:  480 sec:  213.360 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  213.701 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  213.701 GB:   :       : 1;
+endscan;
+scan No0085;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h37m15s; mode=spirals.meth; source=G346.03+0.04;
+     station=At:    0 sec:  480 sec:  221.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  221.394 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  221.394 GB:   :       : 1;
+endscan;
+scan No0086;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h46m15s; mode=spirals.meth; source=G346.52+0.08;
+     station=At:    0 sec:  480 sec:  228.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  229.086 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  229.086 GB:   :       : 1;
+endscan;
+scan No0087;
+* intent = "AUTOPHASE_DETERMINE"
+     start=2023y265d03h54m45s; mode=spirals.meth; source=F1733-3722;
+     station=At:    0 sec:   60 sec:  236.400 GB:   0 :       : 1;
+     station=Cd:    0 sec:   60 sec:  236.778 GB:   :       : 1;
+     station=Ho:    0 sec:   60 sec:  236.778 GB:   :       : 1;
+endscan;
+scan No0088;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d03h56m45s; mode=spirals.meth; source=G348.72-0.07;
+     station=At:    0 sec:  480 sec:  237.360 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  237.740 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  237.740 GB:   :       : 1;
+endscan;
+scan No0089;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h05m45s; mode=spirals.meth; source=G348.89-0.18;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:  245.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  245.432 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  245.432 GB:   :       : 1;
+endscan;
+scan No0090;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h14m45s; mode=spirals.meth; source=G349.06-0.01;
+     station=At:    0 sec:  480 sec:  252.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  253.124 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  253.124 GB:   :       : 1;
+endscan;
+scan No0091;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h23m45s; mode=spirals.meth; source=G349.15+0.02;
+     station=At:    0 sec:  480 sec:  260.400 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  260.817 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  260.817 GB:   :       : 1;
+endscan;
+scan No0092;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h32m45s; mode=spirals.meth; source=G349.88+0.23;
+     station=At:    0 sec:  480 sec:  268.080 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  268.509 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  268.509 GB:   :       : 1;
+endscan;
+scan No0093;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h41m45s; mode=spirals.meth; source=G350.11+0.22;
+     station=At:    0 sec:  480 sec:  275.760 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  276.201 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  276.201 GB:   :       : 1;
+endscan;
+scan No0094;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h50m45s; mode=spirals.meth; source=G350.47+0.02;
+     station=At:    0 sec:  480 sec:  283.440 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  283.894 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  283.894 GB:   :       : 1;
+endscan;
+scan No0095;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d04h59m45s; mode=spirals.meth; source=G354.30-0.11;
+     station=At:    0 sec:  480 sec:  291.120 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  291.586 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  291.586 GB:   :       : 1;
+endscan;
+scan No0096;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d05h08m45s; mode=spirals.meth; source=G354.49+0.08;
+     station=At:    0 sec:  480 sec:  298.800 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  299.278 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  299.278 GB:   :       : 1;
+endscan;
+scan No0097;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d05h17m45s; mode=spirals.meth; source=G355.34+0.14;
+     station=At:    0 sec:  480 sec:  306.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  306.970 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  306.970 GB:   :       : 1;
+endscan;
+scan No0098;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d05h26m45s; mode=spirals.meth; source=G355.34+0.14;
+     station=At:    0 sec:  480 sec:  314.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  314.663 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  314.663 GB:   :       : 1;
+endscan;
+scan No0099;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d05h35m45s; mode=spirals.meth; source=G357.96-0.16;
+     station=At:    0 sec:  480 sec:  321.840 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  322.355 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  322.355 GB:   :       : 1;
+endscan;
+scan No0100;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d05h44m45s; mode=spirals.meth; source=G357.96-0.16;
+     station=At:    0 sec:  480 sec:  329.520 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  330.047 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  330.047 GB:   :       : 1;
+endscan;
+scan No0101;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d05h53m45s; mode=spirals.meth; source=G358.72-0.12;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:  337.200 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  337.740 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  337.740 GB:   :       : 1;
+endscan;
+scan No0102;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h02m45s; mode=spirals.meth; source=G359.13+0.03;
+     station=At:    0 sec:  480 sec:  344.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  345.432 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  345.432 GB:   :       : 1;
+endscan;
+scan No0103;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h11m45s; mode=spirals.meth; source=G359.61-0.24;
+     station=At:    0 sec:  480 sec:  352.560 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  353.124 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  353.124 GB:   :       : 1;
+endscan;
+scan No0104;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h20m45s; mode=spirals.meth; source=G359.93+0.17;
+     station=At:    0 sec:  480 sec:  360.240 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  360.816 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  360.816 GB:   :       : 1;
+endscan;
+scan No0105;
+* intent = "AUTOPHASE_DETERMINE"
+     start=2023y265d06h29m15s; mode=spirals.meth; source=F1713-2658;
+     station=At:    0 sec:   60 sec:  367.920 GB:   0 :       : 1;
+     station=Cd:    7 sec:   60 sec:  368.509 GB:   :       : 1;
+     station=Ho:    3 sec:   60 sec:  368.509 GB:   :       : 1;
+endscan;
+scan No0106;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h31m15s; mode=spirals.meth; source=G000.49+0.18;
+     station=At:    0 sec:  480 sec:  368.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  369.470 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  369.470 GB:   :       : 1;
+endscan;
+scan No0107;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h40m15s; mode=spirals.meth; source=G000.83+0.18;
+     station=At:    0 sec:  480 sec:  376.560 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  377.163 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  377.163 GB:   :       : 1;
+endscan;
+scan No0108;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h49m15s; mode=spirals.meth; source=G001.14-0.12;
+     station=At:    0 sec:  480 sec:  384.240 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  384.855 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  384.855 GB:   :       : 1;
+endscan;
+scan No0109;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d06h58m15s; mode=spirals.meth; source=G001.32+0.15;
+     station=At:    0 sec:  480 sec:  391.920 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  392.547 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  392.547 GB:   :       : 1;
+endscan;
+scan No0110;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d07h07m15s; mode=spirals.meth; source=G001.71-0.08;
+     station=At:    0 sec:  480 sec:  399.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  400.240 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  400.240 GB:   :       : 1;
+endscan;
+scan No0111;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d07h16m15s; mode=spirals.meth; source=G002.59-0.02;
+     station=At:    0 sec:  480 sec:  407.280 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  407.932 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  407.932 GB:   :       : 1;
+endscan;
+scan No0112;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d07h25m15s; mode=spirals.meth; source=G003.25+0.01;
+     station=At:    0 sec:  480 sec:  414.960 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  415.624 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  415.624 GB:   :       : 1;
+endscan;
+scan No0113;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d07h34m15s; mode=spirals.meth; source=G004.39+0.07;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:  422.640 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  423.316 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  423.316 GB:   :       : 1;
+endscan;
+scan No0114;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d07h43m15s; mode=spirals.meth; source=G004.43+0.12;
+     station=At:    0 sec:  480 sec:  430.320 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  431.009 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  431.009 GB:   :       : 1;
+endscan;
+scan No0115;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d07h52m15s; mode=spirals.meth; source=G005.61-0.08;
+     station=At:    0 sec:  480 sec:  438.000 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  438.701 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  438.701 GB:   :       : 1;
+endscan;
+scan No0116;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h01m15s; mode=spirals.meth; source=G006.58-0.19;
+     station=At:    0 sec:  480 sec:  445.680 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  446.393 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  446.393 GB:   :       : 1;
+endscan;
+scan No0117;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h10m15s; mode=spirals.meth; source=G006.61-0.08;
+     station=At:    0 sec:  480 sec:  453.360 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  454.086 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  454.086 GB:   :       : 1;
+endscan;
+scan No0118;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h19m15s; mode=spirals.meth; source=G006.88+0.09;
+     station=At:    0 sec:  480 sec:  461.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  461.778 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  461.778 GB:   :       : 1;
+endscan;
+scan No0119;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h28m15s; mode=spirals.meth; source=G008.83-0.02;
+     station=At:    0 sec:  480 sec:  468.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  469.470 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  469.470 GB:   :       : 1;
+endscan;
+scan No0120;
+* intent = "AUTOPHASE_DETERMINE"
+     start=2023y265d08h36m45s; mode=spirals.meth; source=F1825-1718;
+     station=At:   17 sec:   60 sec:  476.400 GB:   0 :       : 1;
+     station=Cd:    1 sec:   60 sec:  477.162 GB:   :       : 1;
+     station=Ho:    0 sec:   60 sec:  477.162 GB:   :       : 1;
+endscan;
+scan No0121;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h38m45s; mode=spirals.meth; source=G014.52+0.15;
+     station=At:    0 sec:  480 sec:  477.360 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  478.124 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  478.124 GB:   :       : 1;
+endscan;
+scan No0122;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h47m45s; mode=spirals.meth; source=G020.08-0.13;
+     station=At:    0 sec:  480 sec:  485.040 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  485.816 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  485.816 GB:   :       : 1;
+endscan;
+scan No0123;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d08h56m45s; mode=spirals.meth; source=G020.96-0.07;
+     station=At:    0 sec:  480 sec:  492.720 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  493.509 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  493.509 GB:   :       : 1;
+endscan;
+scan No0124;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h05m45s; mode=spirals.meth; source=G021.02-0.06;
+     station=At:    0 sec:  480 sec:  500.400 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  501.201 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  501.201 GB:   :       : 1;
+endscan;
+scan No0125;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h14m45s; mode=spirals.meth; source=G021.56-0.03;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:  508.080 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  508.893 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  508.893 GB:   :       : 1;
+endscan;
+scan No0126;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h23m45s; mode=spirals.meth; source=G021.88+0.01;
+     station=At:    0 sec:  480 sec:  515.760 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  516.585 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  516.585 GB:   :       : 1;
+endscan;
+scan No0127;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h32m45s; mode=spirals.meth; source=G022.33-0.15;
+     station=At:    0 sec:  480 sec:  523.440 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  524.278 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  524.278 GB:   :       : 1;
+endscan;
+scan No0128;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h41m45s; mode=spirals.meth; source=G023.88+0.06;
+     station=At:    0 sec:  480 sec:  531.120 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  531.970 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  531.970 GB:   :       : 1;
+endscan;
+scan No0129;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h50m45s; mode=spirals.meth; source=G023.99-0.10;
+     station=At:    0 sec:  480 sec:  538.800 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  539.662 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  539.662 GB:   :       : 1;
+endscan;
+scan No0130;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d09h59m45s; mode=spirals.meth; source=G024.14-0.00;
+     station=At:    0 sec:  480 sec:  546.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  547.354 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  547.354 GB:   :       : 1;
+endscan;
+scan No0131;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d10h08m45s; mode=spirals.meth; source=G024.94+0.07;
+     station=At:    0 sec:  480 sec:  554.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  555.047 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  555.047 GB:   :       : 1;
+endscan;
+scan No0132;
+* intent = "AUTOPHASE_DETERMINE"
+     start=2023y265d10h17m15s; mode=spirals.meth; source=F1825-0737;
+     station=At:    0 sec:   60 sec:  561.840 GB:   0 :       : 1;
+     station=Cd:    2 sec:   60 sec:  562.739 GB:   :       : 1;
+     station=Ho:    0 sec:   60 sec:  562.739 GB:   :       : 1;
+endscan;
+scan No0133;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d10h19m15s; mode=spirals.meth; source=G026.59-0.02;
+     station=At:    0 sec:  480 sec:  562.800 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  563.701 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  563.701 GB:   :       : 1;
+endscan;
+scan No0134;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d10h28m15s; mode=spirals.meth; source=G027.28+0.15;
+     station=At:    0 sec:  480 sec:  570.480 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  571.393 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  571.393 GB:   :       : 1;
+endscan;
+scan No0135;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d10h37m15s; mode=spirals.meth; source=G027.50+0.10;
+     station=At:    0 sec:  480 sec:  578.160 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  579.085 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  579.085 GB:   :       : 1;
+endscan;
+scan No0136;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d10h46m15s; mode=spirals.meth; source=G027.78+0.05;
+     station=At:    0 sec:  480 sec:  585.840 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  586.777 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  586.777 GB:   :       : 1;
+endscan;
+scan No0137;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d10h55m15s; mode=spirals.meth; source=G028.32-0.01;
+*              :data_good:data_stop:goto_foot: pass:  wrap :driv:tape at
+     station=At:    0 sec:  480 sec:  593.520 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  594.470 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  594.470 GB:   :       : 1;
+endscan;
+scan No0138;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h04m15s; mode=spirals.meth; source=G028.52+0.12;
+     station=At:    0 sec:  480 sec:  601.200 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  602.162 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  602.162 GB:   :       : 1;
+endscan;
+scan No0139;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h13m15s; mode=spirals.meth; source=G028.53+0.12;
+     station=At:    0 sec:  480 sec:  608.880 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  609.854 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  609.854 GB:   :       : 1;
+endscan;
+scan No0140;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h22m15s; mode=spirals.meth; source=G029.32-0.16;
+     station=At:    0 sec:  480 sec:  616.560 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  617.546 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  617.546 GB:   :       : 1;
+endscan;
+scan No0141;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h31m15s; mode=spirals.meth; source=G030.58-0.04;
+     station=At:    0 sec:  480 sec:  624.240 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  625.239 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  625.239 GB:   :       : 1;
+endscan;
+scan No0142;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h40m15s; mode=spirals.meth; source=G030.78+0.23;
+     station=At:    0 sec:  480 sec:  631.920 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  632.931 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  632.931 GB:   :       : 1;
+endscan;
+scan No0143;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h49m15s; mode=spirals.meth; source=G031.12+0.06;
+     station=At:    0 sec:  480 sec:  639.600 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  640.623 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  640.623 GB:   :       : 1;
+endscan;
+scan No0144;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d11h58m15s; mode=spirals.meth; source=G031.15+0.04;
+     station=At:    0 sec:  480 sec:  647.280 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  648.315 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  648.315 GB:   :       : 1;
+endscan;
+scan No0145;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d12h07m15s; mode=spirals.meth; source=G031.18-0.14;
+     station=At:    0 sec:  480 sec:  654.960 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  656.008 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  656.008 GB:   :       : 1;
+endscan;
+scan No0146;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d12h16m15s; mode=spirals.meth; source=G032.74-0.07;
+     station=At:    0 sec:  480 sec:  662.640 GB:   0 :       : 1;
+     station=Cd:    0 sec:  480 sec:  663.700 GB:   :       : 1;
+     station=Ho:    0 sec:  480 sec:  663.700 GB:   :       : 1;
+endscan;
+scan No0147;
+* intent = "OBSERVE_TARGET"
+     start=2023y265d12h26m15s; mode=spirals.meth; source=F1921-293;
+     station=At:    0 sec:   60 sec:  670.320 GB:   0 :       : 1;
+     station=Cd:    0 sec:   60 sec:  671.392 GB:   :       : 1;
+     station=Ho:    0 sec:   60 sec:  671.392 GB:   :       : 1;
+endscan;
