@@ -15,8 +15,14 @@ Name = cd4cm_dual  Station = CEDUNA   priority = 0
   ! updates June 2003 CJP by info from Simon Ellingsen
   ! Edited LO from 5000 to 7300, based on website.
 /
-Name = aus5cm_dual  Station = HOBART12, KATH12M, YARRA12M  priority = 0
-  rf1 =  6000, 6000     ifname = 'A1','B4'
+Name = aus5cm_dual  Station = KATH12M, YARRA12M  priority = 0
+  rf1 =  6000, 6000     ifname = 'E1','F1'
+  rf2 =  9500, 9500
+  pol =  RCP, LCP      lo1 = 6000, 6000
+  ! Dummy setup for SCHED, wideband setup is not vex controlled.
+/
+Name = aus5cm_dual  Station = HOBART12  priority = 0
+  rf1 =  6000, 6000     ifname = 'D1','E1'
   rf2 =  9500, 9500
   pol =  RCP, LCP      lo1 = 6000, 6000
   ! Dummy setup for SCHED, wideband setup is not vex controlled.
