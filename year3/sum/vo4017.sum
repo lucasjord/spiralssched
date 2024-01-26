@@ -1,0 +1,594 @@
+                    SUMMARY FILE FOR PROJECT: vo4017  
+
+COVER INFORMATION: 
+
+  Experiment: FC Hb-Cd VGOS band 3
+  Exp. Code:  vo4017  
+  Start Day  18 is Thu  18 Jan 2024   MJD  60327          
+
+  Schedule Version:       1.00
+  Processed by SCHED version:  11.80  Release 11.8; April 2023
+
+  PI:       Lucas and Jamie
+
+  Address:  School of Natural Sciences
+            University of Tasmania
+            Private Bag 37, Hobart, TAS 7001, AU
+   
+
+  Phone:    +61467332126
+  EMAIL:    lucas.hyland@utas.edu.au
+  Fax:
+  Phone during observation:
+
+  Observing mode: 6.7GHz-2p-2IF/64MHz
+
+  Notes:    Array: Cd-Hb-Yg
+            testin
+   
+   
+
+
+No cover letter provided.
+
+CORRELATION REQUESTS (Defaults in parentheses):
+
+  Correlator (Required if recording):          LBA
+  Correlator average time (2 sec):               2.000 sec.
+    Alternate average time (for spacecraft).     0.000 sec.
+  Output spectral channels per baseband (16):         128
+     Correlator FFT size (128):                       128
+  Number of antennas to be correlated:                  5
+  Polarization (ON):                           OFF
+  Correlator weighting function (UNIFORM):     UNIFORM
+  Distribution tape (DAT):                     DAT
+
+  Distribution format (FITS):                  FITS
+  Source positions from:             FROM SCHEDULE
+
+  Shipping address for correlator output:
+      University of Tasmania
+
+
+
+
+  Correlator Notes: Pass 1: Full band: 2x64 MHz. corchan=128, 0.5 MHz res.
+      Pass 2: zoom=4MHz 2kHz res.
+
+
+
+
+
+
+DERIVED INFORMATION FOR CORRELATION: 
+                                                All scans
+  Elapsed time for project (hours):                 1.00
+  Total time in scheduled scans (hours):            0.75
+  Total time in recording scans (hours):            0.75
+  Total baseline hours (recording scans):           7.50
+  Projected max correlator output rate (kB/s):      81.9
+  Projected correlator output data size (MB):      221.2
+ NOTES:  Above numbers assume the same correlator parameters are used for all data.
+         The 'baseline hours' include the autocorrelations (for data size calculations).
+         The correlator output data rate is for real-time processing.
+         Above numbers assume the same correlator parameters are used for all data.
+         The recordings for a scan are assumed to start at the scan START minus PRESTART.
+         Some stations (VLA, VLBA/MARK5C) wait for good data so the estimates may be high.
+
+
+
+STATIONS USED IN SCHEDULE:
+
+   Station  Code   Latitude Longitude  Elevation       X            Y            Z       Axis
+                                                                                       Offset
+
+   CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
+   KATH12M   Ke  -14.37546 -132.15237     189.   -4147354.691  4581542.377 -1573303.157  0.003
+   YARRA12M  Yg  -29.04714 -115.34563     248.   -2388896.189  5043350.002 -3078590.804  0.000
+   HOBART12  Hb  -42.80557 -147.43814      41.   -3949990.840  2522421.219 -4311707.999  0.018
+
+
+   Plate tectonic motion adjustments for MJD  60327
+   Station  Code      Station motions (m/yr)             Adjusted positions 
+                     X       Y       Z     MJD0        X            Y            Z 
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.874  3912709.825 -3348066.260
+   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.070  4581542.261 -1573302.591
+   YARRA12M  Yg  -0.0481  0.0096  0.0511  56658  -2388896.673  5043350.098 -3078590.291
+   HOBART12  Hb  -0.0390  0.0080  0.0411  56658  -3949991.232  2522421.299 -4311707.586
+
+
+
+BASELINE LENGTHS (km)
+
+          Cd    Ke    Yg    Hb
+
+   Cd      0  1937  1792  1703
+   Ke   1937     0  2360  3432
+   Yg   1792  2360     0  3211
+   Hb   1703  3432  3211     0
+
+
+RECORDING SYSTEM AND CALIBRATION INFORMATION:
+
+  List of scan-dependent controls seen for recording timing.
+   MINPAUSE:   10.
+   PRESTART:    0.
+
+  DISKS - Stations potentially recording on disks.
+   Station    Drive type   DAR     NBBC    Tsys
+   CEDUNA       MARK5B     DBBC     14     GAP 
+   KATH12M      MARK5B     DBBC      8     GAP 
+   YARRA12M     MARK5B     DBBC      8     GAP 
+   HOBART12     MARK5B     DBBC      8     GAP 
+
+
+
+
+EXPERIMENT SUMMARY:
+  Number of input scans:         60
+  Number of scans scheduled:     60
+  Number of stations:             4
+  Number of sources input:        1
+  Number of setup files used:     1
+
+
+STATION SCAN SUMMARIES:
+  Station  Control   Scans   Scan   Record  Record   Gbytes
+                            Hours   Hours   Scans
+  CEDUNA     VEX       60    0.75    0.75      60      346.
+  KATH12M    VEX       60    0.75    0.75      60      692.
+  YARRA12M   VEX       60    0.75    0.75      60      692.
+  HOBART12   VEX       60    0.75    0.75      60      692.
+
+  Notes on the station scan summaries: 
+
+    "Record Scans" are periods of recording with no gap.  The Mark5A disk systems 
+    have a limit of 1024 such scans.  There are often multiple projects on a disk pack.
+    If using MARK5A, try to keep above about 6 GB per record scan by using MINPAUSE 
+    and PRESTART to prevent short gaps.  However, also try to prevent record scans 
+    of more than an hour to minimize risk to data from playback problems.
+    MARK5C will have one observe scan per record scan and there is no limit to the number.
+
+
+
+
+
+
+ SETUP FILES:
+
+
+ ======== Setup file: vgos.band3
+   Matching groups in ./freq.spirals.dat:
+     cd4cm_dual
+
+   Setup group:    1         Station: CEDUNA            Total bit rate:  1024
+   Format: MARK5B            Bits per sample: 2         Sample rate: 64.000
+   Number of channels:  8    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   7300.00   7300.00   7300.00   7300.00   7300.00   7300.00   7300.00   7300.00
+   Net SB=         L         L         L         L         L         L         L         L
+   IF SB =         L         L         L         L         L         L         L         L
+   Pol.  =      RCP       RCP       RCP       RCP       LCP       LCP       LCP       LCP 
+   BBC   =         1         2         3         4         5         6         7         8
+   BBC SB=         U         U         U         U         U         U         U         U
+   IF    =        A1        A1        A1        A1        B1        B1        B1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   1  Setup file default.  Used with PCAL = off
+   LO sum=   6456.00  6584.00  6680.00  6744.00  6456.00  6584.00  6680.00  6744.00
+   BBC fr=    844.00   716.00   620.00   556.00   844.00   716.00   620.00   556.00
+   Bandwd=     32.00    32.00    32.00    32.00    32.00    32.00    32.00    32.00
+    Matching frequency sets:   1
+
+   Track assignments are: 
+    track1=   2,  4,  6,  8, 10, 12, 14, 16
+    barrel=roll_off 
+
+
+ ======== Setup file: vgos.band3
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    2         Station: HOBART12          Total bit rate:  2048
+   Format: MARK5B            Bits per sample: 2         Sample rate: 64.000
+   Number of channels: 16    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00
+             6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00
+   Net SB=         L         L         L         L         L         L         L         L
+                   L         L         L         L         L         L         L         L
+   IF SB =         U         U         U         U         U         U         U         U
+                   U         U         U         U         U         U         U         U
+   Pol.  =      RCP       RCP       RCP       RCP       RCP       RCP       RCP       RCP 
+                LCP       LCP       LCP       LCP       LCP       LCP       LCP       LCP 
+   BBC   =        25        26        27        28        29        30        31        32
+                  33        34        35        36        37        38        39        40
+   BBC SB=         L         L         L         L         L         L         L         L
+                   L         L         L         L         L         L         L         L
+   IF    =        D1        D1        D1        D1        D1        D1        D1        D1
+                  E1        E1        E1        E1        E1        E1        E1        E1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   4  Setup file default.  Used with PCAL = off
+   LO sum=   6392.00  6424.00  6456.00  6584.00  6680.00  6744.00  6808.00  6840.00
+             6392.00  6424.00  6456.00  6584.00  6680.00  6744.00  6808.00  6840.00
+   BBC fr=    392.00   424.00   456.00   584.00   680.00   744.00   808.00   840.00
+              392.00   424.00   456.00   584.00   680.00   744.00   808.00   840.00
+   Bandwd=     32.00    32.00    32.00    32.00    32.00    32.00    32.00    32.00
+               32.00    32.00    32.00    32.00    32.00    32.00    32.00    32.00
+    Matching frequency sets:   4
+
+   Track assignments are: 
+    track1=   2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32
+    barrel=roll_off 
+
+
+The following setup groups are the same as group   3 below.
+   4:YARRA12M
+
+
+ ======== Setup file: vgos.band3
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    3         Station: KATH12M           Total bit rate:  2048
+   Format: MARK5B            Bits per sample: 2         Sample rate: 64.000
+   Number of channels: 16    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00
+             6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00   6000.00
+   Net SB=         L         L         L         L         L         L         L         L
+                   L         L         L         L         L         L         L         L
+   IF SB =         U         U         U         U         U         U         U         U
+                   U         U         U         U         U         U         U         U
+   Pol.  =      RCP       RCP       RCP       RCP       RCP       RCP       RCP       RCP 
+                LCP       LCP       LCP       LCP       LCP       LCP       LCP       LCP 
+   BBC   =        33        34        35        36        37        38        39        40
+                  41        42        43        44        45        46        47        48
+   BBC SB=         L         L         L         L         L         L         L         L
+                   L         L         L         L         L         L         L         L
+   IF    =        E1        E1        E1        E1        E1        E1        E1        E1
+                  F1        F1        F1        F1        F1        F1        F1        F1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
+   LO sum=   6392.00  6424.00  6456.00  6584.00  6680.00  6744.00  6808.00  6840.00
+             6392.00  6424.00  6456.00  6584.00  6680.00  6744.00  6808.00  6840.00
+   BBC fr=    392.00   424.00   456.00   584.00   680.00   744.00   808.00   840.00
+              392.00   424.00   456.00   584.00   680.00   744.00   808.00   840.00
+   Bandwd=     32.00    32.00    32.00    32.00    32.00    32.00    32.00    32.00
+               32.00    32.00    32.00    32.00    32.00    32.00    32.00    32.00
+    Matching frequency sets:   2   3
+
+   Track assignments are: 
+    track1=   2,  4,  6,  8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32
+    barrel=roll_off 
+
+
+ SCAN SUMMARY for experiment vo4017  FC Hb-Cd VGOS band 3
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  18 is Thu  18 Jan 2024   MJD  60327          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+   1   18 01:00:00 1921-293      -     0     0     0     0
+       18 01:00:45 vgos.band3    -    45    45    45    45
+
+   2   18 01:01:00 1921-293      -     3     2     2     2
+       18 01:01:45 -             -    45    45    45    45
+
+   3   18 01:02:00 1921-293      -     3     2     2     2
+       18 01:02:45 -             -    45    45    45    45
+
+   4   18 01:03:00 1921-293      -     3     2     2     2
+       18 01:03:45 -             -    45    45    45    45
+
+   5   18 01:04:00 1921-293      -     3     2     2     2
+       18 01:04:45 -             -    45    45    45    45
+
+   6   18 01:05:00 1921-293      -     3     2     2     2
+       18 01:05:45 -             -    45    45    45    45
+
+   7   18 01:06:00 1921-293      -     3     2     2     2
+       18 01:06:45 -             -    45    45    45    45
+
+   8   18 01:07:00 1921-293      -     3     2     2     2
+       18 01:07:45 -             -    45    45    45    45
+
+   9   18 01:08:00 1921-293      -     3     2     2     2
+       18 01:08:45 -             -    45    45    45    45
+
+  10   18 01:09:00 1921-293      -     3     2     2     2
+       18 01:09:45 -             -    45    45    45    45
+
+  11   18 01:10:00 1921-293      -     3     2     2     2
+       18 01:10:45 -             -    45    45    45    45
+
+  12   18 01:11:00 1921-293      -     3     2     2     2
+       18 01:11:45 -             -    45    45    45    45
+
+  13   18 01:12:00 1921-293      -     3     2     2     2
+       18 01:12:45 -             -    45    45    45    45
+
+  14   18 01:13:00 1921-293      -     3     2     2     2
+       18 01:13:45 -             -    45    45    45    45
+
+  15   18 01:14:00 1921-293      -     3     2     2     2
+       18 01:14:45 -             -    45    45    45    45
+
+  16   18 01:15:00 1921-293      -     3     2     2     2
+       18 01:15:45 -             -    45    45    45    45
+
+
+
+ SCAN SUMMARY for experiment vo4017  FC Hb-Cd VGOS band 3
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  18 is Thu  18 Jan 2024   MJD  60327          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+  17   18 01:16:00 1921-293      -     3     2     2     2
+       18 01:16:45 vgos.band3    -    45    45    45    45
+
+  18   18 01:17:00 1921-293      -     3     2     2     2
+       18 01:17:45 -             -    45    45    45    45
+
+  19   18 01:18:00 1921-293      -     3     2     2     2
+       18 01:18:45 -             -    45    45    45    45
+
+  20   18 01:19:00 1921-293      -     3     2     2     2
+       18 01:19:45 -             -    45    45    45    45
+
+  21   18 01:20:00 1921-293      -     3     2     2     2
+       18 01:20:45 -             -    45    45    45    45
+
+  22   18 01:21:00 1921-293      -     3     2     2     2
+       18 01:21:45 -             -    45    45    45    45
+
+  23   18 01:22:00 1921-293      -     3     2     2     2
+       18 01:22:45 -             -    45    45    45    45
+
+  24   18 01:23:00 1921-293      -     3     2     2     2
+       18 01:23:45 -             -    45    45    45    45
+
+  25   18 01:24:00 1921-293      -     3     2     2     2
+       18 01:24:45 -             -    45    45    45    45
+
+  26   18 01:25:00 1921-293      -     3     2     2     2
+       18 01:25:45 -             -    45    45    45    45
+
+  27   18 01:26:00 1921-293      -     3     2     2     2
+       18 01:26:45 -             -    45    45    45    45
+
+  28   18 01:27:00 1921-293      -     3     2     2     2
+       18 01:27:45 -             -    45    45    45    45
+
+  29   18 01:28:00 1921-293      -     3     2     2     2
+       18 01:28:45 -             -    45    45    45    45
+
+  30   18 01:29:00 1921-293      -     3     2     2     2
+       18 01:29:45 -             -    45    45    45    45
+
+  31   18 01:30:00 1921-293      -     3     2     2     2
+       18 01:30:45 -             -    45    45    45    45
+
+  32   18 01:31:00 1921-293      -     3     2     2     2
+       18 01:31:45 -             -    45    45    45    45
+
+
+
+ SCAN SUMMARY for experiment vo4017  FC Hb-Cd VGOS band 3
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  18 is Thu  18 Jan 2024   MJD  60327          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+  33   18 01:32:00 1921-293      -     3     2     2     2
+       18 01:32:45 vgos.band3    -    45    45    45    45
+
+  34   18 01:33:00 1921-293      -     3     2     2     2
+       18 01:33:45 -             -    45    45    45    45
+
+  35   18 01:34:00 1921-293      -     3     2     2     2
+       18 01:34:45 -             -    45    45    45    45
+
+  36   18 01:35:00 1921-293      -     3     2     2     2
+       18 01:35:45 -             -    45    45    45    45
+
+  37   18 01:36:00 1921-293      -     3     2     2     2
+       18 01:36:45 -             -    45    45    45    45
+
+  38   18 01:37:00 1921-293      -     3     2     2     2
+       18 01:37:45 -             -    45    45    45    45
+
+  39   18 01:38:00 1921-293      -     3     2     2     2
+       18 01:38:45 -             -    45    45    45    45
+
+  40   18 01:39:00 1921-293      -     3     2     2     2
+       18 01:39:45 -             -    45    45    45    45
+
+  41   18 01:40:00 1921-293      -     3     2     2     2
+       18 01:40:45 -             -    45    45    45    45
+
+  42   18 01:41:00 1921-293      -     3     2     2     2
+       18 01:41:45 -             -    45    45    45    45
+
+  43   18 01:42:00 1921-293      -     3     2     2     2
+       18 01:42:45 -             -    45    45    45    45
+
+  44   18 01:43:00 1921-293      -     3     2     2     2
+       18 01:43:45 -             -    45    45    45    45
+
+  45   18 01:44:00 1921-293      -     3     2     2     2
+       18 01:44:45 -             -    45    45    45    45
+
+  46   18 01:45:00 1921-293      -     3     2     2     2
+       18 01:45:45 -             -    45    45    45    45
+
+  47   18 01:46:00 1921-293      -     3     2     2     2
+       18 01:46:45 -             -    45    45    45    45
+
+  48   18 01:47:00 1921-293      -     3     2     2     2
+       18 01:47:45 -             -    45    45    45    45
+
+
+
+ SCAN SUMMARY for experiment vo4017  FC Hb-Cd VGOS band 3
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  18 is Thu  18 Jan 2024   MJD  60327          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+  49   18 01:48:00 1921-293      -     3     2     2     2
+       18 01:48:45 vgos.band3    -    45    45    45    45
+
+  50   18 01:49:00 1921-293      -     4     2     2     2
+       18 01:49:45 -             -    45    45    45    45
+
+  51   18 01:50:00 1921-293      -     4     2     2     2
+       18 01:50:45 -             -    45    45    45    45
+
+  52   18 01:51:00 1921-293      -     4     2     2     2
+       18 01:51:45 -             -    45    45    45    45
+
+  53   18 01:52:00 1921-293      -     4     2     2     2
+       18 01:52:45 -             -    45    45    45    45
+
+  54   18 01:53:00 1921-293      -     4     2     2     2
+       18 01:53:45 -             -    45    45    45    45
+
+  55   18 01:54:00 1921-293      -     4     2     2     2
+       18 01:54:45 -             -    45    45    45    45
+
+  56   18 01:55:00 1921-293      -     4     2     2     2
+       18 01:55:45 -             -    45    45    45    45
+
+  57   18 01:56:00 1921-293      -     4     2     2     2
+       18 01:56:45 -             -    45    45    45    45
+
+  58   18 01:57:00 1921-293      -     4     2     2     2
+       18 01:57:45 -             -    45    45    45    45
+
+  59   18 01:58:00 1921-293      -     4     2     2     2
+       18 01:58:45 -             -    45    45    45    45
+
+  60   18 01:59:00 1921-293      -     4     2     2     2
+       18 01:59:45 -             -    45    45    45    45
+
+
+
+ TIME RANGE OF RECORDINGS and TOTAL BYTES:
+
+                Obs. start time.     Obs. end time.      Total 
+ Station          Day    Time         Day    Time        GBytes
+                     (UT)                 (UT)
+  CEDUNA          18  01:00:00        18  01:59:45        346.2
+  KATH12M         18  01:00:00        18  01:59:45        692.3
+  YARRA12M        18  01:00:00        18  01:59:45        692.3
+  HOBART12        18  01:00:00        18  01:59:45        692.3
+
+ POSITIONS OF SOURCES USED IN RECORDING SCANS
+     Catalog positions marked with *. 
+     Precession of date coordinates is based on stop time of first scan.
+     Names used in schedule marked with *. 
+     Observation date used in B1950/J2000 coordinate conversion (PRECDATE):  1979.900
+     No adjustments are made for rates (DRA, DDEC).
+
+   Source                         Source position (RA/Dec)                        Error
+                        (B1950)             (J2000)             (Date)            (mas)
+
+ * 1921-293          19 21 42.234126   * 19 24 51.055953     19 26 19.915506       0.00
+   J1924-2914       -29 20 26.35397    *-29 14 30.12107     -29 11 45.42582        0.01
+   F1924             ./sources.spirals.dat
+   F1921-293         GSFC 2016a X/S astro solution,  63480 observations.
+
+
+
+SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
+
+     Scan hours are for recording scans only. 
+     Baseline hours are only counted for scans above horizon at both ends.
+  Source       Setup file             Frequency sets                  Observing hours
+                                   (duplicates not shown)              Scan  Baseline
+  1921-293   vgos.band3            1 2 4                             0.750     4.500
+
+
+EFFECT OF SOLAR CORONA
+
+  The solar corona can cause unstable phases for sources too close to the Sun.
+  SCHED provides warnings at individual scans for distances less than 10 degrees.
+  The distance from the Sun to each source in this schedule is:
+    Source         Sun distance (deg) 
+   1921-293            11.1
+
+  Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
+  that the Sun will cause amplitude reductions on the  longest VLBA baselines 
+  at a solar distance of 60deg F^(-0.6) where F is in GHz. 
+  For common VLBI bands, this is: 
+       327 MHz        117. deg 
+       610 MHz         81. deg 
+       1.6 GHz         45. deg 
+       2.3 GHz         36. deg 
+       5.0 GHz         23. deg 
+       8.4 GHz         17. deg 
+      15.0 GHz         12. deg 
+      22.0 GHz          9. deg 
+      43.0 GHz          6. deg 
+
+
+
+CATALOGS, FILES, and CODE VERSIONS
+
+Catalogs: 
+  Station:   ./stations.spirals.dat
+                 Version:  
+  Location:  ./locations.spirals.dat
+                 Version:  Not known
+  Frequency: ./freq.spirals.dat
+                 Version:  
+  Source:   ./sources.spirals.dat
+                 Version:  Not given
+  Source2:  NONE
+                 Version:   ---
+
+
+Other external files: 
+  Ephemeris: NONE
+  PEAKFILE:  /home/observer/SCHED/sched-11.8/catalogs/peak_RDBE_DDC.cmd
+  MSGFILE:   /home/observer/SCHED/sched-11.8/catalogs/messages.txt
+
+
+Code versions: 
+  Release version:           11.80  Release 11.8; April 2023
+  Version of VEX standard:   1.50
+  Version of VEX code:       0.88
+  Version of plot code:      1.06
+  Version of ephemeris code: 1.01
+  Version of PGPLOT:        v5.2.2
+
+This schedule produced on: Thu Jan 18 11:27:09 2024      
