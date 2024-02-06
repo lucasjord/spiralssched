@@ -55,7 +55,7 @@ if [[ *$array* == *"Cd"* ]]; then
     # Drudging
     ssh oper@pcfscd 'cd /usr2/sched; echo -e "cd\n11\n19 16 1 1\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
     # Copying template vex over
-    ssh oper@pcfscd 'cp /usr2/proc/spirals.prc /usr2/proc/'$1cd.prc
+    ssh oper@pcfscd 'cp /usr2/proc/sp64cd.prc /usr2/proc/'$1cd.prc
 fi
 
 if [[ *$array* == *"Hb"* ]]; then
@@ -69,7 +69,7 @@ if [[ *$array* == *"Hb"* ]]; then
     ssh oper@pcfshb rm /usr2/sched/$1hb.snp
     ssh oper@pcfshb 'cd /usr2/sched; echo -e "hb\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
     # Copy template proc file over
-    ssh oper@pcfshb 'cp /usr2/proc/spirals.prc /usr2/proc/'$1hb.prc
+    ssh oper@pcfshb 'cp /usr2/proc/sp64hb.prc /usr2/proc/'$1hb.prc
 fi
 
 if [[ *$array* == *"Ke"* ]]; then
@@ -82,7 +82,7 @@ if [[ *$array* == *"Ke"* ]]; then
     # drudg the vex file there
     ssh oper@pcfske 'cd /usr2/sched; rm '$1ke.snp
     ssh oper@pcfske 'cd /usr2/sched; echo -e "ke\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
-    ssh oper@pcfske 'cp /usr2/proc/spirals.prc /usr2/proc/'$1ke.prc
+    ssh oper@pcfske 'cp /usr2/proc/sp64ke.prc /usr2/proc/'$1ke.prc
 fi
 
 if [[ *$array* == *"Yg"* ]]; then
@@ -95,7 +95,7 @@ if [[ *$array* == *"Yg"* ]]; then
     # drudg the vex file there
     ssh oper@pcfs-2yg 'cd /usr2/sched; rm '$1yg.snp
     ssh oper@pcfs-2yg 'cd /usr2/sched; echo -e "yg\n3\n0\n"|/usr2/fs/bin/drudg '$1.vex
-    ssh oper@pcfs-2yg 'cp /usr2/proc/spirals.prc /usr2/proc/'$1yg.prc
+    ssh oper@pcfs-2yg 'cp /usr2/proc/sp64yg.prc /usr2/proc/'$1yg.prc
 fi
 
 echo ' '
