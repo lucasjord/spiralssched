@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mv *.sum ./sum/
 mv *.vex ./vex/
 mv *.key ./key/
 
