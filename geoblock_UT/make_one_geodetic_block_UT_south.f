@@ -1376,7 +1376,7 @@ c       If first scan, set "old" azimuth, elevation values to 180,45 degrees.
 	      if ( stat_codes(i_a) .eq. 'EB' )
      +               sazimuth_old(i_a) =  257.d0  ! center of wrap
 	      if ( stat_codes(i_a) .eq. 'WA' )
-     +               sazimuth_old(i_a) =  45.d0 
+     +               sazimuth_old(i_a) =  245.d0 
 	   enddo
 	endif
 
