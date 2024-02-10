@@ -105,7 +105,7 @@ echo ' '
 mkdir -p /home/observer/correlations2/$1
 #cp  /home/observer/correlations2/template/threads /home/observer/correlations2/$1/threads
 #cp  /home/observer/correlations2/template/machines /home/observer/correlations2/$1/machines
-cp  /home/observer/correlations2/template/template2.v2d /home/observer/correlations2/$1/$1.v2d
+cp  /home/observer/correlations2/template/template3.v2d /home/observer/correlations2/$1/$1.v2d
 cp /home/observer/correlations2/spiralssched/year3/vex/$1.vex /home/observer/correlations2/$1/$1.vex
 cd /home/observer/correlations2/$1/ && /home/observer/correlations2/corr_scripts/kludge_vex.sh $1
 
