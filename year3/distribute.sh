@@ -38,9 +38,11 @@ fi
 
 # Identify experiment series/class
 export class=$(echo $1 | sed 's/.$//')
+echo $class
 
-array=$(grep Array /home/observer/correlations2/spiralssched/year3/vex/$1.vex | cut -d ":" -f 3)
+array=$(grep -i Array /home/observer/correlations2/spiralssched/year3/vex/$1.vex | cut -d ":" -f 2)
 echo $array
+
 
 
 if [[ *$array* == *"Cd"* ]]; then
@@ -107,7 +109,7 @@ mkdir -p /home/observer/correlations2/$1
 #cp  /home/observer/correlations2/template/machines /home/observer/correlations2/$1/machines
 cp  /home/observer/correlations2/template/template3.v2d /home/observer/correlations2/$1/$1.v2d
 cp /home/observer/correlations2/spiralssched/year3/vex/$1.vex /home/observer/correlations2/$1/$1.vex
-cd /home/observer/correlations2/$1/ && /home/observer/correlations2/corr_scripts/kludge_vex.sh $1
+cd /home/observer/correlations2/$1/ && /home/observer/correlations2/corr_scripts/kludge_vex2.sh $1
 
 echo "Making v2d file"
 /home/observer/correlations2/corr_scripts/eop.sh $YEAR $DOY >> /home/observer/correlations2/$1/$1.v2d
