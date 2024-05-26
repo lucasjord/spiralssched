@@ -1,0 +1,3012 @@
+                    SUMMARY FILE FOR PROJECT: spifxa  
+
+COVER INFORMATION: 
+
+  Experiment: SPIRALS: FRINGE CHECK
+  Exp. Code:  spifxa  
+  Start Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+  Schedule Version:       1.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
+
+  PI:       Lucas J. Hyland
+
+  Address:  School of Natural Sciences
+            University of Tasmania
+            Private Bag 37, Hobart, TAS 7001, AU
+   
+
+  Phone:    +61412345678
+  EMAIL:    lucas.hyland@utas.edu.au
+  Fax:
+  Phone during observation:
+
+  Observing mode: 8.4GHz-2p-1024
+
+  Notes:    Array: Cd-Ke
+            Fringe check
+   
+   
+
+
+No cover letter provided.
+
+CORRELATION REQUESTS (Defaults in parentheses):
+
+  Correlator (Required if recording):          LBA
+  Correlator average time (2 sec):               2.000 sec.
+    Alternate average time (for spacecraft).     0.000 sec.
+  Output spectral channels per baseband (16):        4096
+     Correlator FFT size (128):                      4096
+  Number of antennas to be correlated:                  4
+  Polarization (ON):                           OFF
+  Correlator weighting function (UNIFORM):     UNIFORM
+  Distribution tape (DAT):                     DAT
+
+  Distribution format (FITS):                  FITS
+  Source positions from:             FROM SCHEDULE
+
+  Shipping address for correlator output:
+      University of Tasmania
+
+
+
+
+  Correlator Notes: Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res.
+      Pass 2: Zoom band: 6667-6671MHz. corchan=2048, 2 kHz res.
+
+
+
+
+
+
+DERIVED INFORMATION FOR CORRELATION: 
+                                                All scans
+  Elapsed time for project (hours):                 6.00
+  Total time in scheduled scans (hours):            4.50
+  Total time in recording scans (hours):            4.50
+  Total baseline hours (recording scans):          13.50
+  Projected max correlator output rate (kB/s):     196.6
+  Projected correlator output data size (MB):     3185.0
+ NOTES:  Above numbers assume the same correlator parameters are used for all data.
+         The 'baseline hours' include the autocorrelations (for data size calculations).
+         The correlator output data rate is for real-time processing.
+         Above numbers assume the same correlator parameters are used for all data.
+         The recordings for a scan are assumed to start at the scan START minus PRESTART.
+         Some stations (VLA, VLBA/MARK5C) wait for good data so the estimates may be high.
+
+
+
+STATIONS USED IN SCHEDULE:
+
+   Station  Code   Latitude Longitude  Elevation       X            Y            Z       Axis
+                                                                                       Offset
+
+   CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
+   KATH12M   Ke  -14.37546 -132.15237     189.   -4147354.691  4581542.377 -1573303.157  0.003
+
+
+   Plate tectonic motion adjustments for MJD  60418
+   Station  Code      Station motions (m/yr)             Adjusted positions 
+                     X       Y       Z     MJD0        X            Y            Z 
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.885  3912709.826 -3348066.248
+   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.079  4581542.258 -1573302.577
+
+
+
+BASELINE LENGTHS (km)
+
+          Cd    Ke
+
+   Cd      0  1937
+   Ke   1937     0
+
+
+RECORDING SYSTEM AND CALIBRATION INFORMATION:
+
+  List of scan-dependent controls seen for recording timing.
+   MINPAUSE:   10.
+   PRESTART:    0.
+
+  DISKS - Stations potentially recording on disks.
+   Station    Drive type   DAR     NBBC    Tsys
+   CEDUNA       MARK5B     DBBC     14     GAP 
+   KATH12M      MARK5B     DBBC3     8     GAP 
+
+
+
+
+EXPERIMENT SUMMARY:
+  Number of input scans:        360
+  Number of scans scheduled:    360
+  Number of stations:             2
+  Number of sources input:        1
+  Number of setup files used:     1
+
+
+STATION SCAN SUMMARIES:
+  Station  Control   Scans   Scan   Record  Record   Gbytes
+                            Hours   Hours   Scans
+  CEDUNA     VEX      360    4.50    4.50     360     2087.
+  KATH12M    VEX      360    4.50    4.50     360     2087.
+
+  Notes on the station scan summaries: 
+
+    "Record Scans" are periods of recording with no gap.  The Mark5A disk systems 
+    have a limit of 1024 such scans.  There are often multiple projects on a disk pack.
+    If using MARK5A, try to keep above about 6 GB per record scan by using MINPAUSE 
+    and PRESTART to prevent short gaps.  However, also try to prevent record scans 
+    of more than an hour to minimize risk to data from playback problems.
+    MARK5C will have one observe scan per record scan and there is no limit to the number.
+
+
+
+
+
+
+ SETUP FILES:
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     cd3cm
+
+   Setup group:    1         Station: CEDUNA            Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   8950.00   8950.00   8950.00   8950.00
+   Net SB=         U         U         L         L
+   IF SB =         L         L         L         L
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         5         1         5
+   BBC SB=         L         L         U         U
+   IF    =        A1        B1        A1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   1  Setup file default.  Used with PCAL = off
+   LO sum=   8404.00  8404.00  8404.00  8404.00
+   BBC fr=    546.00   546.00   546.00   546.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   1
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    2         Station: KATH12M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00
+   Net SB=         U         U         U         U
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       RCP       LCP       LCP 
+   BBC   =        33        34        41        42
+   BBC SB=         U         U         U         U
+   IF    =        E1        E1        F1        F1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
+   LO sum=   8340.00  8404.00  8340.00  8404.00
+   BBC fr=   2340.00  2404.00  2340.00  2404.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   2
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+   1  109 02:00:00 0537-441      -     0     0
+      109 02:00:45 pirals3.meth  -    45    45
+
+   2  109 02:01:00 0537-441      -     3     2
+      109 02:01:45 -             -    45    45
+
+   3  109 02:02:00 0537-441      -     3     2
+      109 02:02:45 -             -    45    45
+
+   4  109 02:03:00 0537-441      -     3     2
+      109 02:03:45 -             -    45    45
+
+   5  109 02:04:00 0537-441      -     3     2
+      109 02:04:45 -             -    45    45
+
+   6  109 02:05:00 0537-441      -     3     2
+      109 02:05:45 -             -    45    45
+
+   7  109 02:06:00 0537-441      -     3     2
+      109 02:06:45 -             -    45    45
+
+   8  109 02:07:00 0537-441      -     3     2
+      109 02:07:45 -             -    45    45
+
+   9  109 02:08:00 0537-441      -     3     2
+      109 02:08:45 -             -    45    45
+
+  10  109 02:09:00 0537-441      -     3     2
+      109 02:09:45 -             -    45    45
+
+  11  109 02:10:00 0537-441      -     3     2
+      109 02:10:45 -             -    45    45
+
+  12  109 02:11:00 0537-441      -     3     2
+      109 02:11:45 -             -    45    45
+
+  13  109 02:12:00 0537-441      -     3     2
+      109 02:12:45 -             -    45    45
+
+  14  109 02:13:00 0537-441      -     3     2
+      109 02:13:45 -             -    45    45
+
+  15  109 02:14:00 0537-441      -     3     2
+      109 02:14:45 -             -    45    45
+
+  16  109 02:15:00 0537-441      -     3     2
+      109 02:15:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  17  109 02:16:00 0537-441      -     3     2
+      109 02:16:45 pirals3.meth  -    45    45
+
+  18  109 02:17:00 0537-441      -     3     2
+      109 02:17:45 -             -    45    45
+
+  19  109 02:18:00 0537-441      -     3     2
+      109 02:18:45 -             -    45    45
+
+  20  109 02:19:00 0537-441      -     3     2
+      109 02:19:45 -             -    45    45
+
+  21  109 02:20:00 0537-441      -     3     2
+      109 02:20:45 -             -    45    45
+
+  22  109 02:21:00 0537-441      -     3     2
+      109 02:21:45 -             -    45    45
+
+  23  109 02:22:00 0537-441      -     3     2
+      109 02:22:45 -             -    45    45
+
+  24  109 02:23:00 0537-441      -     3     2
+      109 02:23:45 -             -    45    45
+
+  25  109 02:24:00 0537-441      -     3     2
+      109 02:24:45 -             -    45    45
+
+  26  109 02:25:00 0537-441      -     3     2
+      109 02:25:45 -             -    45    45
+
+  27  109 02:26:00 0537-441      -     3     2
+      109 02:26:45 -             -    45    45
+
+  28  109 02:27:00 0537-441      -     3     2
+      109 02:27:45 -             -    45    45
+
+  29  109 02:28:00 0537-441      -     3     2
+      109 02:28:45 -             -    45    45
+
+  30  109 02:29:00 0537-441      -     3     2
+      109 02:29:45 -             -    45    45
+
+  31  109 02:30:00 0537-441      -     3     2
+      109 02:30:45 -             -    45    45
+
+  32  109 02:31:00 0537-441      -     3     2
+      109 02:31:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  33  109 02:32:00 0537-441      -     3     2
+      109 02:32:45 pirals3.meth  -    45    45
+
+  34  109 02:33:00 0537-441      -     3     2
+      109 02:33:45 -             -    45    45
+
+  35  109 02:34:00 0537-441      -     3     2
+      109 02:34:45 -             -    45    45
+
+  36  109 02:35:00 0537-441      -     3     2
+      109 02:35:45 -             -    45    45
+
+  37  109 02:36:00 0537-441      -     3     2
+      109 02:36:45 -             -    45    45
+
+  38  109 02:37:00 0537-441      -     3     2
+      109 02:37:45 -             -    45    45
+
+  39  109 02:38:00 0537-441      -     3     2
+      109 02:38:45 -             -    45    45
+
+  40  109 02:39:00 0537-441      -     3     2
+      109 02:39:45 -             -    45    45
+
+  41  109 02:40:00 0537-441      -     3     2
+      109 02:40:45 -             -    45    45
+
+  42  109 02:41:00 0537-441      -     3     2
+      109 02:41:45 -             -    45    45
+
+  43  109 02:42:00 0537-441      -     3     2
+      109 02:42:45 -             -    45    45
+
+  44  109 02:43:00 0537-441      -     3     2
+      109 02:43:45 -             -    45    45
+
+  45  109 02:44:00 0537-441      -     3     2
+      109 02:44:45 -             -    45    45
+
+  46  109 02:45:00 0537-441      -     3     2
+      109 02:45:45 -             -    45    45
+
+  47  109 02:46:00 0537-441      -     3     2
+      109 02:46:45 -             -    45    45
+
+  48  109 02:47:00 0537-441      -     3     2
+      109 02:47:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  49  109 02:48:00 0537-441      -     3     2
+      109 02:48:45 pirals3.meth  -    45    45
+
+  50  109 02:49:00 0537-441      -     3     2
+      109 02:49:45 -             -    45    45
+
+  51  109 02:50:00 0537-441      -     3     2
+      109 02:50:45 -             -    45    45
+
+  52  109 02:51:00 0537-441      -     3     2
+      109 02:51:45 -             -    45    45
+
+  53  109 02:52:00 0537-441      -     3     2
+      109 02:52:45 -             -    45    45
+
+  54  109 02:53:00 0537-441      -     3     2
+      109 02:53:45 -             -    45    45
+
+  55  109 02:54:00 0537-441      -     3     2
+      109 02:54:45 -             -    45    45
+
+  56  109 02:55:00 0537-441      -     3     2
+      109 02:55:45 -             -    45    45
+
+  57  109 02:56:00 0537-441      -     3     2
+      109 02:56:45 -             -    45    45
+
+  58  109 02:57:00 0537-441      -     3     2
+      109 02:57:45 -             -    45    45
+
+  59  109 02:58:00 0537-441      -     3     2
+      109 02:58:45 -             -    45    45
+
+  60  109 02:59:00 0537-441      -     3     2
+      109 02:59:45 -             -    45    45
+
+  61  109 03:00:00 0537-441      -     3     2
+      109 03:00:45 -             -    45    45
+
+  62  109 03:01:00 0537-441      -     3     2
+      109 03:01:45 -             -    45    45
+
+  63  109 03:02:00 0537-441      -     3     2
+      109 03:02:45 -             -    45    45
+
+  64  109 03:03:00 0537-441      -     3     2
+      109 03:03:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  65  109 03:04:00 0537-441      -     3     2
+      109 03:04:45 pirals3.meth  -    45    45
+
+  66  109 03:05:00 0537-441      -     3     2
+      109 03:05:45 -             -    45    45
+
+  67  109 03:06:00 0537-441      -     3     2
+      109 03:06:45 -             -    45    45
+
+  68  109 03:07:00 0537-441      -     3     2
+      109 03:07:45 -             -    45    45
+
+  69  109 03:08:00 0537-441      -     3     2
+      109 03:08:45 -             -    45    45
+
+  70  109 03:09:00 0537-441      -     3     2
+      109 03:09:45 -             -    45    45
+
+  71  109 03:10:00 0537-441      -     3     2
+      109 03:10:45 -             -    45    45
+
+  72  109 03:11:00 0537-441      -     3     2
+      109 03:11:45 -             -    45    45
+
+  73  109 03:12:00 0537-441      -     3     2
+      109 03:12:45 -             -    45    45
+
+  74  109 03:13:00 0537-441      -     3     2
+      109 03:13:45 -             -    45    45
+
+  75  109 03:14:00 0537-441      -     3     2
+      109 03:14:45 -             -    45    45
+
+  76  109 03:15:00 0537-441      -     3     2
+      109 03:15:45 -             -    45    45
+
+  77  109 03:16:00 0537-441      -     3     2
+      109 03:16:45 -             -    45    45
+
+  78  109 03:17:00 0537-441      -     3     2
+      109 03:17:45 -             -    45    45
+
+  79  109 03:18:00 0537-441      -     3     2
+      109 03:18:45 -             -    45    45
+
+  80  109 03:19:00 0537-441      -     3     2
+      109 03:19:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  81  109 03:20:00 0537-441      -     3     2
+      109 03:20:45 pirals3.meth  -    45    45
+
+  82  109 03:21:00 0537-441      -     3     2
+      109 03:21:45 -             -    45    45
+
+  83  109 03:22:00 0537-441      -     3     2
+      109 03:22:45 -             -    45    45
+
+  84  109 03:23:00 0537-441      -     3     2
+      109 03:23:45 -             -    45    45
+
+  85  109 03:24:00 0537-441      -     3     2
+      109 03:24:45 -             -    45    45
+
+  86  109 03:25:00 0537-441      -     3     2
+      109 03:25:45 -             -    45    45
+
+  87  109 03:26:00 0537-441      -     3     2
+      109 03:26:45 -             -    45    45
+
+  88  109 03:27:00 0537-441      -     3     2
+      109 03:27:45 -             -    45    45
+
+  89  109 03:28:00 0537-441      -     3     2
+      109 03:28:45 -             -    45    45
+
+  90  109 03:29:00 0537-441      -     3     2
+      109 03:29:45 -             -    45    45
+
+  91  109 03:30:00 0537-441      -     3     2
+      109 03:30:45 -             -    45    45
+
+  92  109 03:31:00 0537-441      -     3     2
+      109 03:31:45 -             -    45    45
+
+  93  109 03:32:00 0537-441      -     3     2
+      109 03:32:45 -             -    45    45
+
+  94  109 03:33:00 0537-441      -     3     2
+      109 03:33:45 -             -    45    45
+
+  95  109 03:34:00 0537-441      -     3     2
+      109 03:34:45 -             -    45    45
+
+  96  109 03:35:00 0537-441      -     3     2
+      109 03:35:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  97  109 03:36:00 0537-441      -     3     2
+      109 03:36:45 pirals3.meth  -    45    45
+
+  98  109 03:37:00 0537-441      -     3     2
+      109 03:37:45 -             -    45    45
+
+  99  109 03:38:00 0537-441      -     3     2
+      109 03:38:45 -             -    45    45
+
+ 100  109 03:39:00 0537-441      -     3     2
+      109 03:39:45 -             -    45    45
+
+ 101  109 03:40:00 0537-441      -     3     2
+      109 03:40:45 -             -    45    45
+
+ 102  109 03:41:00 0537-441      -     3     2
+      109 03:41:45 -             -    45    45
+
+ 103  109 03:42:00 0537-441      -     3     2
+      109 03:42:45 -             -    45    45
+
+ 104  109 03:43:00 0537-441      -     3     2
+      109 03:43:45 -             -    45    45
+
+ 105  109 03:44:00 0537-441      -     3     2
+      109 03:44:45 -             -    45    45
+
+ 106  109 03:45:00 0537-441      -     3     2
+      109 03:45:45 -             -    45    45
+
+ 107  109 03:46:00 0537-441      -     3     2
+      109 03:46:45 -             -    45    45
+
+ 108  109 03:47:00 0537-441      -     3     2
+      109 03:47:45 -             -    45    45
+
+ 109  109 03:48:00 0537-441      -     3     2
+      109 03:48:45 -             -    45    45
+
+ 110  109 03:49:00 0537-441      -     3     2
+      109 03:49:45 -             -    45    45
+
+ 111  109 03:50:00 0537-441      -     3     2
+      109 03:50:45 -             -    45    45
+
+ 112  109 03:51:00 0537-441      -     3     2
+      109 03:51:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 113  109 03:52:00 0537-441      -     3     2
+      109 03:52:45 pirals3.meth  -    45    45
+
+ 114  109 03:53:00 0537-441      -     3     2
+      109 03:53:45 -             -    45    45
+
+ 115  109 03:54:00 0537-441      -     3     2
+      109 03:54:45 -             -    45    45
+
+ 116  109 03:55:00 0537-441      -     3     2
+      109 03:55:45 -             -    45    45
+
+ 117  109 03:56:00 0537-441      -     3     2
+      109 03:56:45 -             -    45    45
+
+ 118  109 03:57:00 0537-441      -     3     2
+      109 03:57:45 -             -    45    45
+
+ 119  109 03:58:00 0537-441      -     3     2
+      109 03:58:45 -             -    45    45
+
+ 120  109 03:59:00 0537-441      -     3     2
+      109 03:59:45 -             -    45    45
+
+ 121  109 04:00:00 0537-441      -     3     2
+      109 04:00:45 -             -    45    45
+
+ 122  109 04:01:00 0537-441      -     3     2
+      109 04:01:45 -             -    45    45
+
+ 123  109 04:02:00 0537-441      -     3     2
+      109 04:02:45 -             -    45    45
+
+ 124  109 04:03:00 0537-441      -     3     2
+      109 04:03:45 -             -    45    45
+
+ 125  109 04:04:00 0537-441      -     3     2
+      109 04:04:45 -             -    45    45
+
+ 126  109 04:05:00 0537-441      -     3     2
+      109 04:05:45 -             -    45    45
+
+ 127  109 04:06:00 0537-441      -     3     2
+      109 04:06:45 -             -    45    45
+
+ 128  109 04:07:00 0537-441      -     3     2
+      109 04:07:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 129  109 04:08:00 0537-441      -     3     2
+      109 04:08:45 pirals3.meth  -    45    45
+
+ 130  109 04:09:00 0537-441      -     3     2
+      109 04:09:45 -             -    45    45
+
+ 131  109 04:10:00 0537-441      -     3     2
+      109 04:10:45 -             -    45    45
+
+ 132  109 04:11:00 0537-441      -     3     2
+      109 04:11:45 -             -    45    45
+
+ 133  109 04:12:00 0537-441      -     3     2
+      109 04:12:45 -             -    45    45
+
+ 134  109 04:13:00 0537-441      -     3     2
+      109 04:13:45 -             -    45    45
+
+ 135  109 04:14:00 0537-441      -     3     2
+      109 04:14:45 -             -    45    45
+
+ 136  109 04:15:00 0537-441      -     3     2
+      109 04:15:45 -             -    45    45
+
+ 137  109 04:16:00 0537-441      -     3     2
+      109 04:16:45 -             -    45    45
+
+ 138  109 04:17:00 0537-441      -     3     2
+      109 04:17:45 -             -    45    45
+
+ 139  109 04:18:00 0537-441      -     3     2
+      109 04:18:45 -             -    45    45
+
+ 140  109 04:19:00 0537-441      -     3     2
+      109 04:19:45 -             -    45    45
+
+ 141  109 04:20:00 0537-441      -     3     2
+      109 04:20:45 -             -    45    45
+
+ 142  109 04:21:00 0537-441      -     3     2
+      109 04:21:45 -             -    45    45
+
+ 143  109 04:22:00 0537-441      -     3     2
+      109 04:22:45 -             -    45    45
+
+ 144  109 04:23:00 0537-441      -     3     2
+      109 04:23:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 145  109 04:24:00 0537-441      -     3     2
+      109 04:24:45 pirals3.meth  -    45    45
+
+ 146  109 04:25:00 0537-441      -     3     2
+      109 04:25:45 -             -    45    45
+
+ 147  109 04:26:00 0537-441      -     3     2
+      109 04:26:45 -             -    45    45
+
+ 148  109 04:27:00 0537-441      -     3     2
+      109 04:27:45 -             -    45    45
+
+ 149  109 04:28:00 0537-441      -     3     2
+      109 04:28:45 -             -    45    45
+
+ 150  109 04:29:00 0537-441      -     3     2
+      109 04:29:45 -             -    45    45
+
+ 151  109 04:30:00 0537-441      -     3     2
+      109 04:30:45 -             -    45    45
+
+ 152  109 04:31:00 0537-441      -     3     2
+      109 04:31:45 -             -    45    45
+
+ 153  109 04:32:00 0537-441      -     3     2
+      109 04:32:45 -             -    45    45
+
+ 154  109 04:33:00 0537-441      -     3     2
+      109 04:33:45 -             -    45    45
+
+ 155  109 04:34:00 0537-441      -     3     2
+      109 04:34:45 -             -    45    45
+
+ 156  109 04:35:00 0537-441      -     3     2
+      109 04:35:45 -             -    45    45
+
+ 157  109 04:36:00 0537-441      -     3     2
+      109 04:36:45 -             -    45    45
+
+ 158  109 04:37:00 0537-441      -     3     2
+      109 04:37:45 -             -    45    45
+
+ 159  109 04:38:00 0537-441      -     3     2
+      109 04:38:45 -             -    45    45
+
+ 160  109 04:39:00 0537-441      -     3     2
+      109 04:39:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 161  109 04:40:00 0537-441      -     3     2
+      109 04:40:45 pirals3.meth  -    45    45
+
+ 162  109 04:41:00 0537-441      -     3     2
+      109 04:41:45 -             -    45    45
+
+ 163  109 04:42:00 0537-441      -     3     2
+      109 04:42:45 -             -    45    45
+
+ 164  109 04:43:00 0537-441      -     3     2
+      109 04:43:45 -             -    45    45
+
+ 165  109 04:44:00 0537-441      -     3     2
+      109 04:44:45 -             -    45    45
+
+ 166  109 04:45:00 0537-441      -     3     2
+      109 04:45:45 -             -    45    45
+
+ 167  109 04:46:00 0537-441      -     3     2
+      109 04:46:45 -             -    45    45
+
+ 168  109 04:47:00 0537-441      -     3     2
+      109 04:47:45 -             -    45    45
+
+ 169  109 04:48:00 0537-441      -     3     2
+      109 04:48:45 -             -    45    45
+
+ 170  109 04:49:00 0537-441      -     3     2
+      109 04:49:45 -             -    45    45
+
+ 171  109 04:50:00 0537-441      -     3     2
+      109 04:50:45 -             -    45    45
+
+ 172  109 04:51:00 0537-441      -     3     2
+      109 04:51:45 -             -    45    45
+
+ 173  109 04:52:00 0537-441      -     3     2
+      109 04:52:45 -             -    45    45
+
+ 174  109 04:53:00 0537-441      -     3     2
+      109 04:53:45 -             -    45    45
+
+ 175  109 04:54:00 0537-441      -     3     2
+      109 04:54:45 -             -    45    45
+
+ 176  109 04:55:00 0537-441      -     3     2
+      109 04:55:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 177  109 04:56:00 0537-441      -     3     2
+      109 04:56:45 pirals3.meth  -    45    45
+
+ 178  109 04:57:00 0537-441      -     3     2
+      109 04:57:45 -             -    45    45
+
+ 179  109 04:58:00 0537-441      -     3     2
+      109 04:58:45 -             -    45    45
+
+ 180  109 04:59:00 0537-441      -     3     2
+      109 04:59:45 -             -    45    45
+
+ 181  109 05:00:00 0537-441      -     3     2
+      109 05:00:45 -             -    45    45
+
+ 182  109 05:01:00 0537-441      -     3     2
+      109 05:01:45 -             -    45    45
+
+ 183  109 05:02:00 0537-441      -     3     2
+      109 05:02:45 -             -    45    45
+
+ 184  109 05:03:00 0537-441      -     3     2
+      109 05:03:45 -             -    45    45
+
+ 185  109 05:04:00 0537-441      -     3     2
+      109 05:04:45 -             -    45    45
+
+ 186  109 05:05:00 0537-441      -     3     2
+      109 05:05:45 -             -    45    45
+
+ 187  109 05:06:00 0537-441      -     3     2
+      109 05:06:45 -             -    45    45
+
+ 188  109 05:07:00 0537-441      -     3     2
+      109 05:07:45 -             -    45    45
+
+ 189  109 05:08:00 0537-441      -     3     2
+      109 05:08:45 -             -    45    45
+
+ 190  109 05:09:00 0537-441      -     3     2
+      109 05:09:45 -             -    45    45
+
+ 191  109 05:10:00 0537-441      -     3     2
+      109 05:10:45 -             -    45    45
+
+ 192  109 05:11:00 0537-441      -     3     2
+      109 05:11:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 193  109 05:12:00 0537-441      -     3     2
+      109 05:12:45 pirals3.meth  -    45    45
+
+ 194  109 05:13:00 0537-441      -     3     2
+      109 05:13:45 -             -    45    45
+
+ 195  109 05:14:00 0537-441      -     3     2
+      109 05:14:45 -             -    45    45
+
+ 196  109 05:15:00 0537-441      -     3     2
+      109 05:15:45 -             -    45    45
+
+ 197  109 05:16:00 0537-441      -     3     2
+      109 05:16:45 -             -    45    45
+
+ 198  109 05:17:00 0537-441      -     3     2
+      109 05:17:45 -             -    45    45
+
+ 199  109 05:18:00 0537-441      -     3     2
+      109 05:18:45 -             -    45    45
+
+ 200  109 05:19:00 0537-441      -     3     2
+      109 05:19:45 -             -    45    45
+
+ 201  109 05:20:00 0537-441      -     3     2
+      109 05:20:45 -             -    45    45
+
+ 202  109 05:21:00 0537-441      -     3     2
+      109 05:21:45 -             -    45    45
+
+ 203  109 05:22:00 0537-441      -     3     2
+      109 05:22:45 -             -    45    45
+
+ 204  109 05:23:00 0537-441      -     3     2
+      109 05:23:45 -             -    45    45
+
+ 205  109 05:24:00 0537-441      -     3     2
+      109 05:24:45 -             -    45    45
+
+ 206  109 05:25:00 0537-441      -     3     2
+      109 05:25:45 -             -    45    45
+
+ 207  109 05:26:00 0537-441      -     3     2
+      109 05:26:45 -             -    45    45
+
+ 208  109 05:27:00 0537-441      -     3     2
+      109 05:27:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 209  109 05:28:00 0537-441      -     3     2
+      109 05:28:45 pirals3.meth  -    45    45
+
+ 210  109 05:29:00 0537-441      -     3     2
+      109 05:29:45 -             -    45    45
+
+ 211  109 05:30:00 0537-441      -     3     2
+      109 05:30:45 -             -    45    45
+
+ 212  109 05:31:00 0537-441      -     3     2
+      109 05:31:45 -             -    45    45
+
+ 213  109 05:32:00 0537-441      -     3     2
+      109 05:32:45 -             -    45    45
+
+ 214  109 05:33:00 0537-441      -     3     2
+      109 05:33:45 -             -    45    45
+
+ 215  109 05:34:00 0537-441      -     3     2
+      109 05:34:45 -             -    45    45
+
+ 216  109 05:35:00 0537-441      -     3     2
+      109 05:35:45 -             -    45    45
+
+ 217  109 05:36:00 0537-441      -     3     2
+      109 05:36:45 -             -    45    45
+
+ 218  109 05:37:00 0537-441      -     3     2
+      109 05:37:45 -             -    45    45
+
+ 219  109 05:38:00 0537-441      -     3     2
+      109 05:38:45 -             -    45    45
+
+ 220  109 05:39:00 0537-441      -     3     2
+      109 05:39:45 -             -    45    45
+
+ 221  109 05:40:00 0537-441      -     4     2
+      109 05:40:45 -             -    45    45
+
+ 222  109 05:41:00 0537-441      -     4     2
+      109 05:41:45 -             -    45    45
+
+ 223  109 05:42:00 0537-441      -     4     2
+      109 05:42:45 -             -    45    45
+
+ 224  109 05:43:00 0537-441      -     4     2
+      109 05:43:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 225  109 05:44:00 0537-441      -     4     2
+      109 05:44:45 pirals3.meth  -    45    45
+
+ 226  109 05:45:00 0537-441      -     4     2
+      109 05:45:45 -             -    45    45
+
+ 227  109 05:46:00 0537-441      -     4     2
+      109 05:46:45 -             -    45    45
+
+ 228  109 05:47:00 0537-441      -     4     2
+      109 05:47:45 -             -    45    45
+
+ 229  109 05:48:00 0537-441      -     4     2
+      109 05:48:45 -             -    45    45
+
+ 230  109 05:49:00 0537-441      -     4     2
+      109 05:49:45 -             -    45    45
+
+ 231  109 05:50:00 0537-441      -     4     2
+      109 05:50:45 -             -    45    45
+
+ 232  109 05:51:00 0537-441      -     4     2
+      109 05:51:45 -             -    45    45
+
+ 233  109 05:52:00 0537-441      -     4     2
+      109 05:52:45 -             -    45    45
+
+ 234  109 05:53:00 0537-441      -     4     2
+      109 05:53:45 -             -    45    45
+
+ 235  109 05:54:00 0537-441      -     4     2
+      109 05:54:45 -             -    45    45
+
+ 236  109 05:55:00 0537-441      -     4     2
+      109 05:55:45 -             -    45    45
+
+ 237  109 05:56:00 0537-441      -     4     2
+      109 05:56:45 -             -    45    45
+
+ 238  109 05:57:00 0537-441      -     4     2
+      109 05:57:45 -             -    45    45
+
+ 239  109 05:58:00 0537-441      -     4     2
+      109 05:58:45 -             -    45    45
+
+ 240  109 05:59:00 0537-441      -     4     2
+      109 05:59:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 241  109 06:00:00 0537-441      -     4     2
+      109 06:00:45 pirals3.meth  -    45    45
+
+ 242  109 06:01:00 0537-441      -     4     2
+      109 06:01:45 -             -    45    45
+
+ 243  109 06:02:00 0537-441      -     4     2
+      109 06:02:45 -             -    45    45
+
+ 244  109 06:03:00 0537-441      -     4     2
+      109 06:03:45 -             -    45    45
+
+ 245  109 06:04:00 0537-441      -     4     2
+      109 06:04:45 -             -    45    45
+
+ 246  109 06:05:00 0537-441      -     4     2
+      109 06:05:45 -             -    45    45
+
+ 247  109 06:06:00 0537-441      -     4     2
+      109 06:06:45 -             -    45    45
+
+ 248  109 06:07:00 0537-441      -     4     2
+      109 06:07:45 -             -    45    45
+
+ 249  109 06:08:00 0537-441      -     4     2
+      109 06:08:45 -             -    45    45
+
+ 250  109 06:09:00 0537-441      -     4     2
+      109 06:09:45 -             -    45    45
+
+ 251  109 06:10:00 0537-441      -     4     2
+      109 06:10:45 -             -    45    45
+
+ 252  109 06:11:00 0537-441      -     4     2
+      109 06:11:45 -             -    45    45
+
+ 253  109 06:12:00 0537-441      -     4     2
+      109 06:12:45 -             -    45    45
+
+ 254  109 06:13:00 0537-441      -     4     2
+      109 06:13:45 -             -    45    45
+
+ 255  109 06:14:00 0537-441      -     4     2
+      109 06:14:45 -             -    45    45
+
+ 256  109 06:15:00 0537-441      -     4     2
+      109 06:15:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 257  109 06:16:00 0537-441      -     4     2
+      109 06:16:45 pirals3.meth  -    45    45
+
+ 258  109 06:17:00 0537-441      -     5     2
+      109 06:17:45 -             -    45    45
+
+ 259  109 06:18:00 0537-441      -     5     2
+      109 06:18:45 -             -    45    45
+
+ 260  109 06:19:00 0537-441      -     5     2
+      109 06:19:45 -             -    45    45
+
+ 261  109 06:20:00 0537-441      -     5     2
+      109 06:20:45 -             -    45    45
+
+ 262  109 06:21:00 0537-441      -     5     2
+      109 06:21:45 -             -    45    45
+
+ 263  109 06:22:00 0537-441      -     5     2
+      109 06:22:45 -             -    45    45
+
+ 264  109 06:23:00 0537-441      -     5     2
+      109 06:23:45 -             -    45    45
+
+ 265  109 06:24:00 0537-441      -     5     2
+      109 06:24:45 -             -    45    45
+
+ 266  109 06:25:00 0537-441      -     5     2
+      109 06:25:45 -             -    45    45
+
+ 267  109 06:26:00 0537-441      -     5     2
+      109 06:26:45 -             -    45    45
+
+ 268  109 06:27:00 0537-441      -     5     2
+      109 06:27:45 -             -    45    45
+
+ 269  109 06:28:00 0537-441      -     5     2
+      109 06:28:45 -             -    45    45
+
+ 270  109 06:29:00 0537-441      -     5     2
+      109 06:29:45 -             -    45    45
+
+ 271  109 06:30:00 0537-441      -     5     2
+      109 06:30:45 -             -    45    45
+
+ 272  109 06:31:00 0537-441      -     5     2
+      109 06:31:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 273  109 06:32:00 0537-441      -     5     2
+      109 06:32:45 pirals3.meth  -    45    45
+
+ 274  109 06:33:00 0537-441      -     5     2
+      109 06:33:45 -             -    45    45
+
+ 275  109 06:34:00 0537-441      -     5     2
+      109 06:34:45 -             -    45    45
+
+ 276  109 06:35:00 0537-441      -     5     2
+      109 06:35:45 -             -    45    45
+
+ 277  109 06:36:00 0537-441      -     5     2
+      109 06:36:45 -             -    45    45
+
+ 278  109 06:37:00 0537-441      -     5     2
+      109 06:37:45 -             -    45    45
+
+ 279  109 06:38:00 0537-441      -     5     2
+      109 06:38:45 -             -    45    45
+
+ 280  109 06:39:00 0537-441      -     5     2
+      109 06:39:45 -             -    45    45
+
+ 281  109 06:40:00 0537-441      -     5     2
+      109 06:40:45 -             -    45    45
+
+ 282  109 06:41:00 0537-441      -     5     2
+      109 06:41:45 -             -    45    45
+
+ 283  109 06:42:00 0537-441      -     5     2
+      109 06:42:45 -             -    45    45
+
+ 284  109 06:43:00 0537-441      -     5     2
+      109 06:43:45 -             -    45    45
+
+ 285  109 06:44:00 0537-441      -     5     2
+      109 06:44:45 -             -    45    45
+
+ 286  109 06:45:00 0537-441      -     5     2
+      109 06:45:45 -             -    45    45
+
+ 287  109 06:46:00 0537-441      -     5     2
+      109 06:46:45 -             -    45    45
+
+ 288  109 06:47:00 0537-441      -     5     2
+      109 06:47:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 289  109 06:48:00 0537-441      -     5     2
+      109 06:48:45 pirals3.meth  -    45    45
+
+ 290  109 06:49:00 0537-441      -     5     2
+      109 06:49:45 -             -    45    45
+
+ 291  109 06:50:00 0537-441      -     5     2
+      109 06:50:45 -             -    45    45
+
+ 292  109 06:51:00 0537-441      -     5     2
+      109 06:51:45 -             -    45    45
+
+ 293  109 06:52:00 0537-441      -     5     2
+      109 06:52:45 -             -    45    45
+
+ 294  109 06:53:00 0537-441      -     5     2
+      109 06:53:45 -             -    45    45
+
+ 295  109 06:54:00 0537-441      -     5     2
+      109 06:54:45 -             -    45    45
+
+ 296  109 06:55:00 0537-441      -     5     2
+      109 06:55:45 -             -    45    45
+
+ 297  109 06:56:00 0537-441      -     5     2
+      109 06:56:45 -             -    45    45
+
+ 298  109 06:57:00 0537-441      -     5     2
+      109 06:57:45 -             -    45    45
+
+ 299  109 06:58:00 0537-441      -     5     2
+      109 06:58:45 -             -    45    45
+
+ 300  109 06:59:00 0537-441      -     5     2
+      109 06:59:45 -             -    45    45
+
+ 301  109 07:00:00 0537-441      -     5     2
+      109 07:00:45 -             -    45    45
+
+ 302  109 07:01:00 0537-441      -     5     2
+      109 07:01:45 -             -    45    45
+
+ 303  109 07:02:00 0537-441      -     5     2
+      109 07:02:45 -             -    45    45
+
+ 304  109 07:03:00 0537-441      -     5     2
+      109 07:03:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 305  109 07:04:00 0537-441      -     5     2
+      109 07:04:45 pirals3.meth  -    45    45
+
+ 306  109 07:05:00 0537-441      -     5     2
+      109 07:05:45 -             -    45    45
+
+ 307  109 07:06:00 0537-441      -     5     2
+      109 07:06:45 -             -    45    45
+
+ 308  109 07:07:00 0537-441      -     5     2
+      109 07:07:45 -             -    45    45
+
+ 309  109 07:08:00 0537-441      -     5     2
+      109 07:08:45 -             -    45    45
+
+ 310  109 07:09:00 0537-441      -     5     2
+      109 07:09:45 -             -    45    45
+
+ 311  109 07:10:00 0537-441      -     5     2
+      109 07:10:45 -             -    45    45
+
+ 312  109 07:11:00 0537-441      -     5     2
+      109 07:11:45 -             -    45    45
+
+ 313  109 07:12:00 0537-441      -     5     2
+      109 07:12:45 -             -    45    45
+
+ 314  109 07:13:00 0537-441      -     5     2
+      109 07:13:45 -             -    45    45
+
+ 315  109 07:14:00 0537-441      -     5     2
+      109 07:14:45 -             -    45    45
+
+ 316  109 07:15:00 0537-441      -     5     2
+      109 07:15:45 -             -    45    45
+
+ 317  109 07:16:00 0537-441      -     5     2
+      109 07:16:45 -             -    45    45
+
+ 318  109 07:17:00 0537-441      -     5     2
+      109 07:17:45 -             -    45    45
+
+ 319  109 07:18:00 0537-441      -     5     2
+      109 07:18:45 -             -    45    45
+
+ 320  109 07:19:00 0537-441      -     5     2
+      109 07:19:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 321  109 07:20:00 0537-441      -     5     2
+      109 07:20:45 pirals3.meth  -    45    45
+
+ 322  109 07:21:00 0537-441      -     5     2
+      109 07:21:45 -             -    45    45
+
+ 323  109 07:22:00 0537-441      -     5     2
+      109 07:22:45 -             -    45    45
+
+ 324  109 07:23:00 0537-441      -     5     2
+      109 07:23:45 -             -    45    45
+
+ 325  109 07:24:00 0537-441      -     5     2
+      109 07:24:45 -             -    45    45
+
+ 326  109 07:25:00 0537-441      -     5     2
+      109 07:25:45 -             -    45    45
+
+ 327  109 07:26:00 0537-441      -     5     2
+      109 07:26:45 -             -    45    45
+
+ 328  109 07:27:00 0537-441      -     5     2
+      109 07:27:45 -             -    45    45
+
+ 329  109 07:28:00 0537-441      -     5     2
+      109 07:28:45 -             -    45    45
+
+ 330  109 07:29:00 0537-441      -     5     2
+      109 07:29:45 -             -    45    45
+
+ 331  109 07:30:00 0537-441      -     5     2
+      109 07:30:45 -             -    45    45
+
+ 332  109 07:31:00 0537-441      -     5     2
+      109 07:31:45 -             -    45    45
+
+ 333  109 07:32:00 0537-441      -     5     2
+      109 07:32:45 -             -    45    45
+
+ 334  109 07:33:00 0537-441      -     5     2
+      109 07:33:45 -             -    45    45
+
+ 335  109 07:34:00 0537-441      -     5     2
+      109 07:34:45 -             -    45    45
+
+ 336  109 07:35:00 0537-441      -     5     2
+      109 07:35:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 337  109 07:36:00 0537-441      -     5     2
+      109 07:36:45 pirals3.meth  -    45    45
+
+ 338  109 07:37:00 0537-441      -     5     2
+      109 07:37:45 -             -    45    45
+
+ 339  109 07:38:00 0537-441      -     4     2
+      109 07:38:45 -             -    45    45
+
+ 340  109 07:39:00 0537-441      -     4     2
+      109 07:39:45 -             -    45    45
+
+ 341  109 07:40:00 0537-441      -     4     2
+      109 07:40:45 -             -    45    45
+
+ 342  109 07:41:00 0537-441      -     4     2
+      109 07:41:45 -             -    45    45
+
+ 343  109 07:42:00 0537-441      -     4     2
+      109 07:42:45 -             -    45    45
+
+ 344  109 07:43:00 0537-441      -     4     2
+      109 07:43:45 -             -    45    45
+
+ 345  109 07:44:00 0537-441      -     4     2
+      109 07:44:45 -             -    45    45
+
+ 346  109 07:45:00 0537-441      -     4     2
+      109 07:45:45 -             -    45    45
+
+ 347  109 07:46:00 0537-441      -     4     2
+      109 07:46:45 -             -    45    45
+
+ 348  109 07:47:00 0537-441      -     4     2
+      109 07:47:45 -             -    45    45
+
+ 349  109 07:48:00 0537-441      -     4     2
+      109 07:48:45 -             -    45    45
+
+ 350  109 07:49:00 0537-441      -     4     2
+      109 07:49:45 -             -    45    45
+
+ 351  109 07:50:00 0537-441      -     4     2
+      109 07:50:45 -             -    45    45
+
+ 352  109 07:51:00 0537-441      -     4     2
+      109 07:51:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 353  109 07:52:00 0537-441      -     4     2
+      109 07:52:45 pirals3.meth  -    45    45
+
+ 354  109 07:53:00 0537-441      -     4     2
+      109 07:53:45 -             -    45    45
+
+ 355  109 07:54:00 0537-441      -     4     2
+      109 07:54:45 -             -    45    45
+
+ 356  109 07:55:00 0537-441      -     4     2
+      109 07:55:45 -             -    45    45
+
+ 357  109 07:56:00 0537-441      -     4     2
+      109 07:56:45 -             -    45    45
+
+ 358  109 07:57:00 0537-441      -     4     2
+      109 07:57:45 -             -    45    45
+
+ 359  109 07:58:00 0537-441      -     4     2
+      109 07:58:45 -             -    45    45
+
+ 360  109 07:59:00 0537-441      -     4     2
+      109 07:59:45 -             -    45    45
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+   1  109 02:00:00 0537-441      -    32    20
+      109 02:00:45 pirals3.meth  -   125  -228
+
+   2  109 02:01:00 0537-441      -    32    20
+      109 02:01:45 -             -   125  -228
+
+   3  109 02:02:00 0537-441      -    33    20
+      109 02:02:45 -             -   125  -228
+
+   4  109 02:03:00 0537-441      -    33    21
+      109 02:03:45 -             -   125  -228
+
+   5  109 02:04:00 0537-441      -    33    21
+      109 02:04:45 -             -   125  -228
+
+   6  109 02:05:00 0537-441      -    33    21
+      109 02:05:45 -             -   125  -228
+
+   7  109 02:06:00 0537-441      -    33    21
+      109 02:06:45 -             -   125  -228
+
+   8  109 02:07:00 0537-441      -    33    21
+      109 02:07:45 -             -   125  -228
+
+   9  109 02:08:00 0537-441      -    34    21
+      109 02:08:45 -             -   125  -228
+
+  10  109 02:09:00 0537-441      -    34    22
+      109 02:09:45 -             -   125  -228
+
+  11  109 02:10:00 0537-441      -    34    22
+      109 02:10:45 -             -   125  -228
+
+  12  109 02:11:00 0537-441      -    34    22
+      109 02:11:45 -             -   125  -228
+
+  13  109 02:12:00 0537-441      -    34    22
+      109 02:12:45 -             -   125  -228
+
+  14  109 02:13:00 0537-441      -    34    22
+      109 02:13:45 -             -   125  -228
+
+  15  109 02:14:00 0537-441      -    35    22
+      109 02:14:45 -             -   124  -228
+
+  16  109 02:15:00 0537-441      -    35    23
+      109 02:15:45 -             -   124  -228
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  17  109 02:16:00 0537-441      -    35    23
+      109 02:16:45 pirals3.meth  -   124  -228
+
+  18  109 02:17:00 0537-441      -    35    23
+      109 02:17:45 -             -   124  -228
+
+  19  109 02:18:00 0537-441      -    35    23
+      109 02:18:45 -             -   124  -228
+
+  20  109 02:19:00 0537-441      -    35    23
+      109 02:19:45 -             -   124  -228
+
+  21  109 02:20:00 0537-441      -    36    24
+      109 02:20:45 -             -   124  -228
+
+  22  109 02:21:00 0537-441      -    36    24
+      109 02:21:45 -             -   124  -228
+
+  23  109 02:22:00 0537-441      -    36    24
+      109 02:22:45 -             -   124  -228
+
+  24  109 02:23:00 0537-441      -    36    24
+      109 02:23:45 -             -   124  -228
+
+  25  109 02:24:00 0537-441      -    36    24
+      109 02:24:45 -             -   124  -228
+
+  26  109 02:25:00 0537-441      -    37    24
+      109 02:25:45 -             -   124  -228
+
+  27  109 02:26:00 0537-441      -    37    25
+      109 02:26:45 -             -   124  -228
+
+  28  109 02:27:00 0537-441      -    37    25
+      109 02:27:45 -             -   124  -228
+
+  29  109 02:28:00 0537-441      -    37    25
+      109 02:28:45 -             -   124  -228
+
+  30  109 02:29:00 0537-441      -    37    25
+      109 02:29:45 -             -   124  -228
+
+  31  109 02:30:00 0537-441      -    37    25
+      109 02:30:45 -             -   124  -228
+
+  32  109 02:31:00 0537-441      -    38    26
+      109 02:31:45 -             -   124  -228
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  33  109 02:32:00 0537-441      -    38    26
+      109 02:32:45 pirals3.meth  -   124  -228
+
+  34  109 02:33:00 0537-441      -    38    26
+      109 02:33:45 -             -   124  -228
+
+  35  109 02:34:00 0537-441      -    38    26
+      109 02:34:45 -             -   124  -228
+
+  36  109 02:35:00 0537-441      -    38    26
+      109 02:35:45 -             -   124  -228
+
+  37  109 02:36:00 0537-441      -    38    26
+      109 02:36:45 -             -   124  -228
+
+  38  109 02:37:00 0537-441      -    39    27
+      109 02:37:45 -             -   123  -228
+
+  39  109 02:38:00 0537-441      -    39    27
+      109 02:38:45 -             -   123  -228
+
+  40  109 02:39:00 0537-441      -    39    27
+      109 02:39:45 -             -   123  -228
+
+  41  109 02:40:00 0537-441      -    39    27
+      109 02:40:45 -             -   123  -227
+
+  42  109 02:41:00 0537-441      -    39    27
+      109 02:41:45 -             -   123  -227
+
+  43  109 02:42:00 0537-441      -    40    28
+      109 02:42:45 -             -   123  -227
+
+  44  109 02:43:00 0537-441      -    40    28
+      109 02:43:45 -             -   123  -227
+
+  45  109 02:44:00 0537-441      -    40    28
+      109 02:44:45 -             -   123  -227
+
+  46  109 02:45:00 0537-441      -    40    28
+      109 02:45:45 -             -   123  -227
+
+  47  109 02:46:00 0537-441      -    40    28
+      109 02:46:45 -             -   123  -227
+
+  48  109 02:47:00 0537-441      -    40    28
+      109 02:47:45 -             -   123  -227
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  49  109 02:48:00 0537-441      -    41    29
+      109 02:48:45 pirals3.meth  -   123  -227
+
+  50  109 02:49:00 0537-441      -    41    29
+      109 02:49:45 -             -   123  -227
+
+  51  109 02:50:00 0537-441      -    41    29
+      109 02:50:45 -             -   123  -227
+
+  52  109 02:51:00 0537-441      -    41    29
+      109 02:51:45 -             -   123  -227
+
+  53  109 02:52:00 0537-441      -    41    29
+      109 02:52:45 -             -   123  -227
+
+  54  109 02:53:00 0537-441      -    42    29
+      109 02:53:45 -             -   123  -227
+
+  55  109 02:54:00 0537-441      -    42    30
+      109 02:54:45 -             -   123  -227
+
+  56  109 02:55:00 0537-441      -    42    30
+      109 02:55:45 -             -   123  -227
+
+  57  109 02:56:00 0537-441      -    42    30
+      109 02:56:45 -             -   123  -227
+
+  58  109 02:57:00 0537-441      -    42    30
+      109 02:57:45 -             -   123  -227
+
+  59  109 02:58:00 0537-441      -    42    30
+      109 02:58:45 -             -   123  -227
+
+  60  109 02:59:00 0537-441      -    43    31
+      109 02:59:45 -             -   123  -227
+
+  61  109 03:00:00 0537-441      -    43    31
+      109 03:00:45 -             -   123  -227
+
+  62  109 03:01:00 0537-441      -    43    31
+      109 03:01:45 -             -   123  -227
+
+  63  109 03:02:00 0537-441      -    43    31
+      109 03:02:45 -             -   123  -227
+
+  64  109 03:03:00 0537-441      -    43    31
+      109 03:03:45 -             -   123  -227
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  65  109 03:04:00 0537-441      -    43    31
+      109 03:04:45 pirals3.meth  -   123  -227
+
+  66  109 03:05:00 0537-441      -    44    32
+      109 03:05:45 -             -   123  -227
+
+  67  109 03:06:00 0537-441      -    44    32
+      109 03:06:45 -             -   123  -227
+
+  68  109 03:07:00 0537-441      -    44    32
+      109 03:07:45 -             -   123  -227
+
+  69  109 03:08:00 0537-441      -    44    32
+      109 03:08:45 -             -   123  -227
+
+  70  109 03:09:00 0537-441      -    44    32
+      109 03:09:45 -             -   123  -227
+
+  71  109 03:10:00 0537-441      -    45    32
+      109 03:10:45 -             -   123  -227
+
+  72  109 03:11:00 0537-441      -    45    33
+      109 03:11:45 -             -   122  -226
+
+  73  109 03:12:00 0537-441      -    45    33
+      109 03:12:45 -             -   122  -226
+
+  74  109 03:13:00 0537-441      -    45    33
+      109 03:13:45 -             -   122  -226
+
+  75  109 03:14:00 0537-441      -    45    33
+      109 03:14:45 -             -   122  -226
+
+  76  109 03:15:00 0537-441      -    45    33
+      109 03:15:45 -             -   122  -226
+
+  77  109 03:16:00 0537-441      -    46    34
+      109 03:16:45 -             -   122  -226
+
+  78  109 03:17:00 0537-441      -    46    34
+      109 03:17:45 -             -   122  -226
+
+  79  109 03:18:00 0537-441      -    46    34
+      109 03:18:45 -             -   122  -226
+
+  80  109 03:19:00 0537-441      -    46    34
+      109 03:19:45 -             -   122  -226
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  81  109 03:20:00 0537-441      -    46    34
+      109 03:20:45 pirals3.meth  -   122  -226
+
+  82  109 03:21:00 0537-441      -    47    34
+      109 03:21:45 -             -   122  -226
+
+  83  109 03:22:00 0537-441      -    47    35
+      109 03:22:45 -             -   122  -226
+
+  84  109 03:23:00 0537-441      -    47    35
+      109 03:23:45 -             -   122  -226
+
+  85  109 03:24:00 0537-441      -    47    35
+      109 03:24:45 -             -   122  -226
+
+  86  109 03:25:00 0537-441      -    47    35
+      109 03:25:45 -             -   122  -226
+
+  87  109 03:26:00 0537-441      -    47    35
+      109 03:26:45 -             -   122  -226
+
+  88  109 03:27:00 0537-441      -    48    35
+      109 03:27:45 -             -   122  -226
+
+  89  109 03:28:00 0537-441      -    48    36
+      109 03:28:45 -             -   122  -226
+
+  90  109 03:29:00 0537-441      -    48    36
+      109 03:29:45 -             -   122  -226
+
+  91  109 03:30:00 0537-441      -    48    36
+      109 03:30:45 -             -   122  -225
+
+  92  109 03:31:00 0537-441      -    48    36
+      109 03:31:45 -             -   122  -225
+
+  93  109 03:32:00 0537-441      -    49    36
+      109 03:32:45 -             -   122  -225
+
+  94  109 03:33:00 0537-441      -    49    37
+      109 03:33:45 -             -   122  -225
+
+  95  109 03:34:00 0537-441      -    49    37
+      109 03:34:45 -             -   122  -225
+
+  96  109 03:35:00 0537-441      -    49    37
+      109 03:35:45 -             -   122  -225
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+  97  109 03:36:00 0537-441      -    49    37
+      109 03:36:45 pirals3.meth  -   122  -225
+
+  98  109 03:37:00 0537-441      -    49    37
+      109 03:37:45 -             -   122  -225
+
+  99  109 03:38:00 0537-441      -    50    37
+      109 03:38:45 -             -   122  -225
+
+ 100  109 03:39:00 0537-441      -    50    38
+      109 03:39:45 -             -   122  -225
+
+ 101  109 03:40:00 0537-441      -    50    38
+      109 03:40:45 -             -   122  -225
+
+ 102  109 03:41:00 0537-441      -    50    38
+      109 03:41:45 -             -   122  -225
+
+ 103  109 03:42:00 0537-441      -    50    38
+      109 03:42:45 -             -   122  -225
+
+ 104  109 03:43:00 0537-441      -    51    38
+      109 03:43:45 -             -   122  -225
+
+ 105  109 03:44:00 0537-441      -    51    38
+      109 03:44:45 -             -   122  -225
+
+ 106  109 03:45:00 0537-441      -    51    39
+      109 03:45:45 -             -   122  -224
+
+ 107  109 03:46:00 0537-441      -    51    39
+      109 03:46:45 -             -   122  -224
+
+ 108  109 03:47:00 0537-441      -    51    39
+      109 03:47:45 -             -   122  -224
+
+ 109  109 03:48:00 0537-441      -    51    39
+      109 03:48:45 -             -   122  -224
+
+ 110  109 03:49:00 0537-441      -    52    39
+      109 03:49:45 -             -   122  -224
+
+ 111  109 03:50:00 0537-441      -    52    39
+      109 03:50:45 -             -   122  -224
+
+ 112  109 03:51:00 0537-441      -    52    40
+      109 03:51:45 -             -   122  -224
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 113  109 03:52:00 0537-441      -    52    40
+      109 03:52:45 pirals3.meth  -   122  -224
+
+ 114  109 03:53:00 0537-441      -    52    40
+      109 03:53:45 -             -   122  -224
+
+ 115  109 03:54:00 0537-441      -    52    40
+      109 03:54:45 -             -   122  -224
+
+ 116  109 03:55:00 0537-441      -    53    40
+      109 03:55:45 -             -   122  -224
+
+ 117  109 03:56:00 0537-441      -    53    40
+      109 03:56:45 -             -   122  -224
+
+ 118  109 03:57:00 0537-441      -    53    41
+      109 03:57:45 -             -   122  -223
+
+ 119  109 03:58:00 0537-441      -    53    41
+      109 03:58:45 -             -   122  -223
+
+ 120  109 03:59:00 0537-441      -    53    41
+      109 03:59:45 -             -   122  -223
+
+ 121  109 04:00:00 0537-441      -    54    41
+      109 04:00:45 -             -   122  -223
+
+ 122  109 04:01:00 0537-441      -    54    41
+      109 04:01:45 -             -   123  -223
+
+ 123  109 04:02:00 0537-441      -    54    41
+      109 04:02:45 -             -   123  -223
+
+ 124  109 04:03:00 0537-441      -    54    42
+      109 04:03:45 -             -   123  -223
+
+ 125  109 04:04:00 0537-441      -    54    42
+      109 04:04:45 -             -   123  -223
+
+ 126  109 04:05:00 0537-441      -    54    42
+      109 04:05:45 -             -   123  -223
+
+ 127  109 04:06:00 0537-441      -    55    42
+      109 04:06:45 -             -   123  -223
+
+ 128  109 04:07:00 0537-441      -    55    42
+      109 04:07:45 -             -   123  -223
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 129  109 04:08:00 0537-441      -    55    42
+      109 04:08:45 pirals3.meth  -   123  -222
+
+ 130  109 04:09:00 0537-441      -    55    43
+      109 04:09:45 -             -   123  -222
+
+ 131  109 04:10:00 0537-441      -    55    43
+      109 04:10:45 -             -   123  -222
+
+ 132  109 04:11:00 0537-441      -    56    43
+      109 04:11:45 -             -   123  -222
+
+ 133  109 04:12:00 0537-441      -    56    43
+      109 04:12:45 -             -   123  -222
+
+ 134  109 04:13:00 0537-441      -    56    43
+      109 04:13:45 -             -   123  -222
+
+ 135  109 04:14:00 0537-441      -    56    43
+      109 04:14:45 -             -   123  -222
+
+ 136  109 04:15:00 0537-441      -    56    44
+      109 04:15:45 -             -   123  -222
+
+ 137  109 04:16:00 0537-441      -    56    44
+      109 04:16:45 -             -   123  -222
+
+ 138  109 04:17:00 0537-441      -    57    44
+      109 04:17:45 -             -   123  -221
+
+ 139  109 04:18:00 0537-441      -    57    44
+      109 04:18:45 -             -   123  -221
+
+ 140  109 04:19:00 0537-441      -    57    44
+      109 04:19:45 -             -   123  -221
+
+ 141  109 04:20:00 0537-441      -    57    44
+      109 04:20:45 -             -   123  -221
+
+ 142  109 04:21:00 0537-441      -    57    45
+      109 04:21:45 -             -   123  -221
+
+ 143  109 04:22:00 0537-441      -    58    45
+      109 04:22:45 -             -   123  -221
+
+ 144  109 04:23:00 0537-441      -    58    45
+      109 04:23:45 -             -   123  -221
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 145  109 04:24:00 0537-441      -    58    45
+      109 04:24:45 pirals3.meth  -   123  -221
+
+ 146  109 04:25:00 0537-441      -    58    45
+      109 04:25:45 -             -   123  -220
+
+ 147  109 04:26:00 0537-441      -    58    45
+      109 04:26:45 -             -   123  -220
+
+ 148  109 04:27:00 0537-441      -    58    45
+      109 04:27:45 -             -   124  -220
+
+ 149  109 04:28:00 0537-441      -    59    46
+      109 04:28:45 -             -   124  -220
+
+ 150  109 04:29:00 0537-441      -    59    46
+      109 04:29:45 -             -   124  -220
+
+ 151  109 04:30:00 0537-441      -    59    46
+      109 04:30:45 -             -   124  -220
+
+ 152  109 04:31:00 0537-441      -    59    46
+      109 04:31:45 -             -   124  -220
+
+ 153  109 04:32:00 0537-441      -    59    46
+      109 04:32:45 -             -   124  -220
+
+ 154  109 04:33:00 0537-441      -    59    46
+      109 04:33:45 -             -   124  -219
+
+ 155  109 04:34:00 0537-441      -    60    47
+      109 04:34:45 -             -   124  -219
+
+ 156  109 04:35:00 0537-441      -    60    47
+      109 04:35:45 -             -   124  -219
+
+ 157  109 04:36:00 0537-441      -    60    47
+      109 04:36:45 -             -   124  -219
+
+ 158  109 04:37:00 0537-441      -    60    47
+      109 04:37:45 -             -   124  -219
+
+ 159  109 04:38:00 0537-441      -    60    47
+      109 04:38:45 -             -   124  -219
+
+ 160  109 04:39:00 0537-441      -    61    47
+      109 04:39:45 -             -   124  -219
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 161  109 04:40:00 0537-441      -    61    47
+      109 04:40:45 pirals3.meth  -   124  -218
+
+ 162  109 04:41:00 0537-441      -    61    48
+      109 04:41:45 -             -   125  -218
+
+ 163  109 04:42:00 0537-441      -    61    48
+      109 04:42:45 -             -   125  -218
+
+ 164  109 04:43:00 0537-441      -    61    48
+      109 04:43:45 -             -   125  -218
+
+ 165  109 04:44:00 0537-441      -    61    48
+      109 04:44:45 -             -   125  -218
+
+ 166  109 04:45:00 0537-441      -    62    48
+      109 04:45:45 -             -   125  -218
+
+ 167  109 04:46:00 0537-441      -    62    48
+      109 04:46:45 -             -   125  -218
+
+ 168  109 04:47:00 0537-441      -    62    49
+      109 04:47:45 -             -   125  -217
+
+ 169  109 04:48:00 0537-441      -    62    49
+      109 04:48:45 -             -   125  -217
+
+ 170  109 04:49:00 0537-441      -    62    49
+      109 04:49:45 -             -   125  -217
+
+ 171  109 04:50:00 0537-441      -    62    49
+      109 04:50:45 -             -   125  -217
+
+ 172  109 04:51:00 0537-441      -    63    49
+      109 04:51:45 -             -   125  -217
+
+ 173  109 04:52:00 0537-441      -    63    49
+      109 04:52:45 -             -   126  -217
+
+ 174  109 04:53:00 0537-441      -    63    49
+      109 04:53:45 -             -   126  -216
+
+ 175  109 04:54:00 0537-441      -    63    50
+      109 04:54:45 -             -   126  -216
+
+ 176  109 04:55:00 0537-441      -    63    50
+      109 04:55:45 -             -   126  -216
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 177  109 04:56:00 0537-441      -    63    50
+      109 04:56:45 pirals3.meth  -   126  -216
+
+ 178  109 04:57:00 0537-441      -    64    50
+      109 04:57:45 -             -   126  -216
+
+ 179  109 04:58:00 0537-441      -    64    50
+      109 04:58:45 -             -   126  -216
+
+ 180  109 04:59:00 0537-441      -    64    50
+      109 04:59:45 -             -   126  -215
+
+ 181  109 05:00:00 0537-441      -    64    50
+      109 05:00:45 -             -   127  -215
+
+ 182  109 05:01:00 0537-441      -    64    51
+      109 05:01:45 -             -   127  -215
+
+ 183  109 05:02:00 0537-441      -    64    51
+      109 05:02:45 -             -   127  -215
+
+ 184  109 05:03:00 0537-441      -    65    51
+      109 05:03:45 -             -   127  -215
+
+ 185  109 05:04:00 0537-441      -    65    51
+      109 05:04:45 -             -   127  -215
+
+ 186  109 05:05:00 0537-441      -    65    51
+      109 05:05:45 -             -   127  -214
+
+ 187  109 05:06:00 0537-441      -    65    51
+      109 05:06:45 -             -   127  -214
+
+ 188  109 05:07:00 0537-441      -    65    51
+      109 05:07:45 -             -   128  -214
+
+ 189  109 05:08:00 0537-441      -    66    51
+      109 05:08:45 -             -   128  -214
+
+ 190  109 05:09:00 0537-441      -    66    52
+      109 05:09:45 -             -   128  -214
+
+ 191  109 05:10:00 0537-441      -    66    52
+      109 05:10:45 -             -   128  -213
+
+ 192  109 05:11:00 0537-441      -    66    52
+      109 05:11:45 -             -   128  -213
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 193  109 05:12:00 0537-441      -    66    52
+      109 05:12:45 pirals3.meth  -   128  -213
+
+ 194  109 05:13:00 0537-441      -    66    52
+      109 05:13:45 -             -   128  -213
+
+ 195  109 05:14:00 0537-441      -    67    52
+      109 05:14:45 -             -   129  -213
+
+ 196  109 05:15:00 0537-441      -    67    52
+      109 05:15:45 -             -   129  -212
+
+ 197  109 05:16:00 0537-441      -    67    53
+      109 05:16:45 -             -   129  -212
+
+ 198  109 05:17:00 0537-441      -    67    53
+      109 05:17:45 -             -   129  -212
+
+ 199  109 05:18:00 0537-441      -    67    53
+      109 05:18:45 -             -   129  -212
+
+ 200  109 05:19:00 0537-441      -    67    53
+      109 05:19:45 -             -   130  -212
+
+ 201  109 05:20:00 0537-441      -    68    53
+      109 05:20:45 -             -   130  -211
+
+ 202  109 05:21:00 0537-441      -    68    53
+      109 05:21:45 -             -   130  -211
+
+ 203  109 05:22:00 0537-441      -    68    53
+      109 05:22:45 -             -   130  -211
+
+ 204  109 05:23:00 0537-441      -    68    53
+      109 05:23:45 -             -   130  -211
+
+ 205  109 05:24:00 0537-441      -    68    54
+      109 05:24:45 -             -   131  -210
+
+ 206  109 05:25:00 0537-441      -    68    54
+      109 05:25:45 -             -   131  -210
+
+ 207  109 05:26:00 0537-441      -    68    54
+      109 05:26:45 -             -   131  -210
+
+ 208  109 05:27:00 0537-441      -    69    54
+      109 05:27:45 -             -   131  -210
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 209  109 05:28:00 0537-441      -    69    54
+      109 05:28:45 pirals3.meth  -   131  -210
+
+ 210  109 05:29:00 0537-441      -    69    54
+      109 05:29:45 -             -   132  -209
+
+ 211  109 05:30:00 0537-441      -    69    54
+      109 05:30:45 -             -   132  -209
+
+ 212  109 05:31:00 0537-441      -    69    54
+      109 05:31:45 -             -   132  -209
+
+ 213  109 05:32:00 0537-441      -    69    55
+      109 05:32:45 -             -   132  -209
+
+ 214  109 05:33:00 0537-441      -    70    55
+      109 05:33:45 -             -   133  -208
+
+ 215  109 05:34:00 0537-441      -    70    55
+      109 05:34:45 -             -   133  -208
+
+ 216  109 05:35:00 0537-441      -    70    55
+      109 05:35:45 -             -   133  -208
+
+ 217  109 05:36:00 0537-441      -    70    55
+      109 05:36:45 -             -   133  -208
+
+ 218  109 05:37:00 0537-441      -    70    55
+      109 05:37:45 -             -   134  -207
+
+ 219  109 05:38:00 0537-441      -    70    55
+      109 05:38:45 -             -   134  -207
+
+ 220  109 05:39:00 0537-441      -    71    55
+      109 05:39:45 -             -   134  -207
+
+ 221  109 05:40:00 0537-441      -    71    55
+      109 05:40:45 -             -   135  -207
+
+ 222  109 05:41:00 0537-441      -    71    56
+      109 05:41:45 -             -   135  -206
+
+ 223  109 05:42:00 0537-441      -    71    56
+      109 05:42:45 -             -   135  -206
+
+ 224  109 05:43:00 0537-441      -    71    56
+      109 05:43:45 -             -   136  -206
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 225  109 05:44:00 0537-441      -    71    56
+      109 05:44:45 pirals3.meth  -   136  -206
+
+ 226  109 05:45:00 0537-441      -    71    56
+      109 05:45:45 -             -   136  -205
+
+ 227  109 05:46:00 0537-441      -    72    56
+      109 05:46:45 -             -   136  -205
+
+ 228  109 05:47:00 0537-441      -    72    56
+      109 05:47:45 -             -   137  -205
+
+ 229  109 05:48:00 0537-441      -    72    56
+      109 05:48:45 -             -   137  -205
+
+ 230  109 05:49:00 0537-441      -    72    56
+      109 05:49:45 -             -   138  -204
+
+ 231  109 05:50:00 0537-441      -    72    56
+      109 05:50:45 -             -   138  -204
+
+ 232  109 05:51:00 0537-441      -    72    57
+      109 05:51:45 -             -   138  -204
+
+ 233  109 05:52:00 0537-441      -    72    57
+      109 05:52:45 -             -   139  -204
+
+ 234  109 05:53:00 0537-441      -    73    57
+      109 05:53:45 -             -   139  -203
+
+ 235  109 05:54:00 0537-441      -    73    57
+      109 05:54:45 -             -   139  -203
+
+ 236  109 05:55:00 0537-441      -    73    57
+      109 05:55:45 -             -   140  -203
+
+ 237  109 05:56:00 0537-441      -    73    57
+      109 05:56:45 -             -   140  -202
+
+ 238  109 05:57:00 0537-441      -    73    57
+      109 05:57:45 -             -   141  -202
+
+ 239  109 05:58:00 0537-441      -    73    57
+      109 05:58:45 -             -   141  -202
+
+ 240  109 05:59:00 0537-441      -    73    57
+      109 05:59:45 -             -   141  -202
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 241  109 06:00:00 0537-441      -    74    57
+      109 06:00:45 pirals3.meth  -   142  -201
+
+ 242  109 06:01:00 0537-441      -    74    57
+      109 06:01:45 -             -   142  -201
+
+ 243  109 06:02:00 0537-441      -    74    58
+      109 06:02:45 -             -   143  -201
+
+ 244  109 06:03:00 0537-441      -    74    58
+      109 06:03:45 -             -   143  -200
+
+ 245  109 06:04:00 0537-441      -    74    58
+      109 06:04:45 -             -   144  -200
+
+ 246  109 06:05:00 0537-441      -    74    58
+      109 06:05:45 -             -   144  -200
+
+ 247  109 06:06:00 0537-441      -    74    58
+      109 06:06:45 -             -   145  -199
+
+ 248  109 06:07:00 0537-441      -    74    58
+      109 06:07:45 -             -   145  -199
+
+ 249  109 06:08:00 0537-441      -    75    58
+      109 06:08:45 -             -   146  -199
+
+ 250  109 06:09:00 0537-441      -    75    58
+      109 06:09:45 -             -   146  -199
+
+ 251  109 06:10:00 0537-441      -    75    58
+      109 06:10:45 -             -   147  -198
+
+ 252  109 06:11:00 0537-441      -    75    58
+      109 06:11:45 -             -   147  -198
+
+ 253  109 06:12:00 0537-441      -    75    58
+      109 06:12:45 -             -   148  -198
+
+ 254  109 06:13:00 0537-441      -    75    58
+      109 06:13:45 -             -   148  -197
+
+ 255  109 06:14:00 0537-441      -    75    59
+      109 06:14:45 -             -   149  -197
+
+ 256  109 06:15:00 0537-441      -    75    59
+      109 06:15:45 -             -   149  -197
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 257  109 06:16:00 0537-441      -    75    59
+      109 06:16:45 pirals3.meth  -   150  -196
+
+ 258  109 06:17:00 0537-441      -    76    59
+      109 06:17:45 -             -   150  -196
+
+ 259  109 06:18:00 0537-441      -    76    59
+      109 06:18:45 -             -   151  -196
+
+ 260  109 06:19:00 0537-441      -    76    59
+      109 06:19:45 -             -   152  -195
+
+ 261  109 06:20:00 0537-441      -    76    59
+      109 06:20:45 -             -   152  -195
+
+ 262  109 06:21:00 0537-441      -    76    59
+      109 06:21:45 -             -   153  -195
+
+ 263  109 06:22:00 0537-441      -    76    59
+      109 06:22:45 -             -   153  -194
+
+ 264  109 06:23:00 0537-441      -    76    59
+      109 06:23:45 -             -   154  -194
+
+ 265  109 06:24:00 0537-441      -    76    59
+      109 06:24:45 -             -   155  -194
+
+ 266  109 06:25:00 0537-441      -    76    59
+      109 06:25:45 -             -   155  -193
+
+ 267  109 06:26:00 0537-441      -    76    59
+      109 06:26:45 -             -   156  -193
+
+ 268  109 06:27:00 0537-441      -    76    59
+      109 06:27:45 -             -   157  -193
+
+ 269  109 06:28:00 0537-441      -    77    59
+      109 06:28:45 -             -   157  -192
+
+ 270  109 06:29:00 0537-441      -    77    59
+      109 06:29:45 -             -   158  -192
+
+ 271  109 06:30:00 0537-441      -    77    59
+      109 06:30:45 -             -   159  -192
+
+ 272  109 06:31:00 0537-441      -    77    60
+      109 06:31:45 -             -   160  -191
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 273  109 06:32:00 0537-441      -    77    60
+      109 06:32:45 pirals3.meth  -   160  -191
+
+ 274  109 06:33:00 0537-441      -    77    60
+      109 06:33:45 -             -   161  -191
+
+ 275  109 06:34:00 0537-441      -    77    60
+      109 06:34:45 -             -   162  -190
+
+ 276  109 06:35:00 0537-441      -    77    60
+      109 06:35:45 -             -   163  -190
+
+ 277  109 06:36:00 0537-441      -    77    60
+      109 06:36:45 -             -   163  -190
+
+ 278  109 06:37:00 0537-441      -    77    60
+      109 06:37:45 -             -   164  -189
+
+ 279  109 06:38:00 0537-441      -    77    60
+      109 06:38:45 -             -   165  -189
+
+ 280  109 06:39:00 0537-441      -    77    60
+      109 06:39:45 -             -   166  -189
+
+ 281  109 06:40:00 0537-441      -    77    60
+      109 06:40:45 -             -   166  -188
+
+ 282  109 06:41:00 0537-441      -    77    60
+      109 06:41:45 -             -   167  -188
+
+ 283  109 06:42:00 0537-441      -    77    60
+      109 06:42:45 -             -   168  -188
+
+ 284  109 06:43:00 0537-441      -    78    60
+      109 06:43:45 -             -   169  -187
+
+ 285  109 06:44:00 0537-441      -    78    60
+      109 06:44:45 -             -   170  -187
+
+ 286  109 06:45:00 0537-441      -    78    60
+      109 06:45:45 -             -   170  -186
+
+ 287  109 06:46:00 0537-441      -    78    60
+      109 06:46:45 -             -   171  -186
+
+ 288  109 06:47:00 0537-441      -    78    60
+      109 06:47:45 -             -   172  -186
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 289  109 06:48:00 0537-441      -    78    60
+      109 06:48:45 pirals3.meth  -   173  -185
+
+ 290  109 06:49:00 0537-441      -    78    60
+      109 06:49:45 -             -   174  -185
+
+ 291  109 06:50:00 0537-441      -    78    60
+      109 06:50:45 -             -   175  -185
+
+ 292  109 06:51:00 0537-441      -    78    60
+      109 06:51:45 -             -   175  -184
+
+ 293  109 06:52:00 0537-441      -    78    60
+      109 06:52:45 -             -   176  -184
+
+ 294  109 06:53:00 0537-441      -    78    60
+      109 06:53:45 -             -   177  -184
+
+ 295  109 06:54:00 0537-441      -    78    60
+      109 06:54:45 -             -   178  -183
+
+ 296  109 06:55:00 0537-441      -    78    60
+      109 06:55:45 -             -   179  -183
+
+ 297  109 06:56:00 0537-441      -    78    60
+      109 06:56:45 -             -   180  -183
+
+ 298  109 06:57:00 0537-441      -    78    60
+      109 06:57:45 -             -   181  -182
+
+ 299  109 06:58:00 0537-441      -    78    60
+      109 06:58:45 -             -   181  -182
+
+ 300  109 06:59:00 0537-441      -    78    60
+      109 06:59:45 -             -   182  -181
+
+ 301  109 07:00:00 0537-441      -    78    60
+      109 07:00:45 -             -   183  -181
+
+ 302  109 07:01:00 0537-441      -    78    60
+      109 07:01:45 -             -   184  -181
+
+ 303  109 07:02:00 0537-441      -    78    60
+      109 07:02:45 -             -   185  -180
+
+ 304  109 07:03:00 0537-441      -    78    60
+      109 07:03:45 -             -   186  -180
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 305  109 07:04:00 0537-441      -    78    60
+      109 07:04:45 pirals3.meth  -   186  -180
+
+ 306  109 07:05:00 0537-441      -    78    60
+      109 07:05:45 -             -   187  -179
+
+ 307  109 07:06:00 0537-441      -    78    60
+      109 07:06:45 -             -   188  -179
+
+ 308  109 07:07:00 0537-441      -    78    60
+      109 07:07:45 -             -   189  -179
+
+ 309  109 07:08:00 0537-441      -    78    60
+      109 07:08:45 -             -   190  -178
+
+ 310  109 07:09:00 0537-441      -    78    60
+      109 07:09:45 -             -   191  -178
+
+ 311  109 07:10:00 0537-441      -    78    60
+      109 07:10:45 -             -   191  -177
+
+ 312  109 07:11:00 0537-441      -    77    60
+      109 07:11:45 -             -   192  -177
+
+ 313  109 07:12:00 0537-441      -    77    60
+      109 07:12:45 -             -   193  -177
+
+ 314  109 07:13:00 0537-441      -    77    60
+      109 07:13:45 -             -   194  -176
+
+ 315  109 07:14:00 0537-441      -    77    60
+      109 07:14:45 -             -   195  -176
+
+ 316  109 07:15:00 0537-441      -    77    60
+      109 07:15:45 -             -   195  -176
+
+ 317  109 07:16:00 0537-441      -    77    60
+      109 07:16:45 -             -   196  -175
+
+ 318  109 07:17:00 0537-441      -    77    60
+      109 07:17:45 -             -   197  -175
+
+ 319  109 07:18:00 0537-441      -    77    60
+      109 07:18:45 -             -   198  -175
+
+ 320  109 07:19:00 0537-441      -    77    60
+      109 07:19:45 -             -   198  -174
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 321  109 07:20:00 0537-441      -    77    60
+      109 07:20:45 pirals3.meth  -   199  -174
+
+ 322  109 07:21:00 0537-441      -    77    60
+      109 07:21:45 -             -   200  -173
+
+ 323  109 07:22:00 0537-441      -    77    60
+      109 07:22:45 -             -   201  -173
+
+ 324  109 07:23:00 0537-441      -    77    60
+      109 07:23:45 -             -   201  -173
+
+ 325  109 07:24:00 0537-441      -    77    60
+      109 07:24:45 -             -   202  -172
+
+ 326  109 07:25:00 0537-441      -    77    60
+      109 07:25:45 -             -   203  -172
+
+ 327  109 07:26:00 0537-441      -    76    60
+      109 07:26:45 -             -   203  -172
+
+ 328  109 07:27:00 0537-441      -    76    60
+      109 07:27:45 -             -   204  -171
+
+ 329  109 07:28:00 0537-441      -    76    60
+      109 07:28:45 -             -   205  -171
+
+ 330  109 07:29:00 0537-441      -    76    60
+      109 07:29:45 -             -   205  -171
+
+ 331  109 07:30:00 0537-441      -    76    60
+      109 07:30:45 -             -   206  -170
+
+ 332  109 07:31:00 0537-441      -    76    60
+      109 07:31:45 -             -   207  -170
+
+ 333  109 07:32:00 0537-441      -    76    60
+      109 07:32:45 -             -   207  -170
+
+ 334  109 07:33:00 0537-441      -    76    60
+      109 07:33:45 -             -   208  -169
+
+ 335  109 07:34:00 0537-441      -    76    60
+      109 07:34:45 -             -   209  -169
+
+ 336  109 07:35:00 0537-441      -    76    60
+      109 07:35:45 -             -   209  -169
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 337  109 07:36:00 0537-441      -    76    59
+      109 07:36:45 pirals3.meth  -   210  -168
+
+ 338  109 07:37:00 0537-441      -    75    59
+      109 07:37:45 -             -   210  -168
+
+ 339  109 07:38:00 0537-441      -    75    59
+      109 07:38:45 -             -   211  -168
+
+ 340  109 07:39:00 0537-441      -    75    59
+      109 07:39:45 -             -   211  -167
+
+ 341  109 07:40:00 0537-441      -    75    59
+      109 07:40:45 -             -   212  -167
+
+ 342  109 07:41:00 0537-441      -    75    59
+      109 07:41:45 -             -   213  -167
+
+ 343  109 07:42:00 0537-441      -    75    59
+      109 07:42:45 -             -   213  -166
+
+ 344  109 07:43:00 0537-441      -    75    59
+      109 07:43:45 -             -   214  -166
+
+ 345  109 07:44:00 0537-441      -    75    59
+      109 07:44:45 -             -   214  -166
+
+ 346  109 07:45:00 0537-441      -    75    59
+      109 07:45:45 -             -   215  -165
+
+ 347  109 07:46:00 0537-441      -    74    59
+      109 07:46:45 -             -   215  -165
+
+ 348  109 07:47:00 0537-441      -    74    59
+      109 07:47:45 -             -   216  -165
+
+ 349  109 07:48:00 0537-441      -    74    59
+      109 07:48:45 -             -   216  -164
+
+ 350  109 07:49:00 0537-441      -    74    59
+      109 07:49:45 -             -   217  -164
+
+ 351  109 07:50:00 0537-441      -    74    59
+      109 07:50:45 -             -   217  -164
+
+ 352  109 07:51:00 0537-441      -    74    59
+      109 07:51:45 -             -   217  -163
+
+
+
+ SCAN SUMMARY for experiment spifxa  SPIRALS: FRINGE CHECK
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Average elevation.
+     Bottom item is: Average azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 109 is Thu  18 Apr 2024   MJD  60418          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke
+
+ 353  109 07:52:00 0537-441      -    74    59
+      109 07:52:45 pirals3.meth  -   218  -163
+
+ 354  109 07:53:00 0537-441      -    73    58
+      109 07:53:45 -             -   218  -163
+
+ 355  109 07:54:00 0537-441      -    73    58
+      109 07:54:45 -             -   219  -162
+
+ 356  109 07:55:00 0537-441      -    73    58
+      109 07:55:45 -             -   219  -162
+
+ 357  109 07:56:00 0537-441      -    73    58
+      109 07:56:45 -             -   220  -162
+
+ 358  109 07:57:00 0537-441      -    73    58
+      109 07:57:45 -             -   220  -161
+
+ 359  109 07:58:00 0537-441      -    73    58
+      109 07:58:45 -             -   220  -161
+
+ 360  109 07:59:00 0537-441      -    73    58
+      109 07:59:45 -             -   221  -161
+
+
+
+ TIME RANGE OF RECORDINGS and TOTAL BYTES:
+
+                Obs. start time.     Obs. end time.      Total 
+ Station          Day    Time         Day    Time        GBytes
+                     (UT)                 (UT)
+  CEDUNA         109  02:00:00       109  07:59:45       2086.9
+  KATH12M        109  02:00:00       109  07:59:45       2086.9
+
+ POSITIONS OF SOURCES USED IN RECORDING SCANS
+     Catalog positions marked with *. 
+     Precession of date coordinates is based on stop time of first scan.
+     Names used in schedule marked with *. 
+     Observation date used in B1950/J2000 coordinate conversion (PRECDATE):  1979.900
+     No adjustments are made for rates (DRA, DDEC).
+
+   Source                         Source position (RA/Dec)                        Error
+                        (B1950)             (J2000)             (Date)            (mas)
+
+ * 0537-441          05 37 21.071425   * 05 38 50.361559     05 39 32.623659       0.01
+   J0538-4405       -44 06 44.66633    *-44 05 08.93901     -44 04 31.97844        0.01
+   F0538             ./sources.spirals.dat
+                     GSFC 2016a X/S astro solution,  72326 observations.
+
+
+
+SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
+
+     Scan hours are for recording scans only. 
+     Baseline hours are only counted for scans above horizon at both ends.
+  Source       Setup file             Frequency sets                  Observing hours
+                                   (duplicates not shown)              Scan  Baseline
+  0537-441   spirals3.meth         1 2                               4.500     4.500
+
+
+EFFECT OF SOLAR CORONA
+
+  The solar corona can cause unstable phases for sources too close to the Sun.
+  SCHED provides warnings at individual scans for distances less than 10 degrees.
+  The distance from the Sun to each source in this schedule is:
+    Source         Sun distance (deg) 
+   0537-441            76.2
+
+  Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
+  that the Sun will cause amplitude reductions on the  longest VLBA baselines 
+  at a solar distance of 60deg F^(-0.6) where F is in GHz. 
+  For common VLBI bands, this is: 
+       327 MHz        117. deg 
+       610 MHz         81. deg 
+       1.6 GHz         45. deg 
+       2.3 GHz         36. deg 
+       5.0 GHz         23. deg 
+       8.4 GHz         17. deg 
+      15.0 GHz         12. deg 
+      22.0 GHz          9. deg 
+      43.0 GHz          6. deg 
+
+ SOURCE SEPARATIONS
+
+ Source separations in degrees for pairs closer than  30.00 degrees.
+
+
+
+CATALOGS, FILES, and CODE VERSIONS
+
+Catalogs: 
+  Station:   ./stations.spirals.dat
+                 Version:  
+  Location:  ./locations.spirals.dat
+                 Version:  Not known
+  Frequency: ./freq.spirals.dat
+                 Version:  
+  Source:   ./sources.spirals.dat
+                 Version:  Not given
+  Source2:  NONE
+                 Version:   ---
+
+
+Other external files: 
+  Ephemeris: NONE
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
+
+
+Code versions: 
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
+  Version of ephemeris code: 1.01

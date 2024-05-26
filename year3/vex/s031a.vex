@@ -1,0 +1,2265 @@
+VEX_rev = 1.5;
+*    pySCHED version: 1.26.2
+*    SCHED version:   Release 11.6; Feburary 2020
+*    VEX/SCHED:       1.5.5
+*    Other versions: Sched:  11.6 JPL-ephem: 1.01
+*    Catalog versions:
+*       Frequency: 
+*       Station:   
+*       Location:  Not known
+*------------------------------------------------------------------------------
+$GLOBAL;
+     ref $EXPER = s031a;
+*                                                      +------------+
+*                         PI revision number:          |    1.0000  |
+*                                                      +------------+
+*    mode:       2.2GHz-2p-2IF/64MHz
+*------------------------------------------------------------------------------
+$EXPER;
+*
+def s031a;
+     exper_name = s031a;
+     exper_description = "MULTIVIEW: S-band";
+     PI_name = "Lucas J. Hyland";
+     PI_email = lucas.hyland@utas.edu.au;
+*    address:   School of Natural Sciences
+*               University of Tasmania
+*               Private Bag 37, Hobart, TAS 7001, AU
+*               
+*    phone:     +61467332126
+*    during obs:
+*    fax:       
+*    Array: Cd-Ho-Ke-Yg
+*    Quasar positioning
+*
+*    year, doy: 2024, 144
+*    date     : Thu 23 May 2024
+*    MJD      : 60453
+     exper_nominal_start=2024y144d02h00m00s;
+     exper_nominal_stop=2024y144d06h48m58s;
+*
+     target_correlator = LBA;
+*
+*    integr_time    : 2.0 s
+*    number_channels: 128
+*    number_antenna : 5
+*    cross_polarize : No
+*    weight_func    : UNIFORM
+*    distrib_medium : DAT
+*    distrib_format : FITS
+*    source_pos_cat : FROM SCHEDULE
+*    distribute_to  :
+*                     University of Tasmania
+*                     
+*                     
+*                     
+*    Pass 1: Full band: 2x64 MHz. corchan=128, 0.5 MHz res.
+*    Pass 2: zoom=4MHz 2kHz res.
+*
+enddef;
+*------------------------------------------------------------------------------
+$MODE;
+*
+def spirals.sband;
+     ref $PROCEDURES = Procedure:Cd:Ho:Ke:Yg;
+     ref $IF = LO@1900MHzDPolNoTone:Ke:Yg;
+     ref $IF = LO@2600MHzDPolNoTone:Ho;
+     ref $IF = LO@2901MHzDPolNoTone:Cd;
+     ref $BBC = 4BBCs:Cd;
+     ref $BBC = 4BBCs#02:Ho;
+     ref $BBC = 4BBCs#03:Ke:Yg;
+     ref $PHASE_CAL_DETECT = NoDetect:Cd:Ho:Ke:Yg;
+     ref $FREQ = 2193MHz4x64MHz:Cd;
+     ref $FREQ = 2193MHz4x64MHz#02:Ho:Ke:Yg;
+     ref $TRACKS = VDIF5032.4Ch2bit1to1:Cd:Ho:Ke:Yg;
+     ref $ROLL = NoRoll:Cd:Ho:Ke:Yg;
+enddef;
+*------------------------------------------------------------------------------
+$IF;
+*
+def LO@1900MHzDPolNoTone;
+* spirals.sband: Ke, Yg
+     if_def = &IF_A1 : A1 : R :   1900.00 MHz : U;
+     if_def = &IF_B1 : B1 : L :   1900.00 MHz : U;
+enddef;
+*
+def LO@2600MHzDPolNoTone;
+* spirals.sband: Ho
+     if_def = &IF_A3 : A3 : R :   2600.00 MHz : L;
+     if_def = &IF_B3 : B3 : L :   2600.00 MHz : L;
+enddef;
+*
+def LO@2901MHzDPolNoTone;
+* spirals.sband: Cd
+     if_def = &IF_A1 : A1 : R :   2901.00 MHz : L;
+     if_def = &IF_B1 : B1 : L :   2901.00 MHz : L;
+enddef;
+*------------------------------------------------------------------------------
+$BBC;
+*
+def 4BBCs;
+* spirals.sband: Cd
+     BBC_assign = &BBC01 : 1 : &IF_A1;
+     BBC_assign = &BBC05 : 5 : &IF_B1;
+     BBC_assign = &BBC02 : 2 : &IF_A1;
+     BBC_assign = &BBC06 : 6 : &IF_B1;
+enddef;
+*
+def 4BBCs#02;
+* spirals.sband: Ho
+     BBC_assign = &BBC01 :  1 : &IF_A3;
+     BBC_assign = &BBC09 :  9 : &IF_B3;
+     BBC_assign = &BBC02 :  2 : &IF_A3;
+     BBC_assign = &BBC10 : 10 : &IF_B3;
+enddef;
+*
+def 4BBCs#03;
+* spirals.sband: Ke, Yg
+     BBC_assign = &BBC01 :  1 : &IF_A1;
+     BBC_assign = &BBC09 :  9 : &IF_B1;
+     BBC_assign = &BBC02 :  2 : &IF_A1;
+     BBC_assign = &BBC10 : 10 : &IF_B1;
+enddef;
+*------------------------------------------------------------------------------
+$PHASE_CAL_DETECT;
+*
+def NoDetect;
+* spirals.sband: Cd, Ho, Ke, Yg
+     phase_cal_detect = &NoCal;
+enddef;
+*------------------------------------------------------------------------------
+$FREQ;
+*
+def 2193MHz4x64MHz;
+* spirals.sband: Cd
+     chan_def =  : 2193 MHz : U :   64.00 MHz : &CH01 : &BBC01 : &NoCal; * RCP
+     chan_def =  : 2193 MHz : U :   64.00 MHz : &CH02 : &BBC05 : &NoCal; * LCP
+     chan_def =  : 2243 MHz : U :   64.00 MHz : &CH03 : &BBC02 : &NoCal; * RCP
+     chan_def =  : 2243 MHz : U :   64.00 MHz : &CH04 : &BBC06 : &NoCal; * LCP
+     sample_rate = 128.000 Ms/sec;
+enddef;
+*
+def 2193MHz4x64MHz#02;
+* spirals.sband: Ho, Ke, Yg
+     chan_def =  : 2193 MHz : U :   64.00 MHz : &CH01 : &BBC01 : &NoCal; * RCP
+     chan_def =  : 2193 MHz : U :   64.00 MHz : &CH02 : &BBC09 : &NoCal; * LCP
+     chan_def =  : 2243 MHz : U :   64.00 MHz : &CH03 : &BBC02 : &NoCal; * RCP
+     chan_def =  : 2243 MHz : U :   64.00 MHz : &CH04 : &BBC10 : &NoCal; * LCP
+     sample_rate = 128.000 Ms/sec;
+enddef;
+*------------------------------------------------------------------------------
+$TRACKS;
+*
+def VDIF5032.4Ch2bit1to1;
+* spirals.sband: Cd, Ho, Ke, Yg
+     track_frame_format = VDIF5032;
+     fanout_def =  : &CH01 : sign : 1 : 1;
+     fanout_def =  : &CH01 :  mag : 1 : 1;
+     fanout_def =  : &CH02 : sign : 1 : 2;
+     fanout_def =  : &CH02 :  mag : 1 : 2;
+     fanout_def =  : &CH03 : sign : 1 : 3;
+     fanout_def =  : &CH03 :  mag : 1 : 3;
+     fanout_def =  : &CH04 : sign : 1 : 4;
+     fanout_def =  : &CH04 :  mag : 1 : 4;
+enddef;
+*------------------------------------------------------------------------------
+$ROLL;
+*
+def NoRoll;
+* spirals.sband: Cd, Ho, Ke, Yg
+     roll = off;
+enddef;
+*------------------------------------------------------------------------------
+$STATION;
+*
+def Cd;
+     ref $ANTENNA = CEDUNA;
+     ref $DAS = DBBC+Mark5B;
+     ref $SITE = CEDUNA;
+enddef;
+*
+def Ho;
+     ref $ANTENNA = HOBART26;
+     ref $DAS = DBBC+Mark5B#02;
+     ref $SITE = HOBART26;
+enddef;
+*
+def Ke;
+     ref $ANTENNA = KATH12M;
+     ref $DAS = DBBC+Mark5B#02;
+     ref $SITE = KATH12M;
+enddef;
+*
+def Yg;
+     ref $ANTENNA = YARRA12M;
+     ref $DAS = DBBC+Mark5B#02;
+     ref $SITE = YARRA12M;
+enddef;
+*------------------------------------------------------------------------------
+$ANTENNA;
+*
+def CEDUNA;
+     axis_type = az : el;
+     antenna_motion = az :   40.0 deg/min : 2 sec;
+     antenna_motion = el :   40.0 deg/min : 2 sec;
+     pointing_sector = &ccw : az : -170.0 deg : -60.0 deg : el : 5.0 deg : 89.0 deg;
+     pointing_sector =   &n : az :  -60.0 deg : 190.0 deg : el : 5.0 deg : 89.0 deg;
+     pointing_sector =  &cw : az :  190.0 deg : 300.0 deg : el : 5.0 deg : 89.0 deg;
+     axis_offset =     0.0024 m;
+enddef;
+*
+def HOBART26;
+     axis_type = x : yew;
+     antenna_motion =   x :   40.0 deg/min : 2 sec;
+     antenna_motion = yew :   40.0 deg/min : 2 sec;
+     axis_offset =     8.1944 m;
+enddef;
+*
+def KATH12M;
+     axis_type = az : el;
+     antenna_motion = az :  300.0 deg/min : 2 sec;
+     antenna_motion = el :   75.0 deg/min : 2 sec;
+     pointing_sector = &ccw : az : -270.0 deg : -90.0 deg : el : 5.0 deg : 88.5 deg;
+     pointing_sector =   &n : az :  -90.0 deg :  90.0 deg : el : 5.0 deg : 88.5 deg;
+     pointing_sector =  &cw : az :   90.0 deg : 270.0 deg : el : 5.0 deg : 88.5 deg;
+     axis_offset =     0.0027 m;
+enddef;
+*
+def YARRA12M;
+     axis_type = az : el;
+     antenna_motion = az :  300.0 deg/min : 2 sec;
+     antenna_motion = el :   75.0 deg/min : 2 sec;
+     pointing_sector = &ccw : az : -270.0 deg : -90.0 deg : el : 5.0 deg : 88.5 deg;
+     pointing_sector =   &n : az :  -90.0 deg :  90.0 deg : el : 5.0 deg : 88.5 deg;
+     pointing_sector =  &cw : az :   90.0 deg : 270.0 deg : el : 5.0 deg : 88.5 deg;
+     axis_offset =     0.0001 m;
+enddef;
+*------------------------------------------------------------------------------
+$DAS;
+*
+def DBBC+Mark5B;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 1;
+     headstack = 1 :  : 0;
+     tape_motion = adaptive : 0 min : 0 min : 10 sec;
+enddef;
+*
+def DBBC+Mark5B#02;
+     record_transport_type = Mark5B;
+     electronics_rack_type = DBBC;
+     number_drives = 2;
+     headstack = 1 :  : 0;
+     headstack = 2 :  : 1;
+     tape_motion = adaptive : 0 min : 0 min : 10 sec;
+enddef;
+*------------------------------------------------------------------------------
+$SITE;
+*
+def CEDUNA;
+     site_type = fixed;
+     site_name = CEDUNA;
+     site_ID = Cd;
+     site_position = -3753442.74570 m :  3912709.75300 m : -3348067.60950 m;
+     site_velocity =  -0.041730 m/yr :   0.002670 m/yr :   0.049900 m/yr;
+     site_position_epoch = 1997y001d;
+enddef;
+*
+def HOBART26;
+     site_type = fixed;
+     site_name = HOBART26;
+     site_ID = Ho;
+     site_position = -3950237.40300 m :  2522347.68410 m : -4311561.83350 m;
+     site_velocity =  -0.039010 m/yr :   0.007960 m/yr :   0.041100 m/yr;
+     site_position_epoch = 2014y001d;
+enddef;
+*
+def KATH12M;
+     site_type = fixed;
+     site_name = KATH12M;
+     site_ID = Ke;
+     site_position = -4147354.69130 m :  4581542.37720 m : -1573303.15650 m;
+     site_velocity =  -0.037710 m/yr :  -0.011590 m/yr :   0.056300 m/yr;
+     site_position_epoch = 2014y001d;
+enddef;
+*
+def YARRA12M;
+     site_type = fixed;
+     site_name = YARRA12M;
+     site_ID = Yg;
+     site_position = -2388896.18900 m :  5043350.00190 m : -3078590.80370 m;
+     site_velocity =  -0.048140 m/yr :   0.009600 m/yr :   0.051060 m/yr;
+     site_position_epoch = 2014y001d;
+enddef;
+*------------------------------------------------------------------------------
+$PROCEDURES;
+*
+def Procedure;
+     procedure_name_prefix =  "01";
+     tape_change =  420 sec;
+     headstack_motion =    6 sec;
+     new_source_command =    5 sec;
+     new_tape_setup =   20 sec;
+     setup_always = on :  20 sec;
+     parity_check = off : 100 sec;
+     tape_prepass = off : 600 sec;
+     preob_cal  = on :  10 sec : preob;
+     midob_cal  = on :  15 sec : midob;
+     postob_cal = on :   0 sec : postob;
+enddef;
+*------------------------------------------------------------------------------
+$SOURCE;
+def 0537-441;
+     source_name = 0537-441;
+     ra = 05h38m50.3615595s; dec = -44d05'08.939013"; ref_coord_frame = J2000;
+enddef;
+def G0634-2335;
+     source_name = G0634-2335;
+     ra = 06h34m59.0010000s; dec = -23d35'11.957300"; ref_coord_frame = J2000;
+enddef;
+def J0620-2515;
+     source_name = J0620-2515;
+     ra = 06h20m32.1170000s; dec = -25d15'17.485100"; ref_coord_frame = J2000;
+enddef;
+def J0629-1959;
+     source_name = J0629-1959;
+     ra = 06h29m23.7618600s; dec = -19d59'19.723600"; ref_coord_frame = J2000;
+enddef;
+def J0632-2614;
+     source_name = J0632-2614;
+     ra = 06h32m06.5018000s; dec = -26d14'14.035300"; ref_coord_frame = J2000;
+enddef;
+def J0636-2113;
+     source_name = J0636-2113;
+     ra = 06h36m00.6016800s; dec = -21d13'12.199700"; ref_coord_frame = J2000;
+enddef;
+def J0639-2141;
+     source_name = J0639-2141;
+     ra = 06h39m28.7256700s; dec = -21d41'57.804500"; ref_coord_frame = J2000;
+enddef;
+def J0643-2451;
+     source_name = J0643-2451;
+     ra = 06h43m07.4689200s; dec = -24d51'21.312000"; ref_coord_frame = J2000;
+enddef;
+*------------------------------------------------------------------------------
+$SCHED;
+*
+scan No0001;
+     start = 2024y144d02h00m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :     0.000 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :     0.000 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :     0.000 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :     0.000 GB :  : &ccw : 1;
+endscan;
+*
+scan No0002;
+     start = 2024y144d02h01m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :     5.797 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :     5.797 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :     5.797 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :     5.797 GB :  : &ccw : 1;
+endscan;
+*
+scan No0003;
+     start = 2024y144d02h02m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    11.594 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    11.594 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    11.594 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    11.594 GB :  : &ccw : 1;
+endscan;
+*
+scan No0004;
+     start = 2024y144d02h03m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    17.391 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    17.391 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    17.391 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    17.391 GB :  : &ccw : 1;
+endscan;
+*
+scan No0005;
+     start = 2024y144d02h04m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    23.187 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    23.187 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    23.187 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    23.187 GB :  : &ccw : 1;
+endscan;
+*
+scan No0006;
+     start = 2024y144d02h05m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    28.984 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    28.984 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    28.984 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    28.984 GB :  : &ccw : 1;
+endscan;
+*
+scan No0007;
+     start = 2024y144d02h06m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    34.781 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    34.781 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    34.781 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    34.781 GB :  : &ccw : 1;
+endscan;
+*
+scan No0008;
+     start = 2024y144d02h07m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    40.578 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    40.578 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    40.578 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    40.578 GB :  : &ccw : 1;
+endscan;
+*
+scan No0009;
+     start = 2024y144d02h08m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    46.375 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    46.375 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    46.375 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    46.375 GB :  : &ccw : 1;
+endscan;
+*
+scan No0010;
+     start = 2024y144d02h09m00s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 45 sec :    52.172 GB :  :   &n : 1;
+     station = Ho : 0 sec : 45 sec :    52.172 GB :  :      : 1;
+     station = Ke : 0 sec : 45 sec :    52.172 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 45 sec :    52.172 GB :  : &ccw : 1;
+endscan;
+*
+scan No0011;
+     start = 2024y144d02h10m57s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :    57.969 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :    57.969 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :    57.969 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :    57.969 GB :  : &ccw : 1;
+endscan;
+*
+scan No0012;
+     start = 2024y144d02h12m22s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :    65.698 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :    65.698 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :    65.698 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :    65.698 GB :  : &ccw : 1;
+endscan;
+*
+scan No0013;
+     start = 2024y144d02h13m47s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :    73.427 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :    73.427 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :    73.427 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :    73.427 GB :  : &ccw : 1;
+endscan;
+*
+scan No0014;
+     start = 2024y144d02h15m17s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :    81.156 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :    81.156 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :    81.156 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :    81.156 GB :  : &ccw : 1;
+endscan;
+*
+scan No0015;
+     start = 2024y144d02h16m47s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :    88.885 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :    88.885 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :    88.885 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :    88.885 GB :  : &ccw : 1;
+endscan;
+*
+scan No0016;
+     start = 2024y144d02h18m10s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :    96.614 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :    96.614 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :    96.614 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :    96.614 GB :  : &ccw : 1;
+endscan;
+*
+scan No0017;
+     start = 2024y144d02h19m34s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   104.344 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   104.344 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   104.344 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   104.344 GB :  : &ccw : 1;
+endscan;
+*
+scan No0018;
+     start = 2024y144d02h20m57s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   112.073 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   112.073 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   112.073 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   112.073 GB :  : &ccw : 1;
+endscan;
+*
+scan No0019;
+     start = 2024y144d02h22m20s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   119.802 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   119.802 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   119.802 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   119.802 GB :  : &ccw : 1;
+endscan;
+*
+scan No0020;
+     start = 2024y144d02h23m38s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   127.531 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   127.531 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   127.531 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   127.531 GB :  : &ccw : 1;
+endscan;
+*
+scan No0021;
+     start = 2024y144d02h24m57s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   135.260 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   135.260 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   135.260 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   135.260 GB :  : &ccw : 1;
+endscan;
+*
+scan No0022;
+     start = 2024y144d02h26m18s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   142.989 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   142.989 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   142.989 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   142.989 GB :  : &ccw : 1;
+endscan;
+*
+scan No0023;
+     start = 2024y144d02h27m40s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   150.718 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   150.718 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   150.718 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   150.718 GB :  : &ccw : 1;
+endscan;
+*
+scan No0024;
+     start = 2024y144d02h29m06s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   158.448 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   158.448 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   158.448 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   158.448 GB :  : &ccw : 1;
+endscan;
+*
+scan No0025;
+     start = 2024y144d02h30m30s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   166.177 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   166.177 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   166.177 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   166.177 GB :  : &ccw : 1;
+endscan;
+*
+scan No0026;
+     start = 2024y144d02h32m01s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   173.906 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   173.906 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   173.906 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   173.906 GB :  : &ccw : 1;
+endscan;
+*
+scan No0027;
+     start = 2024y144d02h33m32s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   181.635 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   181.635 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   181.635 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   181.635 GB :  : &ccw : 1;
+endscan;
+*
+scan No0028;
+     start = 2024y144d02h34m57s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   189.364 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   189.364 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   189.364 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   189.364 GB :  : &ccw : 1;
+endscan;
+*
+scan No0029;
+     start = 2024y144d02h36m21s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   197.093 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   197.093 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   197.093 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   197.093 GB :  : &ccw : 1;
+endscan;
+*
+scan No0030;
+     start = 2024y144d02h37m45s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   204.823 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   204.823 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   204.823 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   204.823 GB :  : &ccw : 1;
+endscan;
+*
+scan No0031;
+     start = 2024y144d02h39m08s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   212.552 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   212.552 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   212.552 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   212.552 GB :  : &ccw : 1;
+endscan;
+*
+scan No0032;
+     start = 2024y144d02h40m27s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   220.281 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   220.281 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   220.281 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   220.281 GB :  : &ccw : 1;
+endscan;
+*
+scan No0033;
+     start = 2024y144d02h41m47s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   228.010 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   228.010 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   228.010 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   228.010 GB :  : &ccw : 1;
+endscan;
+*
+scan No0034;
+     start = 2024y144d02h43m09s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   235.739 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   235.739 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   235.739 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   235.739 GB :  : &ccw : 1;
+endscan;
+*
+scan No0035;
+     start = 2024y144d02h44m32s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   243.468 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   243.468 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   243.468 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   243.468 GB :  : &ccw : 1;
+endscan;
+*
+scan No0036;
+     start = 2024y144d02h45m57s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   251.197 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   251.197 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   251.197 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   251.197 GB :  : &ccw : 1;
+endscan;
+*
+scan No0037;
+     start = 2024y144d02h47m22s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   258.927 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   258.927 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   258.927 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   258.927 GB :  : &ccw : 1;
+endscan;
+*
+scan No0038;
+     start = 2024y144d02h48m54s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   266.656 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   266.656 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   266.656 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   266.656 GB :  : &ccw : 1;
+endscan;
+*
+scan No0039;
+     start = 2024y144d02h50m26s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   274.385 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   274.385 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   274.385 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   274.385 GB :  : &ccw : 1;
+endscan;
+*
+scan No0040;
+     start = 2024y144d02h51m51s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   282.114 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   282.114 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   282.114 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   282.114 GB :  : &ccw : 1;
+endscan;
+*
+scan No0041;
+     start = 2024y144d02h53m16s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   289.843 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   289.843 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   289.843 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   289.843 GB :  : &ccw : 1;
+endscan;
+*
+scan No0042;
+     start = 2024y144d02h54m41s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   297.572 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   297.572 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   297.572 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   297.572 GB :  : &ccw : 1;
+endscan;
+*
+scan No0043;
+     start = 2024y144d02h56m05s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   305.302 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   305.302 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   305.302 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   305.302 GB :  : &ccw : 1;
+endscan;
+*
+scan No0044;
+     start = 2024y144d02h57m25s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   313.031 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   313.031 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   313.031 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   313.031 GB :  : &ccw : 1;
+endscan;
+*
+scan No0045;
+     start = 2024y144d02h58m45s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   320.760 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   320.760 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   320.760 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   320.760 GB :  : &ccw : 1;
+endscan;
+*
+scan No0046;
+     start = 2024y144d03h00m08s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   328.489 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   328.489 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   328.489 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   328.489 GB :  : &ccw : 1;
+endscan;
+*
+scan No0047;
+     start = 2024y144d03h01m32s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   336.218 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   336.218 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   336.218 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   336.218 GB :  : &ccw : 1;
+endscan;
+*
+scan No0048;
+     start = 2024y144d03h02m57s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   343.947 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   343.947 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   343.947 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   343.947 GB :  : &ccw : 1;
+endscan;
+*
+scan No0049;
+     start = 2024y144d03h04m22s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   351.677 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   351.677 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   351.677 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   351.677 GB :  : &ccw : 1;
+endscan;
+*
+scan No0050;
+     start = 2024y144d03h05m55s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   359.406 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   359.406 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   359.406 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   359.406 GB :  : &ccw : 1;
+endscan;
+*
+scan No0051;
+     start = 2024y144d03h07m28s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   367.135 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   367.135 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   367.135 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   367.135 GB :  : &ccw : 1;
+endscan;
+*
+scan No0052;
+     start = 2024y144d03h08m54s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   374.864 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   374.864 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   374.864 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   374.864 GB :  : &ccw : 1;
+endscan;
+*
+scan No0053;
+     start = 2024y144d03h10m21s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   382.593 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   382.593 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   382.593 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   382.593 GB :  : &ccw : 1;
+endscan;
+*
+scan No0054;
+     start = 2024y144d03h11m47s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   390.322 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   390.322 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   390.322 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   390.322 GB :  : &ccw : 1;
+endscan;
+*
+scan No0055;
+     start = 2024y144d03h13m12s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   398.051 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   398.051 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   398.051 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   398.051 GB :  : &ccw : 1;
+endscan;
+*
+scan No0056;
+     start = 2024y144d03h14m32s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   405.781 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   405.781 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   405.781 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   405.781 GB :  : &ccw : 1;
+endscan;
+*
+scan No0057;
+     start = 2024y144d03h15m53s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   413.510 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   413.510 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   413.510 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   413.510 GB :  : &ccw : 1;
+endscan;
+*
+scan No0058;
+     start = 2024y144d03h17m17s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   421.239 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   421.239 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   421.239 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   421.239 GB :  : &ccw : 1;
+endscan;
+*
+scan No0059;
+     start = 2024y144d03h18m42s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   428.968 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   428.968 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   428.968 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   428.968 GB :  : &ccw : 1;
+endscan;
+*
+scan No0060;
+     start = 2024y144d03h20m07s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   436.697 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   436.697 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   436.697 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   436.697 GB :  : &ccw : 1;
+endscan;
+*
+scan No0061;
+     start = 2024y144d03h21m32s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   444.426 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   444.426 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   444.426 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   444.426 GB :  : &ccw : 1;
+endscan;
+*
+scan No0062;
+     start = 2024y144d03h23m07s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   452.156 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   452.156 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   452.156 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   452.156 GB :  : &ccw : 1;
+endscan;
+*
+scan No0063;
+     start = 2024y144d03h24m42s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   459.885 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   459.885 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   459.885 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   459.885 GB :  : &ccw : 1;
+endscan;
+*
+scan No0064;
+     start = 2024y144d03h26m09s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   467.614 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   467.614 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   467.614 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   467.614 GB :  : &ccw : 1;
+endscan;
+*
+scan No0065;
+     start = 2024y144d03h27m37s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   475.343 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   475.343 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   475.343 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   475.343 GB :  : &ccw : 1;
+endscan;
+*
+scan No0066;
+     start = 2024y144d03h29m04s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   483.072 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   483.072 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   483.072 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   483.072 GB :  : &ccw : 1;
+endscan;
+*
+scan No0067;
+     start = 2024y144d03h30m30s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   490.801 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   490.801 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   490.801 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   490.801 GB :  : &ccw : 1;
+endscan;
+*
+scan No0068;
+     start = 2024y144d03h31m51s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   498.530 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   498.530 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   498.530 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   498.530 GB :  : &ccw : 1;
+endscan;
+*
+scan No0069;
+     start = 2024y144d03h33m12s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   506.260 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   506.260 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   506.260 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   506.260 GB :  : &ccw : 1;
+endscan;
+*
+scan No0070;
+     start = 2024y144d03h34m38s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   513.989 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   513.989 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   513.989 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   513.989 GB :  : &ccw : 1;
+endscan;
+*
+scan No0071;
+     start = 2024y144d03h36m04s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   521.718 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   521.718 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   521.718 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   521.718 GB :  : &ccw : 1;
+endscan;
+*
+scan No0072;
+     start = 2024y144d03h37m29s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   529.447 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   529.447 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   529.447 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   529.447 GB :  : &ccw : 1;
+endscan;
+*
+scan No0073;
+     start = 2024y144d03h38m54s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   537.176 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   537.176 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   537.176 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   537.176 GB :  : &ccw : 1;
+endscan;
+*
+scan No0074;
+     start = 2024y144d03h41m11s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   544.905 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   544.905 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   544.905 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   544.905 GB :  :   &n : 1;
+endscan;
+*
+scan No0075;
+     start = 2024y144d03h42m48s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   552.634 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   552.634 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   552.634 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   552.634 GB :  :  &cw : 1;
+endscan;
+*
+scan No0076;
+     start = 2024y144d03h44m17s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   560.364 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   560.364 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   560.364 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   560.364 GB :  :  &cw : 1;
+endscan;
+*
+scan No0077;
+     start = 2024y144d03h45m46s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   568.093 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   568.093 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   568.093 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   568.093 GB :  :  &cw : 1;
+endscan;
+*
+scan No0078;
+     start = 2024y144d03h47m14s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   575.822 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   575.822 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   575.822 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   575.822 GB :  :  &cw : 1;
+endscan;
+*
+scan No0079;
+     start = 2024y144d03h48m42s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   583.551 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   583.551 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   583.551 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   583.551 GB :  :  &cw : 1;
+endscan;
+*
+scan No0080;
+     start = 2024y144d03h50m04s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   591.280 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   591.280 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   591.280 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   591.280 GB :  :  &cw : 1;
+endscan;
+*
+scan No0081;
+     start = 2024y144d03h51m26s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   599.009 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   599.009 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   599.009 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   599.009 GB :  :  &cw : 1;
+endscan;
+*
+scan No0082;
+     start = 2024y144d03h52m53s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   606.738 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   606.738 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   606.738 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   606.738 GB :  :  &cw : 1;
+endscan;
+*
+scan No0083;
+     start = 2024y144d03h54m21s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   614.467 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   614.467 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   614.467 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   614.467 GB :  :  &cw : 1;
+endscan;
+*
+scan No0084;
+     start = 2024y144d03h55m47s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   622.197 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   622.197 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   622.197 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   622.197 GB :  :  &cw : 1;
+endscan;
+*
+scan No0085;
+     start = 2024y144d03h57m11s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   629.926 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   629.926 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   629.926 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   629.926 GB :  :  &cw : 1;
+endscan;
+*
+scan No0086;
+     start = 2024y144d03h58m51s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   637.655 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   637.655 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   637.655 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   637.655 GB :  :   &n : 1;
+endscan;
+*
+scan No0087;
+     start = 2024y144d04h00m30s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   645.384 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   645.384 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   645.384 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   645.384 GB :  :  &cw : 1;
+endscan;
+*
+scan No0088;
+     start = 2024y144d04h02m00s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   653.113 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   653.113 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   653.113 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   653.113 GB :  :  &cw : 1;
+endscan;
+*
+scan No0089;
+     start = 2024y144d04h03m32s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   660.842 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   660.842 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   660.842 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   660.842 GB :  :  &cw : 1;
+endscan;
+*
+scan No0090;
+     start = 2024y144d04h05m01s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   668.571 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   668.571 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   668.571 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   668.571 GB :  :   &n : 1;
+endscan;
+*
+scan No0091;
+     start = 2024y144d04h06m30s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   676.300 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   676.300 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   676.300 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   676.300 GB :  :  &cw : 1;
+endscan;
+*
+scan No0092;
+     start = 2024y144d04h07m53s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   684.030 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   684.030 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   684.030 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   684.030 GB :  :   &n : 1;
+endscan;
+*
+scan No0093;
+     start = 2024y144d04h09m16s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   691.759 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   691.759 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   691.759 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   691.759 GB :  :  &cw : 1;
+endscan;
+*
+scan No0094;
+     start = 2024y144d04h10m45s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   699.488 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   699.488 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   699.488 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   699.488 GB :  :  &cw : 1;
+endscan;
+*
+scan No0095;
+     start = 2024y144d04h12m16s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   707.217 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   707.217 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   707.217 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   707.217 GB :  :  &cw : 1;
+endscan;
+*
+scan No0096;
+     start = 2024y144d04h13m41s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   714.946 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   714.946 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   714.946 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   714.946 GB :  :  &cw : 1;
+endscan;
+*
+scan No0097;
+     start = 2024y144d04h15m06s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   722.675 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   722.675 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   722.675 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   722.675 GB :  :  &cw : 1;
+endscan;
+*
+scan No0098;
+     start = 2024y144d04h16m48s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   730.404 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   730.404 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   730.404 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   730.404 GB :  :   &n : 1;
+endscan;
+*
+scan No0099;
+     start = 2024y144d04h18m30s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   738.133 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   738.133 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   738.133 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   738.133 GB :  :   &n : 1;
+endscan;
+*
+scan No0100;
+     start = 2024y144d04h20m02s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   745.863 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   745.863 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   745.863 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   745.863 GB :  :  &cw : 1;
+endscan;
+*
+scan No0101;
+     start = 2024y144d04h21m36s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   753.592 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   753.592 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   753.592 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   753.592 GB :  :   &n : 1;
+endscan;
+*
+scan No0102;
+     start = 2024y144d04h23m07s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   761.321 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   761.321 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   761.321 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   761.321 GB :  :   &n : 1;
+endscan;
+*
+scan No0103;
+     start = 2024y144d04h24m37s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   769.050 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   769.050 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   769.050 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   769.050 GB :  :   &n : 1;
+endscan;
+*
+scan No0104;
+     start = 2024y144d04h26m01s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   776.779 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   776.779 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   776.779 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   776.779 GB :  :   &n : 1;
+endscan;
+*
+scan No0105;
+     start = 2024y144d04h27m24s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   784.508 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   784.508 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   784.508 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   784.508 GB :  :   &n : 1;
+endscan;
+*
+scan No0106;
+     start = 2024y144d04h28m57s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   792.237 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   792.237 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   792.237 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   792.237 GB :  :  &cw : 1;
+endscan;
+*
+scan No0107;
+     start = 2024y144d04h30m31s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   799.966 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   799.966 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   799.966 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   799.966 GB :  :   &n : 1;
+endscan;
+*
+scan No0108;
+     start = 2024y144d04h31m56s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   807.696 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   807.696 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   807.696 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   807.696 GB :  :   &n : 1;
+endscan;
+*
+scan No0109;
+     start = 2024y144d04h33m21s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   815.425 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   815.425 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   815.425 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   815.425 GB :  :   &n : 1;
+endscan;
+*
+scan No0110;
+     start = 2024y144d04h35m06s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   823.154 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   823.154 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   823.154 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   823.154 GB :  :   &n : 1;
+endscan;
+*
+scan No0111;
+     start = 2024y144d04h36m50s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   830.883 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   830.883 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   830.883 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   830.883 GB :  :   &n : 1;
+endscan;
+*
+scan No0112;
+     start = 2024y144d04h38m25s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   838.612 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   838.612 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   838.612 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   838.612 GB :  :  &cw : 1;
+endscan;
+*
+scan No0113;
+     start = 2024y144d04h40m01s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   846.341 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   846.341 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   846.341 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   846.341 GB :  :   &n : 1;
+endscan;
+*
+scan No0114;
+     start = 2024y144d04h41m34s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   854.070 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   854.070 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   854.070 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   854.070 GB :  :   &n : 1;
+endscan;
+*
+scan No0115;
+     start = 2024y144d04h43m05s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   861.799 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   861.799 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   861.799 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   861.799 GB :  :   &n : 1;
+endscan;
+*
+scan No0116;
+     start = 2024y144d04h44m28s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   869.529 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   869.529 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   869.529 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   869.529 GB :  :   &n : 1;
+endscan;
+*
+scan No0117;
+     start = 2024y144d04h45m49s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   877.258 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   877.258 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   877.258 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   877.258 GB :  :   &n : 1;
+endscan;
+*
+scan No0118;
+     start = 2024y144d04h47m27s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   884.987 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   884.987 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   884.987 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   884.987 GB :  :   &n : 1;
+endscan;
+*
+scan No0119;
+     start = 2024y144d04h49m05s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   892.716 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   892.716 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   892.716 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   892.716 GB :  :   &n : 1;
+endscan;
+*
+scan No0120;
+     start = 2024y144d04h50m37s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   900.445 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   900.445 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   900.445 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   900.445 GB :  :   &n : 1;
+endscan;
+*
+scan No0121;
+     start = 2024y144d04h52m08s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   908.174 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   908.174 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   908.174 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   908.174 GB :  :   &n : 1;
+endscan;
+*
+scan No0122;
+     start = 2024y144d04h53m56s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :   915.903 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   915.903 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   915.903 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   915.903 GB :  :   &n : 1;
+endscan;
+*
+scan No0123;
+     start = 2024y144d04h55m42s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   923.632 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   923.632 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   923.632 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   923.632 GB :  :   &n : 1;
+endscan;
+*
+scan No0124;
+     start = 2024y144d04h57m18s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :   931.362 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   931.362 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   931.362 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   931.362 GB :  :   &n : 1;
+endscan;
+*
+scan No0125;
+     start = 2024y144d04h58m55s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   939.091 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   939.091 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   939.091 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   939.091 GB :  :   &n : 1;
+endscan;
+*
+scan No0126;
+     start = 2024y144d05h00m27s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :   946.820 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   946.820 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   946.820 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   946.820 GB :  :   &n : 1;
+endscan;
+*
+scan No0127;
+     start = 2024y144d05h01m57s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   954.549 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   954.549 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   954.549 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   954.549 GB :  :   &n : 1;
+endscan;
+*
+scan No0128;
+     start = 2024y144d05h03m17s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :   962.278 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   962.278 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   962.278 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   962.278 GB :  :   &n : 1;
+endscan;
+*
+scan No0129;
+     start = 2024y144d05h04m36s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   970.007 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   970.007 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   970.007 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   970.007 GB :  :   &n : 1;
+endscan;
+*
+scan No0130;
+     start = 2024y144d05h06m19s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :   977.736 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   977.736 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   977.736 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   977.736 GB :  :   &n : 1;
+endscan;
+*
+scan No0131;
+     start = 2024y144d05h08m04s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :   985.465 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   985.465 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   985.465 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   985.465 GB :  :   &n : 1;
+endscan;
+*
+scan No0132;
+     start = 2024y144d05h09m54s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :   993.195 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :   993.195 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :   993.195 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :   993.195 GB :  :   &n : 1;
+endscan;
+*
+scan No0133;
+     start = 2024y144d05h11m42s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1000.924 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1000.924 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1000.924 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1000.924 GB :  :   &n : 1;
+endscan;
+*
+scan No0134;
+     start = 2024y144d05h13m30s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :  1008.653 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1008.653 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1008.653 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1008.653 GB :  :   &n : 1;
+endscan;
+*
+scan No0135;
+     start = 2024y144d05h15m14s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1016.382 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1016.382 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1016.382 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1016.382 GB :  :   &n : 1;
+endscan;
+*
+scan No0136;
+     start = 2024y144d05h16m41s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :  1024.111 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1024.111 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1024.111 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1024.111 GB :  :   &n : 1;
+endscan;
+*
+scan No0137;
+     start = 2024y144d05h18m10s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1031.840 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1031.840 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1031.840 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1031.840 GB :  :   &n : 1;
+endscan;
+*
+scan No0138;
+     start = 2024y144d05h19m36s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :  1039.569 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1039.569 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1039.569 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1039.569 GB :  :   &n : 1;
+endscan;
+*
+scan No0139;
+     start = 2024y144d05h20m58s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1047.298 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1047.298 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1047.298 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1047.298 GB :  :   &n : 1;
+endscan;
+*
+scan No0140;
+     start = 2024y144d05h22m17s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :  1055.028 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1055.028 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1055.028 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1055.028 GB :  :   &n : 1;
+endscan;
+*
+scan No0141;
+     start = 2024y144d05h23m39s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1062.757 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1062.757 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1062.757 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1062.757 GB :  :   &n : 1;
+endscan;
+*
+scan No0142;
+     start = 2024y144d05h25m26s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :  1070.486 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1070.486 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1070.486 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1070.486 GB :  :   &n : 1;
+endscan;
+*
+scan No0143;
+     start = 2024y144d05h27m17s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1078.215 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1078.215 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1078.215 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1078.215 GB :  :   &n : 1;
+endscan;
+*
+scan No0144;
+     start = 2024y144d05h29m24s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :  1085.944 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1085.944 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1085.944 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1085.944 GB :  :   &n : 1;
+endscan;
+*
+scan No0145;
+     start = 2024y144d05h31m26s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1093.673 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1093.673 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1093.673 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1093.673 GB :  :   &n : 1;
+endscan;
+*
+scan No0146;
+     start = 2024y144d05h33m03s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :  1101.402 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1101.402 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1101.402 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1101.402 GB :  :   &n : 1;
+endscan;
+*
+scan No0147;
+     start = 2024y144d05h34m35s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1109.131 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1109.131 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1109.131 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1109.131 GB :  :   &n : 1;
+endscan;
+*
+scan No0148;
+     start = 2024y144d05h36m11s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :  1116.861 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1116.861 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1116.861 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1116.861 GB :  :   &n : 1;
+endscan;
+*
+scan No0149;
+     start = 2024y144d05h37m44s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1124.590 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1124.590 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1124.590 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1124.590 GB :  :   &n : 1;
+endscan;
+*
+scan No0150;
+     start = 2024y144d05h39m05s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :  1132.319 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1132.319 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1132.319 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1132.319 GB :  :   &n : 1;
+endscan;
+*
+scan No0151;
+     start = 2024y144d05h40m29s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1140.048 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1140.048 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1140.048 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1140.048 GB :  :   &n : 1;
+endscan;
+*
+scan No0152;
+     start = 2024y144d05h42m02s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :  1147.777 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1147.777 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1147.777 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1147.777 GB :  :   &n : 1;
+endscan;
+*
+scan No0153;
+     start = 2024y144d05h43m40s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1155.506 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1155.506 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1155.506 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1155.506 GB :  :   &n : 1;
+endscan;
+*
+scan No0154;
+     start = 2024y144d05h45m22s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :  1163.235 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1163.235 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1163.235 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1163.235 GB :  :   &n : 1;
+endscan;
+*
+scan No0155;
+     start = 2024y144d05h47m07s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1170.964 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1170.964 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1170.964 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1170.964 GB :  :   &n : 1;
+endscan;
+*
+scan No0156;
+     start = 2024y144d05h49m11s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :  1178.694 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1178.694 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1178.694 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1178.694 GB :  :   &n : 1;
+endscan;
+*
+scan No0157;
+     start = 2024y144d05h51m10s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1186.423 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1186.423 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1186.423 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1186.423 GB :  :   &n : 1;
+endscan;
+*
+scan No0158;
+     start = 2024y144d05h52m35s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :  1194.152 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1194.152 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1194.152 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1194.152 GB :  :   &n : 1;
+endscan;
+*
+scan No0159;
+     start = 2024y144d05h54m01s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1201.881 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1201.881 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1201.881 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1201.881 GB :  :   &n : 1;
+endscan;
+*
+scan No0160;
+     start = 2024y144d05h55m49s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :  1209.610 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1209.610 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1209.610 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1209.610 GB :  :   &n : 1;
+endscan;
+*
+scan No0161;
+     start = 2024y144d05h57m34s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1217.339 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1217.339 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1217.339 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1217.339 GB :  :   &n : 1;
+endscan;
+*
+scan No0162;
+     start = 2024y144d05h59m06s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :  1225.068 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1225.068 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1225.068 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1225.068 GB :  :   &n : 1;
+endscan;
+*
+scan No0163;
+     start = 2024y144d06h00m42s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1232.797 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1232.797 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1232.797 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1232.797 GB :  :   &n : 1;
+endscan;
+*
+scan No0164;
+     start = 2024y144d06h02m20s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :  1240.527 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1240.527 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1240.527 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1240.527 GB :  :   &n : 1;
+endscan;
+*
+scan No0165;
+     start = 2024y144d06h04m01s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1248.256 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1248.256 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1248.256 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1248.256 GB :  :   &n : 1;
+endscan;
+*
+scan No0166;
+     start = 2024y144d06h05m28s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :  1255.985 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1255.985 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1255.985 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1255.985 GB :  :   &n : 1;
+endscan;
+*
+scan No0167;
+     start = 2024y144d06h06m56s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1263.714 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1263.714 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1263.714 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1263.714 GB :  :   &n : 1;
+endscan;
+*
+scan No0168;
+     start = 2024y144d06h08m49s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :  1271.443 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1271.443 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1271.443 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1271.443 GB :  :   &n : 1;
+endscan;
+*
+scan No0169;
+     start = 2024y144d06h10m39s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1279.172 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1279.172 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1279.172 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1279.172 GB :  :   &n : 1;
+endscan;
+*
+scan No0170;
+     start = 2024y144d06h12m08s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :  1286.901 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1286.901 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1286.901 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1286.901 GB :  :   &n : 1;
+endscan;
+*
+scan No0171;
+     start = 2024y144d06h13m40s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1294.630 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1294.630 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1294.630 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1294.630 GB :  :   &n : 1;
+endscan;
+*
+scan No0172;
+     start = 2024y144d06h15m25s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :  1302.360 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1302.360 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1302.360 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1302.360 GB :  :   &n : 1;
+endscan;
+*
+scan No0173;
+     start = 2024y144d06h17m08s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1310.089 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1310.089 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1310.089 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1310.089 GB :  :   &n : 1;
+endscan;
+*
+scan No0174;
+     start = 2024y144d06h18m43s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :  1317.818 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1317.818 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1317.818 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1317.818 GB :  :   &n : 1;
+endscan;
+*
+scan No0175;
+     start = 2024y144d06h20m19s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1325.547 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1325.547 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1325.547 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1325.547 GB :  :   &n : 1;
+endscan;
+*
+scan No0176;
+     start = 2024y144d06h21m56s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :  1333.276 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1333.276 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1333.276 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1333.276 GB :  :   &n : 1;
+endscan;
+*
+scan No0177;
+     start = 2024y144d06h23m34s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1341.005 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1341.005 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1341.005 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1341.005 GB :  :   &n : 1;
+endscan;
+*
+scan No0178;
+     start = 2024y144d06h24m54s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :  1348.734 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1348.734 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1348.734 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1348.734 GB :  :   &n : 1;
+endscan;
+*
+scan No0179;
+     start = 2024y144d06h26m14s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1356.464 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1356.464 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1356.464 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1356.464 GB :  :   &n : 1;
+endscan;
+*
+scan No0180;
+     start = 2024y144d06h27m59s;
+     mode = spirals.sband;
+     source = J0620-2515;
+     station = Cd : 0 sec : 60 sec :  1364.193 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1364.193 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1364.193 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1364.193 GB :  :   &n : 1;
+endscan;
+*
+scan No0181;
+     start = 2024y144d06h29m41s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1371.922 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1371.922 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1371.922 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1371.922 GB :  :   &n : 1;
+endscan;
+*
+scan No0182;
+     start = 2024y144d06h31m14s;
+     mode = spirals.sband;
+     source = J0629-1959;
+     station = Cd : 0 sec : 60 sec :  1379.651 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1379.651 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1379.651 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1379.651 GB :  :   &n : 1;
+endscan;
+*
+scan No0183;
+     start = 2024y144d06h32m48s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1387.380 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1387.380 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1387.380 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1387.380 GB :  :   &n : 1;
+endscan;
+*
+scan No0184;
+     start = 2024y144d06h34m28s;
+     mode = spirals.sband;
+     source = J0632-2614;
+     station = Cd : 0 sec : 60 sec :  1395.109 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1395.109 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1395.109 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1395.109 GB :  :   &n : 1;
+endscan;
+*
+scan No0185;
+     start = 2024y144d06h36m08s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1402.838 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1402.838 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1402.838 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1402.838 GB :  :   &n : 1;
+endscan;
+*
+scan No0186;
+     start = 2024y144d06h37m41s;
+     mode = spirals.sband;
+     source = J0636-2113;
+     station = Cd : 0 sec : 60 sec :  1410.567 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1410.567 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1410.567 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1410.567 GB :  :   &n : 1;
+endscan;
+*
+scan No0187;
+     start = 2024y144d06h39m15s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1418.297 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1418.297 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1418.297 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1418.297 GB :  :   &n : 1;
+endscan;
+*
+scan No0188;
+     start = 2024y144d06h40m49s;
+     mode = spirals.sband;
+     source = J0639-2141;
+     station = Cd : 0 sec : 60 sec :  1426.026 GB :  :   &n : 1;
+     station = Ho : 0 sec : 60 sec :  1426.026 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1426.026 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1426.026 GB :  :   &n : 1;
+endscan;
+*
+scan No0189;
+     start = 2024y144d06h42m24s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1433.755 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1433.755 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1433.755 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1433.755 GB :  :   &n : 1;
+endscan;
+*
+scan No0190;
+     start = 2024y144d06h43m44s;
+     mode = spirals.sband;
+     source = J0643-2451;
+     station = Cd : 0 sec : 60 sec :  1441.484 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1441.484 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1441.484 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1441.484 GB :  :   &n : 1;
+endscan;
+*
+scan No0191;
+     start = 2024y144d06h45m04s;
+     mode = spirals.sband;
+     source = G0634-2335;
+     station = Cd : 0 sec : 60 sec :  1449.213 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1449.213 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1449.213 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1449.213 GB :  :   &n : 1;
+endscan;
+*
+scan No0192;
+     start = 2024y144d06h47m58s;
+     mode = spirals.sband;
+     source = 0537-441;
+     station = Cd : 0 sec : 60 sec :  1456.942 GB :  : &ccw : 1;
+     station = Ho : 0 sec : 60 sec :  1456.942 GB :  :      : 1;
+     station = Ke : 0 sec : 60 sec :  1456.942 GB :  : &ccw : 1;
+     station = Yg : 0 sec : 60 sec :  1456.942 GB :  : &ccw : 1;
+endscan;

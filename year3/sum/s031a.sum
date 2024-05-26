@@ -1,0 +1,1139 @@
+                    SUMMARY FILE FOR PROJECT: s031a   
+
+COVER INFORMATION: 
+
+  Experiment: MULTIVIEW: S-band
+  Exp. Code:  s031a   
+  Start Day 144 is Thu  23 May 2024   MJD  60453          
+
+  Schedule Version:       1.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
+
+  PI:       Lucas J. Hyland
+
+  Address:  School of Natural Sciences
+            University of Tasmania
+            Private Bag 37, Hobart, TAS 7001, AU
+   
+
+  Phone:    +61467332126
+  EMAIL:    lucas.hyland@utas.edu.au
+  Fax:
+  Phone during observation:
+
+  Observing mode: 2.2GHz-2p-2IF/64MHz
+
+  Notes:    Array: Cd-Ho-Ke-Yg
+            Quasar positioning
+   
+   
+
+
+No cover letter provided.
+
+CORRELATION REQUESTS (Defaults in parentheses):
+
+  Correlator (Required if recording):          LBA
+  Correlator average time (2 sec):               2.000 sec.
+    Alternate average time (for spacecraft).     0.000 sec.
+  Output spectral channels per baseband (16):         128
+     Correlator FFT size (128):                       128
+  Number of antennas to be correlated:                  5
+  Polarization (ON):                           OFF
+  Correlator weighting function (UNIFORM):     UNIFORM
+  Distribution tape (DAT):                     DAT
+
+  Distribution format (FITS):                  FITS
+  Source positions from:             FROM SCHEDULE
+
+  Shipping address for correlator output:
+      University of Tasmania
+
+
+
+
+  Correlator Notes: Pass 1: Full band: 2x64 MHz. corchan=128, 0.5 MHz res.
+      Pass 2: zoom=4MHz 2kHz res.
+
+
+
+
+
+
+DERIVED INFORMATION FOR CORRELATION: 
+                                                All scans
+  Elapsed time for project (hours):                 4.82
+  Total time in scheduled scans (hours):            3.16
+  Total time in recording scans (hours):            3.16
+  Total baseline hours (recording scans):          31.58
+  Projected max correlator output rate (kB/s):      20.5
+  Projected correlator output data size (MB):      232.9
+ NOTES:  Above numbers assume the same correlator parameters are used for all data.
+         The 'baseline hours' include the autocorrelations (for data size calculations).
+         The correlator output data rate is for real-time processing.
+         Above numbers assume the same correlator parameters are used for all data.
+         The recordings for a scan are assumed to start at the scan START minus PRESTART.
+         Some stations (VLA, VLBA/MARK5C) wait for good data so the estimates may be high.
+
+
+
+STATIONS USED IN SCHEDULE:
+
+   Station  Code   Latitude Longitude  Elevation       X            Y            Z       Axis
+                                                                                       Offset
+
+   CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
+   HOBART26  Ho  -42.80358 -147.44052      65.   -3950237.403  2522347.684 -4311561.833  8.194
+   KATH12M   Ke  -14.37546 -132.15237     189.   -4147354.691  4581542.377 -1573303.157  0.003
+   YARRA12M  Yg  -29.04714 -115.34563     248.   -2388896.189  5043350.002 -3078590.804  0.000
+
+
+   Plate tectonic motion adjustments for MJD  60453
+   Station  Code      Station motions (m/yr)             Adjusted positions 
+                     X       Y       Z     MJD0        X            Y            Z 
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.889  3912709.826 -3348066.243
+   HOBART26  Ho  -0.0390  0.0080  0.0411  56658  -3950237.808  2522347.767 -4311561.406
+   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.083  4581542.257 -1573302.572
+   YARRA12M  Yg  -0.0481  0.0096  0.0511  56658  -2388896.689  5043350.102 -3078590.273
+
+
+
+BASELINE LENGTHS (km)
+
+          Cd    Ho    Ke    Yg
+
+   Cd      0  1703  1937  1792
+   Ho   1703     0  3432  3211
+   Ke   1937  3432     0  2360
+   Yg   1792  3211  2360     0
+
+
+RECORDING SYSTEM AND CALIBRATION INFORMATION:
+
+  List of scan-dependent controls seen for recording timing.
+   MINPAUSE:   10.
+   PRESTART:    0.
+
+  DISKS - Stations potentially recording on disks.
+   Station    Drive type   DAR     NBBC    Tsys
+   CEDUNA       MARK5B     DBBC     14     GAP 
+   HOBART26     MARK5B     DBBC      8     GAP 
+   KATH12M      MARK5B     DBBC3     8     GAP 
+   YARRA12M     MARK5B     DBBC3     8     GAP 
+
+
+
+
+EXPERIMENT SUMMARY:
+  Number of input scans:        192
+  Number of scans scheduled:    192
+  Number of stations:             4
+  Number of sources input:        8
+  Number of setup files used:     1
+
+
+STATION SCAN SUMMARIES:
+  Station  Control   Scans   Scan   Record  Record   Gbytes
+                            Hours   Hours   Scans
+  CEDUNA     VEX      192    3.16    3.16     192     1465.
+  HOBART26   VEX      192    3.16    3.16     192     1465.
+  KATH12M    VEX      192    3.16    3.16     192     1465.
+  YARRA12M   VEX      192    3.16    3.16     192     1465.
+
+  Notes on the station scan summaries: 
+
+    "Record Scans" are periods of recording with no gap.  The Mark5A disk systems 
+    have a limit of 1024 such scans.  There are often multiple projects on a disk pack.
+    If using MARK5A, try to keep above about 6 GB per record scan by using MINPAUSE 
+    and PRESTART to prevent short gaps.  However, also try to prevent record scans 
+    of more than an hour to minimize risk to data from playback problems.
+    MARK5C will have one observe scan per record scan and there is no limit to the number.
+
+
+
+
+
+
+ SETUP FILES:
+
+
+ ======== Setup file: spirals.sband
+   Matching groups in ./freq.spirals.dat:
+     cd13cm
+
+   Setup group:    1         Station: CEDUNA            Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   2901.00   2901.00   2901.00   2901.00
+   Net SB=         U         U         U         U
+   IF SB =         L         L         L         L
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         5         2         6
+   BBC SB=         L         L         L         L
+   IF    =        A1        B1        A1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   1  Setup file default.  Used with PCAL = off
+   LO sum=   2193.00  2193.00  2243.00  2243.00
+   BBC fr=    708.00   708.00   658.00   658.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   1
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals.sband
+   Matching groups in ./freq.spirals.dat:
+     ho13cm          Confirmed 11/06/2003 email from Brett Reid
+    ****** Only  252.00 of  256.00 MHz total bandwidth is within the IFs
+           in the setup file before any FREQ or DOPPLER shifts.
+
+   Setup group:    2         Station: HOBART26          Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   2600.00   2600.00   2600.00   2600.00
+   Net SB=         U         U         U         U
+   IF SB =         L         L         L         L
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         9         2        10
+   BBC SB=         L         L         L         L
+   IF    =        A3        B3        A3        B3
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
+   LO sum=   2193.00  2193.00  2243.00  2243.00
+   BBC fr=    407.00   407.00   357.00   357.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   2
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+The following setup groups are the same as group   3 below.
+   4:YARRA12M
+
+
+ ======== Setup file: spirals.sband
+   Matching groups in ./freq.spirals.dat:
+     aus13cm_dual
+
+   Setup group:    3         Station: KATH12M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   1900.00   1900.00   1900.00   1900.00
+   Net SB=         U         U         U         U
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         9         2        10
+   BBC SB=         U         U         U         U
+   IF    =        A1        B1        A1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   3  Setup file default.  Used with PCAL = off
+   LO sum=   2193.00  2193.00  2243.00  2243.00
+   BBC fr=    293.00   293.00   343.00   343.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   3   4
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+   1  144 02:00:00 0537-441      -     0     0     0     0
+      144 02:00:45 pirals.sband  -   123   103  -221  -235
+
+   2  144 02:01:00 0537-441      -     3     3     2     2
+      144 02:01:45 -             -   123   103  -221  -235
+
+   3  144 02:02:00 0537-441      -     3     3     2     2
+      144 02:02:45 -             -   123   103  -221  -235
+
+   4  144 02:03:00 0537-441      -     3     3     2     2
+      144 02:03:45 -             -   123   103  -221  -235
+
+   5  144 02:04:00 0537-441      -     3     3     2     2
+      144 02:04:45 -             -   123   103  -221  -235
+
+   6  144 02:05:00 0537-441      -     3     3     2     2
+      144 02:05:45 -             -   123   103  -221  -235
+
+   7  144 02:06:00 0537-441      -     3     3     2     2
+      144 02:06:45 -             -   123   103  -221  -235
+
+   8  144 02:07:00 0537-441      -     3     3     2     2
+      144 02:07:45 -             -   123   103  -221  -235
+
+   9  144 02:08:00 0537-441      -     3     3     2     2
+      144 02:08:45 -             -   123   102  -220  -235
+
+  10  144 02:09:00 0537-441      -     3     3     2     2
+      144 02:09:45 -             -   123   102  -220  -235
+
+  11  144 02:10:57 G0634-2335    -    72    41    12    15
+      144 02:11:57 -             -    93    70  -251  -257
+
+  12  144 02:12:22 J0620-2515    -    25    18     6     6
+      144 02:13:22 -             -    93    68  -249  -257
+
+  13  144 02:13:47 G0634-2335    -    25    18     6     6
+      144 02:14:47 -             -    93    70  -251  -257
+
+  14  144 02:15:17 J0629-1959    -    30    20     6     6
+      144 02:16:17 -             -    87    63  -256  -262
+
+  15  144 02:16:47 G0634-2335    -    30    20     6     6
+      144 02:17:47 -             -    92    69  -251  -258
+
+  16  144 02:18:10 J0632-2614    -    24    16     5     5
+      144 02:19:10 -             -    95    71  -247  -255
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+  17  144 02:19:34 G0634-2335    -    24    16     5     5
+      144 02:20:34 pirals.sband  -    92    68  -251  -258
+
+  18  144 02:20:57 J0636-2113    -    23    16     5     5
+      144 02:21:57 -             -    89    65  -254  -261
+
+  19  144 02:22:20 G0634-2335    -    23    16     5     5
+      144 02:23:20 -             -    92    67  -251  -258
+
+  20  144 02:23:38 J0639-2141    -    19    14     5     4
+      144 02:24:38 -             -    90    66  -254  -260
+
+  21  144 02:24:57 G0634-2335    -    18    13     5     4
+      144 02:25:57 -             -    91    67  -251  -258
+
+  22  144 02:26:18 J0643-2451    -    22    14     4     5
+      144 02:27:18 -             -    94    70  -249  -256
+
+  23  144 02:27:40 G0634-2335    -    22    14     4     5
+      144 02:28:40 -             -    91    66  -251  -259
+
+  24  144 02:29:06 J0620-2515    -    25    18     6     6
+      144 02:30:06 -             -    91    63  -248  -258
+
+  25  144 02:30:30 G0634-2335    -    25    18     5     6
+      144 02:31:30 -             -    91    65  -251  -259
+
+  26  144 02:32:01 J0629-1959    -    31    20     6     6
+      144 02:33:01 -             -    85    58  -256  -264
+
+  27  144 02:33:32 G0634-2335    -    31    20     6     6
+      144 02:34:32 -             -    90    64  -251  -259
+
+  28  144 02:34:57 J0632-2614    -    24    16     5     5
+      144 02:35:57 -             -    93    67  -247  -257
+
+  29  144 02:36:21 G0634-2335    -    25    16     5     5
+      144 02:37:21 -             -    90    63  -251  -260
+
+  30  144 02:37:45 J0636-2113    -    24    16     5     5
+      144 02:38:45 -             -    86    60  -254  -262
+
+  31  144 02:39:08 G0634-2335    -    23    16     5     5
+      144 02:40:08 -             -    89    63  -251  -260
+
+  32  144 02:40:27 J0639-2141    -    19    13     5     4
+      144 02:41:27 -             -    87    61  -253  -262
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+  33  144 02:41:47 G0634-2335    -    19    13     5     4
+      144 02:42:47 pirals.sband  -    89    62  -251  -260
+
+  34  144 02:43:09 J0643-2451    -    22    14     5     5
+      144 02:44:09 -             -    92    66  -249  -258
+
+  35  144 02:44:32 G0634-2335    -    23    14     5     5
+      144 02:45:32 -             -    89    61  -251  -260
+
+  36  144 02:45:57 J0620-2515    -    25    18     5     6
+      144 02:46:57 -             -    89    58  -248  -260
+
+  37  144 02:47:22 G0634-2335    -    25    18     5     6
+      144 02:48:22 -             -    88    60  -251  -261
+
+  38  144 02:48:54 J0629-1959    -    32    19     6     6
+      144 02:49:54 -             -    82    53  -256  -266
+
+  39  144 02:50:26 G0634-2335    -    32    19     6     6
+      144 02:51:26 -             -    88    59  -250  -261
+
+  40  144 02:51:51 J0632-2614    -    25    16     6     5
+      144 02:52:51 -             -    91    61  -246  -258
+
+  41  144 02:53:16 G0634-2335    -    26    16     6     5
+      144 02:54:16 -             -    87    58  -250  -261
+
+  42  144 02:54:41 J0636-2113    -    24    15     5     5
+      144 02:55:41 -             -    84    55  -254  -264
+
+  43  144 02:56:05 G0634-2335    -    24    15     5     5
+      144 02:57:05 -             -    87    57  -250  -261
+
+  44  144 02:57:25 J0639-2141    -    20    13     5     4
+      144 02:58:25 -             -    85    56  -253  -263
+
+  45  144 02:58:45 G0634-2335    -    20    13     5     4
+      144 02:59:45 -             -    87    56  -250  -262
+
+  46  144 03:00:08 J0643-2451    -    23    13     5     5
+      144 03:01:08 -             -    90    60  -249  -260
+
+  47  144 03:01:32 G0634-2335    -    24    13     5     5
+      144 03:02:32 -             -    86    55  -250  -262
+
+  48  144 03:02:57 J0620-2515    -    25    18     5     6
+      144 03:03:57 -             -    87    51  -247  -261
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+  49  144 03:04:22 G0634-2335    -    25    18     5     6
+      144 03:05:22 pirals.sband  -    86    54  -250  -262
+
+  50  144 03:05:55 J0629-1959    -    33    19     6     6
+      144 03:06:55 -             -    79    47  -256  -267
+
+  51  144 03:07:28 G0634-2335    -    33    19     6     6
+      144 03:08:28 -             -    85    53  -250  -263
+
+  52  144 03:08:54 J0632-2614    -    26    16     6     5
+      144 03:09:54 -             -    89    55  -245  -260
+
+  53  144 03:10:21 G0634-2335    -    27    16     6     5
+      144 03:11:21 -             -    85    52  -250  -263
+
+  54  144 03:11:47 J0636-2113    -    25    15     5     5
+      144 03:12:47 -             -    81    48  -254  -266
+
+  55  144 03:13:12 G0634-2335    -    25    15     6     5
+      144 03:14:12 -             -    84    50  -250  -263
+
+  56  144 03:14:32 J0639-2141    -    21    13     5     4
+      144 03:15:32 -             -    82    49  -253  -265
+
+  57  144 03:15:53 G0634-2335    -    20    13     5     4
+      144 03:16:53 -             -    84    49  -249  -263
+
+  58  144 03:17:17 J0643-2451    -    24    13     5     5
+      144 03:18:17 -             -    87    54  -248  -261
+
+  59  144 03:18:42 G0634-2335    -    25    13     5     5
+      144 03:19:42 -             -    83    48  -249  -264
+
+  60  144 03:20:07 J0620-2515    -    25    18     6     6
+      144 03:21:07 -             -    84    43  -245  -263
+
+  61  144 03:21:32 G0634-2335    -    25    18     6     6
+      144 03:22:32 -             -    83    47  -249  -264
+
+  62  144 03:23:07 J0629-1959    -    35    19     6     6
+      144 03:24:07 -             -    75    39  -255  -269
+
+  63  144 03:24:42 G0634-2335    -    35    19     6     6
+      144 03:25:42 -             -    82    46  -249  -264
+
+  64  144 03:26:09 J0632-2614    -    28    16     6     5
+      144 03:27:09 -             -    87    47  -244  -261
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+  65  144 03:27:37 G0634-2335    -    28    16     6     5
+      144 03:28:37 pirals.sband  -    82    44  -249  -265
+
+  66  144 03:29:04 J0636-2113    -    27    15     6     5
+      144 03:30:04 -             -    77    41  -253  -268
+
+  67  144 03:30:30 G0634-2335    -    26    15     6     5
+      144 03:31:30 -             -    81    43  -248  -265
+
+  68  144 03:31:51 J0639-2141    -    21    13     5     5
+      144 03:32:51 -             -    78    42  -252  -267
+
+  69  144 03:33:12 G0634-2335    -    21    13     5     5
+      144 03:34:12 -             -    81    42  -248  -265
+
+  70  144 03:34:38 J0643-2451    -    26    13     5     5
+      144 03:35:38 -             -    84    47  -246  -263
+
+  71  144 03:36:04 G0634-2335    -    26    13     5     5
+      144 03:37:04 -             -    80    40  -248  -265
+
+  72  144 03:37:29 J0620-2515    -    25    18     6     6
+      144 03:38:29 -             -    80    34  -243  -265
+
+  73  144 03:38:54 G0634-2335    -    25    18     6     6
+      144 03:39:54 -             -    80    39  -248  -266
+
+  74  144 03:41:11 J0629-1959    -    37    19     7    77
+      144 03:42:11 -             -    71    31  -254    88
+
+  75  144 03:42:48 G0634-2335    -    37    19     7     6
+      144 03:43:48 -             -    79    37  -247    94
+
+  76  144 03:44:17 J0632-2614    -    29    16     6     5
+      144 03:45:17 -             -    84    38  -242    97
+
+  77  144 03:45:46 G0634-2335    -    30    16     6     5
+      144 03:46:46 -             -    78    35  -247    94
+
+  78  144 03:47:14 J0636-2113    -    28    15     6     5
+      144 03:48:14 -             -    73    32  -252    90
+
+  79  144 03:48:42 G0634-2335    -    27    15     6     5
+      144 03:49:42 -             -    77    34  -247    93
+
+  80  144 03:50:04 J0639-2141    -    22    13     6     5
+      144 03:51:04 -             -    74    33  -251    91
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+  81  144 03:51:26 G0634-2335    -    22    13     6     5
+      144 03:52:26 pirals.sband  -    77    32  -246    93
+
+  82  144 03:52:53 J0643-2451    -    27    13     5     5
+      144 03:53:53 -             -    81    37  -245    95
+
+  83  144 03:54:21 G0634-2335    -    28    13     5     5
+      144 03:55:21 -             -    76    30  -246    93
+
+  84  144 03:55:47 J0620-2515    -    25    18     6     6
+      144 03:56:47 -             -    76    22  -240    94
+
+  85  144 03:57:11 G0634-2335    -    25    18     6     6
+      144 03:58:11 -             -    75    29  -246    92
+
+  86  144 03:58:51 J0629-1959    -    39    18     7     6
+      144 03:59:51 -             -    65    22  -253    86
+
+  87  144 04:00:30 G0634-2335    -    39    18     7     6
+      144 04:01:30 -             -    74    27  -245    92
+
+  88  144 04:02:00 J0632-2614    -    31    16     6     5
+      144 04:03:00 -             -    80    27  -239    96
+
+  89  144 04:03:32 G0634-2335    -    32    16     6     5
+      144 04:04:32 -             -    74    25  -245    92
+
+  90  144 04:05:01 J0636-2113    -    29    15     6     5
+      144 04:06:01 -             -    68    23  -250    88
+
+  91  144 04:06:30 G0634-2335    -    29    15     6     5
+      144 04:07:30 -             -    73    23  -244    91
+
+  92  144 04:07:53 J0639-2141    -    23    14     6     5
+      144 04:08:53 -             -    69    23  -249    89
+
+  93  144 04:09:16 G0634-2335    -    22    13     6     5
+      144 04:10:16 -             -    72    21  -244    91
+
+  94  144 04:10:45 J0643-2451    -    30    13     5     5
+      144 04:11:45 -             -    77    27  -242    94
+
+  95  144 04:12:16 G0634-2335    -    31    13     5     5
+      144 04:13:16 -             -    71    20  -243    91
+
+  96  144 04:13:41 J0620-2515    -    25    18     7     6
+      144 04:14:41 -             -    70    10  -235    92
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+  97  144 04:15:06 G0634-2335    -    25    17     7     6
+      144 04:16:06 pirals.sband  -    70    18  -243    90
+
+  98  144 04:16:48 J0629-1959    -    42    18     7     7
+      144 04:17:48 -             -    59    11  -251    83
+
+  99  144 04:18:30 G0634-2335    -    41    18     7     7
+      144 04:19:30 -             -    69    15  -242    90
+
+ 100  144 04:20:02 J0632-2614    -    33    16     7     6
+      144 04:21:02 -             -    75    14  -234    94
+
+ 101  144 04:21:36 G0634-2335    -    34    16     7     6
+      144 04:22:36 -             -    68    13  -241    89
+
+ 102  144 04:23:07 J0636-2113    -    31    15     6     5
+      144 04:24:07 -             -    62    12  -247    85
+
+ 103  144 04:24:37 G0634-2335    -    30    15     7     5
+      144 04:25:37 -             -    67    11  -240    89
+
+ 104  144 04:26:01 J0639-2141    -    24    14     6     5
+      144 04:27:01 -             -    63    13  -246    86
+
+ 105  144 04:27:24 G0634-2335    -    23    14     6     5
+      144 04:28:24 -             -    66     9  -240    89
+
+ 106  144 04:28:57 J0643-2451    -    33    13     5     5
+      144 04:29:57 -             -    72    15  -238    92
+
+ 107  144 04:30:31 G0634-2335    -    34    14     5     5
+      144 04:31:31 -             -    64     7  -239    88
+
+ 108  144 04:31:56 J0620-2515    -    25    18     8     6
+      144 04:32:56 -             -    62   356  -228    89
+
+ 109  144 04:33:21 G0634-2335    -    25    17     8     6
+      144 04:34:21 -             -    63     5  -238    88
+
+ 110  144 04:35:06 J0629-1959    -    45    18     7     7
+      144 04:36:06 -             -    49     0  -247    80
+
+ 111  144 04:36:50 G0634-2335    -    44    18     7     7
+      144 04:37:50 -             -    61     3  -237    87
+
+ 112  144 04:38:25 J0632-2614    -    35    16     7     6
+      144 04:39:25 -             -    68   360  -228    92
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+ 113  144 04:40:01 G0634-2335    -    36    16     7     6
+      144 04:41:01 pirals.sband  -    60     1  -236    87
+
+ 114  144 04:41:34 J0636-2113    -    32    15     7     6
+      144 04:42:34 -             -    52     0  -243    82
+
+ 115  144 04:43:05 G0634-2335    -    31    15     7     6
+      144 04:44:05 -             -    58   359  -234    87
+
+ 116  144 04:44:28 J0639-2141    -    23    14     7     5
+      144 04:45:28 -             -    54     1  -241    83
+
+ 117  144 04:45:49 G0634-2335    -    22    14     7     5
+      144 04:46:49 -             -    56   357  -233    86
+
+ 118  144 04:47:27 J0643-2451    -    37    13     5     5
+      144 04:48:27 -             -    64     1  -232    90
+
+ 119  144 04:49:05 G0634-2335    -    39    14     5     5
+      144 04:50:05 -             -    54   354  -232    86
+
+ 120  144 04:50:37 J0620-2515    -    32    17     8     6
+      144 04:51:37 -             -    47   342  -217    87
+
+ 121  144 04:52:08 G0634-2335    -    31    17     9     6
+      144 04:53:08 -             -    52   352  -230    85
+
+ 122  144 04:53:56 J0629-1959    -    48    18     8     7
+      144 04:54:56 -             -    36   349  -240    76
+
+ 123  144 04:55:42 G0634-2335    -    46    18     8     7
+      144 04:56:42 -             -    49   350  -228    85
+
+ 124  144 04:57:18 J0632-2614    -    35    16     7     6
+      144 04:58:18 -             -    56   345  -218    90
+
+ 125  144 04:58:55 G0634-2335    -    37    16     7     6
+      144 04:59:55 -             -    47   348  -226    84
+
+ 126  144 05:00:27 J0636-2113    -    32    15     7     6
+      144 05:01:27 -             -    39   348  -234    79
+
+ 127  144 05:01:57 G0634-2335    -    30    15     7     6
+      144 05:02:57 -             -    44   346  -224    84
+
+ 128  144 05:03:17 J0639-2141    -    19    14     7     5
+      144 05:04:17 -             -    41   349  -233    80
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+ 129  144 05:04:36 G0634-2335    -    20    14     7     5
+      144 05:05:36 pirals.sband  -    41   344  -222    83
+
+ 130  144 05:06:19 J0643-2451    -    43    14     5     6
+      144 05:07:19 -             -    52   347  -223    87
+
+ 131  144 05:08:04 G0634-2335    -    45    14     5     6
+      144 05:09:04 -             -    38   342  -220    82
+
+ 132  144 05:09:54 J0620-2515    -    50    17     9     6
+      144 05:10:54 -             -    21   330  -200    84
+
+ 133  144 05:11:42 G0634-2335    -    48    17     9     6
+      144 05:12:42 -             -    34   339  -217    82
+
+ 134  144 05:13:30 J0629-1959    -    48    18     7     8
+      144 05:14:30 -             -    18   338  -224    71
+
+ 135  144 05:15:14 G0634-2335    -    44    18     7     8
+      144 05:16:14 -             -    30   337  -213    81
+
+ 136  144 05:16:41 J0632-2614    -    27    16     7     7
+      144 05:17:41 -             -    33   331  -203    87
+
+ 137  144 05:18:10 G0634-2335    -    29    16     7     7
+      144 05:19:10 -             -    26   335  -211    80
+
+ 138  144 05:19:36 J0636-2113    -    26    15     7     6
+      144 05:20:36 -             -    21   337  -218    74
+
+ 139  144 05:20:58 G0634-2335    -    22    15     7     6
+      144 05:21:58 -             -    22   333  -208    80
+
+ 140  144 05:22:17 J0639-2141    -    19    14     8     5
+      144 05:23:17 -             -    22   337  -217    76
+
+ 141  144 05:23:39 G0634-2335    -    22    14     8     5
+      144 05:24:39 -             -    18   332  -205    79
+
+ 142  144 05:25:26 J0643-2451    -    47    14     6     6
+      144 05:26:26 -             -    31   334  -208    84
+
+ 143  144 05:27:17 G0634-2335    -    51    14     6     6
+      144 05:28:17 -             -    13   330  -200    78
+
+ 144  144 05:29:24 J0620-2515    -    67    17    10     6
+      144 05:30:24 -             -   -16   319  -178    79
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+ 145  144 05:31:26 G0634-2335    -    63    17    10     6
+      144 05:32:26 pirals.sband  -     6   327  -195    77
+
+ 146  144 05:33:03 J0629-1959    -    37    18     6     8
+      144 05:34:03 -             -    -4   327  -188    65
+
+ 147  144 05:34:35 G0634-2335    -    32    18     6     8
+      144 05:35:35 -             -     1   326  -191    76
+
+ 148  144 05:36:11 J0632-2614    -    36    16     6     7
+      144 05:37:11 -             -    -8   320  -183    84
+
+ 149  144 05:37:44 G0634-2335    -    34    16     6     7
+      144 05:38:44 -             -    -4   324  -186    75
+
+ 150  144 05:39:05 J0636-2113    -    20    15     5     7
+      144 05:40:05 -             -    -3   327  -188    68
+
+ 151  144 05:40:29 G0634-2335    -    24    15     5     7
+      144 05:41:29 -             -    -8   323  -182    75
+
+ 152  144 05:42:02 J0639-2141    -    33    14     7     6
+      144 05:43:02 -             -    -3   326  -188    70
+
+ 153  144 05:43:40 G0634-2335    -    38    14     7     6
+      144 05:44:40 -             -   -13   321  -178    73
+
+ 154  144 05:45:22 J0643-2451    -    42    14     8     7
+      144 05:46:22 -             -    -3   323  -186    80
+
+ 155  144 05:47:07 G0634-2335    -    45    14     8     7
+      144 05:48:07 -             -   -18   319  -173    72
+
+ 156  144 05:49:11 J0620-2515    -    64    17     9     6
+      144 05:50:11 -             -   -45   309  -156    72
+
+ 157  144 05:51:10 G0634-2335    -    59    17     8     6
+      144 05:52:10 -             -   -24   317  -167    71
+
+ 158  144 05:52:35 J0629-1959    -    26    18    10     9
+      144 05:53:35 -             -   -25   319  -146    55
+
+ 159  144 05:54:01 G0634-2335    -    25    18    10     9
+      144 05:55:01 -             -   -28   316  -163    69
+
+ 160  144 05:55:49 J0632-2614    -    48    16     5     8
+      144 05:56:49 -             -   -44   310  -162    79
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+ 161  144 05:57:34 G0634-2335    -    45    16     5     8
+      144 05:58:34 pirals.sband  -   -32   314  -159    68
+
+ 162  144 05:59:06 J0636-2113    -    32    15     6     7
+      144 06:00:06 -             -   -27   317  -151    59
+
+ 163  144 06:00:42 G0634-2335    -    35    15     6     7
+      144 06:01:42 -             -   -36   313  -155    66
+
+ 164  144 06:02:20 J0639-2141    -    38    14     5     6
+      144 06:03:20 -             -   -28   317  -153    61
+
+ 165  144 06:04:01 G0634-2335    -    41    14     5     6
+      144 06:05:01 -             -   -39   312  -151    64
+
+ 166  144 06:05:28 J0643-2451    -    27    14     8     7
+      144 06:06:28 -             -   -36   313  -162    73
+
+ 167  144 06:06:56 G0634-2335    -    28    14     8     8
+      144 06:07:56 -             -   -42   310  -148    63
+
+ 168  144 06:08:49 J0620-2515    -    53    17     7     6
+      144 06:09:49 -             -   -61   302  -140    58
+
+ 169  144 06:10:39 G0634-2335    -    50    16     6     6
+      144 06:11:39 -             -   -46   309  -145    60
+
+ 170  144 06:12:08 J0629-1959    -    29    18    10    10
+      144 06:13:08 -             -   -41   311  -125    40
+
+ 171  144 06:13:40 G0634-2335    -    32    18    10    10
+      144 06:14:40 -             -   -48   308  -142    58
+
+ 172  144 06:15:25 J0632-2614    -    45    17     6     8
+      144 06:16:25 -             -   -62   302  -146    70
+
+ 173  144 06:17:08 G0634-2335    -    43    17     6     8
+      144 06:18:08 -             -   -51   306  -139    55
+
+ 174  144 06:18:43 J0636-2113    -    35    16     7     7
+      144 06:19:43 -             -   -44   309  -130    44
+
+ 175  144 06:20:19 G0634-2335    -    36    16     7     7
+      144 06:21:19 -             -   -53   305  -137    52
+
+ 176  144 06:21:56 J0639-2141    -    37    15     5     5
+      144 06:22:56 -             -   -45   309  -132    46
+
+
+
+ SCAN SUMMARY for experiment s031a   MULTIVIEW: S-band
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 144 is Thu  23 May 2024   MJD  60453          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ho    Ke    Yg
+
+ 177  144 06:23:34 G0634-2335    -    38    15     5     5
+      144 06:24:34 pirals.sband  -   -55   304  -135    48
+
+ 178  144 06:24:54 J0643-2451    -    20    14     7     9
+      144 06:25:54 -             -   -55   305  -143    62
+
+ 179  144 06:26:14 G0634-2335    -    20    14     7     9
+      144 06:27:14 -             -   -57   303  -133    45
+
+ 180  144 06:27:59 J0620-2515    -    45    16     6    10
+      144 06:28:59 -             -   -70   295  -130    22
+
+ 181  144 06:29:41 G0634-2335    -    43    16     6    10
+      144 06:30:41 -             -   -59   302  -131    40
+
+ 182  144 06:31:14 J0629-1959    -    32    18     9    10
+      144 06:32:14 -             -   -53   304  -115    18
+
+ 183  144 06:32:48 G0634-2335    -    34    18     9    10
+      144 06:33:48 -             -   -61   301  -129    35
+
+ 184  144 06:34:28 J0632-2614    -    41    17     6     8
+      144 06:35:28 -             -   -71   295  -135    44
+
+ 185  144 06:36:08 G0634-2335    -    39    17     6     8
+      144 06:37:08 -             -   -62   300  -128    29
+
+ 186  144 06:37:41 J0636-2113    -    33    16     7     6
+      144 06:38:41 -             -   -56   303  -120    21
+
+ 187  144 06:39:15 G0634-2335    -    34    16     7     6
+      144 06:40:15 -             -   -64   299  -126    23
+
+ 188  144 06:40:49 J0639-2141    -    34    15     6     5
+      144 06:41:49 -             -   -57   302  -122    22
+
+ 189  144 06:42:24 G0634-2335    -    35    15     6     5
+      144 06:43:24 -             -   -65   298  -125    16
+
+ 190  144 06:43:44 J0643-2451    -    20    14     7    11
+      144 06:44:44 -             -   -66   298  -132    37
+
+ 191  144 06:45:04 G0634-2335    -    20    14     7    11
+      144 06:46:04 -             -   -66   297  -124    10
+
+ 192  144 06:47:58 0537-441      -   114    55    20    37
+      144 06:48:58 -             -  -125   252  -145  -147
+
+
+
+ TIME RANGE OF RECORDINGS and TOTAL BYTES:
+
+                Obs. start time.     Obs. end time.      Total 
+ Station          Day    Time         Day    Time        GBytes
+                     (UT)                 (UT)
+  CEDUNA         144  02:00:00       144  06:48:58       1464.7
+  HOBART26       144  02:00:00       144  06:48:58       1464.7
+  KATH12M        144  02:00:00       144  06:48:58       1464.7
+  YARRA12M       144  02:00:00       144  06:48:58       1464.7
+
+ POSITIONS OF SOURCES USED IN RECORDING SCANS
+     Catalog positions marked with *. 
+     Precession of date coordinates is based on stop time of first scan.
+     Names used in schedule marked with *. 
+     Observation date used in B1950/J2000 coordinate conversion (PRECDATE):  1979.900
+     No adjustments are made for rates (DRA, DDEC).
+
+   Source                         Source position (RA/Dec)                        Error
+                        (B1950)             (J2000)             (Date)            (mas)
+
+ * 0537-441          05 37 21.071425   * 05 38 50.361559     05 39 32.079626       0.01
+   J0538-4405       -44 06 44.66633    *-44 05 08.93901     -44 04 24.07175        0.01
+   F0538             ./sources.spirals.dat
+                     GSFC 2016a X/S astro solution,  72326 observations.
+
+ * G0634-2335        06 32 54.082543   * 06 34 59.001000     06 35 58.460031       0.00
+                    -23 32 44.11704    *-23 35 11.95730     -23 36 26.71448        0.00
+                     ./sources.spirals.dat
+
+ * J0620-2515        06 18 29.761737   * 06 20 32.117000     06 21 30.280939       0.00
+                    -25 13 52.29788    *-25 15 17.48510     -25 16 01.51536        0.00
+                     ./sources.spirals.dat
+
+ * J0629-1959        06 27 14.114669   * 06 29 23.761860     06 30 25.539034       0.00
+                    -19 57 16.26223    *-19 59 19.72360     -20 00 22.03062        0.00
+                     ./sources.spirals.dat
+
+ * J0632-2614        06 30 05.360096   * 06 32 06.501800     06 33 04.089679       0.00
+                    -26 11 58.50566    *-26 14 14.03530     -26 15 23.01995        0.00
+                     ./sources.spirals.dat
+
+ * J0636-2113        06 33 52.472191   * 06 36 00.601680     06 37 01.646450       0.00
+                    -21 10 40.03570    *-21 13 12.19970     -21 14 28.79371        0.00
+                     ./sources.spirals.dat
+
+ * J0639-2141        06 37 21.166987   * 06 39 28.725670     06 40 29.497311       0.00
+                    -21 39 10.64457    *-21 41 57.80450     -21 43 21.84830        0.00
+                     ./sources.spirals.dat
+
+ * J0643-2451        06 41 04.121885   * 06 43 07.468920     06 44 06.170980       0.00
+                    -24 48 18.30264    *-24 51 21.31200     -24 52 53.57764        0.00
+                     ./sources.spirals.dat
+
+
+
+SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
+
+     Scan hours are for recording scans only. 
+     Baseline hours are only counted for scans above horizon at both ends.
+  Source       Setup file             Frequency sets                  Observing hours
+                                   (duplicates not shown)              Scan  Baseline
+  0537-441   spirals.sband         1 2 3                             0.142     0.850
+  G0634-2335 spirals.sband         1 2 3                             1.517     9.099
+  J0620-2515 spirals.sband         1 2 3                             0.250     1.500
+  J0629-1959 spirals.sband         1 2 3                             0.250     1.500
+  J0632-2614 spirals.sband         1 2 3                             0.250     1.500
+  J0636-2113 spirals.sband         1 2 3                             0.250     1.500
+  J0639-2141 spirals.sband         1 2 3                             0.250     1.500
+  J0643-2451 spirals.sband         1 2 3                             0.250     1.500
+
+
+EFFECT OF SOLAR CORONA
+
+  The solar corona can cause unstable phases for sources too close to the Sun.
+  SCHED provides warnings at individual scans for distances less than 10 degrees.
+  The distance from the Sun to each source in this schedule is:
+    Source         Sun distance (deg) 
+   0537-441            68.5
+   G0634-2335          58.0
+   J0620-2515          57.1
+   J0629-1959          54.5
+   J0632-2614          59.5
+   J0636-2113          56.5
+   J0639-2141          57.4
+   J0643-2451          60.2
+
+  Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
+  that the Sun will cause amplitude reductions on the  longest VLBA baselines 
+  at a solar distance of 60deg F^(-0.6) where F is in GHz. 
+  For common VLBI bands, this is: 
+       327 MHz        117. deg 
+       610 MHz         81. deg 
+       1.6 GHz         45. deg 
+       2.3 GHz         36. deg 
+       5.0 GHz         23. deg 
+       8.4 GHz         17. deg 
+      15.0 GHz         12. deg 
+      22.0 GHz          9. deg 
+      43.0 GHz          6. deg 
+
+ SOURCE SEPARATIONS
+
+ Source separations in degrees for pairs closer than  30.00 degrees.
+
+     0537-441      G0634-2335     23.5060
+     0537-441      J0620-2515     20.6504
+     0537-441      J0629-1959     26.2993
+     0537-441      J0632-2614     20.8459
+     0537-441      J0636-2113     25.7516
+     0537-441      J0639-2141     25.6566
+     0537-441      J0643-2451     23.2592
+     G0634-2335    J0620-2515      3.6877
+     G0634-2335    J0629-1959      3.8246
+     G0634-2335    J0632-2614      2.7297
+     G0634-2335    J0636-2113      2.3786
+     G0634-2335    J0639-2141      2.1536
+     G0634-2335    J0643-2451      2.2486
+     J0620-2515    J0629-1959      5.6489
+     J0620-2515    J0632-2614      2.7851
+     J0620-2515    J0636-2113      5.3768
+     J0620-2515    J0639-2141      5.6126
+     J0620-2515    J0643-2451      5.1312
+     J0629-1959    J0632-2614      6.2797
+     J0629-1959    J0636-2113      1.9778
+     J0629-1959    J0639-2141      2.9113
+     J0629-1959    J0643-2451      5.8093
+     J0632-2614    J0636-2113      5.0962
+     J0632-2614    J0639-2141      4.8401
+     J0632-2614    J0643-2451      2.8429
+     J0636-2113    J0639-2141      0.9387
+     J0636-2113    J0643-2451      3.9873
+     J0639-2141    J0643-2451      3.2658
+
+
+CATALOGS, FILES, and CODE VERSIONS
+
+Catalogs: 
+  Station:   ./stations.spirals.dat
+                 Version:  
+  Location:  ./locations.spirals.dat
+                 Version:  Not known
+  Frequency: ./freq.spirals.dat
+                 Version:  
+  Source:   ./sources.spirals.dat
+                 Version:  Not given
+  Source2:  NONE
+                 Version:   ---
+
+
+Other external files: 
+  Ephemeris: NONE
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
+
+
+Code versions: 
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
+  Version of ephemeris code: 1.01
