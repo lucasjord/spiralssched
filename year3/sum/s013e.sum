@@ -6,8 +6,8 @@ COVER INFORMATION:
   Exp. Code:  s013e   
   Start Day 150 is Wed  29 May 2024   MJD  60459          
 
-  Schedule Version:       1.00
-  Processed by SCHED version:  11.80  Release 11.8; April 2023
+  Schedule Version:       2.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
 
   PI:       Lucas J. Hyland
 
@@ -124,10 +124,10 @@ RECORDING SYSTEM AND CALIBRATION INFORMATION:
    Station    Drive type   DAR     NBBC    Tsys
    CEDUNA       MARK5B     DBBC     14     GAP 
    HOBART26     MARK5B     DBBC      8     GAP 
-   KATH12M      MARK5B     DBBC      8     GAP 
+   KATH12M      MARK5B     DBBC3     8     GAP 
    WARK30M      MARK5B     DBBC      8     GAP 
-   YARRA12M     MARK5B     DBBC      8     GAP 
-   HOBART12     MARK5B     DBBC      8     GAP 
+   YARRA12M     MARK5B     DBBC3     8     GAP 
+   HOBART12     MARK5B     DBBC3     8     GAP 
 
 
 
@@ -143,12 +143,12 @@ EXPERIMENT SUMMARY:
 STATION SCAN SUMMARIES:
   Station  Control   Scans   Scan   Record  Record   Gbytes
                             Hours   Hours   Scans
-  CEDUNA     VEX      376    6.02    6.02     376     2777.
-  HOBART26   VEX      376    6.02    6.02     376     2777.
-  KATH12M    VEX      365    5.83    5.83     365     2692.
-  WARK30M    VEX      370    5.92    5.92     370     2731.
-  YARRA12M   VEX      371    5.93    5.93     371     2738.
-  HOBART12   VEX      376    6.02    6.02     376     2777.
+  CEDUNA     VEX      376    6.02    6.02     376     2790.
+  HOBART26   VEX      376    6.02    6.02     376     2790.
+  KATH12M    VEX      365    5.83    5.83     365     2705.
+  WARK30M    VEX      370    5.92    5.92     370     2744.
+  YARRA12M   VEX      371    5.93    5.93     371     2752.
+  HOBART12   VEX      376    6.02    6.02     376     2790.
 
   Notes on the station scan summaries: 
 
@@ -172,7 +172,7 @@ STATION SCAN SUMMARIES:
      cd4cm_dual
 
    Setup group:    1         Station: CEDUNA            Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
    Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
 
    Disk used to record data.
@@ -194,16 +194,16 @@ STATION SCAN SUMMARIES:
     Matching frequency sets:   1
 
    Track assignments are: 
-    track1=   6,  8,  2,  4
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
  ======== Setup file: spirals3.meth
    Matching groups in ./freq.spirals.dat:
-     hob5cm_pol      Added by Jamie MC Jul 2018
+     hob5cm_pol
 
    Setup group:    2         Station: HOBART26          Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
    Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
 
    Disk used to record data.
@@ -225,7 +225,7 @@ STATION SCAN SUMMARIES:
     Matching frequency sets:   2
 
    Track assignments are: 
-    track1=   6,  8,  2,  4
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
@@ -234,8 +234,8 @@ STATION SCAN SUMMARIES:
      aus5cm_dual
 
    Setup group:    3         Station: HOBART12          Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
-   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
 
    Disk used to record data.
 
@@ -256,7 +256,7 @@ STATION SCAN SUMMARIES:
     Matching frequency sets:   6
 
    Track assignments are: 
-    track1=   2,  4,  6,  8
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
@@ -269,8 +269,8 @@ The following setup groups are the same as group   4 below.
      aus5cm_dual
 
    Setup group:    4         Station: KATH12M           Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
-   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
 
    Disk used to record data.
 
@@ -291,16 +291,16 @@ The following setup groups are the same as group   4 below.
     Matching frequency sets:   3   5
 
    Track assignments are: 
-    track1=   2,  4,  6,  8
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
  ======== Setup file: spirals3.meth
    Matching groups in ./freq.spirals.dat:
-     wa5cm_dual      Changed from 5900 to 5843 re request from Stuart Weston, 20200813.
+     wa5cm_dual
 
    Setup group:    6         Station: WARK30M           Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
    Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
 
    Disk used to record data.
@@ -322,7 +322,7 @@ The following setup groups are the same as group   4 below.
     Matching frequency sets:   4
 
    Track assignments are: 
-    track1=   2,  4,  6,  8
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
@@ -1747,12 +1747,12 @@ SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
                 Obs. start time.     Obs. end time.      Total 
  Station          Day    Time         Day    Time        GBytes
                      (UT)                 (UT)
-  CEDUNA         150  04:00:00       150  13:00:53       2776.9
-  HOBART26       150  04:00:00       150  13:00:53       2776.9
-  KATH12M        150  04:00:00       150  13:00:53       2692.3
-  WARK30M        150  04:00:00       150  13:00:53       2730.8
-  YARRA12M       150  04:00:00       150  13:00:53       2738.5
-  HOBART12       150  04:00:00       150  13:00:53       2776.9
+  CEDUNA         150  04:00:00       150  13:00:53       2790.2
+  HOBART26       150  04:00:00       150  13:00:53       2790.2
+  KATH12M        150  04:00:00       150  13:00:53       2705.2
+  WARK30M        150  04:00:00       150  13:00:53       2743.9
+  YARRA12M       150  04:00:00       150  13:00:53       2751.6
+  HOBART12       150  04:00:00       150  13:00:53       2790.2
 
  POSITIONS OF SOURCES USED IN RECORDING SCANS
      Catalog positions marked with *. 
@@ -1765,9 +1765,9 @@ SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
                         (B1950)             (J2000)             (Date)            (mas)
 
  * G287.37+0.64      10 46 04.562330   * 10 48 04.440000     10 49 02.200587       0.00
-                    -58 11 08.93724    *-58 27 01.00000     -58 35 00.95573        0.00
+   G287.371         -58 11 08.93724    *-58 27 01.00000     -58 35 00.95573        0.00
                      ./sources.spirals.dat
-                     s13
+                     s3
 
    1101-561          11 01 06.649680   * 11 03 15.384704     11 04 17.693835       1.11
  * J1103-5626       -56 10 24.90276    *-56 26 35.55332     -56 34 44.57057        0.73
@@ -2174,16 +2174,13 @@ Catalogs:
 
 Other external files: 
   Ephemeris: NONE
-  PEAKFILE:  /home/observer/SCHED/sched-11.8/catalogs/peak_RDBE_DDC.cmd
-  MSGFILE:   /home/observer/SCHED/sched-11.8/catalogs/messages.txt
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
 
 
 Code versions: 
-  Release version:           11.80  Release 11.8; April 2023
-  Version of VEX standard:   1.50
-  Version of VEX code:       0.88
-  Version of plot code:      1.06
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
   Version of ephemeris code: 1.01
-  Version of PGPLOT:        v5.2.2
-
-This schedule produced on: Fri Jan 12 15:51:09 2024      
