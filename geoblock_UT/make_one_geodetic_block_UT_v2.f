@@ -41,13 +41,14 @@ c                selected source, in order to get better azimuth coverage
 	character*32     geofile, qualfile, srcfile
 
 c       some parameters...
-	x_trials = 2000.d0
+	x_trials = 5000.d0
 	timespan =   30.d0                               ! min
-        dwell_time =  1.0d0                              ! min
-	elev_min =   10.d0                               ! deg
+        dwell_time =  1.0d0                          ! min
+	elev_min =   5.d0                               ! deg
 
 c       Schedule in LST for a central station
 c       For AuScope antennas will use Ceduna's east longitude
+c        which is the middle of the array
 	east_longitude = 8.92d0                          ! hours
 
 	call set_constants 
@@ -1714,8 +1715,8 @@ c       Az wrap numbers for VLBA and GBT...
 	   az_max = 330.d0
 	endif
 	if ( stat_code .eq. 'CD' ) then
-	   az_min =-170.d0
-	   az_max = 300.d0
+	   az_min =-143.d0
+	   az_max = 299.d0
 	endif
 	if ( stat_code .eq. 'MP' ) then
 	   az_min =-150.d0
@@ -1729,6 +1730,7 @@ c       Az wrap numbers for VLBA and GBT...
 	if ( stat_code .eq. 'HB' .or.
      +       stat_code .eq. 'KE' .or.
      +       stat_code .eq. 'YG' .or.
+     +       stat_code .eq. 'WA' .or.
      +       stat_code .eq. 'WW'      ) then
 	   az_min =-270.d0
 	   az_max = 270.d0
@@ -1743,11 +1745,6 @@ C       The following are guesses only...
 	if ( stat_code .eq. 'HH' ) then
 	   az_min =-150.d0
 	   az_max = 330.d0
-	endif
-
-	if ( stat_code .eq. 'WA' ) then
-	   az_min =-178.d0
-	   az_max = 353.d0
 	endif
 
 c       Put azimuth within limits...
@@ -1794,8 +1791,11 @@ c       Settle time (also allowing for accel/decel)
 	settle = 0.5d0                           ! minutes (default)
 	if ( stat_code .eq. 'HB' .or.
      +       stat_code .eq. 'KE' .or.
+     +       stat_code .eq. 'WA' .or.
      +       stat_code .eq. 'YG' .or.
      +       stat_code .eq. 'WW' ) settle = 5.d0/60.d0     ! min
+c
+	if ( stat_code .eq. 'CD' ) settle = 15.d0/60.d0     ! min
 
 c       Replace az_new with possible new wrap value...
 	az_new = az_new_out
@@ -1833,7 +1833,7 @@ c       Calc slew time and add "start,acceleration,settle" time
 	if ( stat_code .eq. 'HH' ) el_rate = 30.d0
 	if ( stat_code .eq. 'AT' ) el_rate = 20.d0
 	if ( stat_code .eq. 'WA' ) el_rate = 20.d0
-	if ( stat_code .eq. 'CD' ) el_rate = 40.d0
+	if ( stat_code .eq. 'CD' ) el_rate = 30.d0
 	if ( stat_code .eq. 'HO' .or.
      +       stat_code .eq. 'HX' ) el_rate = 40.d0
 	if ( stat_code .eq. 'MP' ) el_rate = 19.d0
