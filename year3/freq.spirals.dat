@@ -29,6 +29,13 @@ rf1 =  5910, 5910     ifname = 'A1','B2'
 rf2 =  6924, 6924
 pol =  RCP, LCP       lo1 = 5843, 5843
 /
+Name = at6cm  Station = ATCA   priority = 0
+  rf1 = 4400, 4400    ifname = '2N',    '1N'
+  rf2 = 7000, 7000    
+  pol =  RCP,  LCP    lo1 = 4500.0, 4500.0
+  ! updated june 2003 Chris Phillips, ATCA observers guide
+  ! lo1 is dummy value: lo is not controlled by VEX
+/
 !------------------------------------------------------------
 !! 8.4 GHz setups
 !------------------------------------------------------------
@@ -61,16 +68,13 @@ Name = cd13cm  Station = CEDUNA   priority = 0
   rf1 = 1900, 1900    ifname = 'A1','B1'
   rf2 = 2900, 2900    
   pol =  RCP,  LCP    lo1 = 2901.0, 2901.0
-  ! updates June 2003 CJP by info from Simon Ellingsen
 /
 Name = ho13cm  Station = HOBART26   priority = 0
   rf1 = 2190, 2190    ifname = 'A3',    'B3'
   rf2 = 2305, 2305    
   pol =  RCP,  LCP    lo1 = 2600.0, 2600.0
-  note = 'Confirmed 11/06/2003 email from Brett Reid'
-  ! lo1 is dummy value: lo is not controlled by VEX
 /
-Name = aus13cm_dual  Station = KATH12M, YARRA12M  priority = 0
+Name = aus13cm_dual  Station = HOBART12,KATH12M,YARRA12M  priority = 0
   rf1 =  2000, 2000     ifname = 'A1','B1'
   rf2 =  3000, 3000
   pol =  RCP, LCP      lo1 = 1900, 1900

@@ -1,0 +1,1545 @@
+                    SUMMARY FILE FOR PROJECT: s012j   
+
+COVER INFORMATION: 
+
+  Experiment: SPIRALS: Search for distant compact target masers
+  Exp. Code:  s012j   
+  Start Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+  Schedule Version:       1.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
+
+  PI:       Lucas J. Hyland
+
+  Address:  School of Natural Sciences
+            University of Tasmania
+            Private Bag 37, Hobart, TAS 7001, AU
+   
+
+  Phone:    +61416469903
+  EMAIL:    lucas.hyland@utas.edu.au
+  Fax:
+  Phone during observation:
+
+  Observing mode: 6.7GHz-2p-1IF/16MHz
+
+  Notes:    Array: At-Cd-Ho-Wa
+   
+   
+   
+
+
+No cover letter provided.
+
+CORRELATION REQUESTS (Defaults in parentheses):
+
+  Correlator (Required if recording):          LBA
+  Correlator average time (2 sec):               2.000 sec.
+    Alternate average time (for spacecraft).     0.000 sec.
+  Output spectral channels per baseband (16):        4096
+     Correlator FFT size (128):                      4096
+  Number of antennas to be correlated:                  3
+  Polarization (ON):                           OFF
+  Correlator weighting function (UNIFORM):     UNIFORM
+  Distribution tape (DAT):                     DAT
+
+  Distribution format (FITS):                  FITS
+  Source positions from:             FROM SCHEDULE
+
+  Shipping address for correlator output:
+      University of Tasmania
+
+
+
+
+  Correlator Notes: Pass 1: Full band: 16 MHz. corchan=32, 0.5 MHz res.
+      Pass 2: Zoom band: 6664-6672MHz. corchan=4096, 2 kHz res.
+
+
+
+
+
+
+DERIVED INFORMATION FOR CORRELATION: 
+                                                All scans
+  Elapsed time for project (hours):                13.45
+  Total time in scheduled scans (hours):           11.65
+  Total time in recording scans (hours):           11.65
+  Total baseline hours (recording scans):         108.94
+  Projected max correlator output rate (kB/s):     327.7
+  Projected correlator output data size (MB):    12851.3
+ NOTES:  Above numbers assume the same correlator parameters are used for all data.
+         The 'baseline hours' include the autocorrelations (for data size calculations).
+         The correlator output data rate is for real-time processing.
+         Above numbers assume the same correlator parameters are used for all data.
+         The recordings for a scan are assumed to start at the scan START minus PRESTART.
+         Some stations (VLA, VLBA/MARK5C) wait for good data so the estimates may be high.
+
+
+
+STATIONS USED IN SCHEDULE:
+
+   Station  Code   Latitude Longitude  Elevation       X            Y            Z       Axis
+                                                                                       Offset
+
+   ATCA      At  -30.31288 -149.56476     252.   -4751639.860  2791700.357 -3200491.113  0.000
+   CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
+   HOBART26  Ho  -42.80358 -147.44052      65.   -3950237.403  2522347.684 -4311561.833  8.194
+   WARK30M   Wa  -36.43316 -174.66295     122.   -5115425.818   477880.248 -3767042.055  2.477
+
+
+   Plate tectonic motion adjustments for MJD  60208
+   Station  Code      Station motions (m/yr)             Adjusted positions 
+                     X       Y       Z     MJD0        X            Y            Z 
+   ATCA      At  -0.0310 -0.0046  0.0420  50449  -4751640.688  2791700.234 -3200489.990
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.861  3912709.824 -3348066.276
+   HOBART26  Ho  -0.0390  0.0080  0.0411  56658  -3950237.782  2522347.761 -4311561.434
+   WARK30M   Wa  -0.0212 -0.0031  0.0360  57988  -5115425.947   477880.229 -3767041.836
+
+
+
+BASELINE LENGTHS (km)
+
+          At    Cd    Ho    Wa
+
+   At      0  1508  1396  2410
+   Cd   1508     0  1703  3719
+   Ho   1396  1703     0  2415
+   Wa   2410  3719  2415     0
+
+
+RECORDING SYSTEM AND CALIBRATION INFORMATION:
+
+  List of scan-dependent controls seen for recording timing.
+   MINPAUSE:   10.
+   PRESTART:    0.
+
+  DISKS - Stations potentially recording on disks.
+   Station    Drive type   DAR     NBBC    Tsys
+   ATCA         LBADR      LBA       4     CONT
+   CEDUNA       MARK5B     DBBC     14     GAP 
+   HOBART26     MARK5B     DBBC      8     GAP 
+   WARK30M      MARK5B     DBBC      8     GAP 
+
+
+
+
+EXPERIMENT SUMMARY:
+  Number of input scans:        147
+  Number of scans scheduled:    147
+  Number of stations:             4
+  Number of sources input:       87
+  Number of setup files used:     1
+
+
+STATION SCAN SUMMARIES:
+  Station  Control   Scans   Scan   Record  Record   Gbytes
+                            Hours   Hours   Scans
+  ATCA       VEX      147   11.65   11.65     147      671.
+  CEDUNA     VEX      147   11.65   11.65     147      672.
+  HOBART26   VEX      147   11.65   11.65     147      672.
+  WARK30M    VEX      131    9.75    9.75     131      563.
+
+  Notes on the station scan summaries: 
+
+    "Record Scans" are periods of recording with no gap.  The Mark5A disk systems 
+    have a limit of 1024 such scans.  There are often multiple projects on a disk pack.
+    If using MARK5A, try to keep above about 6 GB per record scan by using MINPAUSE 
+    and PRESTART to prevent short gaps.  However, also try to prevent record scans 
+    of more than an hour to minimize risk to data from playback problems.
+    MARK5C will have one observe scan per record scan and there is no limit to the number.
+
+
+
+
+
+
+ SETUP FILES:
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     at6cm
+
+   Setup group:    1         Station: ATCA              Total bit rate:   128
+   Format: LBA               Bits per sample: 2         Sample rate: 32.000
+   Number of channels:  2    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   4500.00   4500.00
+   Net SB=         U         U
+   IF SB =         U         U
+   Pol.  =      RCP       LCP 
+   BBC   =         1         2
+   BBC SB=         U         U
+   IF    =        2N        1N
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   1  Setup file default.  Used with PCAL = off
+   LO sum=   6659.00  6659.00
+   BBC fr=   2159.00  2159.00
+   Bandwd=     16.00    16.00
+    Matching frequency sets:   1
+
+   Track assignments are: 
+    track1=   0,  2
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     cd4cm_dual
+
+   Setup group:    2         Station: CEDUNA            Total bit rate:   128
+   Format: MARK5B            Bits per sample: 2         Sample rate: 32.000
+   Number of channels:  2    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   7300.00   7300.00
+   Net SB=         U         U
+   IF SB =         L         L
+   Pol.  =      RCP       LCP 
+   BBC   =         1         5
+   BBC SB=         L         L
+   IF    =        A1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
+   LO sum=   6659.00  6659.00
+   BBC fr=    641.00   641.00
+   Bandwd=     16.00    16.00
+    Matching frequency sets:   2
+
+   Track assignments are: 
+    track1=   2,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     hob5cm_pol
+
+   Setup group:    3         Station: HOBART26          Total bit rate:   128
+   Format: MARK5B            Bits per sample: 2         Sample rate: 32.000
+   Number of channels:  2    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   7000.00   7000.00
+   Net SB=         U         U
+   IF SB =         L         L
+   Pol.  =      RCP       LCP 
+   BBC   =         1         9
+   BBC SB=         L         L
+   IF    =        A3        B3
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   3  Setup file default.  Used with PCAL = off
+   LO sum=   6659.00  6659.00
+   BBC fr=    341.00   341.00
+   Bandwd=     16.00    16.00
+    Matching frequency sets:   3
+
+   Track assignments are: 
+    track1=   2,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     wa5cm_dual
+
+   Setup group:    4         Station: WARK30M           Total bit rate:   128
+   Format: MARK5B            Bits per sample: 2         Sample rate: 32.000
+   Number of channels:  2    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   5843.00   5843.00
+   Net SB=         U         U
+   IF SB =         U         U
+   Pol.  =      RCP       LCP 
+   BBC   =         1         5
+   BBC SB=         U         U
+   IF    =        A1        B2
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   4  Setup file default.  Used with PCAL = off
+   LO sum=   6659.00  6659.00
+   BBC fr=    816.00   816.00
+   Bandwd=     16.00    16.00
+    Matching frequency sets:   4
+
+   Track assignments are: 
+    track1=   2,  4
+    barrel=roll_off 
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+   1  264 23:00:00 F0537-441     -     0     0     0     0
+      264 23:00:45 pirals3.meth  -    45    45    45    45
+
+   2  264 23:01:00 F0537-441     -     3     3     3     2
+      264 23:01:45 -             -    45    45    45    45
+
+   3  264 23:02:00 F0537-441     -     3     3     3     2
+      264 23:02:45 -             -    45    45    45    45
+
+   4  264 23:03:00 F0537-441     -     3     3     3     2
+      264 23:03:45 -             -    45    45    45    45
+
+   5  264 23:04:00 F0537-441     -     3     3     3     2
+      264 23:04:45 -             -    45    45    45    45
+
+   6  264 23:05:00 F0537-441     -     3     3     3     2
+      264 23:05:45 -             -    45    45    45    45
+
+   7  264 23:06:00 F0537-441     -     3     3     3     2
+      264 23:06:45 -             -    45    45    45    45
+
+   8  264 23:07:00 F0537-441     -     3     3     3     2
+      264 23:07:45 -             -    45    45    45    45
+
+   9  264 23:08:00 F0537-441     -     3     3     3     2
+      264 23:08:45 -             -    45    45    45    45
+
+  10  264 23:09:00 F0537-441     -     3     3     3     2
+      264 23:09:45 -             -    45    45    45    45
+
+  11  264 23:10:00 F0537-441     -     3     3     3     2
+      264 23:10:45 -             -    45    45    45    45
+
+  12  264 23:11:00 F0537-441     -     3     3     3     2
+      264 23:11:45 -             -    45    45    45    45
+
+  13  264 23:12:00 F0537-441     -     3     3     3     2
+      264 23:12:45 -             -    45    45    45    45
+
+  14  264 23:13:00 F0537-441     -     3     3     3     2
+      264 23:13:45 -             -    45    45    45    45
+
+  15  264 23:14:00 F0537-441     -     3     3     3     2
+      264 23:14:45 -             -    45    45    45    45
+
+  16  264 23:15:00 F0537-441     -     3     3     3     2
+      264 23:15:45 -             -    45    45    45    45
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+  17  264 23:16:00 F0537-441     -     3     3     3     2
+      264 23:16:45 pirals3.meth  -    45    45    45    45
+
+  18  264 23:17:00 F0537-441     -     3     3     3     2
+      264 23:17:45 -             -    45    45    45    45
+
+  19  264 23:18:00 F0537-441     -     3     3     3     2
+      264 23:18:45 -             -    45    45    45    45
+
+  20  264 23:19:00 F0537-441     -     3     3     3     2
+      264 23:19:45 -             -    45    45    45    45
+
+  21  264 23:20:00 F0537-441     -     3     3     3     2
+      264 23:20:45 -             -    45    45    45    45
+
+  22  264 23:21:00 F0537-441     -     3     3     3     2
+      264 23:21:45 -             -    45    45    45    45
+
+  23  264 23:22:00 F0537-441     -     3     3     3     2
+      264 23:22:45 -             -    45    45    45    45
+
+  24  264 23:23:00 F0537-441     -     3     3     3     2
+      264 23:23:45 -             -    45    45    45    45
+
+  25  264 23:24:00 F0537-441     -     3     3     3     2
+      264 23:24:45 -             -    45    45    45    45
+
+  26  264 23:25:00 F0537-441     -     3     3     3     2
+      264 23:25:45 -             -    45    45    45    45
+
+  27  264 23:26:00 F0537-441     -     3     3     3     2
+      264 23:26:45 -             -    45    45    45    45
+
+  28  264 23:27:00 F0537-441     -     3     3     3     2
+      264 23:27:45 -             -    45    45    45    45
+
+  29  264 23:28:00 F0537-441     -     3     3     3     2
+      264 23:28:45 -             -    45    45    45    45
+
+  30  264 23:29:00 F0537-441     -     3     3     3     2
+      264 23:29:45 -             -    45    45    45    45
+
+  31  264 23:30:00 F0537-441     -     3     3     3     2
+      264 23:30:45 -             -    45    45    45    45
+
+  32  264 23:31:00 F0537-441     -     3     3     3     2
+      264 23:31:45 -             -    45    45    45    45
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+  33  264 23:32:00 F0537-441     -     3     3     3     2
+      264 23:32:45 pirals3.meth  -    45    45    45    45
+
+  34  264 23:33:00 F0537-441     -     3     3     3     2
+      264 23:33:45 -             -    45    45    45    45
+
+  35  264 23:34:00 F0537-441     -     3     3     3     2
+      264 23:34:45 -             -    45    45    45    45
+
+  36  264 23:35:00 F0537-441     -     3     3     3     2
+      264 23:35:45 -             -    45    45    45    45
+
+  37  264 23:36:00 F0537-441     -     3     3     3     2
+      264 23:36:45 -             -    45    45    45    45
+
+  38  264 23:37:00 F0537-441     -     3     3     3     2
+      264 23:37:45 -             -    45    45    45    45
+
+  39  264 23:38:00 F0537-441     -     3     3     3     2
+      264 23:38:45 -             -    45    45    45    45
+
+  40  264 23:39:00 F0537-441     -     3     3     3     2
+      264 23:39:45 -             -    45    45    45    45
+
+  41  264 23:40:00 F0537-441     -     3     3     3     2
+      264 23:40:45 -             -    45    45    45    45
+
+  42  264 23:41:00 F0537-441     -     3     3     3     2
+      264 23:41:45 -             -    45    45    45    45
+
+  43  264 23:42:00 F0537-441     -     3     3     3     2
+      264 23:42:45 -             -    45    45    45    45
+
+  44  264 23:43:00 F0537-441     -     3     3     3     2
+      264 23:43:45 -             -    45    45    45    45
+
+  45  264 23:44:00 F0537-441     -     3     3     3     2
+      264 23:44:45 -             -    45    45    45    45
+
+  46  264 23:45:00 F0537-441     -     3     3     3     2
+      264 23:45:45 -             -    45    45    45    45
+
+  47  264 23:46:00 F0537-441     -     3     3     3     2
+      264 23:46:45 -             -    45    45    45    45
+
+  48  264 23:47:00 F0537-441     -     3     3     3     2
+      264 23:47:45 -             -    45    45    45    45
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+  49  264 23:48:00 F0537-441     -     3     3     3     2
+      264 23:48:45 pirals3.meth  -    45    45    45    45
+
+  50  264 23:49:00 F0537-441     -     3     3     3     2
+      264 23:49:45 -             -    45    45    45    45
+
+  51  264 23:50:00 F0537-441     -     3     3     3     2
+      264 23:50:45 -             -    45    45    45    45
+
+  52  264 23:51:00 F0537-441     -     3     3     3     2
+      264 23:51:45 -             -    45    45    45    45
+
+  53  264 23:52:00 F0537-441     -     3     3     3     2
+      264 23:52:45 -             -    45    45    45    45
+
+  54  264 23:53:00 F0537-441     -     3     3     3     2
+      264 23:53:45 -             -    45    45    45    45
+
+  55  264 23:54:00 F0537-441     -     3     3     3     2
+      264 23:54:45 -             -    45    45    45    45
+
+  56  264 23:55:00 F0537-441     -     3     3     3     2
+      264 23:55:45 -             -    45    45    45    45
+
+  57  264 23:56:00 F0537-441     -     3     3     3     2
+      264 23:56:45 -             -    45    45    45    45
+
+  58  264 23:57:00 F0537-441     -     3     3     3     2
+      264 23:57:45 -             -    45    45    45    45
+
+  59  264 23:58:00 F0537-441     -     3     3     3     2
+      264 23:58:45 -             -    45    45    45    45
+
+  60  265 00:06:45 F1131-5818    -   431   419    93   137
+      265 00:07:45 -             -    60    60    60    60
+
+  61  265 00:08:45 G292.46+0.16  -    12    20    14    11
+      265 00:16:45 -             -   480   480   480   480
+
+  62  265 00:17:45 G299.01+0.12  -    20    23    21    44
+      265 00:25:45 -             -   480   480   480   480
+
+  63  265 00:26:45 G299.77-0.00  -     6     9     8     8
+      265 00:34:45 -             -   480   480   480   480
+
+  64  265 00:35:45 G300.50-0.17  -     6     9     8     8
+      265 00:43:45 -             -   480   480   480   480
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+  65  265 00:44:45 G311.23-0.03  -    28    31    28    63
+      265 00:52:45 pirals3.meth  -   480   480   480   477
+
+  66  265 00:53:45 G312.69+0.12  -     8    12    12    12
+      265 01:01:45 -             -   480   480   480   480
+
+  67  265 01:02:45 G313.46+0.19  -     7     9     9     8
+      265 01:10:45 -             -   480   480   480   480
+
+  68  265 01:11:45 G313.99-0.08  -     6     8     8     6
+      265 01:19:45 -             -   480   480   480   480
+
+  69  265 01:20:45 G320.42+0.08  -    18    22    23    37
+      265 01:28:45 -             -   480   480   480   480
+
+  70  265 01:29:45 G320.78+0.24  -     6     7     7     6
+      265 01:37:45 -             -   480   480   480   480
+
+  71  265 01:38:45 G324.91+0.15  -    14    18    19    24
+      265 01:46:45 -             -   480   480   480   480
+
+  72  265 01:47:45 G328.38+0.13  -    12    17    17    20
+      265 01:55:45 -             -   480   480   480   480
+
+  73  265 01:56:45 G329.61+0.11  -     7    11    11    10
+      265 02:04:45 -             -   480   480   480   480
+
+  74  265 02:05:45 G337.70-0.05  -    23    25    26    39
+      265 02:13:45 -             -   480   480   480   480
+
+  75  265 02:14:15 F1650-5044    -    13    20    19    21
+      265 02:15:15 -             -    60    60    60    60
+
+  76  265 02:16:15 G339.47+0.04  -    16    22    19    29
+      265 02:24:15 -             -   480   480   480   480
+
+  77  265 02:25:15 G340.78-0.09  -     8    11    11     9
+      265 02:33:15 -             -   480   480   480   480
+
+  78  265 02:34:15 G342.36+0.14  -     8    11    13    11
+      265 02:42:15 -             -   480   480   480   480
+
+  79  265 02:43:15 G342.95-0.01  -     6     8     8     6
+      265 02:51:15 -             -   480   480   480   480
+
+  80  265 02:52:15 G343.92+0.12  -     7     9    10     9
+      265 03:00:15 -             -   480   480   480   480
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+  81  265 03:01:15 G344.58-0.02  -     6     9     9     6
+      265 03:09:15 pirals3.meth  -   480   480   480   480
+
+  82  265 03:10:15 G345.44+0.20  -     7    10    10     9
+      265 03:18:15 -             -   480   480   480   480
+
+  83  265 03:19:15 G346.48+0.13  -     7    10    11     9
+      265 03:27:15 -             -   480   480   480   480
+
+  84  265 03:28:15 G345.19-0.03  -     8    11    12    12
+      265 03:36:15 -             -   480   480   480   480
+
+  85  265 03:37:15 G346.03+0.04  -     7     9    10     9
+      265 03:45:15 -             -   480   480   480   480
+
+  86  265 03:46:15 G346.52+0.08  -     6     8     8     7
+      265 03:54:15 -             -   480   480   480   480
+
+  87  265 03:54:45 F1733-3722    -    19    22    22    23
+      265 03:55:45 -             -    60    60    60    60
+
+  88  265 03:56:45 G348.72-0.07  -    15    18    17    13
+      265 04:04:45 -             -   480   480   480   480
+
+  89  265 04:05:45 G348.89-0.18  -     5     6     6     4
+      265 04:13:45 -             -   480   480   480   480
+
+  90  265 04:14:45 G349.06-0.01  -     6     7     6     6
+      265 04:22:45 -             -   480   480   480   480
+
+  91  265 04:23:45 G349.15+0.02  -     5     5     5     5
+      265 04:31:45 -             -   480   480   480   480
+
+  92  265 04:32:45 G349.88+0.23  -     8    10     9    12
+      265 04:40:45 -             -   480   480   480   480
+
+  93  265 04:41:45 G350.11+0.22  -     5     6     6     6
+      265 04:49:45 -             -   480   480   480   480
+
+  94  265 04:50:45 G350.47+0.02  -     6     7     7     7
+      265 04:58:45 -             -   480   480   480   480
+
+  95  265 04:59:45 G354.30-0.11  -    15    19    17   923
+      265 05:07:45 -             -   480   480   480     0W
+
+  96  265 05:08:45 G354.49+0.08  -     6     7     7     8
+      265 05:16:45 -             -   480   480   480   480
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+  97  265 05:17:45 G355.34+0.14  -     8    10     9    14
+      265 05:25:45 pirals3.meth  -   480   480   480   480
+
+  98  265 05:26:45 G355.34+0.14  -     3     3     3     3
+      265 05:34:45 -             -   480   480   480   480
+
+  99  265 05:35:45 G357.96-0.16  -    12    16    15    11
+      265 05:43:45 -             -   480   480   480   480
+
+ 100  265 05:44:45 G357.96-0.16  -     3     3     3     4
+      265 05:52:45 -             -   480   480   480   480
+
+ 101  265 05:53:45 G358.72-0.12  -     8    10     9     8
+      265 06:01:45 -             -   480   480   480   480
+
+ 102  265 06:02:45 G359.13+0.03  -     8     9     8     5
+      265 06:10:45 -             -   480   480   480   480
+
+ 103  265 06:11:45 G359.61-0.24  -     6     8     8    15
+      265 06:19:45 -             -   480   480   480   480
+
+ 104  265 06:20:45 G359.93+0.17  -     8    11     8     5
+      265 06:28:45 -             -   480   480   480   480
+
+ 105  265 06:29:15 F1713-2658    -    30    27    24    58
+      265 06:30:15 -             -    60    60    60    32
+
+ 106  265 06:31:15 G000.49+0.18  -    28    25    24    59
+      265 06:39:15 -             -   480   480   480   480
+
+ 107  265 06:40:15 G000.83+0.18  -     7     8     6     8
+      265 06:48:15 -             -   480   480   480   480
+
+ 108  265 06:49:15 G001.14-0.12  -     6     8     8     9
+      265 06:57:15 -             -   480   480   480   480
+
+ 109  265 06:58:15 G001.32+0.15  -     8    10     7     5
+      265 07:06:15 -             -   480   480   480   480
+
+ 110  265 07:07:15 G001.71-0.08  -     6     8     7     8
+      265 07:15:15 -             -   480   480   480   480
+
+ 111  265 07:16:15 G002.59-0.02  -    12    13     9    12
+      265 07:24:15 -             -   480   480   480   480
+
+ 112  265 07:25:15 G003.25+0.01  -    10    12     8     9
+      265 07:33:15 -             -   480   480   480   480
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+ 113  265 07:34:15 G004.39+0.07  -    10    15    10    13
+      265 07:42:15 pirals3.meth  -   480   480   480   480
+
+ 114  265 07:43:15 G004.43+0.12  -     7     6     4     3
+      265 07:51:15 -             -   480   480   480   480
+
+ 115  265 07:52:15 G005.61-0.08  -    14    12    10    12
+      265 08:00:15 -             -   480   480   480   480
+
+ 116  265 08:01:15 G006.58-0.19  -    13    12    10    10
+      265 08:09:15 -             -   480   480   480   480
+
+ 117  265 08:10:15 G006.61-0.08  -     7     8     5     3
+      265 08:18:15 -             -   480   480   480   480
+
+ 118  265 08:19:15 G006.88+0.09  -     7    11     7     5
+      265 08:27:15 -             -   480   480   480   480
+
+ 119  265 08:28:15 G008.83-0.02  -    21    14    13    14
+      265 08:36:15 -             -   480   480   480   480
+
+ 120  265 08:36:45 F1825-1718    -    47    23    20    35
+      265 08:37:45 -             -    43    60    60    55
+
+ 121  265 08:38:45 G014.52+0.15  -    18    26    15    10
+      265 08:46:45 -             -   480   480   480   480
+
+ 122  265 08:47:45 G020.08-0.13  -    27    22    21    29
+      265 08:55:45 -             -   480   480   480   480
+
+ 123  265 08:56:45 G020.96-0.07  -     8    10    10     7
+      265 09:04:45 -             -   480   480   480   480
+
+ 124  265 09:05:45 G021.02-0.06  -     4     4     4     3
+      265 09:13:45 -             -   480   480   480   480
+
+ 125  265 09:14:45 G021.56-0.03  -     7     8     8     6
+      265 09:22:45 -             -   480   480   480   480
+
+ 126  265 09:23:45 G021.88+0.01  -     6     7     7     5
+      265 09:31:45 -             -   480   480   480   480
+
+ 127  265 09:32:45 G022.33-0.15  -     7    10     7     6
+      265 09:40:45 -             -   480   480   480   480
+
+ 128  265 09:41:45 G023.88+0.06  -    10    12    13     9
+      265 09:49:45 -             -   480   480   480   480
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+ 129  265 09:50:45 G023.99-0.10  -     6     8     6     4
+      265 09:58:45 pirals3.meth  -   480   480   480   480
+
+ 130  265 09:59:45 G024.14-0.00  -     5     6     6     4
+      265 10:07:45 -             -   480   480   480   480
+
+ 131  265 10:08:45 G024.94+0.07  -     8    11    10     6
+      265 10:16:45 -             -   480   480   480   480
+
+ 132  265 10:17:15 F1825-0737    -    12    23    16   ---
+      265 10:18:15 -             -    60    60    60   ---
+
+ 133  265 10:19:15 G026.59-0.02  -    16    27    18   ---
+      265 10:27:15 -             -   480   480   480   ---
+
+ 134  265 10:28:15 G027.28+0.15  -     7     9     9   ---
+      265 10:36:15 -             -   480   480   480   ---
+
+ 135  265 10:37:15 G027.50+0.10  -     5     7     6   ---
+      265 10:45:15 -             -   480   480   480   ---
+
+ 136  265 10:46:15 G027.78+0.05  -     6     8     6   ---
+      265 10:54:15 -             -   480   480   480   ---
+
+ 137  265 10:55:15 G028.32-0.01  -     7    10     8   ---
+      265 11:03:15 -             -   480   480   480   ---
+
+ 138  265 11:04:15 G028.52+0.12  -     5     6     7   ---
+      265 11:12:15 -             -   480   480   480   ---
+
+ 139  265 11:13:15 G028.53+0.12  -     3     3     3   ---
+      265 11:21:15 -             -   480   480   480   ---
+
+ 140  265 11:22:15 G029.32-0.16  -     8    12     9   ---
+      265 11:30:15 -             -   480   480   480   ---
+
+ 141  265 11:31:15 G030.58-0.04  -     8    13    13   ---
+      265 11:39:15 -             -   480   480   480   ---
+
+ 142  265 11:40:15 G030.78+0.23  -     5     7     7   ---
+      265 11:48:15 -             -   480   480   480   ---
+
+ 143  265 11:49:15 G031.12+0.06  -     6     8     7   ---
+      265 11:57:15 -             -   480   480   480   ---
+
+ 144  265 11:58:15 G031.15+0.04  -     4     4     4   ---
+      265 12:06:15 -             -   480   480   480   ---
+
+
+
+ SCAN SUMMARY for experiment s012j   SPIRALS: Search for distant compact target masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Seconds antenna is on source during scan. 0 shown if down, rise, or set
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 264 is Thu  21 Sep 2023   MJD  60208          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    At    Cd    Ho    Wa
+
+ 145  265 12:07:15 G031.18-0.14  -     5     5     6   ---
+      265 12:15:15 pirals3.meth  -   480   480   480   ---
+
+ 146  265 12:16:15 G032.74-0.07  -     9    14    15   ---
+      265 12:24:15 -             -   480   480   480   ---
+
+ 147  265 12:26:15 F1921-293     -    64    68    70   ---
+      265 12:27:15 -             -    60    60    60   ---
+
+
+
+ TIME RANGE OF RECORDINGS and TOTAL BYTES:
+
+                Obs. start time.     Obs. end time.      Total 
+ Station          Day    Time         Day    Time        GBytes
+                     (UT)                 (UT)
+  ATCA           264  23:00:00       265  12:27:15        671.3
+  CEDUNA         264  23:00:00       265  12:27:15        672.4
+  HOBART26       264  23:00:00       265  12:27:15        672.4
+  WARK30M        264  23:00:00       265  10:16:45        562.7
+
+ POSITIONS OF SOURCES USED IN RECORDING SCANS
+     Catalog positions marked with *. 
+     Precession of date coordinates is based on stop time of first scan.
+     Names used in schedule marked with *. 
+     Observation date used in B1950/J2000 coordinate conversion (PRECDATE):  1979.900
+     No adjustments are made for rates (DRA, DDEC).
+
+   Source                         Source position (RA/Dec)                        Error
+                        (B1950)             (J2000)             (Date)            (mas)
+
+   G292.468+0.1      11 21 27.828799   * 11 23 42.170000     11 24 42.240377       0.00
+ * G292.46+0.16     -60 38 04.43094    *-60 54 33.50000     -61 02 12.42292        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G299.013+0.1      12 14 41.917285   * 12 17 24.600000     12 18 38.027251       0.00
+ * G299.01+0.12     -62 12 23.74071    *-62 29 03.70000     -62 36 52.98862        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G299.772-0.0      12 21 02.632854   * 12 23 48.970000     12 25 04.129700       0.00
+ * G299.77-0.00     -62 25 47.67678    *-62 42 25.30000     -62 50 14.10044        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G300.504-0.1      12 27 13.607949   * 12 30 03.580000     12 31 20.463027       0.00
+ * G300.50-0.17     -62 40 14.09601    *-62 56 48.70000     -63 04 36.67294        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G311.230-0.0      13 58 51.514995   * 14 02 27.470000     14 04 06.863925       0.00
+ * G311.23-0.03     -61 30 47.69819    *-61 45 14.40000     -61 52 09.22100        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G312.698+0.1      14 10 10.270524   * 14 13 49.850000     14 15 31.094387       0.00
+ * G312.69+0.12     -60 56 23.37768    *-61 10 24.10000     -61 17 07.32816        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G313.469+0.1      14 15 59.660648   * 14 19 40.940000     14 21 23.058070       0.00
+ * G313.46+0.19     -60 38 00.75419    *-60 51 47.30000     -60 58 24.16513        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G313.994-0.0      14 20 47.222177   * 14 24 30.780000     14 26 14.012637       0.00
+ * G313.99-0.08     -60 42 53.84225    *-60 56 28.30000     -61 02 59.78250        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G320.424+0.0      15 05 49.914878   * 15 09 41.560000     15 11 29.153867       0.00
+ * G320.42+0.08     -57 49 04.76449    *-58 00 29.20000     -58 06 01.35185        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G320.780+0.2      15 07 32.252088   * 15 11 23.480000     15 13 10.903665       0.00
+ * G320.78+0.24     -57 30 06.12363    *-57 41 25.10000     -57 46 54.69947        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G324.915+0.1      15 32 59.276171   * 15 36 51.170000     15 38 39.199048       0.00
+ * G324.91+0.15     -55 19 29.85441    *-55 29 22.90000     -55 34 12.68652        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G328.385+0.1      15 51 57.133643   * 15 55 47.330000     15 57 34.769165       0.00
+ * G328.38+0.13     -53 13 46.53273    *-53 22 30.80000     -53 26 48.43271        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G329.610+0.1      15 58 13.854523   * 16 02 03.140000     16 03 50.217185       0.00
+ * G329.61+0.11     -52 27 12.80609    *-52 35 33.50000     -52 39 40.06059        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G337.705-0.0      16 34 48.971074   * 16 38 29.630000     16 40 13.008419       0.00
+ * G337.70-0.05     -46 54 38.92790    *-47 00 35.50000     -47 03 33.78769        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G339.477+0.0      16 41 12.843173   * 16 44 50.980000     16 46 33.230669       0.00
+ * G339.47+0.04     -45 31 25.73203    *-45 36 56.10000     -45 39 41.80757        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G340.785-0.0      16 46 38.208272   * 16 50 14.840000     16 51 56.428975       0.00
+ * G340.78-0.09     -44 37 18.36448    *-44 42 26.30000     -44 45 01.29691        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G342.368+0.1      16 51 15.080233   * 16 54 49.150000     16 56 29.574908       0.00
+ * G342.36+0.14     -43 15 14.84583    *-43 20 03.60000     -43 22 29.26483        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G342.954-0.0      16 53 57.130588   * 16 57 30.660000     16 59 10.852188       0.00
+ * G342.95-0.01     -42 53 57.35922    *-42 58 34.80000     -43 00 55.07886        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G343.929+0.1      16 56 38.947747   * 17 00 10.910000     17 01 50.388037       0.00
+ * G343.92+0.12     -42 02 53.15970    *-42 07 19.30000     -42 09 34.05773        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G344.581-0.0      16 59 26.416057   * 17 02 57.710000     17 04 36.895398       0.00
+ * G344.58-0.02     -41 37 39.42571    *-41 41 53.80000     -41 44 02.93506        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G345.441+0.2      17 01 17.097270   * 17 04 46.870000     17 06 25.355690       0.00
+ * G345.44+0.20     -40 48 31.38580    *-40 52 38.00000     -40 54 43.27148        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G346.481+0.1      17 04 54.268067   * 17 08 22.720000     17 10 00.612356       0.00
+ * G346.48+0.13     -40 01 34.31443    *-40 05 25.60000     -40 07 23.47044        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G345.198-0.0      17 01 29.038180   * 17 04 59.490000     17 06 38.295546       0.00
+ * G345.19-0.03     -41 08 39.95276    *-41 12 45.70000     -41 14 50.66094        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G346.036+0.0      17 03 50.838046   * 17 07 20.020000     17 08 58.247173       0.00
+ * G346.03+0.04     -40 25 53.24303    *-40 29 49.00000     -40 31 49.08064        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G346.522+0.0      17 05 13.828870   * 17 08 42.290000     17 10 20.189004       0.00
+ * G346.52+0.08     -40 01 17.90236    *-40 05 07.80000     -40 07 05.01905        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G348.723-0.0      17 12 39.118840   * 17 16 04.770000     17 17 41.402748       0.00
+ * G348.72-0.07     -38 20 50.51364    *-38 24 08.80000     -38 25 50.71832        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G348.892-0.1      17 13 34.680533   * 17 17 00.230000     17 18 36.821455       0.00
+ * G348.89-0.18     -38 16 14.58174    *-38 19 28.90000     -38 21 08.93503        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G349.067-0.0      17 13 25.637104   * 17 16 50.740000     17 18 27.120729       0.00
+ * G349.06-0.01     -38 01 59.31964    *-38 05 14.30000     -38 06 54.57572        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G349.151+0.0      17 13 30.940259   * 17 16 55.880000     17 18 32.184735       0.00
+ * G349.15+0.02     -37 56 33.29319    *-37 59 47.90000     -38 01 27.97389        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G349.884+0.2      17 14 48.684873   * 17 18 12.370000     17 19 48.094547       0.00
+ * G349.88+0.23     -37 13 30.91202    *-37 16 40.00000     -37 18 17.27346        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G350.116+0.2      17 15 31.726171   * 17 18 55.110000     17 20 30.697969       0.00
+ * G350.11+0.22     -37 02 32.08356    *-37 05 38.10000     -37 07 13.87829        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G350.470+0.0      17 17 20.107408   * 17 20 43.240000     17 22 18.722315       0.00
+ * G350.47+0.02     -36 51 48.34347    *-36 54 46.60000     -36 56 18.68429        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G354.308-0.1      17 28 30.439505   * 17 31 48.560000     17 33 21.761232       0.00
+ * G354.30-0.11     -33 46 18.94360    *-33 48 29.10000     -33 49 37.66218        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G354.496+0.0      17 28 14.094935   * 17 31 31.770000     17 33 04.759967       0.00
+ * G354.49+0.08     -33 30 32.64683    *-33 32 44.00000     -33 33 53.04413        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G355.344+0.1      17 30 12.566546   * 17 33 29.060000     17 35 01.507045       0.00
+ * G355.34+0.14     -32 45 56.07123    *-32 47 58.90000     -32 49 03.70894        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G357.965-0.1      17 38 06.770730   * 17 41 20.140000     17 42 51.167396       0.00
+ * G357.96-0.16     -30 43 45.83190    *-30 45 14.40000     -30 46 02.46347        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G358.721-0.1      17 39 49.949155   * 17 43 02.310000     17 44 32.873445       0.00
+ * G358.72-0.12     -30 04 08.79002    *-30 05 29.90000     -30 06 14.24705        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G359.138+0.0      17 40 13.978695   * 17 43 25.670000     17 44 55.920694       0.00
+ * G359.13+0.03     -29 37 57.91231    *-29 39 17.30000     -29 40 00.69952        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G359.615-0.2      17 42 27.773322   * 17 45 39.090000     17 47 09.178166       0.00
+ * G359.61-0.24     -29 22 20.32425    *-29 23 30.00000     -29 24 08.74581        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G359.938+0.1      17 41 37.993707   * 17 44 48.550000     17 46 18.274921       0.00
+ * G359.93+0.17     -28 52 46.07829    *-28 53 59.40000     -28 54 39.70711        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G000.496+0.1      17 42 54.121206   * 17 46 03.960000     17 47 33.354838       0.00
+ * G000.49+0.18     -28 23 44.98807    *-28 24 52.80000     -28 25 30.36051        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G000.836+0.1      17 43 43.444482   * 17 46 52.860000     17 48 22.060525       0.00
+ * G000.83+0.18     -28 06 30.56044    *-28 07 34.80000     -28 08 10.58761        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G001.147-0.1      17 45 39.254026   * 17 48 48.530000     17 50 17.676623       0.00
+ * G001.14-0.12     -28 00 15.38155    *-28 01 11.20000     -28 01 42.98887        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G001.329+0.1      17 45 01.483167   * 17 48 10.310000     17 49 39.241186       0.00
+ * G001.32+0.15     -27 42 22.11711    *-27 43 20.70000     -27 43 53.69645        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G001.719-0.0      17 46 51.310931   * 17 49 59.840000     17 51 28.642071       0.00
+ * G001.71-0.08     -27 29 46.29987    *-27 30 36.90000     -27 31 06.07003        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G002.591-0.0      17 48 39.292811   * 17 51 46.690000     17 53 14.969656       0.00
+ * G002.59-0.02     -26 43 08.42190    *-26 43 51.20000     -26 44 16.43837        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G003.253+0.0      17 49 59.417045   * 17 53 05.960000     17 54 33.845134       0.00
+ * G003.25+0.01     -26 07 36.02714    *-26 08 13.00000     -26 08 35.31459        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G004.393+0.0      17 52 20.668060   * 17 55 25.770000     17 56 52.989997       0.00
+ * G004.39+0.07     -25 06 56.86635    *-25 07 23.60000     -25 07 40.76674        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G004.434+0.1      17 52 14.724900   * 17 55 19.740000     17 56 46.918473       0.00
+ * G004.43+0.12     -25 03 17.63025    *-25 03 44.80000     -25 04 02.15284        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G005.618-0.0      17 55 41.047609   * 17 58 44.780000     18 00 11.374077       0.00
+ * G005.61-0.08     -24 08 27.92006    *-24 08 40.10000     -24 08 50.09435        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G006.588-0.1      17 58 13.448580   * 18 01 16.090000     18 02 42.184506       0.00
+ * G006.58-0.19     -23 21 26.18909    *-23 21 27.30000     -23 21 31.82375        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G006.610-0.0      17 57 51.490474   * 18 00 54.030000     18 02 20.074313       0.00
+ * G006.61-0.08     -23 17 00.38502    *-23 17 03.10000     -23 17 08.35656        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G006.881+0.0      17 57 47.285042   * 18 00 49.380000     18 02 15.214246       0.00
+ * G006.88+0.09     -22 57 39.56273    *-22 57 42.60000     -22 57 47.90517        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G008.832-0.0      18 02 25.801869   * 18 05 25.670000     18 06 50.480695       0.00
+ * G008.83-0.02     -21 19 42.28287    *-21 19 25.10000     -21 19 20.34370        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G014.521+0.1      18 13 27.496014   * 18 16 20.730000     18 17 42.471525       0.00
+ * G014.52+0.15     -16 16 10.62905    *-16 15 05.50000     -16 14 36.49075        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G020.081-0.1      18 25 23.036508   * 18 28 10.320000     18 29 29.315401       0.00
+ * G020.08-0.13     -11 30 44.44627    *-11 28 47.60000     -11 27 52.65190        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G020.963-0.0      18 26 51.038893   * 18 29 37.340000     18 30 55.879015       0.00
+ * G020.96-0.07     -10 42 15.77883    *-10 40 12.60000     -10 39 14.40596        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G021.023-0.0      18 26 55.319316   * 18 29 41.550000     18 31 00.056120       0.00
+ * G021.02-0.06     -10 38 45.78591    *-10 36 42.30000     -10 35 43.94258        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G021.562-0.0      18 27 50.433151   * 18 30 36.070000     18 31 54.300374       0.00
+ * G021.56-0.03     -10 09 18.34989    *-10 07 10.90000     -10 06 10.51581        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G021.880+0.0      18 28 16.476823   * 18 31 01.750000     18 32 19.810822       0.00
+ * G021.88+0.01     -09 51 09.81937    *-09 49 00.50000     -09 47 59.13794        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G022.335-0.1      18 29 44.532215   * 18 32 29.410000     18 33 47.291639       0.00
+ * G022.33-0.15     -09 31 45.36652    *-09 29 29.70000     -09 28 25.23780        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G023.885+0.0      18 31 53.717532   * 18 34 36.840000     18 35 53.903398       0.00
+ * G023.88+0.06     -08 03 25.62625    *-08 01 00.70000     -07 59 51.40502        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G023.996-0.1      18 32 40.401360   * 18 35 23.490000     18 36 40.541405       0.00
+ * G023.99-0.10     -08 01 58.09079    *-07 59 29.80000     -07 58 18.90754        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G024.148-0.0      18 32 38.058216   * 18 35 20.940000     18 36 37.893466       0.00
+ * G024.14-0.00     -07 51 23.81451    *-07 48 55.70000     -07 47 44.83642        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G024.943+0.0      18 33 49.556782   * 18 36 31.560000     18 37 48.104430       0.00
+ * G024.94+0.07     -07 06 50.03475    *-07 04 16.80000     -07 03 03.28793        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G026.598-0.0      18 37 15.603703   * 18 39 55.930000     18 41 11.699447       0.00
+ * G026.59-0.02     -05 41 32.59733    *-05 38 44.60000     -05 37 23.67659        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G027.286+0.1      18 37 54.988139   * 18 40 34.510000     18 41 49.902622       0.00
+ * G027.28+0.15     -05 00 05.19762    *-04 57 14.40000     -04 55 51.94346        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G027.500+0.1      18 38 28.056865   * 18 41 07.380000     18 42 22.681481       0.00
+ * G027.50+0.10     -04 49 55.46481    *-04 47 02.30000     -04 45 38.67350        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G027.784+0.0      18 39 10.525349   * 18 41 49.580000     18 43 04.758153       0.00
+ * G027.78+0.05     -04 36 10.00292    *-04 33 13.80000     -04 31 48.66844        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G028.321-0.0      18 40 24.574636   * 18 43 03.110000     18 44 18.048925       0.00
+ * G028.32-0.01     -04 09 27.89440    *-04 06 26.40000     -04 04 58.63363        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G028.523+0.1      18 40 17.633117   * 18 42 55.890000     18 44 10.696752       0.00
+ * G028.52+0.12     -03 54 56.38690    *-03 51 55.40000     -03 50 27.80074        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G028.532+0.1      18 40 18.253965   * 18 42 56.500000     18 44 11.301678       0.00
+ * G028.53+0.12     -03 54 22.63102    *-03 51 21.60000     -03 49 53.97707        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G029.320-0.1      18 42 47.574028   * 18 45 25.160000     18 46 39.662114       0.00
+ * G029.32-0.16     -03 20 28.59987    *-03 17 16.90000     -03 15 44.06580        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G030.589-0.0      18 44 42.634142   * 18 47 18.860000     18 48 32.728816       0.00
+ * G030.58-0.04     -02 09 37.07515    *-02 06 17.20000     -02 04 40.15138        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G030.780+0.2      18 44 05.630293   * 18 46 41.520000     18 47 55.226935       0.00
+ * G030.78+0.23     -01 51 54.31983    *-01 48 37.10000     -01 47 01.21909        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G031.122+0.0      18 45 19.052165   * 18 47 54.680000     18 49 08.269189       0.00
+ * G031.12+0.06     -01 38 19.35387    *-01 34 56.90000     -01 33 18.47894        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G031.158+0.0      18 45 26.800892   * 18 48 02.400000     18 49 15.976246       0.00
+ * G031.15+0.04     -01 36 49.80588    *-01 33 26.80000     -01 31 48.11076        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G031.182-0.1      18 46 10.735054   * 18 48 46.410000     18 50 00.025672       0.00
+ * G031.18-0.14     -01 40 54.24301    *-01 37 28.10000     -01 35 47.94813        0.00
+                     From catalog imbedded in main SCHED input file.
+
+   G032.744-0.0      18 48 47.818360   * 18 51 21.870000     18 52 34.731294       0.00
+ * G032.74-0.07     -00 15 42.27458    *-00 12 05.00000     -00 10 19.17282        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F0537-441         05 37 21.071425   * 05 38 50.361559     05 39 32.656499       0.00
+                    -44 06 44.66634    *-44 05 08.93902     -44 03 58.69347        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1131-5818        11 29 23.329886   * 11 31 43.288004     11 32 46.283040       0.00
+                    -58 02 19.31307    *-58 18 53.44337     -58 26 35.25795        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1650-5044        16 46 25.151991   * 16 50 16.627157     16 52 05.162352       0.00
+                    -50 39 39.86971    *-50 44 48.21069     -50 47 24.94112        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1733-3722        17 29 50.790662   * 17 33 15.193092     17 34 51.357853       0.00
+                    -37 20 28.27119    *-37 22 32.39761     -37 23 39.20372        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1713-2658        17 10 24.259628   * 17 13 31.275609     17 14 59.144612       0.00
+                    -26 55 23.97605    *-26 58 52.52674     -27 00 35.77165        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1825-1718        18 22 42.013835   * 18 25 36.532286     18 26 58.931253       0.00
+                    -17 20 35.28800    *-17 18 49.84689     -17 18 02.13865        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1825-0737        18 22 54.910246   * 18 25 37.609539     18 26 54.426961       0.00
+                    -07 39 15.96705    *-07 37 30.01313     -07 36 39.00427        0.00
+                     From catalog imbedded in main SCHED input file.
+
+ * F1921-293         19 21 42.234126   * 19 24 51.055953     19 26 20.574966       0.00
+                    -29 20 26.35393    *-29 14 30.12102     -29 11 47.22387        0.00
+                     From catalog imbedded in main SCHED input file.
+
+
+
+SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
+
+     Scan hours are for recording scans only. 
+     Baseline hours are only counted for scans above horizon at both ends.
+  Source       Setup file             Frequency sets                  Observing hours
+                                   (duplicates not shown)              Scan  Baseline
+  G292.46+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G299.01+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G299.77-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G300.50-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G311.23-0.0spirals3.meth         1 2 3 4                           0.133     0.798
+  G312.69+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G313.46+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G313.99-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G320.42+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G320.78+0.2spirals3.meth         1 2 3 4                           0.133     0.800
+  G324.91+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G328.38+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G329.61+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G337.70-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G339.47+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G340.78-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G342.36+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G342.95-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G343.92+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G344.58-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G345.44+0.2spirals3.meth         1 2 3 4                           0.133     0.800
+  G346.48+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G345.19-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G346.03+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G346.52+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G348.72-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G348.89-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G349.06-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G349.15+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G349.88+0.2spirals3.meth         1 2 3 4                           0.133     0.800
+  G350.11+0.2spirals3.meth         1 2 3 4                           0.133     0.800
+  G350.47+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G354.30-0.1spirals3.meth         1 2 3                             0.133     0.400
+  G354.49+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G355.34+0.1spirals3.meth         1 2 3 4                           0.267     1.600
+  G357.96-0.1spirals3.meth         1 2 3 4                           0.267     1.600
+  G358.72-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G359.13+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G359.61-0.2spirals3.meth         1 2 3 4                           0.133     0.800
+  G359.93+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G000.49+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G000.83+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G001.14-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G001.32+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G001.71-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G002.59-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G003.25+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G004.39+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G004.43+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G005.61-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G006.58-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G006.61-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G006.88+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G008.83-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G014.52+0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G020.08-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G020.96-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G021.02-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G021.56-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G021.88+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G022.33-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G023.88+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G023.99-0.1spirals3.meth         1 2 3 4                           0.133     0.800
+  G024.14-0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G024.94+0.0spirals3.meth         1 2 3 4                           0.133     0.800
+  G026.59-0.0spirals3.meth         1 2 3                             0.133     0.400
+  G027.28+0.1spirals3.meth         1 2 3                             0.133     0.400
+  G027.50+0.1spirals3.meth         1 2 3                             0.133     0.400
+  G027.78+0.0spirals3.meth         1 2 3                             0.133     0.400
+  G028.32-0.0spirals3.meth         1 2 3                             0.133     0.400
+  G028.52+0.1spirals3.meth         1 2 3                             0.133     0.400
+  G028.53+0.1spirals3.meth         1 2 3                             0.133     0.400
+  G029.32-0.1spirals3.meth         1 2 3                             0.133     0.400
+  G030.58-0.0spirals3.meth         1 2 3                             0.133     0.400
+  G030.78+0.2spirals3.meth         1 2 3                             0.133     0.400
+  G031.12+0.0spirals3.meth         1 2 3                             0.133     0.400
+  G031.15+0.0spirals3.meth         1 2 3                             0.133     0.400
+  G031.18-0.1spirals3.meth         1 2 3                             0.133     0.400
+  G032.74-0.0spirals3.meth         1 2 3                             0.133     0.400
+  F0537-441  spirals3.meth         1 2 3 4                           0.737     4.425
+  F1131-5818 spirals3.meth         1 2 3 4                           0.017     0.100
+  F1650-5044 spirals3.meth         1 2 3 4                           0.017     0.100
+  F1733-3722 spirals3.meth         1 2 3 4                           0.017     0.100
+  F1713-2658 spirals3.meth         1 2 3 4                           0.017     0.077
+  F1825-1718 spirals3.meth         1 2 3 4                           0.017     0.083
+  F1825-0737 spirals3.meth         1 2 3                             0.017     0.050
+  F1921-293  spirals3.meth         1 2 3                             0.017     0.050
+
+
+EFFECT OF SOLAR CORONA
+
+  The solar corona can cause unstable phases for sources too close to the Sun.
+  SCHED provides warnings at individual scans for distances less than 10 degrees.
+  The distance from the Sun to each source in this schedule is:
+    Source         Sun distance (deg) 
+   G292.46+0.16        61.7
+   G299.01+0.12        63.2
+   G299.77-0.00        63.5
+   G300.50-0.17        63.8
+   G311.23-0.03        66.8
+   G312.69+0.12        67.2
+   G313.46+0.19        67.4
+   G313.99-0.08        67.8
+   G320.42+0.08        70.0
+   G320.78+0.24        70.0
+   G324.91+0.15        71.7
+   G328.38+0.13        73.2
+   G329.61+0.11        73.7
+   G337.70-0.05        77.5
+   G339.47+0.04        78.2
+   G340.78-0.09        78.9
+   G342.36+0.14        79.5
+   G342.95-0.01        79.9
+   G343.92+0.12        80.2
+   G344.58-0.02        80.7
+   G345.44+0.20        80.9
+   G346.48+0.13        81.4
+   G345.19-0.03        81.0
+   G346.03+0.04        81.3
+   G346.52+0.08        81.5
+   G348.72-0.07        82.7
+   G348.89-0.18        82.9
+   G349.06-0.01        82.8
+   G349.15+0.02        82.8
+   G349.88+0.23        83.0
+   G350.11+0.22        83.1
+   G350.47+0.02        83.5
+   G354.30-0.11        85.5
+   G354.49+0.08        85.4
+   G355.34+0.14        85.8
+   G357.96-0.16        87.3
+   G358.72-0.12        87.7
+   G359.13+0.03        87.7
+   G359.61-0.24        88.2
+   G359.93+0.17        88.0
+   G000.49+0.18        88.3
+   G000.83+0.18        88.4
+   G001.14-0.12        88.9
+   G001.32+0.15        88.7
+   G001.71-0.08        89.1
+   G002.59-0.02        89.5
+   G003.25+0.01        89.8
+   G004.39+0.07        90.3
+   G004.43+0.12        90.3
+   G005.61-0.08        91.1
+   G006.58-0.19        91.6
+   G006.61-0.08        91.6
+   G006.88+0.09        91.5
+   G008.83-0.02        92.6
+   G014.52+0.15        95.3
+   G020.08-0.13        98.2
+   G020.96-0.07        98.6
+   G021.02-0.06        98.6
+   G021.56-0.03        98.8
+   G021.88+0.01        99.0
+   G022.33-0.15        99.3
+   G023.88+0.06        99.9
+   G023.99-0.10       100.1
+   G024.14-0.00       100.1
+   G024.94+0.07       100.4
+   G026.59-0.02       101.2
+   G027.28+0.15       101.4
+   G027.50+0.10       101.5
+   G027.78+0.05       101.7
+   G028.32-0.01       102.0
+   G028.52+0.12       102.0
+   G028.53+0.12       102.0
+   G029.32-0.16       102.6
+   G030.58-0.04       103.1
+   G030.78+0.23       102.9
+   G031.12+0.06       103.2
+   G031.15+0.04       103.3
+   G031.18-0.14       103.4
+   G032.74-0.07       104.1
+   F0537-441           93.3
+   F1131-5818          59.0
+   F1650-5044          80.3
+   F1733-3722          86.0
+   F1713-2658          81.0
+   F1825-1718          97.4
+   F1825-0737          97.6
+   F1921-293          109.7
+
+  Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
+  that the Sun will cause amplitude reductions on the  longest VLBA baselines 
+  at a solar distance of 60deg F^(-0.6) where F is in GHz. 
+  For common VLBI bands, this is: 
+       327 MHz        117. deg 
+       610 MHz         81. deg 
+       1.6 GHz         45. deg 
+       2.3 GHz         36. deg 
+       5.0 GHz         23. deg 
+       8.4 GHz         17. deg 
+      15.0 GHz         12. deg 
+      22.0 GHz          9. deg 
+      43.0 GHz          6. deg 
+
+ SOURCE SEPARATIONS
+
+ Source separations in degrees for pairs closer than   1.00 degrees.
+
+     G299.01+0.12  G299.77-0.00    0.7700
+     G299.77-0.00  G300.50-0.17    0.7521
+     G312.69+0.12  G313.46+0.19    0.7737
+     G313.46+0.19  G313.99-0.08    0.5925
+     G320.42+0.08  G320.78+0.24    0.3900
+     G342.36+0.14  G342.95-0.01    0.6076
+     G342.95-0.01  G343.92+0.12    0.9859
+     G343.92+0.12  G344.58-0.02    0.6687
+     G344.58-0.02  G345.44+0.20    0.8894
+     G344.58-0.02  G345.19-0.03    0.6168
+     G345.44+0.20  G345.19-0.03    0.3378
+     G345.44+0.20  G346.03+0.04    0.6155
+     G346.48+0.13  G346.03+0.04    0.4528
+     G346.48+0.13  G346.52+0.08    0.0626
+     G345.19-0.03  G346.03+0.04    0.8418
+     G346.03+0.04  G346.52+0.08    0.4875
+     G348.72-0.07  G348.89-0.18    0.1972
+     G348.72-0.07  G349.06-0.01    0.3492
+     G348.72-0.07  G349.15+0.02    0.4390
+     G348.89-0.18  G349.06-0.01    0.2394
+     G348.89-0.18  G349.15+0.02    0.3284
+     G349.06-0.01  G349.15+0.02    0.0922
+     G349.06-0.01  G349.88+0.23    0.8532
+     G349.15+0.02  G349.88+0.23    0.7619
+     G349.15+0.02  G350.11+0.22    0.9850
+     G349.88+0.23  G350.11+0.22    0.2323
+     G349.88+0.23  G350.47+0.02    0.6202
+     G350.11+0.22  G350.47+0.02    0.4028
+     G354.30-0.11  G354.49+0.08    0.2689
+     G354.49+0.08  G355.34+0.14    0.8507
+     G357.96-0.16  G358.72-0.12    0.7574
+     G358.72-0.12  G359.13+0.03    0.4450
+     G358.72-0.12  G359.61-0.24    0.9010
+     G359.13+0.03  G359.61-0.24    0.5507
+     G359.13+0.03  G359.93+0.17    0.8129
+     G359.61-0.24  G359.93+0.17    0.5251
+     G359.61-0.24  G000.49+0.18    0.9813
+     G359.93+0.17  G000.49+0.18    0.5581
+     G359.93+0.17  G000.83+0.18    0.8976
+     G000.49+0.18  G000.83+0.18    0.3396
+     G000.49+0.18  G001.14-0.12    0.7219
+     G000.49+0.18  G001.32+0.15    0.8337
+     G000.83+0.18  G001.14-0.12    0.4384
+     G000.83+0.18  G001.32+0.15    0.4945
+     G000.83+0.18  G001.71-0.08    0.9244
+     G001.14-0.12  G001.32+0.15    0.3290
+     G001.14-0.12  G001.71-0.08    0.5734
+     G001.32+0.15  G001.71-0.08    0.4567
+     G001.71-0.08  G002.59-0.02    0.8744
+     G002.59-0.02  G003.25+0.01    0.6636
+     G004.39+0.07  G004.43+0.12    0.0649
+     G005.61-0.08  G006.58-0.19    0.9759
+     G005.61-0.08  G006.61-0.08    0.9917
+     G006.58-0.19  G006.61-0.08    0.1119
+     G006.58-0.19  G006.88+0.09    0.4088
+     G006.61-0.08  G006.88+0.09    0.3229
+     G020.08-0.13  G020.96-0.07    0.8845
+     G020.08-0.13  G021.02-0.06    0.9450
+     G020.96-0.07  G021.02-0.06    0.0609
+     G020.96-0.07  G021.56-0.03    0.6009
+     G020.96-0.07  G021.88+0.01    0.9210
+     G021.02-0.06  G021.56-0.03    0.5405
+     G021.02-0.06  G021.88+0.01    0.8604
+     G021.56-0.03  G021.88+0.01    0.3207
+     G021.56-0.03  G022.33-0.15    0.7818
+     G021.88+0.01  G022.33-0.15    0.4853
+     G023.88+0.06  G023.99-0.10    0.1941
+     G023.88+0.06  G024.14-0.00    0.2715
+     G023.99-0.10  G024.14-0.00    0.1765
+     G023.99-0.10  G024.94+0.07    0.9624
+     G024.14-0.00  G024.94+0.07    0.7994
+     G026.59-0.02  G027.28+0.15    0.7101
+     G026.59-0.02  G027.50+0.10    0.9114
+     G027.28+0.15  G027.50+0.10    0.2180
+     G027.28+0.15  G027.78+0.05    0.5073
+     G027.50+0.10  G027.78+0.05    0.2893
+     G027.50+0.10  G028.32-0.01    0.8301
+     G027.78+0.05  G028.32-0.01    0.5411
+     G027.78+0.05  G028.52+0.12    0.7416
+     G027.78+0.05  G028.53+0.12    0.7513
+     G028.32-0.01  G028.52+0.12    0.2438
+     G028.32-0.01  G028.53+0.12    0.2529
+     G028.52+0.12  G028.53+0.12    0.0097
+     G028.52+0.12  G029.32-0.16    0.8478
+     G028.53+0.12  G029.32-0.16    0.8396
+     G030.58-0.04  G030.78+0.23    0.3330
+     G030.58-0.04  G031.12+0.06    0.5432
+     G030.58-0.04  G031.15+0.04    0.5766
+     G030.58-0.04  G031.18-0.14    0.6031
+     G030.78+0.23  G031.12+0.06    0.3805
+     G030.78+0.23  G031.15+0.04    0.4212
+     G030.78+0.23  G031.18-0.14    0.5524
+     G031.12+0.06  G031.15+0.04    0.0408
+     G031.12+0.06  G031.18-0.14    0.2195
+     G031.15+0.04  G031.18-0.14    0.1952
+
+
+CATALOGS, FILES, and CODE VERSIONS
+
+Catalogs: 
+  Station:   ./stations.spirals.dat
+                 Version:  
+  Location:  ./locations.spirals.dat
+                 Version:  Not known
+  Frequency: ./freq.spirals.dat
+                 Version:  
+  Source:   /Users/lucas3/sched/catalogs/sources.gsfc
+                 Version:   ---
+  Source2:  NONE
+                 Version:   ---
+
+
+Other external files: 
+  Ephemeris: NONE
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
+
+
+Code versions: 
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
+  Version of ephemeris code: 1.01
