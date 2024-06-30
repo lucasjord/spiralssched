@@ -42,9 +42,9 @@ c                selected source, in order to get better azimuth coverage
 
 c       some parameters...
 	x_trials = 5000.d0
-	timespan =   30.d0                               ! min
+	timespan =   20.d0                               ! min
         dwell_time =  1.0d0                          ! min
-	elev_min =   5.d0                               ! deg
+	elev_min =   7.d0                               ! deg
 
 c       Schedule in LST for a central station
 c       For AuScope antennas will use Ceduna's east longitude
@@ -286,10 +286,10 @@ c             Overwrite "geoblock.out" file with new best block
               ihr_CD_LST = x_start                            ! LST hr
               min_CD_LST = (x_start - ihr_CD_LST)*60.d0 + 0.5 ! LST min
               idwell_time_sec = dwell_time*60.d0 + 0.5        ! sec
-              write (11,9003) ihr_CD_LST, min_CD_LST, idwell_time_sec
- 9003         format('! The following gives the CD_LST start time ',
-     +         'for this block:',
-     +        /' LST=CDDBBC  START=',i2.2,':',i2.2,':00  DWELL=',i3)
+c              write (11,9003) ihr_CD_LST, min_CD_LST, idwell_time_sec
+c 9003         format('! The following gives the CD_LST start time ',
+c     +         'for this block:',
+c     +        /' LST=CDDBBC  START=',i2.2,':',i2.2,':00  DWELL=',i3)
 
 	      write (11,9001) (stat_codes(n_s), n_s=1,n_stats),
      +                        (stat_codes(n_s), n_s=1,n_stats)
@@ -1163,7 +1163,7 @@ C	Generate a trial geodetic-like data set...
 	min_stats_per_scan = 0.75d0 * n_stats
 	if ( min_stats_per_scan .lt. 3 ) min_stats_per_scan = 3
 
-	max_dropped = 3       ! maximum number sources not observed at a station
+	max_dropped = 2       ! maximum number sources not observed at a station
 	angle_min   = 10.d0   ! [deg] minimum angular separation among sources
 c                             ! (in order to try and get a big azimuth range)   
 c                             ! If too large, however, can put program into infinite loop!
