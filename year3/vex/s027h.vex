@@ -9,16 +9,16 @@ VEX_rev = 1.5;
 *       Location:  Not known
 *------------------------------------------------------------------------------
 $GLOBAL;
-     ref $EXPER = s027e;
+     ref $EXPER = s027h;
 *                                                      +------------+
-*                         PI revision number:          |    2.0000  |
+*                         PI revision number:          |    1.0000  |
 *                                                      +------------+
 *    mode:       6.7GHz-2p-2IF/64MHz
 *------------------------------------------------------------------------------
 $EXPER;
 *
-def s027e;
-     exper_name = s027e;
+def s027h;
+     exper_name = s027h;
      exper_description = "SPIRALS: parallax of methanol masers";
      PI_name = "Lucas J. Hyland";
      PI_email = lucas.hyland@utas.edu.au;
@@ -32,11 +32,11 @@ def s027e;
 *    Array: Cd-Hb-Ho-Ke-Wa-Yg
 *    Parallax and PM of G305.20+0.01
 *
-*    year, doy: 2024, 192
-*    date     : Wed 10 Jul 2024
-*    MJD      : 60501
-     exper_nominal_start=2024y192d04h00m00s;
-     exper_nominal_stop=2024y192d13h08m19s;
+*    year, doy: 2024, 220
+*    date     : Wed 7 Aug 2024
+*    MJD      : 60529
+     exper_nominal_start=2024y220d02h15m00s;
+     exper_nominal_stop=2024y220d11h22m57s;
 *
      target_correlator = LBA;
 *
@@ -507,7 +507,7 @@ enddef;
 $SCHED;
 *
 scan No0001;
-     start = 2024y192d04h00m00s;
+     start = 2024y220d02h15m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :     0.000 GB :  : &ccw : 1;
@@ -518,7 +518,7 @@ scan No0001;
 endscan;
 *
 scan No0002;
-     start = 2024y192d04h01m00s;
+     start = 2024y220d02h16m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :     5.797 GB :  : &ccw : 1;
@@ -529,7 +529,7 @@ scan No0002;
 endscan;
 *
 scan No0003;
-     start = 2024y192d04h02m00s;
+     start = 2024y220d02h17m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    11.594 GB :  : &ccw : 1;
@@ -540,7 +540,7 @@ scan No0003;
 endscan;
 *
 scan No0004;
-     start = 2024y192d04h03m00s;
+     start = 2024y220d02h18m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    17.391 GB :  : &ccw : 1;
@@ -551,7 +551,7 @@ scan No0004;
 endscan;
 *
 scan No0005;
-     start = 2024y192d04h04m00s;
+     start = 2024y220d02h19m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    23.187 GB :  : &ccw : 1;
@@ -562,7 +562,7 @@ scan No0005;
 endscan;
 *
 scan No0006;
-     start = 2024y192d04h05m00s;
+     start = 2024y220d02h20m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    28.984 GB :  : &ccw : 1;
@@ -573,7 +573,7 @@ scan No0006;
 endscan;
 *
 scan No0007;
-     start = 2024y192d04h06m00s;
+     start = 2024y220d02h21m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    34.781 GB :  : &ccw : 1;
@@ -584,7 +584,7 @@ scan No0007;
 endscan;
 *
 scan No0008;
-     start = 2024y192d04h07m00s;
+     start = 2024y220d02h22m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    40.578 GB :  : &ccw : 1;
@@ -595,7 +595,7 @@ scan No0008;
 endscan;
 *
 scan No0009;
-     start = 2024y192d04h08m00s;
+     start = 2024y220d02h23m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    46.375 GB :  : &ccw : 1;
@@ -606,7 +606,7 @@ scan No0009;
 endscan;
 *
 scan No0010;
-     start = 2024y192d04h09m00s;
+     start = 2024y220d02h24m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    52.172 GB :  : &ccw : 1;
@@ -617,7 +617,7 @@ scan No0010;
 endscan;
 *
 scan No0011;
-     start = 2024y192d04h10m00s;
+     start = 2024y220d02h25m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    57.969 GB :  : &ccw : 1;
@@ -628,7 +628,7 @@ scan No0011;
 endscan;
 *
 scan No0012;
-     start = 2024y192d04h11m00s;
+     start = 2024y220d02h26m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    63.765 GB :  : &ccw : 1;
@@ -639,7 +639,7 @@ scan No0012;
 endscan;
 *
 scan No0013;
-     start = 2024y192d04h12m00s;
+     start = 2024y220d02h27m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    69.562 GB :  : &ccw : 1;
@@ -650,7 +650,7 @@ scan No0013;
 endscan;
 *
 scan No0014;
-     start = 2024y192d04h13m00s;
+     start = 2024y220d02h28m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    75.359 GB :  : &ccw : 1;
@@ -661,7 +661,7 @@ scan No0014;
 endscan;
 *
 scan No0015;
-     start = 2024y192d04h14m00s;
+     start = 2024y220d02h29m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    81.156 GB :  : &ccw : 1;
@@ -672,7 +672,7 @@ scan No0015;
 endscan;
 *
 scan No0016;
-     start = 2024y192d04h15m00s;
+     start = 2024y220d02h30m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    86.953 GB :  : &ccw : 1;
@@ -683,7 +683,7 @@ scan No0016;
 endscan;
 *
 scan No0017;
-     start = 2024y192d04h16m00s;
+     start = 2024y220d02h31m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    92.750 GB :  : &ccw : 1;
@@ -694,7 +694,7 @@ scan No0017;
 endscan;
 *
 scan No0018;
-     start = 2024y192d04h17m00s;
+     start = 2024y220d02h32m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :    98.547 GB :  : &ccw : 1;
@@ -705,7 +705,7 @@ scan No0018;
 endscan;
 *
 scan No0019;
-     start = 2024y192d04h18m00s;
+     start = 2024y220d02h33m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   104.344 GB :  : &ccw : 1;
@@ -716,7 +716,7 @@ scan No0019;
 endscan;
 *
 scan No0020;
-     start = 2024y192d04h19m00s;
+     start = 2024y220d02h34m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   110.140 GB :  : &ccw : 1;
@@ -727,7 +727,7 @@ scan No0020;
 endscan;
 *
 scan No0021;
-     start = 2024y192d04h20m00s;
+     start = 2024y220d02h35m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   115.937 GB :  : &ccw : 1;
@@ -738,7 +738,7 @@ scan No0021;
 endscan;
 *
 scan No0022;
-     start = 2024y192d04h21m00s;
+     start = 2024y220d02h36m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   121.734 GB :  : &ccw : 1;
@@ -749,7 +749,7 @@ scan No0022;
 endscan;
 *
 scan No0023;
-     start = 2024y192d04h22m00s;
+     start = 2024y220d02h37m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   127.531 GB :  : &ccw : 1;
@@ -760,7 +760,7 @@ scan No0023;
 endscan;
 *
 scan No0024;
-     start = 2024y192d04h23m00s;
+     start = 2024y220d02h38m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   133.328 GB :  : &ccw : 1;
@@ -771,7 +771,7 @@ scan No0024;
 endscan;
 *
 scan No0025;
-     start = 2024y192d04h24m00s;
+     start = 2024y220d02h39m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   139.125 GB :  : &ccw : 1;
@@ -782,7 +782,7 @@ scan No0025;
 endscan;
 *
 scan No0026;
-     start = 2024y192d04h25m00s;
+     start = 2024y220d02h40m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   144.922 GB :  : &ccw : 1;
@@ -793,7 +793,7 @@ scan No0026;
 endscan;
 *
 scan No0027;
-     start = 2024y192d04h26m00s;
+     start = 2024y220d02h41m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   150.718 GB :  : &ccw : 1;
@@ -804,7 +804,7 @@ scan No0027;
 endscan;
 *
 scan No0028;
-     start = 2024y192d04h27m00s;
+     start = 2024y220d02h42m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   156.515 GB :  : &ccw : 1;
@@ -815,7 +815,7 @@ scan No0028;
 endscan;
 *
 scan No0029;
-     start = 2024y192d04h28m00s;
+     start = 2024y220d02h43m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   162.312 GB :  : &ccw : 1;
@@ -826,7 +826,7 @@ scan No0029;
 endscan;
 *
 scan No0030;
-     start = 2024y192d04h29m00s;
+     start = 2024y220d02h44m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   168.109 GB :  : &ccw : 1;
@@ -837,7 +837,7 @@ scan No0030;
 endscan;
 *
 scan No0031;
-     start = 2024y192d04h30m00s;
+     start = 2024y220d02h45m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   173.906 GB :  : &ccw : 1;
@@ -848,7 +848,7 @@ scan No0031;
 endscan;
 *
 scan No0032;
-     start = 2024y192d04h31m00s;
+     start = 2024y220d02h46m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   179.703 GB :  : &ccw : 1;
@@ -859,7 +859,7 @@ scan No0032;
 endscan;
 *
 scan No0033;
-     start = 2024y192d04h32m00s;
+     start = 2024y220d02h47m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   185.500 GB :  : &ccw : 1;
@@ -870,7 +870,7 @@ scan No0033;
 endscan;
 *
 scan No0034;
-     start = 2024y192d04h33m00s;
+     start = 2024y220d02h48m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   191.296 GB :  : &ccw : 1;
@@ -881,7 +881,7 @@ scan No0034;
 endscan;
 *
 scan No0035;
-     start = 2024y192d04h34m00s;
+     start = 2024y220d02h49m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   197.093 GB :  : &ccw : 1;
@@ -892,7 +892,7 @@ scan No0035;
 endscan;
 *
 scan No0036;
-     start = 2024y192d04h35m00s;
+     start = 2024y220d02h50m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   202.890 GB :  : &ccw : 1;
@@ -903,7 +903,7 @@ scan No0036;
 endscan;
 *
 scan No0037;
-     start = 2024y192d04h36m00s;
+     start = 2024y220d02h51m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   208.687 GB :  : &ccw : 1;
@@ -914,7 +914,7 @@ scan No0037;
 endscan;
 *
 scan No0038;
-     start = 2024y192d04h37m00s;
+     start = 2024y220d02h52m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   214.484 GB :  : &ccw : 1;
@@ -925,7 +925,7 @@ scan No0038;
 endscan;
 *
 scan No0039;
-     start = 2024y192d04h38m00s;
+     start = 2024y220d02h53m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   220.281 GB :  : &ccw : 1;
@@ -936,7 +936,7 @@ scan No0039;
 endscan;
 *
 scan No0040;
-     start = 2024y192d04h39m00s;
+     start = 2024y220d02h54m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   226.078 GB :  : &ccw : 1;
@@ -947,7 +947,7 @@ scan No0040;
 endscan;
 *
 scan No0041;
-     start = 2024y192d04h40m00s;
+     start = 2024y220d02h55m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   231.874 GB :  : &ccw : 1;
@@ -958,7 +958,7 @@ scan No0041;
 endscan;
 *
 scan No0042;
-     start = 2024y192d04h41m00s;
+     start = 2024y220d02h56m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   237.671 GB :  : &ccw : 1;
@@ -969,7 +969,7 @@ scan No0042;
 endscan;
 *
 scan No0043;
-     start = 2024y192d04h42m00s;
+     start = 2024y220d02h57m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   243.468 GB :  : &ccw : 1;
@@ -980,7 +980,7 @@ scan No0043;
 endscan;
 *
 scan No0044;
-     start = 2024y192d04h43m00s;
+     start = 2024y220d02h58m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   249.265 GB :  : &ccw : 1;
@@ -991,7 +991,7 @@ scan No0044;
 endscan;
 *
 scan No0045;
-     start = 2024y192d04h44m00s;
+     start = 2024y220d02h59m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   255.062 GB :  : &ccw : 1;
@@ -1002,7 +1002,7 @@ scan No0045;
 endscan;
 *
 scan No0046;
-     start = 2024y192d04h45m00s;
+     start = 2024y220d03h00m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   260.859 GB :  : &ccw : 1;
@@ -1013,7 +1013,7 @@ scan No0046;
 endscan;
 *
 scan No0047;
-     start = 2024y192d04h46m00s;
+     start = 2024y220d03h01m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   266.656 GB :  : &ccw : 1;
@@ -1024,7 +1024,7 @@ scan No0047;
 endscan;
 *
 scan No0048;
-     start = 2024y192d04h47m00s;
+     start = 2024y220d03h02m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   272.452 GB :  : &ccw : 1;
@@ -1035,7 +1035,7 @@ scan No0048;
 endscan;
 *
 scan No0049;
-     start = 2024y192d04h48m00s;
+     start = 2024y220d03h03m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   278.249 GB :  : &ccw : 1;
@@ -1046,7 +1046,7 @@ scan No0049;
 endscan;
 *
 scan No0050;
-     start = 2024y192d04h49m00s;
+     start = 2024y220d03h04m00s;
      mode = spirals3.meth;
      source = 0537-441;
      station = Cd : 0 sec : 45 sec :   284.046 GB :  : &ccw : 1;
@@ -1057,7 +1057,7 @@ scan No0050;
 endscan;
 *
 scan No0051;
-     start = 2024y192d04h58m20s;
+     start = 2024y220d03h13m20s;
      mode = spirals3.meth;
      source = 0302-623;
      station = Cd : 0 sec : 60 sec :   289.843 GB :  :   &n : 1;
@@ -1068,7 +1068,7 @@ scan No0051;
 endscan;
 *
 scan No0052;
-     start = 2024y192d05h00m12s;
+     start = 2024y220d03h15m13s;
      mode = spirals3.meth;
      source = 0454-810;
      station = Cd : 0 sec : 60 sec :   297.572 GB :  :   &n : 1;
@@ -1079,7 +1079,7 @@ scan No0052;
 endscan;
 *
 scan No0053;
-     start = 2024y192d05h02m20s;
+     start = 2024y220d03h17m20s;
      mode = spirals3.meth;
      source = 1725-795;
      station = Cd : 0 sec : 60 sec :   305.301 GB :  :   &n : 1;
@@ -1090,7 +1090,7 @@ scan No0053;
 endscan;
 *
 scan No0054;
-     start = 2024y192d05h04m09s;
+     start = 2024y220d03h19m10s;
      mode = spirals3.meth;
      source = 1758-651;
      station = Cd : 0 sec : 60 sec :   313.031 GB :  :   &n : 1;
@@ -1100,7 +1100,7 @@ scan No0054;
 endscan;
 *
 scan No0055;
-     start = 2024y192d05h06m20s;
+     start = 2024y220d03h21m19s;
      mode = spirals3.meth;
      source = 2300-683;
      station = Cd : 0 sec : 60 sec :   320.760 GB :  :   &n : 1;
@@ -1110,7 +1110,7 @@ scan No0055;
 endscan;
 *
 scan No0056;
-     start = 2024y192d05h09m08s;
+     start = 2024y220d03h24m08s;
      mode = spirals3.meth;
      source = 0534-611;
      station = Cd : 0 sec : 60 sec :   328.489 GB :  :   &n : 1;
@@ -1121,7 +1121,7 @@ scan No0056;
 endscan;
 *
 scan No0057;
-     start = 2024y192d05h11m13s;
+     start = 2024y220d03h26m12s;
      mode = spirals3.meth;
      source = 0521-365;
      station = Cd : 0 sec : 60 sec :   336.218 GB :  :  &cw : 1;
@@ -1132,7 +1132,7 @@ scan No0057;
 endscan;
 *
 scan No0058;
-     start = 2024y192d05h13m33s;
+     start = 2024y220d03h28m32s;
      mode = spirals3.meth;
      source = 0446+112;
      station = Cd : 0 sec : 60 sec :   343.947 GB :  : &cw : 1;
@@ -1141,7 +1141,7 @@ scan No0058;
 endscan;
 *
 scan No0059;
-     start = 2024y192d05h15m34s;
+     start = 2024y220d03h30m32s;
      mode = spirals3.meth;
      source = 0414-189;
      station = Cd : 0 sec : 60 sec :   351.676 GB :  :  &cw : 1;
@@ -1151,7 +1151,7 @@ scan No0059;
 endscan;
 *
 scan No0060;
-     start = 2024y192d05h19m24s;
+     start = 2024y220d03h34m21s;
      mode = spirals3.meth;
      source = F1252-6737;
      station = Cd : 0 sec : 120 sec :   359.406 GB :  :   &n : 1;
@@ -1162,7 +1162,7 @@ scan No0060;
 endscan;
 *
 scan No0061;
-     start = 2024y192d05h21m45s;
+     start = 2024y220d03h36m42s;
      mode = spirals3.meth;
      source = F1254-7138;
      station = Cd : 0 sec : 120 sec :   374.864 GB :  :   &n : 1;
@@ -1173,7 +1173,7 @@ scan No0061;
 endscan;
 *
 scan No0062;
-     start = 2024y192d05h24m45s;
+     start = 2024y220d03h39m40s;
      mode = spirals3.meth;
      source = F1329-5608;
      station = Cd : 0 sec : 120 sec :   390.322 GB :  :   &n : 1;
@@ -1184,7 +1184,7 @@ scan No0062;
 endscan;
 *
 scan No0063;
-     start = 2024y192d05h27m23s;
+     start = 2024y220d03h42m17s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 60 sec :   405.780 GB :  :   &n : 1;
@@ -1195,7 +1195,7 @@ scan No0063;
 endscan;
 *
 scan No0064;
-     start = 2024y192d05h28m38s;
+     start = 2024y220d03h43m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   413.510 GB :  :   &n : 1;
@@ -1206,7 +1206,7 @@ scan No0064;
 endscan;
 *
 scan No0065;
-     start = 2024y192d05h29m38s;
+     start = 2024y220d03h44m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   419.306 GB :  :   &n : 1;
@@ -1217,7 +1217,7 @@ scan No0065;
 endscan;
 *
 scan No0066;
-     start = 2024y192d05h30m38s;
+     start = 2024y220d03h45m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   425.103 GB :  :   &n : 1;
@@ -1228,7 +1228,7 @@ scan No0066;
 endscan;
 *
 scan No0067;
-     start = 2024y192d05h31m38s;
+     start = 2024y220d03h46m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   430.900 GB :  :   &n : 1;
@@ -1239,7 +1239,7 @@ scan No0067;
 endscan;
 *
 scan No0068;
-     start = 2024y192d05h32m38s;
+     start = 2024y220d03h47m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   436.697 GB :  :   &n : 1;
@@ -1250,7 +1250,7 @@ scan No0068;
 endscan;
 *
 scan No0069;
-     start = 2024y192d05h33m38s;
+     start = 2024y220d03h48m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   442.494 GB :  :   &n : 1;
@@ -1261,7 +1261,7 @@ scan No0069;
 endscan;
 *
 scan No0070;
-     start = 2024y192d05h34m38s;
+     start = 2024y220d03h49m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   448.291 GB :  :   &n : 1;
@@ -1272,7 +1272,7 @@ scan No0070;
 endscan;
 *
 scan No0071;
-     start = 2024y192d05h35m38s;
+     start = 2024y220d03h50m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   454.088 GB :  :   &n : 1;
@@ -1283,7 +1283,7 @@ scan No0071;
 endscan;
 *
 scan No0072;
-     start = 2024y192d05h36m38s;
+     start = 2024y220d03h51m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   459.885 GB :  :   &n : 1;
@@ -1294,7 +1294,7 @@ scan No0072;
 endscan;
 *
 scan No0073;
-     start = 2024y192d05h37m38s;
+     start = 2024y220d03h52m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   465.681 GB :  :   &n : 1;
@@ -1305,7 +1305,7 @@ scan No0073;
 endscan;
 *
 scan No0074;
-     start = 2024y192d05h38m38s;
+     start = 2024y220d03h53m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   471.478 GB :  :   &n : 1;
@@ -1316,7 +1316,7 @@ scan No0074;
 endscan;
 *
 scan No0075;
-     start = 2024y192d05h39m38s;
+     start = 2024y220d03h54m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   477.275 GB :  :   &n : 1;
@@ -1327,7 +1327,7 @@ scan No0075;
 endscan;
 *
 scan No0076;
-     start = 2024y192d05h40m38s;
+     start = 2024y220d03h55m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   483.072 GB :  :   &n : 1;
@@ -1338,7 +1338,7 @@ scan No0076;
 endscan;
 *
 scan No0077;
-     start = 2024y192d05h41m38s;
+     start = 2024y220d03h56m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   488.869 GB :  :   &n : 1;
@@ -1349,7 +1349,7 @@ scan No0077;
 endscan;
 *
 scan No0078;
-     start = 2024y192d05h42m38s;
+     start = 2024y220d03h57m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   494.666 GB :  :   &n : 1;
@@ -1360,7 +1360,7 @@ scan No0078;
 endscan;
 *
 scan No0079;
-     start = 2024y192d05h43m38s;
+     start = 2024y220d03h58m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   500.463 GB :  :   &n : 1;
@@ -1371,7 +1371,7 @@ scan No0079;
 endscan;
 *
 scan No0080;
-     start = 2024y192d05h44m38s;
+     start = 2024y220d03h59m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   506.260 GB :  :   &n : 1;
@@ -1382,7 +1382,7 @@ scan No0080;
 endscan;
 *
 scan No0081;
-     start = 2024y192d05h45m38s;
+     start = 2024y220d04h00m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   512.056 GB :  :   &n : 1;
@@ -1393,29 +1393,29 @@ scan No0081;
 endscan;
 *
 scan No0082;
-     start = 2024y192d05h46m38s;
+     start = 2024y220d04h01m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   517.853 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   510.124 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   502.395 GB :  : &ccw : 1;
-     station = Wa : 0 sec : 45 sec :   502.395 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :   502.395 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   517.853 GB :  : &ccw : 1;
 endscan;
 *
 scan No0083;
-     start = 2024y192d05h47m38s;
+     start = 2024y220d04h02m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   523.650 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   515.921 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   508.192 GB :  : &ccw : 1;
-     station = Wa : 0 sec : 45 sec :   508.192 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :   508.192 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   523.650 GB :  : &ccw : 1;
 endscan;
 *
 scan No0084;
-     start = 2024y192d05h48m38s;
+     start = 2024y220d04h03m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   529.447 GB :  :   &n : 1;
@@ -1426,7 +1426,7 @@ scan No0084;
 endscan;
 *
 scan No0085;
-     start = 2024y192d05h49m38s;
+     start = 2024y220d04h04m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   535.244 GB :  :   &n : 1;
@@ -1437,29 +1437,29 @@ scan No0085;
 endscan;
 *
 scan No0086;
-     start = 2024y192d05h50m38s;
+     start = 2024y220d04h05m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   541.041 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   533.312 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   525.583 GB :  : &ccw : 1;
-     station = Wa : 0 sec : 45 sec :   525.583 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :   525.583 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   541.041 GB :  : &ccw : 1;
 endscan;
 *
 scan No0087;
-     start = 2024y192d05h51m38s;
+     start = 2024y220d04h06m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   546.838 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   539.109 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   531.379 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :   531.379 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :   531.379 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   546.838 GB :  : &ccw : 1;
 endscan;
 *
 scan No0088;
-     start = 2024y192d05h52m38s;
+     start = 2024y220d04h07m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   552.635 GB :  :   &n : 1;
@@ -1470,7 +1470,7 @@ scan No0088;
 endscan;
 *
 scan No0089;
-     start = 2024y192d05h53m38s;
+     start = 2024y220d04h08m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   558.431 GB :  :   &n : 1;
@@ -1481,29 +1481,29 @@ scan No0089;
 endscan;
 *
 scan No0090;
-     start = 2024y192d05h54m38s;
+     start = 2024y220d04h09m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   564.228 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   556.499 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   548.770 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :   548.770 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :   548.770 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   564.228 GB :  : &ccw : 1;
 endscan;
 *
 scan No0091;
-     start = 2024y192d05h55m38s;
+     start = 2024y220d04h10m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   570.025 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   562.296 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   554.567 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :   554.567 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :   554.567 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   570.025 GB :  : &ccw : 1;
 endscan;
 *
 scan No0092;
-     start = 2024y192d05h56m38s;
+     start = 2024y220d04h11m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   575.822 GB :  :   &n : 1;
@@ -1514,7 +1514,7 @@ scan No0092;
 endscan;
 *
 scan No0093;
-     start = 2024y192d05h57m38s;
+     start = 2024y220d04h12m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   581.619 GB :  :   &n : 1;
@@ -1525,7 +1525,7 @@ scan No0093;
 endscan;
 *
 scan No0094;
-     start = 2024y192d05h58m38s;
+     start = 2024y220d04h13m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   587.416 GB :  :   &n : 1;
@@ -1536,29 +1536,29 @@ scan No0094;
 endscan;
 *
 scan No0095;
-     start = 2024y192d05h59m38s;
+     start = 2024y220d04h14m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   593.213 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   585.484 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   577.754 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :   577.754 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :   577.754 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   593.213 GB :  : &ccw : 1;
 endscan;
 *
 scan No0096;
-     start = 2024y192d06h00m38s;
+     start = 2024y220d04h15m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   599.010 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   591.280 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   583.551 GB :  : &ccw : 1;
-     station = Wa : 0 sec : 45 sec :   583.551 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :   583.551 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   599.010 GB :  : &ccw : 1;
 endscan;
 *
 scan No0097;
-     start = 2024y192d06h01m38s;
+     start = 2024y220d04h16m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   604.806 GB :  :   &n : 1;
@@ -1569,18 +1569,18 @@ scan No0097;
 endscan;
 *
 scan No0098;
-     start = 2024y192d06h02m38s;
+     start = 2024y220d04h17m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   610.603 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   602.874 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   595.145 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :   595.145 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :   595.145 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   610.603 GB :  : &ccw : 1;
 endscan;
 *
 scan No0099;
-     start = 2024y192d06h03m38s;
+     start = 2024y220d04h18m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   616.400 GB :  :   &n : 1;
@@ -1591,7 +1591,7 @@ scan No0099;
 endscan;
 *
 scan No0100;
-     start = 2024y192d06h04m38s;
+     start = 2024y220d04h19m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   622.197 GB :  :   &n : 1;
@@ -1602,18 +1602,18 @@ scan No0100;
 endscan;
 *
 scan No0101;
-     start = 2024y192d06h05m38s;
+     start = 2024y220d04h20m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   627.994 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   620.265 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   612.536 GB :  : &ccw : 1;
-     station = Wa : 0 sec : 45 sec :   612.536 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :   612.536 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   627.994 GB :  : &ccw : 1;
 endscan;
 *
 scan No0102;
-     start = 2024y192d06h06m38s;
+     start = 2024y220d04h21m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   633.791 GB :  :   &n : 1;
@@ -1624,18 +1624,18 @@ scan No0102;
 endscan;
 *
 scan No0103;
-     start = 2024y192d06h07m38s;
+     start = 2024y220d04h22m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   639.588 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   631.859 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   624.129 GB :  : &ccw : 1;
-     station = Wa : 3 sec : 45 sec :   624.129 GB :  : &ccw : 1;
+     station = Wa : 4 sec : 45 sec :   624.129 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   639.588 GB :  : &ccw : 1;
 endscan;
 *
 scan No0104;
-     start = 2024y192d06h08m38s;
+     start = 2024y220d04h23m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   645.385 GB :  :   &n : 1;
@@ -1646,7 +1646,7 @@ scan No0104;
 endscan;
 *
 scan No0105;
-     start = 2024y192d06h09m38s;
+     start = 2024y220d04h24m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   651.181 GB :  :   &n : 1;
@@ -1657,18 +1657,18 @@ scan No0105;
 endscan;
 *
 scan No0106;
-     start = 2024y192d06h10m38s;
+     start = 2024y220d04h25m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   656.978 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   649.249 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   641.520 GB :  : &ccw : 1;
-     station = Wa : 3 sec : 45 sec :   641.520 GB :  : &ccw : 1;
+     station = Wa : 4 sec : 45 sec :   641.520 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   656.978 GB :  : &ccw : 1;
 endscan;
 *
 scan No0107;
-     start = 2024y192d06h11m38s;
+     start = 2024y220d04h26m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   662.775 GB :  :   &n : 1;
@@ -1679,18 +1679,18 @@ scan No0107;
 endscan;
 *
 scan No0108;
-     start = 2024y192d06h12m38s;
+     start = 2024y220d04h27m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   668.572 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   660.843 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   653.114 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :   653.114 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :   653.114 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   668.572 GB :  : &ccw : 1;
 endscan;
 *
 scan No0109;
-     start = 2024y192d06h13m38s;
+     start = 2024y220d04h28m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   674.369 GB :  :   &n : 1;
@@ -1701,7 +1701,7 @@ scan No0109;
 endscan;
 *
 scan No0110;
-     start = 2024y192d06h14m38s;
+     start = 2024y220d04h29m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   680.166 GB :  :   &n : 1;
@@ -1712,18 +1712,18 @@ scan No0110;
 endscan;
 *
 scan No0111;
-     start = 2024y192d06h15m38s;
+     start = 2024y220d04h30m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   685.963 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   678.234 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   670.504 GB :  : &ccw : 1;
-     station = Wa : 4 sec : 45 sec :   670.504 GB :  : &ccw : 1;
+     station = Wa : 5 sec : 45 sec :   670.504 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   685.963 GB :  : &ccw : 1;
 endscan;
 *
 scan No0112;
-     start = 2024y192d06h16m38s;
+     start = 2024y220d04h31m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   691.760 GB :  :   &n : 1;
@@ -1734,29 +1734,29 @@ scan No0112;
 endscan;
 *
 scan No0113;
-     start = 2024y192d06h17m38s;
+     start = 2024y220d04h32m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   697.556 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   689.827 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   682.098 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :   682.098 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :   682.098 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   697.556 GB :  : &ccw : 1;
 endscan;
 *
 scan No0114;
-     start = 2024y192d06h18m38s;
+     start = 2024y220d04h33m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   703.353 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   695.624 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   687.895 GB :  : &ccw : 1;
-     station = Wa : 4 sec : 45 sec :   687.895 GB :  : &ccw : 1;
+     station = Wa : 5 sec : 45 sec :   687.895 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   703.353 GB :  : &ccw : 1;
 endscan;
 *
 scan No0115;
-     start = 2024y192d06h19m38s;
+     start = 2024y220d04h34m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   709.150 GB :  :   &n : 1;
@@ -1767,7 +1767,7 @@ scan No0115;
 endscan;
 *
 scan No0116;
-     start = 2024y192d06h20m38s;
+     start = 2024y220d04h35m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   714.947 GB :  :   &n : 1;
@@ -1778,7 +1778,7 @@ scan No0116;
 endscan;
 *
 scan No0117;
-     start = 2024y192d06h21m38s;
+     start = 2024y220d04h36m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   720.744 GB :  :   &n : 1;
@@ -1789,7 +1789,7 @@ scan No0117;
 endscan;
 *
 scan No0118;
-     start = 2024y192d06h22m38s;
+     start = 2024y220d04h37m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   726.541 GB :  :   &n : 1;
@@ -1800,18 +1800,18 @@ scan No0118;
 endscan;
 *
 scan No0119;
-     start = 2024y192d06h23m38s;
+     start = 2024y220d04h38m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   732.338 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   724.609 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   716.879 GB :  : &ccw : 1;
-     station = Wa : 5 sec : 45 sec :   716.879 GB :  : &ccw : 1;
+     station = Wa : 6 sec : 45 sec :   716.879 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   732.338 GB :  : &ccw : 1;
 endscan;
 *
 scan No0120;
-     start = 2024y192d06h24m38s;
+     start = 2024y220d04h39m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   738.135 GB :  :   &n : 1;
@@ -1822,7 +1822,7 @@ scan No0120;
 endscan;
 *
 scan No0121;
-     start = 2024y192d06h25m38s;
+     start = 2024y220d04h40m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   743.931 GB :  :   &n : 1;
@@ -1833,18 +1833,18 @@ scan No0121;
 endscan;
 *
 scan No0122;
-     start = 2024y192d06h26m38s;
+     start = 2024y220d04h41m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   749.728 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   741.999 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   734.270 GB :  : &ccw : 1;
-     station = Wa : 5 sec : 45 sec :   734.270 GB :  : &ccw : 1;
+     station = Wa : 6 sec : 45 sec :   734.270 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   749.728 GB :  : &ccw : 1;
 endscan;
 *
 scan No0123;
-     start = 2024y192d06h27m38s;
+     start = 2024y220d04h42m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   755.525 GB :  :   &n : 1;
@@ -1855,18 +1855,18 @@ scan No0123;
 endscan;
 *
 scan No0124;
-     start = 2024y192d06h28m38s;
+     start = 2024y220d04h43m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   761.322 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   753.593 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   745.864 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :   745.864 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :   745.864 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   761.322 GB :  : &ccw : 1;
 endscan;
 *
 scan No0125;
-     start = 2024y192d06h29m38s;
+     start = 2024y220d04h44m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   767.119 GB :  :   &n : 1;
@@ -1877,7 +1877,7 @@ scan No0125;
 endscan;
 *
 scan No0126;
-     start = 2024y192d06h30m38s;
+     start = 2024y220d04h45m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   772.916 GB :  :   &n : 1;
@@ -1888,18 +1888,18 @@ scan No0126;
 endscan;
 *
 scan No0127;
-     start = 2024y192d06h31m38s;
+     start = 2024y220d04h46m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :   778.713 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   770.984 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   763.254 GB :  : &ccw : 1;
-     station = Wa : 6 sec : 45 sec :   763.254 GB :  : &ccw : 1;
+     station = Wa : 7 sec : 45 sec :   763.254 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   778.713 GB :  : &ccw : 1;
 endscan;
 *
 scan No0128;
-     start = 2024y192d06h32m38s;
+     start = 2024y220d04h47m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   784.510 GB :  :   &n : 1;
@@ -1910,18 +1910,18 @@ scan No0128;
 endscan;
 *
 scan No0129;
-     start = 2024y192d06h33m38s;
+     start = 2024y220d04h48m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   790.306 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   782.577 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   774.848 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :   774.848 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :   774.848 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   790.306 GB :  : &ccw : 1;
 endscan;
 *
 scan No0130;
-     start = 2024y192d06h34m38s;
+     start = 2024y220d04h49m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   796.103 GB :  :   &n : 1;
@@ -1932,10 +1932,10 @@ scan No0130;
 endscan;
 *
 scan No0131;
-     start = 2024y192d06h35m38s;
+     start = 2024y220d04h50m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :   801.900 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :   801.900 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   794.171 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   786.442 GB :  : &ccw : 1;
      station = Wa : 7 sec : 45 sec :   786.442 GB :  : &ccw : 1;
@@ -1943,7 +1943,7 @@ scan No0131;
 endscan;
 *
 scan No0132;
-     start = 2024y192d06h36m38s;
+     start = 2024y220d04h51m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   807.697 GB :  :   &n : 1;
@@ -1954,32 +1954,32 @@ scan No0132;
 endscan;
 *
 scan No0133;
-     start = 2024y192d06h37m38s;
+     start = 2024y220d04h52m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   813.494 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   805.765 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   798.036 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :   798.036 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :   798.036 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   813.494 GB :  : &ccw : 1;
 endscan;
 *
 scan No0134;
-     start = 2024y192d06h38m38s;
+     start = 2024y220d04h53m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   819.291 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   811.562 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   803.833 GB :  : &ccw : 1;
-     station = Wa : 6 sec : 45 sec :   803.833 GB :  : &ccw : 1;
+     station = Wa : 7 sec : 45 sec :   803.833 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   819.291 GB :  : &ccw : 1;
 endscan;
 *
 scan No0135;
-     start = 2024y192d06h39m38s;
+     start = 2024y220d04h54m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :   825.088 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :   825.088 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   817.359 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   809.629 GB :  : &ccw : 1;
      station = Wa : 7 sec : 45 sec :   809.629 GB :  : &ccw : 1;
@@ -1987,7 +1987,7 @@ scan No0135;
 endscan;
 *
 scan No0136;
-     start = 2024y192d06h40m38s;
+     start = 2024y220d04h55m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   830.885 GB :  :   &n : 1;
@@ -1998,7 +1998,7 @@ scan No0136;
 endscan;
 *
 scan No0137;
-     start = 2024y192d06h41m38s;
+     start = 2024y220d04h56m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   836.681 GB :  :   &n : 1;
@@ -2009,7 +2009,7 @@ scan No0137;
 endscan;
 *
 scan No0138;
-     start = 2024y192d06h42m38s;
+     start = 2024y220d04h57m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   842.478 GB :  :   &n : 1;
@@ -2020,18 +2020,18 @@ scan No0138;
 endscan;
 *
 scan No0139;
-     start = 2024y192d06h43m38s;
+     start = 2024y220d04h58m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :   848.275 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   840.546 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   832.817 GB :  : &ccw : 1;
-     station = Wa : 7 sec : 45 sec :   832.817 GB :  : &ccw : 1;
+     station = Wa : 8 sec : 45 sec :   832.817 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   848.275 GB :  : &ccw : 1;
 endscan;
 *
 scan No0140;
-     start = 2024y192d06h44m38s;
+     start = 2024y220d04h59m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   854.072 GB :  :   &n : 1;
@@ -2042,7 +2042,7 @@ scan No0140;
 endscan;
 *
 scan No0141;
-     start = 2024y192d06h45m38s;
+     start = 2024y220d05h00m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   859.869 GB :  :   &n : 1;
@@ -2053,7 +2053,7 @@ scan No0141;
 endscan;
 *
 scan No0142;
-     start = 2024y192d06h46m38s;
+     start = 2024y220d05h01m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   865.666 GB :  :   &n : 1;
@@ -2064,7 +2064,7 @@ scan No0142;
 endscan;
 *
 scan No0143;
-     start = 2024y192d06h47m38s;
+     start = 2024y220d05h02m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :   871.463 GB :  :   &n : 1;
@@ -2075,7 +2075,7 @@ scan No0143;
 endscan;
 *
 scan No0144;
-     start = 2024y192d06h48m38s;
+     start = 2024y220d05h03m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   877.260 GB :  :   &n : 1;
@@ -2086,7 +2086,7 @@ scan No0144;
 endscan;
 *
 scan No0145;
-     start = 2024y192d06h49m38s;
+     start = 2024y220d05h04m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   883.056 GB :  :   &n : 1;
@@ -2097,18 +2097,18 @@ scan No0145;
 endscan;
 *
 scan No0146;
-     start = 2024y192d06h50m38s;
+     start = 2024y220d05h05m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   888.853 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   881.124 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   873.395 GB :  : &ccw : 1;
-     station = Wa : 7 sec : 45 sec :   873.395 GB :  : &ccw : 1;
+     station = Wa : 8 sec : 45 sec :   873.395 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   888.853 GB :  : &ccw : 1;
 endscan;
 *
 scan No0147;
-     start = 2024y192d06h51m38s;
+     start = 2024y220d05h06m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :   894.650 GB :  :   &n : 1;
@@ -2119,7 +2119,7 @@ scan No0147;
 endscan;
 *
 scan No0148;
-     start = 2024y192d06h52m38s;
+     start = 2024y220d05h07m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   900.447 GB :  :   &n : 1;
@@ -2130,7 +2130,7 @@ scan No0148;
 endscan;
 *
 scan No0149;
-     start = 2024y192d06h53m38s;
+     start = 2024y220d05h08m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   906.244 GB :  :   &n : 1;
@@ -2141,7 +2141,7 @@ scan No0149;
 endscan;
 *
 scan No0150;
-     start = 2024y192d06h54m38s;
+     start = 2024y220d05h09m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   912.041 GB :  :   &n : 1;
@@ -2152,18 +2152,18 @@ scan No0150;
 endscan;
 *
 scan No0151;
-     start = 2024y192d06h55m38s;
+     start = 2024y220d05h10m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :   917.838 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   910.109 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   902.379 GB :  : &ccw : 1;
-     station = Wa : 8 sec : 45 sec :   902.379 GB :  : &ccw : 1;
+     station = Wa : 9 sec : 45 sec :   902.379 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   917.838 GB :  : &ccw : 1;
 endscan;
 *
 scan No0152;
-     start = 2024y192d06h56m38s;
+     start = 2024y220d05h11m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   923.635 GB :  :   &n : 1;
@@ -2174,7 +2174,7 @@ scan No0152;
 endscan;
 *
 scan No0153;
-     start = 2024y192d06h57m38s;
+     start = 2024y220d05h12m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   929.431 GB :  :   &n : 1;
@@ -2185,7 +2185,7 @@ scan No0153;
 endscan;
 *
 scan No0154;
-     start = 2024y192d06h58m38s;
+     start = 2024y220d05h13m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   935.228 GB :  :   &n : 1;
@@ -2196,18 +2196,18 @@ scan No0154;
 endscan;
 *
 scan No0155;
-     start = 2024y192d06h59m38s;
+     start = 2024y220d05h14m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :   941.025 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   933.296 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   925.567 GB :  : &ccw : 1;
-     station = Wa : 8 sec : 45 sec :   925.567 GB :  : &ccw : 1;
+     station = Wa : 9 sec : 45 sec :   925.567 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   941.025 GB :  : &ccw : 1;
 endscan;
 *
 scan No0156;
-     start = 2024y192d07h00m38s;
+     start = 2024y220d05h15m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   946.822 GB :  :   &n : 1;
@@ -2218,7 +2218,7 @@ scan No0156;
 endscan;
 *
 scan No0157;
-     start = 2024y192d07h01m38s;
+     start = 2024y220d05h16m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   952.619 GB :  :   &n : 1;
@@ -2229,7 +2229,7 @@ scan No0157;
 endscan;
 *
 scan No0158;
-     start = 2024y192d07h02m38s;
+     start = 2024y220d05h17m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   958.416 GB :  :   &n : 1;
@@ -2240,7 +2240,7 @@ scan No0158;
 endscan;
 *
 scan No0159;
-     start = 2024y192d07h03m38s;
+     start = 2024y220d05h18m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :   964.213 GB :  :   &n : 1;
@@ -2251,7 +2251,7 @@ scan No0159;
 endscan;
 *
 scan No0160;
-     start = 2024y192d07h04m38s;
+     start = 2024y220d05h19m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   970.010 GB :  :   &n : 1;
@@ -2262,7 +2262,7 @@ scan No0160;
 endscan;
 *
 scan No0161;
-     start = 2024y192d07h05m38s;
+     start = 2024y220d05h20m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   975.806 GB :  :   &n : 1;
@@ -2273,21 +2273,21 @@ scan No0161;
 endscan;
 *
 scan No0162;
-     start = 2024y192d07h06m38s;
+     start = 2024y220d05h21m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :   981.603 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   973.874 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   966.145 GB :  : &ccw : 1;
-     station = Wa : 8 sec : 45 sec :   966.145 GB :  : &ccw : 1;
+     station = Wa : 9 sec : 45 sec :   966.145 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :   981.603 GB :  : &ccw : 1;
 endscan;
 *
 scan No0163;
-     start = 2024y192d07h07m38s;
+     start = 2024y220d05h22m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :   987.400 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :   987.400 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :   979.671 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :   971.942 GB :  : &ccw : 1;
      station = Wa : 9 sec : 45 sec :   971.942 GB :  : &ccw : 1;
@@ -2295,7 +2295,7 @@ scan No0163;
 endscan;
 *
 scan No0164;
-     start = 2024y192d07h08m38s;
+     start = 2024y220d05h23m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :   993.197 GB :  :   &n : 1;
@@ -2306,7 +2306,7 @@ scan No0164;
 endscan;
 *
 scan No0165;
-     start = 2024y192d07h09m38s;
+     start = 2024y220d05h24m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :   998.994 GB :  :   &n : 1;
@@ -2317,7 +2317,7 @@ scan No0165;
 endscan;
 *
 scan No0166;
-     start = 2024y192d07h10m38s;
+     start = 2024y220d05h25m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1004.791 GB :  :   &n : 1;
@@ -2328,7 +2328,7 @@ scan No0166;
 endscan;
 *
 scan No0167;
-     start = 2024y192d07h11m38s;
+     start = 2024y220d05h26m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1010.588 GB :  :   &n : 1;
@@ -2339,7 +2339,7 @@ scan No0167;
 endscan;
 *
 scan No0168;
-     start = 2024y192d07h12m38s;
+     start = 2024y220d05h27m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :  1016.385 GB :  :   &n : 1;
@@ -2350,7 +2350,7 @@ scan No0168;
 endscan;
 *
 scan No0169;
-     start = 2024y192d07h13m38s;
+     start = 2024y220d05h28m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :  1022.181 GB :  :   &n : 1;
@@ -2361,7 +2361,7 @@ scan No0169;
 endscan;
 *
 scan No0170;
-     start = 2024y192d07h14m38s;
+     start = 2024y220d05h29m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1027.978 GB :  :   &n : 1;
@@ -2372,7 +2372,7 @@ scan No0170;
 endscan;
 *
 scan No0171;
-     start = 2024y192d07h15m38s;
+     start = 2024y220d05h30m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1033.775 GB :  :   &n : 1;
@@ -2383,7 +2383,7 @@ scan No0171;
 endscan;
 *
 scan No0172;
-     start = 2024y192d07h16m38s;
+     start = 2024y220d05h31m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :  1039.572 GB :  :   &n : 1;
@@ -2394,7 +2394,7 @@ scan No0172;
 endscan;
 *
 scan No0173;
-     start = 2024y192d07h17m38s;
+     start = 2024y220d05h32m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :  1045.369 GB :  :   &n : 1;
@@ -2405,7 +2405,7 @@ scan No0173;
 endscan;
 *
 scan No0174;
-     start = 2024y192d07h18m38s;
+     start = 2024y220d05h33m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1051.166 GB :  :   &n : 1;
@@ -2416,7 +2416,7 @@ scan No0174;
 endscan;
 *
 scan No0175;
-     start = 2024y192d07h19m38s;
+     start = 2024y220d05h34m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1056.963 GB :  :   &n : 1;
@@ -2427,7 +2427,7 @@ scan No0175;
 endscan;
 *
 scan No0176;
-     start = 2024y192d07h20m38s;
+     start = 2024y220d05h35m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :  1062.760 GB :  :   &n : 1;
@@ -2438,7 +2438,7 @@ scan No0176;
 endscan;
 *
 scan No0177;
-     start = 2024y192d07h21m38s;
+     start = 2024y220d05h36m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :  1068.556 GB :  :   &n : 1;
@@ -2449,7 +2449,7 @@ scan No0177;
 endscan;
 *
 scan No0178;
-     start = 2024y192d07h22m38s;
+     start = 2024y220d05h37m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1074.353 GB :  :   &n : 1;
@@ -2460,7 +2460,7 @@ scan No0178;
 endscan;
 *
 scan No0179;
-     start = 2024y192d07h23m38s;
+     start = 2024y220d05h38m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1080.150 GB :  :   &n : 1;
@@ -2471,7 +2471,7 @@ scan No0179;
 endscan;
 *
 scan No0180;
-     start = 2024y192d07h24m38s;
+     start = 2024y220d05h39m32s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 0 sec : 45 sec :  1085.947 GB :  :   &n : 1;
@@ -2482,7 +2482,7 @@ scan No0180;
 endscan;
 *
 scan No0181;
-     start = 2024y192d07h25m38s;
+     start = 2024y220d05h40m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :  1091.744 GB :  :   &n : 1;
@@ -2493,7 +2493,7 @@ scan No0181;
 endscan;
 *
 scan No0182;
-     start = 2024y192d07h26m38s;
+     start = 2024y220d05h41m32s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1097.541 GB :  :   &n : 1;
@@ -2504,18 +2504,18 @@ scan No0182;
 endscan;
 *
 scan No0183;
-     start = 2024y192d07h27m38s;
+     start = 2024y220d05h42m32s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :  1103.338 GB :  :   &n : 1;
-     station = Hb : 0 sec : 45 sec :  1095.609 GB :  : &ccw : 1;
-     station = Ke : 0 sec : 45 sec :  1087.879 GB :  : &ccw : 1;
-     station = Wa : 9 sec : 45 sec :  1087.879 GB :  : &ccw : 1;
-     station = Yg : 0 sec : 45 sec :  1103.338 GB :  : &ccw : 1;
+     station = Cd :  3 sec : 45 sec :  1103.338 GB :  :   &n : 1;
+     station = Hb :  0 sec : 45 sec :  1095.609 GB :  : &ccw : 1;
+     station = Ke :  0 sec : 45 sec :  1087.879 GB :  : &ccw : 1;
+     station = Wa : 10 sec : 45 sec :  1087.879 GB :  : &ccw : 1;
+     station = Yg :  0 sec : 45 sec :  1103.338 GB :  : &ccw : 1;
 endscan;
 *
 scan No0184;
-     start = 2024y192d07h30m53s;
+     start = 2024y220d05h45m46s;
      mode = spirals3.meth;
      source = 0302-623;
      station = Cd : 0 sec : 60 sec :  1109.135 GB :  :   &n : 1;
@@ -2525,7 +2525,7 @@ scan No0184;
 endscan;
 *
 scan No0185;
-     start = 2024y192d07h33m35s;
+     start = 2024y220d05h48m28s;
      mode = spirals3.meth;
      source = 1022-665;
      station = Cd : 0 sec : 60 sec :  1116.864 GB :  :   &n : 1;
@@ -2536,7 +2536,7 @@ scan No0185;
 endscan;
 *
 scan No0186;
-     start = 2024y192d07h35m29s;
+     start = 2024y220d05h50m21s;
      mode = spirals3.meth;
      source = 1057-797;
      station = Cd : 0 sec : 60 sec :  1124.593 GB :  :   &n : 1;
@@ -2547,7 +2547,7 @@ scan No0186;
 endscan;
 *
 scan No0187;
-     start = 2024y192d07h37m51s;
+     start = 2024y220d05h52m45s;
      mode = spirals3.meth;
      source = 2300-683;
      station = Cd : 0 sec : 60 sec :  1132.322 GB :  :   &n : 1;
@@ -2557,7 +2557,7 @@ scan No0187;
 endscan;
 *
 scan No0188;
-     start = 2024y192d07h42m30s;
+     start = 2024y220d05h57m24s;
      mode = spirals3.meth;
      source = 0920-397;
      station = Cd : 0 sec : 60 sec :  1140.051 GB :  :  &cw : 1;
@@ -2568,7 +2568,7 @@ scan No0188;
 endscan;
 *
 scan No0189;
-     start = 2024y192d07h44m03s;
+     start = 2024y220d05h58m57s;
      mode = spirals3.meth;
      source = 0826-373;
      station = Cd : 0 sec : 60 sec :  1147.780 GB :  :  &cw : 1;
@@ -2579,7 +2579,7 @@ scan No0189;
 endscan;
 *
 scan No0190;
-     start = 2024y192d07h46m15s;
+     start = 2024y220d06h01m09s;
      mode = spirals3.meth;
      source = 0627-199;
      station = Cd : 0 sec : 60 sec :  1155.509 GB :  :  &cw : 1;
@@ -2589,7 +2589,7 @@ scan No0190;
 endscan;
 *
 scan No0191;
-     start = 2024y192d07h47m43s;
+     start = 2024y220d06h02m37s;
      mode = spirals3.meth;
      source = 0646-306;
      station = Cd : 0 sec : 60 sec :  1163.238 GB :  :  &cw : 1;
@@ -2599,7 +2599,7 @@ scan No0191;
 endscan;
 *
 scan No0192;
-     start = 2024y192d07h49m51s;
+     start = 2024y220d06h04m45s;
      mode = spirals3.meth;
      source = 0534-611;
      station = Cd : 0 sec : 60 sec :  1170.968 GB :  :   &n : 1;
@@ -2610,7 +2610,7 @@ scan No0192;
 endscan;
 *
 scan No0193;
-     start = 2024y192d07h52m50s;
+     start = 2024y220d06h07m43s;
      mode = spirals3.meth;
      source = F1252-6737;
      station = Cd : 0 sec : 120 sec :  1178.697 GB :  :   &n : 1;
@@ -2621,7 +2621,7 @@ scan No0193;
 endscan;
 *
 scan No0194;
-     start = 2024y192d07h55m08s;
+     start = 2024y220d06h10m02s;
      mode = spirals3.meth;
      source = F1254-7138;
      station = Cd : 0 sec : 120 sec :  1194.155 GB :  :   &n : 1;
@@ -2632,7 +2632,7 @@ scan No0194;
 endscan;
 *
 scan No0195;
-     start = 2024y192d07h57m51s;
+     start = 2024y220d06h12m46s;
      mode = spirals3.meth;
      source = F1329-5608;
      station = Cd : 0 sec : 120 sec :  1209.613 GB :  :   &n : 1;
@@ -2643,7 +2643,7 @@ scan No0195;
 endscan;
 *
 scan No0196;
-     start = 2024y192d08h00m21s;
+     start = 2024y220d06h15m16s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 60 sec :  1225.071 GB :  :   &n : 1;
@@ -2654,10 +2654,10 @@ scan No0196;
 endscan;
 *
 scan No0197;
-     start = 2024y192d08h01m36s;
+     start = 2024y220d06h16m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 0 sec : 45 sec :  1232.801 GB :  :   &n : 1;
+     station = Cd : 1 sec : 45 sec :  1232.801 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1225.071 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1201.884 GB :  : &ccw : 1;
      station = Wa : 2 sec : 45 sec :  1201.884 GB :  : &ccw : 1;
@@ -2665,7 +2665,7 @@ scan No0197;
 endscan;
 *
 scan No0198;
-     start = 2024y192d08h02m36s;
+     start = 2024y220d06h17m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 0 sec : 45 sec :  1238.597 GB :  :   &n : 1;
@@ -2676,18 +2676,18 @@ scan No0198;
 endscan;
 *
 scan No0199;
-     start = 2024y192d08h03m36s;
+     start = 2024y220d06h18m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1244.394 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1236.665 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1213.478 GB :  : &ccw : 1;
-     station = Wa : 9 sec : 45 sec :  1213.478 GB :  : &ccw : 1;
+     station = Wa : 8 sec : 45 sec :  1213.478 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1244.394 GB :  : &ccw : 1;
 endscan;
 *
 scan No0200;
-     start = 2024y192d08h04m36s;
+     start = 2024y220d06h19m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1250.191 GB :  :   &n : 1;
@@ -2698,10 +2698,10 @@ scan No0200;
 endscan;
 *
 scan No0201;
-     start = 2024y192d08h05m36s;
+     start = 2024y220d06h20m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 0 sec : 45 sec :  1255.988 GB :  :   &n : 1;
+     station = Cd : 1 sec : 45 sec :  1255.988 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1248.259 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1225.072 GB :  : &ccw : 1;
      station = Wa : 2 sec : 45 sec :  1225.072 GB :  : &ccw : 1;
@@ -2709,29 +2709,29 @@ scan No0201;
 endscan;
 *
 scan No0202;
-     start = 2024y192d08h06m36s;
+     start = 2024y220d06h21m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 0 sec : 45 sec :  1261.785 GB :  :   &n : 1;
+     station = Cd : 1 sec : 45 sec :  1261.785 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1254.056 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1230.868 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :  1230.868 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :  1230.868 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1261.785 GB :  : &ccw : 1;
 endscan;
 *
 scan No0203;
-     start = 2024y192d08h07m36s;
+     start = 2024y220d06h22m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1267.582 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1259.853 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1236.665 GB :  : &ccw : 1;
-     station = Wa : 9 sec : 45 sec :  1236.665 GB :  : &ccw : 1;
+     station = Wa : 8 sec : 45 sec :  1236.665 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1267.582 GB :  : &ccw : 1;
 endscan;
 *
 scan No0204;
-     start = 2024y192d08h08m36s;
+     start = 2024y220d06h23m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1273.379 GB :  :   &n : 1;
@@ -2742,18 +2742,18 @@ scan No0204;
 endscan;
 *
 scan No0205;
-     start = 2024y192d08h09m36s;
+     start = 2024y220d06h24m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 1 sec : 45 sec :  1279.176 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1271.446 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1248.259 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :  1248.259 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :  1248.259 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1279.176 GB :  : &ccw : 1;
 endscan;
 *
 scan No0206;
-     start = 2024y192d08h10m36s;
+     start = 2024y220d06h25m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 1 sec : 45 sec :  1284.972 GB :  :   &n : 1;
@@ -2764,10 +2764,10 @@ scan No0206;
 endscan;
 *
 scan No0207;
-     start = 2024y192d08h11m36s;
+     start = 2024y220d06h26m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 3 sec : 45 sec :  1290.769 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  1290.769 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1283.040 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1259.853 GB :  : &ccw : 1;
      station = Wa : 8 sec : 45 sec :  1259.853 GB :  : &ccw : 1;
@@ -2775,29 +2775,29 @@ scan No0207;
 endscan;
 *
 scan No0208;
-     start = 2024y192d08h12m36s;
+     start = 2024y220d06h27m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1296.566 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1288.837 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1265.650 GB :  : &ccw : 1;
-     station = Wa : 9 sec : 45 sec :  1265.650 GB :  : &ccw : 1;
+     station = Wa : 8 sec : 45 sec :  1265.650 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1296.566 GB :  : &ccw : 1;
 endscan;
 *
 scan No0209;
-     start = 2024y192d08h13m36s;
+     start = 2024y220d06h28m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 1 sec : 45 sec :  1302.363 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  1302.363 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1294.634 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1271.447 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :  1271.447 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :  1271.447 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1302.363 GB :  : &ccw : 1;
 endscan;
 *
 scan No0210;
-     start = 2024y192d08h14m36s;
+     start = 2024y220d06h29m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 1 sec : 45 sec :  1308.160 GB :  :   &n : 1;
@@ -2808,10 +2808,10 @@ scan No0210;
 endscan;
 *
 scan No0211;
-     start = 2024y192d08h15m36s;
+     start = 2024y220d06h30m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 3 sec : 45 sec :  1313.957 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  1313.957 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1306.228 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1283.040 GB :  : &ccw : 1;
      station = Wa : 8 sec : 45 sec :  1283.040 GB :  : &ccw : 1;
@@ -2819,7 +2819,7 @@ scan No0211;
 endscan;
 *
 scan No0212;
-     start = 2024y192d08h16m36s;
+     start = 2024y220d06h31m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1319.754 GB :  :   &n : 1;
@@ -2830,10 +2830,10 @@ scan No0212;
 endscan;
 *
 scan No0213;
-     start = 2024y192d08h17m36s;
+     start = 2024y220d06h32m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 1 sec : 45 sec :  1325.551 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  1325.551 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1317.821 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1294.634 GB :  : &ccw : 1;
      station = Wa : 1 sec : 45 sec :  1294.634 GB :  : &ccw : 1;
@@ -2841,10 +2841,10 @@ scan No0213;
 endscan;
 *
 scan No0214;
-     start = 2024y192d08h18m36s;
+     start = 2024y220d06h33m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 1 sec : 45 sec :  1331.347 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  1331.347 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1323.618 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1300.431 GB :  : &ccw : 1;
      station = Wa : 1 sec : 45 sec :  1300.431 GB :  : &ccw : 1;
@@ -2852,10 +2852,10 @@ scan No0214;
 endscan;
 *
 scan No0215;
-     start = 2024y192d08h19m36s;
+     start = 2024y220d06h34m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 2 sec : 45 sec :  1337.144 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :  1337.144 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1329.415 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1306.228 GB :  : &ccw : 1;
      station = Wa : 8 sec : 45 sec :  1306.228 GB :  : &ccw : 1;
@@ -2863,7 +2863,7 @@ scan No0215;
 endscan;
 *
 scan No0216;
-     start = 2024y192d08h20m36s;
+     start = 2024y220d06h35m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1342.941 GB :  :   &n : 1;
@@ -2874,7 +2874,7 @@ scan No0216;
 endscan;
 *
 scan No0217;
-     start = 2024y192d08h21m36s;
+     start = 2024y220d06h36m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  1348.738 GB :  :   &n : 1;
@@ -2885,7 +2885,7 @@ scan No0217;
 endscan;
 *
 scan No0218;
-     start = 2024y192d08h22m36s;
+     start = 2024y220d06h37m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  1354.535 GB :  :   &n : 1;
@@ -2896,7 +2896,7 @@ scan No0218;
 endscan;
 *
 scan No0219;
-     start = 2024y192d08h23m36s;
+     start = 2024y220d06h38m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 3 sec : 45 sec :  1360.332 GB :  :   &n : 1;
@@ -2907,10 +2907,10 @@ scan No0219;
 endscan;
 *
 scan No0220;
-     start = 2024y192d08h24m36s;
+     start = 2024y220d06h39m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :  1366.129 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  1366.129 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1358.400 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1335.212 GB :  : &ccw : 1;
      station = Wa : 8 sec : 45 sec :  1335.212 GB :  : &ccw : 1;
@@ -2918,7 +2918,7 @@ scan No0220;
 endscan;
 *
 scan No0221;
-     start = 2024y192d08h25m36s;
+     start = 2024y220d06h40m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  1371.926 GB :  :   &n : 1;
@@ -2929,32 +2929,32 @@ scan No0221;
 endscan;
 *
 scan No0222;
-     start = 2024y192d08h26m36s;
+     start = 2024y220d06h41m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  1377.722 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1369.993 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1346.806 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :  1346.806 GB :  : &ccw : 1;
+     station = Wa : 0 sec : 45 sec :  1346.806 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1377.722 GB :  : &ccw : 1;
 endscan;
 *
 scan No0223;
-     start = 2024y192d08h27m36s;
+     start = 2024y220d06h42m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 3 sec : 45 sec :  1383.519 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  1383.519 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1375.790 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1352.603 GB :  : &ccw : 1;
-     station = Wa : 8 sec : 45 sec :  1352.603 GB :  : &ccw : 1;
+     station = Wa : 7 sec : 45 sec :  1352.603 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1383.519 GB :  : &ccw : 1;
 endscan;
 *
 scan No0224;
-     start = 2024y192d08h28m36s;
+     start = 2024y220d06h43m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :  1389.316 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  1389.316 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1381.587 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1358.400 GB :  : &ccw : 1;
      station = Wa : 8 sec : 45 sec :  1358.400 GB :  : &ccw : 1;
@@ -2962,18 +2962,18 @@ scan No0224;
 endscan;
 *
 scan No0225;
-     start = 2024y192d08h29m36s;
+     start = 2024y220d06h44m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 2 sec : 45 sec :  1395.113 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :  1395.113 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1387.384 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1364.197 GB :  : &ccw : 1;
-     station = Wa : 1 sec : 45 sec :  1364.197 GB :  : &ccw : 1;
+     station = Wa : 0 sec : 45 sec :  1364.197 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1395.113 GB :  : &ccw : 1;
 endscan;
 *
 scan No0226;
-     start = 2024y192d08h30m36s;
+     start = 2024y220d06h45m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  1400.910 GB :  :   &n : 1;
@@ -2984,10 +2984,10 @@ scan No0226;
 endscan;
 *
 scan No0227;
-     start = 2024y192d08h31m36s;
+     start = 2024y220d06h46m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 3 sec : 45 sec :  1406.707 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  1406.707 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1398.978 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1375.790 GB :  : &ccw : 1;
      station = Wa : 7 sec : 45 sec :  1375.790 GB :  : &ccw : 1;
@@ -2995,18 +2995,18 @@ scan No0227;
 endscan;
 *
 scan No0228;
-     start = 2024y192d08h32m36s;
+     start = 2024y220d06h47m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  1412.504 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1404.775 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1381.587 GB :  : &ccw : 1;
-     station = Wa : 8 sec : 45 sec :  1381.587 GB :  : &ccw : 1;
+     station = Wa : 7 sec : 45 sec :  1381.587 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1412.504 GB :  : &ccw : 1;
 endscan;
 *
 scan No0229;
-     start = 2024y192d08h33m36s;
+     start = 2024y220d06h48m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  1418.301 GB :  :   &n : 1;
@@ -3017,10 +3017,10 @@ scan No0229;
 endscan;
 *
 scan No0230;
-     start = 2024y192d08h34m36s;
+     start = 2024y220d06h49m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 2 sec : 45 sec :  1424.097 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :  1424.097 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1416.368 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1393.181 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  1393.181 GB :  : &ccw : 1;
@@ -3028,7 +3028,7 @@ scan No0230;
 endscan;
 *
 scan No0231;
-     start = 2024y192d08h35m36s;
+     start = 2024y220d06h50m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 4 sec : 45 sec :  1429.894 GB :  :   &n : 1;
@@ -3039,10 +3039,10 @@ scan No0231;
 endscan;
 *
 scan No0232;
-     start = 2024y192d08h36m36s;
+     start = 2024y220d06h51m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :  1435.691 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  1435.691 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1427.962 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1404.775 GB :  : &ccw : 1;
      station = Wa : 7 sec : 45 sec :  1404.775 GB :  : &ccw : 1;
@@ -3050,7 +3050,7 @@ scan No0232;
 endscan;
 *
 scan No0233;
-     start = 2024y192d08h37m36s;
+     start = 2024y220d06h52m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  1441.488 GB :  :   &n : 1;
@@ -3061,7 +3061,7 @@ scan No0233;
 endscan;
 *
 scan No0234;
-     start = 2024y192d08h38m36s;
+     start = 2024y220d06h53m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1447.285 GB :  :   &n : 1;
@@ -3072,10 +3072,10 @@ scan No0234;
 endscan;
 *
 scan No0235;
-     start = 2024y192d08h39m36s;
+     start = 2024y220d06h54m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 4 sec : 45 sec :  1453.082 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  1453.082 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1445.353 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1422.165 GB :  : &ccw : 1;
      station = Wa : 7 sec : 45 sec :  1422.165 GB :  : &ccw : 1;
@@ -3083,10 +3083,10 @@ scan No0235;
 endscan;
 *
 scan No0236;
-     start = 2024y192d08h40m36s;
+     start = 2024y220d06h55m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :  1458.879 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  1458.879 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1451.150 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1427.962 GB :  : &ccw : 1;
      station = Wa : 7 sec : 45 sec :  1427.962 GB :  : &ccw : 1;
@@ -3094,7 +3094,7 @@ scan No0236;
 endscan;
 *
 scan No0237;
-     start = 2024y192d08h41m36s;
+     start = 2024y220d06h56m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  1464.676 GB :  :   &n : 1;
@@ -3105,7 +3105,7 @@ scan No0237;
 endscan;
 *
 scan No0238;
-     start = 2024y192d08h42m36s;
+     start = 2024y220d06h57m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1470.472 GB :  :   &n : 1;
@@ -3116,18 +3116,18 @@ scan No0238;
 endscan;
 *
 scan No0239;
-     start = 2024y192d08h43m36s;
+     start = 2024y220d06h58m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 5 sec : 45 sec :  1476.269 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1468.540 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1445.353 GB :  : &ccw : 1;
-     station = Wa : 7 sec : 45 sec :  1445.353 GB :  : &ccw : 1;
+     station = Wa : 6 sec : 45 sec :  1445.353 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1476.269 GB :  : &ccw : 1;
 endscan;
 *
 scan No0240;
-     start = 2024y192d08h44m36s;
+     start = 2024y220d06h59m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1482.066 GB :  :   &n : 1;
@@ -3138,10 +3138,10 @@ scan No0240;
 endscan;
 *
 scan No0241;
-     start = 2024y192d08h45m36s;
+     start = 2024y220d07h00m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 3 sec : 45 sec :  1487.863 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  1487.863 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1480.134 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1456.947 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  1456.947 GB :  : &ccw : 1;
@@ -3149,7 +3149,7 @@ scan No0241;
 endscan;
 *
 scan No0242;
-     start = 2024y192d08h46m36s;
+     start = 2024y220d07h01m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  1493.660 GB :  :   &n : 1;
@@ -3160,7 +3160,7 @@ scan No0242;
 endscan;
 *
 scan No0243;
-     start = 2024y192d08h47m36s;
+     start = 2024y220d07h02m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 5 sec : 45 sec :  1499.457 GB :  :   &n : 1;
@@ -3171,18 +3171,18 @@ scan No0243;
 endscan;
 *
 scan No0244;
-     start = 2024y192d08h48m36s;
+     start = 2024y220d07h03m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 5 sec : 45 sec :  1505.254 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  1505.254 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1497.525 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1474.337 GB :  : &ccw : 1;
-     station = Wa : 7 sec : 45 sec :  1474.337 GB :  : &ccw : 1;
+     station = Wa : 6 sec : 45 sec :  1474.337 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1505.254 GB :  : &ccw : 1;
 endscan;
 *
 scan No0245;
-     start = 2024y192d08h49m36s;
+     start = 2024y220d07h04m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  1511.051 GB :  :   &n : 1;
@@ -3193,10 +3193,10 @@ scan No0245;
 endscan;
 *
 scan No0246;
-     start = 2024y192d08h50m36s;
+     start = 2024y220d07h05m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :  1516.847 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  1516.847 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1509.118 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1485.931 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  1485.931 GB :  : &ccw : 1;
@@ -3204,10 +3204,10 @@ scan No0246;
 endscan;
 *
 scan No0247;
-     start = 2024y192d08h51m36s;
+     start = 2024y220d07h06m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 5 sec : 45 sec :  1522.644 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  1522.644 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1514.915 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1491.728 GB :  : &ccw : 1;
      station = Wa : 6 sec : 45 sec :  1491.728 GB :  : &ccw : 1;
@@ -3215,10 +3215,10 @@ scan No0247;
 endscan;
 *
 scan No0248;
-     start = 2024y192d08h52m36s;
+     start = 2024y220d07h07m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 5 sec : 45 sec :  1528.441 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  1528.441 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1520.712 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1497.525 GB :  : &ccw : 1;
      station = Wa : 6 sec : 45 sec :  1497.525 GB :  : &ccw : 1;
@@ -3226,7 +3226,7 @@ scan No0248;
 endscan;
 *
 scan No0249;
-     start = 2024y192d08h53m36s;
+     start = 2024y220d07h08m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  1534.238 GB :  :   &n : 1;
@@ -3237,7 +3237,7 @@ scan No0249;
 endscan;
 *
 scan No0250;
-     start = 2024y192d08h54m36s;
+     start = 2024y220d07h09m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  1540.035 GB :  :   &n : 1;
@@ -3248,10 +3248,10 @@ scan No0250;
 endscan;
 *
 scan No0251;
-     start = 2024y192d08h55m36s;
+     start = 2024y220d07h10m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 5 sec : 45 sec :  1545.832 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  1545.832 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1538.103 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1514.915 GB :  : &ccw : 1;
      station = Wa : 6 sec : 45 sec :  1514.915 GB :  : &ccw : 1;
@@ -3259,7 +3259,7 @@ scan No0251;
 endscan;
 *
 scan No0252;
-     start = 2024y192d08h56m36s;
+     start = 2024y220d07h11m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  1551.629 GB :  :   &n : 1;
@@ -3270,7 +3270,7 @@ scan No0252;
 endscan;
 *
 scan No0253;
-     start = 2024y192d08h57m36s;
+     start = 2024y220d07h12m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  1557.426 GB :  :   &n : 1;
@@ -3281,7 +3281,7 @@ scan No0253;
 endscan;
 *
 scan No0254;
-     start = 2024y192d08h58m36s;
+     start = 2024y220d07h13m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  1563.222 GB :  :   &n : 1;
@@ -3292,29 +3292,29 @@ scan No0254;
 endscan;
 *
 scan No0255;
-     start = 2024y192d08h59m36s;
+     start = 2024y220d07h14m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  1569.019 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1561.290 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1538.103 GB :  : &ccw : 1;
-     station = Wa : 6 sec : 45 sec :  1538.103 GB :  : &ccw : 1;
+     station = Wa : 5 sec : 45 sec :  1538.103 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1569.019 GB :  : &ccw : 1;
 endscan;
 *
 scan No0256;
-     start = 2024y192d09h00m36s;
+     start = 2024y220d07h15m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  1574.816 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1567.087 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1543.900 GB :  : &ccw : 1;
-     station = Wa : 6 sec : 45 sec :  1543.900 GB :  : &ccw : 1;
+     station = Wa : 5 sec : 45 sec :  1543.900 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1574.816 GB :  : &ccw : 1;
 endscan;
 *
 scan No0257;
-     start = 2024y192d09h01m36s;
+     start = 2024y220d07h16m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  1580.613 GB :  :   &n : 1;
@@ -3325,7 +3325,7 @@ scan No0257;
 endscan;
 *
 scan No0258;
-     start = 2024y192d09h02m36s;
+     start = 2024y220d07h17m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  1586.410 GB :  :   &n : 1;
@@ -3336,7 +3336,7 @@ scan No0258;
 endscan;
 *
 scan No0259;
-     start = 2024y192d09h03m36s;
+     start = 2024y220d07h18m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  1592.207 GB :  :   &n : 1;
@@ -3347,18 +3347,18 @@ scan No0259;
 endscan;
 *
 scan No0260;
-     start = 2024y192d09h04m36s;
+     start = 2024y220d07h19m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 6 sec : 45 sec :  1598.004 GB :  :   &n : 1;
+     station = Cd : 7 sec : 45 sec :  1598.004 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1590.275 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1567.087 GB :  : &ccw : 1;
-     station = Wa : 6 sec : 45 sec :  1567.087 GB :  : &ccw : 1;
+     station = Wa : 5 sec : 45 sec :  1567.087 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1598.004 GB :  : &ccw : 1;
 endscan;
 *
 scan No0261;
-     start = 2024y192d09h05m36s;
+     start = 2024y220d07h20m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  1603.801 GB :  :   &n : 1;
@@ -3369,7 +3369,7 @@ scan No0261;
 endscan;
 *
 scan No0262;
-     start = 2024y192d09h06m36s;
+     start = 2024y220d07h21m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  1609.597 GB :  :   &n : 1;
@@ -3380,10 +3380,10 @@ scan No0262;
 endscan;
 *
 scan No0263;
-     start = 2024y192d09h07m36s;
+     start = 2024y220d07h22m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 6 sec : 45 sec :  1615.394 GB :  :   &n : 1;
+     station = Cd : 7 sec : 45 sec :  1615.394 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1607.665 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1584.478 GB :  : &ccw : 1;
      station = Wa : 5 sec : 45 sec :  1584.478 GB :  : &ccw : 1;
@@ -3391,7 +3391,7 @@ scan No0263;
 endscan;
 *
 scan No0264;
-     start = 2024y192d09h08m36s;
+     start = 2024y220d07h23m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  1621.191 GB :  :   &n : 1;
@@ -3402,10 +3402,10 @@ scan No0264;
 endscan;
 *
 scan No0265;
-     start = 2024y192d09h09m36s;
+     start = 2024y220d07h24m31s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 4 sec : 45 sec :  1626.988 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  1626.988 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1619.259 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1596.072 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  1596.072 GB :  : &ccw : 1;
@@ -3413,7 +3413,7 @@ scan No0265;
 endscan;
 *
 scan No0266;
-     start = 2024y192d09h10m36s;
+     start = 2024y220d07h25m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  1632.785 GB :  :   &n : 1;
@@ -3424,7 +3424,7 @@ scan No0266;
 endscan;
 *
 scan No0267;
-     start = 2024y192d09h11m36s;
+     start = 2024y220d07h26m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  1638.582 GB :  :   &n : 1;
@@ -3435,7 +3435,7 @@ scan No0267;
 endscan;
 *
 scan No0268;
-     start = 2024y192d09h12m36s;
+     start = 2024y220d07h27m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  1644.379 GB :  :   &n : 1;
@@ -3446,7 +3446,7 @@ scan No0268;
 endscan;
 *
 scan No0269;
-     start = 2024y192d09h13m36s;
+     start = 2024y220d07h28m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1650.176 GB :  :   &n : 1;
@@ -3457,10 +3457,10 @@ scan No0269;
 endscan;
 *
 scan No0270;
-     start = 2024y192d09h14m36s;
+     start = 2024y220d07h29m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :  1655.972 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  1655.972 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1648.243 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1625.056 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  1625.056 GB :  : &ccw : 1;
@@ -3468,29 +3468,29 @@ scan No0270;
 endscan;
 *
 scan No0271;
-     start = 2024y192d09h15m36s;
+     start = 2024y220d07h30m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  1661.769 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1654.040 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1630.853 GB :  : &ccw : 1;
-     station = Wa : 5 sec : 45 sec :  1630.853 GB :  : &ccw : 1;
+     station = Wa : 4 sec : 45 sec :  1630.853 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1661.769 GB :  : &ccw : 1;
 endscan;
 *
 scan No0272;
-     start = 2024y192d09h16m36s;
+     start = 2024y220d07h31m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  1667.566 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1659.837 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1636.650 GB :  : &ccw : 1;
-     station = Wa : 5 sec : 45 sec :  1636.650 GB :  : &ccw : 1;
+     station = Wa : 4 sec : 45 sec :  1636.650 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1667.566 GB :  : &ccw : 1;
 endscan;
 *
 scan No0273;
-     start = 2024y192d09h17m36s;
+     start = 2024y220d07h32m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1673.363 GB :  :   &n : 1;
@@ -3501,10 +3501,10 @@ scan No0273;
 endscan;
 *
 scan No0274;
-     start = 2024y192d09h18m36s;
+     start = 2024y220d07h33m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :  1679.160 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  1679.160 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1671.431 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1648.243 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  1648.243 GB :  : &ccw : 1;
@@ -3512,7 +3512,7 @@ scan No0274;
 endscan;
 *
 scan No0275;
-     start = 2024y192d09h19m36s;
+     start = 2024y220d07h34m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  1684.957 GB :  :   &n : 1;
@@ -3523,7 +3523,7 @@ scan No0275;
 endscan;
 *
 scan No0276;
-     start = 2024y192d09h20m36s;
+     start = 2024y220d07h35m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  1690.754 GB :  :   &n : 1;
@@ -3534,7 +3534,7 @@ scan No0276;
 endscan;
 *
 scan No0277;
-     start = 2024y192d09h21m36s;
+     start = 2024y220d07h36m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1696.551 GB :  :   &n : 1;
@@ -3545,7 +3545,7 @@ scan No0277;
 endscan;
 *
 scan No0278;
-     start = 2024y192d09h22m36s;
+     start = 2024y220d07h37m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1702.347 GB :  :   &n : 1;
@@ -3556,7 +3556,7 @@ scan No0278;
 endscan;
 *
 scan No0279;
-     start = 2024y192d09h23m36s;
+     start = 2024y220d07h38m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  1708.144 GB :  :   &n : 1;
@@ -3567,10 +3567,10 @@ scan No0279;
 endscan;
 *
 scan No0280;
-     start = 2024y192d09h24m36s;
+     start = 2024y220d07h39m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 7 sec : 45 sec :  1713.941 GB :  :   &n : 1;
+     station = Cd : 8 sec : 45 sec :  1713.941 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1706.212 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1683.025 GB :  : &ccw : 1;
      station = Wa : 4 sec : 45 sec :  1683.025 GB :  : &ccw : 1;
@@ -3578,7 +3578,7 @@ scan No0280;
 endscan;
 *
 scan No0281;
-     start = 2024y192d09h25m36s;
+     start = 2024y220d07h40m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1719.738 GB :  :   &n : 1;
@@ -3589,7 +3589,7 @@ scan No0281;
 endscan;
 *
 scan No0282;
-     start = 2024y192d09h26m36s;
+     start = 2024y220d07h41m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1725.535 GB :  :   &n : 1;
@@ -3600,18 +3600,18 @@ scan No0282;
 endscan;
 *
 scan No0283;
-     start = 2024y192d09h27m36s;
+     start = 2024y220d07h42m31s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 7 sec : 45 sec :  1731.332 GB :  :   &n : 1;
+     station = Cd : 8 sec : 45 sec :  1731.332 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1723.603 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1700.415 GB :  : &ccw : 1;
-     station = Wa : 4 sec : 45 sec :  1700.415 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :  1700.415 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1731.332 GB :  : &ccw : 1;
 endscan;
 *
 scan No0284;
-     start = 2024y192d09h28m36s;
+     start = 2024y220d07h43m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  1737.129 GB :  :   &n : 1;
@@ -3622,7 +3622,7 @@ scan No0284;
 endscan;
 *
 scan No0285;
-     start = 2024y192d09h29m36s;
+     start = 2024y220d07h44m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1742.926 GB :  :   &n : 1;
@@ -3633,7 +3633,7 @@ scan No0285;
 endscan;
 *
 scan No0286;
-     start = 2024y192d09h30m36s;
+     start = 2024y220d07h45m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1748.722 GB :  :   &n : 1;
@@ -3644,29 +3644,29 @@ scan No0286;
 endscan;
 *
 scan No0287;
-     start = 2024y192d09h31m36s;
+     start = 2024y220d07h46m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1754.519 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1746.790 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1723.603 GB :  : &ccw : 1;
-     station = Wa : 4 sec : 45 sec :  1723.603 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :  1723.603 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1754.519 GB :  : &ccw : 1;
 endscan;
 *
 scan No0288;
-     start = 2024y192d09h32m36s;
+     start = 2024y220d07h47m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  1760.316 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1752.587 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1729.400 GB :  : &ccw : 1;
-     station = Wa : 4 sec : 45 sec :  1729.400 GB :  : &ccw : 1;
+     station = Wa : 3 sec : 45 sec :  1729.400 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1760.316 GB :  : &ccw : 1;
 endscan;
 *
 scan No0289;
-     start = 2024y192d09h33m36s;
+     start = 2024y220d07h48m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1766.113 GB :  :   &n : 1;
@@ -3677,7 +3677,7 @@ scan No0289;
 endscan;
 *
 scan No0290;
-     start = 2024y192d09h34m36s;
+     start = 2024y220d07h49m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1771.910 GB :  :   &n : 1;
@@ -3688,7 +3688,7 @@ scan No0290;
 endscan;
 *
 scan No0291;
-     start = 2024y192d09h35m36s;
+     start = 2024y220d07h50m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1777.707 GB :  :   &n : 1;
@@ -3699,7 +3699,7 @@ scan No0291;
 endscan;
 *
 scan No0292;
-     start = 2024y192d09h36m36s;
+     start = 2024y220d07h51m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  1783.504 GB :  :   &n : 1;
@@ -3710,7 +3710,7 @@ scan No0292;
 endscan;
 *
 scan No0293;
-     start = 2024y192d09h37m36s;
+     start = 2024y220d07h52m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1789.301 GB :  :   &n : 1;
@@ -3721,7 +3721,7 @@ scan No0293;
 endscan;
 *
 scan No0294;
-     start = 2024y192d09h38m36s;
+     start = 2024y220d07h53m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1795.097 GB :  :   &n : 1;
@@ -3732,7 +3732,7 @@ scan No0294;
 endscan;
 *
 scan No0295;
-     start = 2024y192d09h39m36s;
+     start = 2024y220d07h54m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1800.894 GB :  :   &n : 1;
@@ -3743,7 +3743,7 @@ scan No0295;
 endscan;
 *
 scan No0296;
-     start = 2024y192d09h40m36s;
+     start = 2024y220d07h55m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  1806.691 GB :  :   &n : 1;
@@ -3754,7 +3754,7 @@ scan No0296;
 endscan;
 *
 scan No0297;
-     start = 2024y192d09h41m36s;
+     start = 2024y220d07h56m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1812.488 GB :  :   &n : 1;
@@ -3765,7 +3765,7 @@ scan No0297;
 endscan;
 *
 scan No0298;
-     start = 2024y192d09h42m36s;
+     start = 2024y220d07h57m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1818.285 GB :  :   &n : 1;
@@ -3776,29 +3776,29 @@ scan No0298;
 endscan;
 *
 scan No0299;
-     start = 2024y192d09h43m36s;
+     start = 2024y220d07h58m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1824.082 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1816.353 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1793.165 GB :  : &ccw : 1;
-     station = Wa : 3 sec : 45 sec :  1793.165 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :  1793.165 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1824.082 GB :  : &ccw : 1;
 endscan;
 *
 scan No0300;
-     start = 2024y192d09h44m36s;
+     start = 2024y220d07h59m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  1829.879 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1822.150 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1798.962 GB :  : &ccw : 1;
-     station = Wa : 3 sec : 45 sec :  1798.962 GB :  : &ccw : 1;
+     station = Wa : 2 sec : 45 sec :  1798.962 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1829.879 GB :  : &ccw : 1;
 endscan;
 *
 scan No0301;
-     start = 2024y192d09h45m36s;
+     start = 2024y220d08h00m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1835.676 GB :  :   &n : 1;
@@ -3809,7 +3809,7 @@ scan No0301;
 endscan;
 *
 scan No0302;
-     start = 2024y192d09h46m36s;
+     start = 2024y220d08h01m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1841.472 GB :  :   &n : 1;
@@ -3820,7 +3820,7 @@ scan No0302;
 endscan;
 *
 scan No0303;
-     start = 2024y192d09h47m36s;
+     start = 2024y220d08h02m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1847.269 GB :  :   &n : 1;
@@ -3831,7 +3831,7 @@ scan No0303;
 endscan;
 *
 scan No0304;
-     start = 2024y192d09h48m36s;
+     start = 2024y220d08h03m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  1853.066 GB :  :   &n : 1;
@@ -3842,7 +3842,7 @@ scan No0304;
 endscan;
 *
 scan No0305;
-     start = 2024y192d09h49m36s;
+     start = 2024y220d08h04m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1858.863 GB :  :   &n : 1;
@@ -3853,7 +3853,7 @@ scan No0305;
 endscan;
 *
 scan No0306;
-     start = 2024y192d09h50m36s;
+     start = 2024y220d08h05m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1864.660 GB :  :   &n : 1;
@@ -3864,7 +3864,7 @@ scan No0306;
 endscan;
 *
 scan No0307;
-     start = 2024y192d09h51m36s;
+     start = 2024y220d08h06m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1870.457 GB :  :   &n : 1;
@@ -3875,10 +3875,10 @@ scan No0307;
 endscan;
 *
 scan No0308;
-     start = 2024y192d09h52m36s;
+     start = 2024y220d08h07m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 8 sec : 45 sec :  1876.254 GB :  :   &n : 1;
+     station = Cd : 9 sec : 45 sec :  1876.254 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1868.525 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1845.337 GB :  : &ccw : 1;
      station = Wa : 2 sec : 45 sec :  1845.337 GB :  : &ccw : 1;
@@ -3886,7 +3886,7 @@ scan No0308;
 endscan;
 *
 scan No0309;
-     start = 2024y192d09h53m36s;
+     start = 2024y220d08h08m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1882.051 GB :  :   &n : 1;
@@ -3897,7 +3897,7 @@ scan No0309;
 endscan;
 *
 scan No0310;
-     start = 2024y192d09h54m36s;
+     start = 2024y220d08h09m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1887.847 GB :  :   &n : 1;
@@ -3908,7 +3908,7 @@ scan No0310;
 endscan;
 *
 scan No0311;
-     start = 2024y192d09h55m36s;
+     start = 2024y220d08h10m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1893.644 GB :  :   &n : 1;
@@ -3919,7 +3919,7 @@ scan No0311;
 endscan;
 *
 scan No0312;
-     start = 2024y192d09h56m36s;
+     start = 2024y220d08h11m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  1899.441 GB :  :   &n : 1;
@@ -3930,7 +3930,7 @@ scan No0312;
 endscan;
 *
 scan No0313;
-     start = 2024y192d09h57m36s;
+     start = 2024y220d08h12m31s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  1905.238 GB :  :   &n : 1;
@@ -3941,7 +3941,7 @@ scan No0313;
 endscan;
 *
 scan No0314;
-     start = 2024y192d09h58m36s;
+     start = 2024y220d08h13m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  1911.035 GB :  :   &n : 1;
@@ -3952,29 +3952,29 @@ scan No0314;
 endscan;
 *
 scan No0315;
-     start = 2024y192d09h59m36s;
+     start = 2024y220d08h14m31s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  1916.832 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1909.103 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1885.915 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :  1885.915 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :  1885.915 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1916.832 GB :  : &ccw : 1;
 endscan;
 *
 scan No0316;
-     start = 2024y192d10h00m36s;
+     start = 2024y220d08h15m31s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  1922.629 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  1914.900 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  1891.712 GB :  : &ccw : 1;
-     station = Wa : 2 sec : 45 sec :  1891.712 GB :  : &ccw : 1;
+     station = Wa : 1 sec : 45 sec :  1891.712 GB :  : &ccw : 1;
      station = Yg : 0 sec : 45 sec :  1922.629 GB :  : &ccw : 1;
 endscan;
 *
 scan No0317;
-     start = 2024y192d10h03m15s;
+     start = 2024y220d08h18m09s;
      mode = spirals3.meth;
      source = 0506-612;
      station = Cd : 0 sec : 60 sec :  1928.426 GB :  :   &n : 1;
@@ -3984,7 +3984,7 @@ scan No0317;
 endscan;
 *
 scan No0318;
-     start = 2024y192d10h05m14s;
+     start = 2024y220d08h20m07s;
      mode = spirals3.meth;
      source = 0454-810;
      station = Cd : 0 sec : 60 sec :  1936.155 GB :  :   &n : 1;
@@ -3995,7 +3995,7 @@ scan No0318;
 endscan;
 *
 scan No0319;
-     start = 2024y192d10h07m29s;
+     start = 2024y220d08h22m22s;
      mode = spirals3.meth;
      source = 2300-683;
      station = Cd : 0 sec : 60 sec :  1943.884 GB :  :   &n : 1;
@@ -4005,7 +4005,7 @@ scan No0319;
 endscan;
 *
 scan No0320;
-     start = 2024y192d10h11m36s;
+     start = 2024y220d08h26m28s;
      mode = spirals3.meth;
      source = 1004-500;
      station = Cd : 0 sec : 60 sec :  1951.613 GB :  :  &cw : 1;
@@ -4016,7 +4016,7 @@ scan No0320;
 endscan;
 *
 scan No0321;
-     start = 2024y192d10h14m20s;
+     start = 2024y220d08h29m11s;
      mode = spirals3.meth;
      source = 1124-186;
      station = Cd : 0 sec : 60 sec :  1959.342 GB :  :  &cw : 1;
@@ -4027,7 +4027,7 @@ scan No0321;
 endscan;
 *
 scan No0322;
-     start = 2024y192d10h16m20s;
+     start = 2024y220d08h31m12s;
      mode = spirals3.meth;
      source = 0925-203;
      station = Cd : 0 sec : 60 sec :  1967.071 GB :  :  &cw : 1;
@@ -4037,7 +4037,7 @@ scan No0322;
 endscan;
 *
 scan No0323;
-     start = 2024y192d10h18m27s;
+     start = 2024y220d08h33m18s;
      mode = spirals3.meth;
      source = 1038+064;
      station = Cd : 0 sec : 60 sec :  1974.800 GB :  : &cw : 1;
@@ -4047,7 +4047,7 @@ scan No0323;
 endscan;
 *
 scan No0324;
-     start = 2024y192d10h22m16s;
+     start = 2024y220d08h37m05s;
      mode = spirals3.meth;
      source = 1251-713;
      station = Cd : 0 sec : 60 sec :  1982.529 GB :  :   &n : 1;
@@ -4058,7 +4058,7 @@ scan No0324;
 endscan;
 *
 scan No0325;
-     start = 2024y192d10h23m34s;
+     start = 2024y220d08h38m24s;
      mode = spirals3.meth;
      source = F1252-6737;
      station = Cd : 0 sec : 120 sec :  1990.259 GB :  :   &n : 1;
@@ -4069,7 +4069,7 @@ scan No0325;
 endscan;
 *
 scan No0326;
-     start = 2024y192d10h25m53s;
+     start = 2024y220d08h40m42s;
      mode = spirals3.meth;
      source = F1254-7138;
      station = Cd : 0 sec : 120 sec :  2005.717 GB :  :   &n : 1;
@@ -4080,7 +4080,7 @@ scan No0326;
 endscan;
 *
 scan No0327;
-     start = 2024y192d10h28m54s;
+     start = 2024y220d08h43m43s;
      mode = spirals3.meth;
      source = F1329-5608;
      station = Cd : 0 sec : 120 sec :  2021.175 GB :  :   &n : 1;
@@ -4091,18 +4091,18 @@ scan No0327;
 endscan;
 *
 scan No0328;
-     start = 2024y192d10h31m09s;
+     start = 2024y220d08h45m58s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 9 sec : 45 sec :  2036.633 GB :  :   &n : 1;
-     station = Hb : 0 sec : 45 sec :  2028.904 GB :  : &ccw : 1;
-     station = Ke : 0 sec : 45 sec :  1990.259 GB :  : &ccw : 1;
-     station = Wa : 8 sec : 45 sec :  1990.259 GB :  : &ccw : 1;
-     station = Yg : 0 sec : 45 sec :  2036.633 GB :  : &ccw : 1;
+     station = Cd : 10 sec : 45 sec :  2036.633 GB :  :   &n : 1;
+     station = Hb :  0 sec : 45 sec :  2028.904 GB :  : &ccw : 1;
+     station = Ke :  0 sec : 45 sec :  1990.259 GB :  : &ccw : 1;
+     station = Wa :  8 sec : 45 sec :  1990.259 GB :  : &ccw : 1;
+     station = Yg :  0 sec : 45 sec :  2036.633 GB :  : &ccw : 1;
 endscan;
 *
 scan No0329;
-     start = 2024y192d10h32m09s;
+     start = 2024y220d08h46m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  2042.430 GB :  :   &n : 1;
@@ -4113,7 +4113,7 @@ scan No0329;
 endscan;
 *
 scan No0330;
-     start = 2024y192d10h33m09s;
+     start = 2024y220d08h47m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 9 sec : 45 sec :  2048.227 GB :  :   &n : 1;
@@ -4124,7 +4124,7 @@ scan No0330;
 endscan;
 *
 scan No0331;
-     start = 2024y192d10h34m09s;
+     start = 2024y220d08h48m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  2054.024 GB :  :   &n : 1;
@@ -4135,7 +4135,7 @@ scan No0331;
 endscan;
 *
 scan No0332;
-     start = 2024y192d10h35m09s;
+     start = 2024y220d08h49m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  2059.821 GB :  :   &n : 1;
@@ -4146,7 +4146,7 @@ scan No0332;
 endscan;
 *
 scan No0333;
-     start = 2024y192d10h36m09s;
+     start = 2024y220d08h50m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  2065.618 GB :  :   &n : 1;
@@ -4157,7 +4157,7 @@ scan No0333;
 endscan;
 *
 scan No0334;
-     start = 2024y192d10h37m09s;
+     start = 2024y220d08h51m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 9 sec : 45 sec :  2071.415 GB :  :   &n : 1;
@@ -4168,7 +4168,7 @@ scan No0334;
 endscan;
 *
 scan No0335;
-     start = 2024y192d10h38m09s;
+     start = 2024y220d08h52m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  2077.211 GB :  :   &n : 1;
@@ -4179,7 +4179,7 @@ scan No0335;
 endscan;
 *
 scan No0336;
-     start = 2024y192d10h39m09s;
+     start = 2024y220d08h53m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  2083.008 GB :  :   &n : 1;
@@ -4190,7 +4190,7 @@ scan No0336;
 endscan;
 *
 scan No0337;
-     start = 2024y192d10h40m09s;
+     start = 2024y220d08h54m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 5 sec : 45 sec :  2088.805 GB :  :   &n : 1;
@@ -4201,7 +4201,7 @@ scan No0337;
 endscan;
 *
 scan No0338;
-     start = 2024y192d10h41m09s;
+     start = 2024y220d08h55m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 9 sec : 45 sec :  2094.602 GB :  :   &n : 1;
@@ -4212,7 +4212,7 @@ scan No0338;
 endscan;
 *
 scan No0339;
-     start = 2024y192d10h42m09s;
+     start = 2024y220d08h56m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  2100.399 GB :  :   &n : 1;
@@ -4223,7 +4223,7 @@ scan No0339;
 endscan;
 *
 scan No0340;
-     start = 2024y192d10h43m09s;
+     start = 2024y220d08h57m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  2106.196 GB :  :   &n : 1;
@@ -4234,10 +4234,10 @@ scan No0340;
 endscan;
 *
 scan No0341;
-     start = 2024y192d10h44m09s;
+     start = 2024y220d08h58m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 5 sec : 45 sec :  2111.993 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  2111.993 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2104.263 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2065.618 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2065.618 GB :  : &ccw : 1;
@@ -4245,7 +4245,7 @@ scan No0341;
 endscan;
 *
 scan No0342;
-     start = 2024y192d10h45m09s;
+     start = 2024y220d08h59m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 9 sec : 45 sec :  2117.790 GB :  :   &n : 1;
@@ -4256,7 +4256,7 @@ scan No0342;
 endscan;
 *
 scan No0343;
-     start = 2024y192d10h46m09s;
+     start = 2024y220d09h00m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  2123.586 GB :  :   &n : 1;
@@ -4267,7 +4267,7 @@ scan No0343;
 endscan;
 *
 scan No0344;
-     start = 2024y192d10h47m09s;
+     start = 2024y220d09h01m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 5 sec : 45 sec :  2129.383 GB :  :   &n : 1;
@@ -4278,7 +4278,7 @@ scan No0344;
 endscan;
 *
 scan No0345;
-     start = 2024y192d10h48m09s;
+     start = 2024y220d09h02m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2135.180 GB :  :   &n : 1;
@@ -4289,10 +4289,10 @@ scan No0345;
 endscan;
 *
 scan No0346;
-     start = 2024y192d10h49m09s;
+     start = 2024y220d09h03m58s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 9 sec : 45 sec :  2140.977 GB :  :   &n : 1;
+     station = Cd : 8 sec : 45 sec :  2140.977 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2133.248 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2094.602 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2094.602 GB :  : &ccw : 1;
@@ -4300,7 +4300,7 @@ scan No0346;
 endscan;
 *
 scan No0347;
-     start = 2024y192d10h50m09s;
+     start = 2024y220d09h04m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  2146.774 GB :  :   &n : 1;
@@ -4311,10 +4311,10 @@ scan No0347;
 endscan;
 *
 scan No0348;
-     start = 2024y192d10h51m09s;
+     start = 2024y220d09h05m58s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 5 sec : 45 sec :  2152.571 GB :  :   &n : 1;
+     station = Cd : 4 sec : 45 sec :  2152.571 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2144.842 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2106.196 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2106.196 GB :  : &ccw : 1;
@@ -4322,7 +4322,7 @@ scan No0348;
 endscan;
 *
 scan No0349;
-     start = 2024y192d10h52m09s;
+     start = 2024y220d09h06m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2158.368 GB :  :   &n : 1;
@@ -4333,7 +4333,7 @@ scan No0349;
 endscan;
 *
 scan No0350;
-     start = 2024y192d10h53m09s;
+     start = 2024y220d09h07m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2164.165 GB :  :   &n : 1;
@@ -4344,7 +4344,7 @@ scan No0350;
 endscan;
 *
 scan No0351;
-     start = 2024y192d10h54m09s;
+     start = 2024y220d09h08m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 9 sec : 45 sec :  2169.961 GB :  :   &n : 1;
@@ -4355,7 +4355,7 @@ scan No0351;
 endscan;
 *
 scan No0352;
-     start = 2024y192d10h55m09s;
+     start = 2024y220d09h09m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2175.758 GB :  :   &n : 1;
@@ -4366,7 +4366,7 @@ scan No0352;
 endscan;
 *
 scan No0353;
-     start = 2024y192d10h56m09s;
+     start = 2024y220d09h10m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2181.555 GB :  :   &n : 1;
@@ -4377,7 +4377,7 @@ scan No0353;
 endscan;
 *
 scan No0354;
-     start = 2024y192d10h57m09s;
+     start = 2024y220d09h11m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2187.352 GB :  :   &n : 1;
@@ -4388,10 +4388,10 @@ scan No0354;
 endscan;
 *
 scan No0355;
-     start = 2024y192d10h58m09s;
+     start = 2024y220d09h12m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 9 sec : 45 sec :  2193.149 GB :  :   &n : 1;
+     station = Cd : 8 sec : 45 sec :  2193.149 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2185.420 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2146.774 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2146.774 GB :  : &ccw : 1;
@@ -4399,7 +4399,7 @@ scan No0355;
 endscan;
 *
 scan No0356;
-     start = 2024y192d10h59m09s;
+     start = 2024y220d09h13m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2198.946 GB :  :   &n : 1;
@@ -4410,7 +4410,7 @@ scan No0356;
 endscan;
 *
 scan No0357;
-     start = 2024y192d11h00m09s;
+     start = 2024y220d09h14m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2204.743 GB :  :   &n : 1;
@@ -4421,7 +4421,7 @@ scan No0357;
 endscan;
 *
 scan No0358;
-     start = 2024y192d11h01m09s;
+     start = 2024y220d09h15m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2210.540 GB :  :   &n : 1;
@@ -4432,7 +4432,7 @@ scan No0358;
 endscan;
 *
 scan No0359;
-     start = 2024y192d11h02m09s;
+     start = 2024y220d09h16m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2216.336 GB :  :   &n : 1;
@@ -4443,7 +4443,7 @@ scan No0359;
 endscan;
 *
 scan No0360;
-     start = 2024y192d11h03m09s;
+     start = 2024y220d09h17m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2222.133 GB :  :   &n : 1;
@@ -4454,7 +4454,7 @@ scan No0360;
 endscan;
 *
 scan No0361;
-     start = 2024y192d11h04m09s;
+     start = 2024y220d09h18m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2227.930 GB :  :   &n : 1;
@@ -4465,7 +4465,7 @@ scan No0361;
 endscan;
 *
 scan No0362;
-     start = 2024y192d11h05m09s;
+     start = 2024y220d09h19m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2233.727 GB :  :   &n : 1;
@@ -4476,7 +4476,7 @@ scan No0362;
 endscan;
 *
 scan No0363;
-     start = 2024y192d11h06m09s;
+     start = 2024y220d09h20m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2239.524 GB :  :   &n : 1;
@@ -4487,7 +4487,7 @@ scan No0363;
 endscan;
 *
 scan No0364;
-     start = 2024y192d11h07m09s;
+     start = 2024y220d09h21m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2245.321 GB :  :   &n : 1;
@@ -4498,7 +4498,7 @@ scan No0364;
 endscan;
 *
 scan No0365;
-     start = 2024y192d11h08m09s;
+     start = 2024y220d09h22m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2251.118 GB :  :   &n : 1;
@@ -4509,7 +4509,7 @@ scan No0365;
 endscan;
 *
 scan No0366;
-     start = 2024y192d11h09m09s;
+     start = 2024y220d09h23m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2256.915 GB :  :   &n : 1;
@@ -4520,7 +4520,7 @@ scan No0366;
 endscan;
 *
 scan No0367;
-     start = 2024y192d11h10m09s;
+     start = 2024y220d09h24m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2262.711 GB :  :   &n : 1;
@@ -4531,7 +4531,7 @@ scan No0367;
 endscan;
 *
 scan No0368;
-     start = 2024y192d11h11m09s;
+     start = 2024y220d09h25m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2268.508 GB :  :   &n : 1;
@@ -4542,7 +4542,7 @@ scan No0368;
 endscan;
 *
 scan No0369;
-     start = 2024y192d11h12m09s;
+     start = 2024y220d09h26m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2274.305 GB :  :   &n : 1;
@@ -4553,7 +4553,7 @@ scan No0369;
 endscan;
 *
 scan No0370;
-     start = 2024y192d11h13m09s;
+     start = 2024y220d09h27m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2280.102 GB :  :   &n : 1;
@@ -4564,7 +4564,7 @@ scan No0370;
 endscan;
 *
 scan No0371;
-     start = 2024y192d11h14m09s;
+     start = 2024y220d09h28m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2285.899 GB :  :   &n : 1;
@@ -4575,7 +4575,7 @@ scan No0371;
 endscan;
 *
 scan No0372;
-     start = 2024y192d11h15m09s;
+     start = 2024y220d09h29m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2291.696 GB :  :   &n : 1;
@@ -4586,7 +4586,7 @@ scan No0372;
 endscan;
 *
 scan No0373;
-     start = 2024y192d11h16m09s;
+     start = 2024y220d09h30m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 4 sec : 45 sec :  2297.493 GB :  :   &n : 1;
@@ -4597,7 +4597,7 @@ scan No0373;
 endscan;
 *
 scan No0374;
-     start = 2024y192d11h17m09s;
+     start = 2024y220d09h31m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2303.290 GB :  :   &n : 1;
@@ -4608,7 +4608,7 @@ scan No0374;
 endscan;
 *
 scan No0375;
-     start = 2024y192d11h18m09s;
+     start = 2024y220d09h32m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2309.086 GB :  :   &n : 1;
@@ -4619,7 +4619,7 @@ scan No0375;
 endscan;
 *
 scan No0376;
-     start = 2024y192d11h19m09s;
+     start = 2024y220d09h33m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2314.883 GB :  :   &n : 1;
@@ -4630,10 +4630,10 @@ scan No0376;
 endscan;
 *
 scan No0377;
-     start = 2024y192d11h20m09s;
+     start = 2024y220d09h34m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :  2320.680 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :  2320.680 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2312.951 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2274.305 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2274.305 GB :  : &ccw : 1;
@@ -4641,7 +4641,7 @@ scan No0377;
 endscan;
 *
 scan No0378;
-     start = 2024y192d11h21m09s;
+     start = 2024y220d09h35m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2326.477 GB :  :   &n : 1;
@@ -4652,7 +4652,7 @@ scan No0378;
 endscan;
 *
 scan No0379;
-     start = 2024y192d11h22m09s;
+     start = 2024y220d09h36m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2332.274 GB :  :   &n : 1;
@@ -4663,7 +4663,7 @@ scan No0379;
 endscan;
 *
 scan No0380;
-     start = 2024y192d11h23m09s;
+     start = 2024y220d09h37m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 4 sec : 45 sec :  2338.071 GB :  :   &n : 1;
@@ -4674,10 +4674,10 @@ scan No0380;
 endscan;
 *
 scan No0381;
-     start = 2024y192d11h24m09s;
+     start = 2024y220d09h38m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 4 sec : 45 sec :  2343.868 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :  2343.868 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2336.138 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2297.493 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2297.493 GB :  : &ccw : 1;
@@ -4685,7 +4685,7 @@ scan No0381;
 endscan;
 *
 scan No0382;
-     start = 2024y192d11h25m09s;
+     start = 2024y220d09h39m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2349.665 GB :  :   &n : 1;
@@ -4696,7 +4696,7 @@ scan No0382;
 endscan;
 *
 scan No0383;
-     start = 2024y192d11h26m09s;
+     start = 2024y220d09h40m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2355.461 GB :  :   &n : 1;
@@ -4707,10 +4707,10 @@ scan No0383;
 endscan;
 *
 scan No0384;
-     start = 2024y192d11h27m09s;
+     start = 2024y220d09h41m58s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 4 sec : 45 sec :  2361.258 GB :  :   &n : 1;
+     station = Cd : 3 sec : 45 sec :  2361.258 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2353.529 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2314.884 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2314.884 GB :  : &ccw : 1;
@@ -4718,7 +4718,7 @@ scan No0384;
 endscan;
 *
 scan No0385;
-     start = 2024y192d11h28m09s;
+     start = 2024y220d09h42m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  2367.055 GB :  :   &n : 1;
@@ -4729,7 +4729,7 @@ scan No0385;
 endscan;
 *
 scan No0386;
-     start = 2024y192d11h29m09s;
+     start = 2024y220d09h43m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 8 sec : 45 sec :  2372.852 GB :  :   &n : 1;
@@ -4740,7 +4740,7 @@ scan No0386;
 endscan;
 *
 scan No0387;
-     start = 2024y192d11h30m09s;
+     start = 2024y220d09h44m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2378.649 GB :  :   &n : 1;
@@ -4751,7 +4751,7 @@ scan No0387;
 endscan;
 *
 scan No0388;
-     start = 2024y192d11h31m09s;
+     start = 2024y220d09h45m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  2384.446 GB :  :   &n : 1;
@@ -4762,7 +4762,7 @@ scan No0388;
 endscan;
 *
 scan No0389;
-     start = 2024y192d11h32m09s;
+     start = 2024y220d09h46m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  2390.243 GB :  :   &n : 1;
@@ -4773,10 +4773,10 @@ scan No0389;
 endscan;
 *
 scan No0390;
-     start = 2024y192d11h33m09s;
+     start = 2024y220d09h47m58s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 8 sec : 45 sec :  2396.040 GB :  :   &n : 1;
+     station = Cd : 7 sec : 45 sec :  2396.040 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2388.310 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2349.665 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2349.665 GB :  : &ccw : 1;
@@ -4784,7 +4784,7 @@ scan No0390;
 endscan;
 *
 scan No0391;
-     start = 2024y192d11h34m09s;
+     start = 2024y220d09h48m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 8 sec : 45 sec :  2401.836 GB :  :   &n : 1;
@@ -4795,7 +4795,7 @@ scan No0391;
 endscan;
 *
 scan No0392;
-     start = 2024y192d11h35m09s;
+     start = 2024y220d09h49m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  2407.633 GB :  :   &n : 1;
@@ -4806,7 +4806,7 @@ scan No0392;
 endscan;
 *
 scan No0393;
-     start = 2024y192d11h36m09s;
+     start = 2024y220d09h50m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  2413.430 GB :  :   &n : 1;
@@ -4817,7 +4817,7 @@ scan No0393;
 endscan;
 *
 scan No0394;
-     start = 2024y192d11h37m09s;
+     start = 2024y220d09h51m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  2419.227 GB :  :   &n : 1;
@@ -4828,10 +4828,10 @@ scan No0394;
 endscan;
 *
 scan No0395;
-     start = 2024y192d11h38m09s;
+     start = 2024y220d09h52m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 8 sec : 45 sec :  2425.024 GB :  :   &n : 1;
+     station = Cd : 7 sec : 45 sec :  2425.024 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2417.295 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2378.649 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2378.649 GB :  : &ccw : 1;
@@ -4839,7 +4839,7 @@ scan No0395;
 endscan;
 *
 scan No0396;
-     start = 2024y192d11h39m09s;
+     start = 2024y220d09h53m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  2430.821 GB :  :   &n : 1;
@@ -4850,7 +4850,7 @@ scan No0396;
 endscan;
 *
 scan No0397;
-     start = 2024y192d11h40m09s;
+     start = 2024y220d09h54m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  2436.618 GB :  :   &n : 1;
@@ -4861,7 +4861,7 @@ scan No0397;
 endscan;
 *
 scan No0398;
-     start = 2024y192d11h41m09s;
+     start = 2024y220d09h55m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  2442.415 GB :  :   &n : 1;
@@ -4872,7 +4872,7 @@ scan No0398;
 endscan;
 *
 scan No0399;
-     start = 2024y192d11h42m09s;
+     start = 2024y220d09h56m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  2448.211 GB :  :   &n : 1;
@@ -4883,7 +4883,7 @@ scan No0399;
 endscan;
 *
 scan No0400;
-     start = 2024y192d11h43m09s;
+     start = 2024y220d09h57m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  2454.008 GB :  :   &n : 1;
@@ -4894,7 +4894,7 @@ scan No0400;
 endscan;
 *
 scan No0401;
-     start = 2024y192d11h44m09s;
+     start = 2024y220d09h58m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  2459.805 GB :  :   &n : 1;
@@ -4905,7 +4905,7 @@ scan No0401;
 endscan;
 *
 scan No0402;
-     start = 2024y192d11h45m09s;
+     start = 2024y220d09h59m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  2465.602 GB :  :   &n : 1;
@@ -4916,7 +4916,7 @@ scan No0402;
 endscan;
 *
 scan No0403;
-     start = 2024y192d11h46m09s;
+     start = 2024y220d10h00m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  2471.399 GB :  :   &n : 1;
@@ -4927,7 +4927,7 @@ scan No0403;
 endscan;
 *
 scan No0404;
-     start = 2024y192d11h47m09s;
+     start = 2024y220d10h01m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  2477.196 GB :  :   &n : 1;
@@ -4938,7 +4938,7 @@ scan No0404;
 endscan;
 *
 scan No0405;
-     start = 2024y192d11h48m09s;
+     start = 2024y220d10h02m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 3 sec : 45 sec :  2482.993 GB :  :   &n : 1;
@@ -4949,7 +4949,7 @@ scan No0405;
 endscan;
 *
 scan No0406;
-     start = 2024y192d11h49m09s;
+     start = 2024y220d10h03m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  2488.790 GB :  :   &n : 1;
@@ -4960,7 +4960,7 @@ scan No0406;
 endscan;
 *
 scan No0407;
-     start = 2024y192d11h50m09s;
+     start = 2024y220d10h04m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  2494.586 GB :  :   &n : 1;
@@ -4971,7 +4971,7 @@ scan No0407;
 endscan;
 *
 scan No0408;
-     start = 2024y192d11h51m09s;
+     start = 2024y220d10h05m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 3 sec : 45 sec :  2500.383 GB :  :   &n : 1;
@@ -4982,10 +4982,10 @@ scan No0408;
 endscan;
 *
 scan No0409;
-     start = 2024y192d11h52m09s;
+     start = 2024y220d10h06m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 3 sec : 45 sec :  2506.180 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  2506.180 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2498.451 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2459.805 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2459.805 GB :  : &ccw : 1;
@@ -4993,7 +4993,7 @@ scan No0409;
 endscan;
 *
 scan No0410;
-     start = 2024y192d11h53m09s;
+     start = 2024y220d10h07m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  2511.977 GB :  :   &n : 1;
@@ -5004,7 +5004,7 @@ scan No0410;
 endscan;
 *
 scan No0411;
-     start = 2024y192d11h54m09s;
+     start = 2024y220d10h08m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  2517.774 GB :  :   &n : 1;
@@ -5015,10 +5015,10 @@ scan No0411;
 endscan;
 *
 scan No0412;
-     start = 2024y192d11h55m09s;
+     start = 2024y220d10h09m58s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 3 sec : 45 sec :  2523.571 GB :  :   &n : 1;
+     station = Cd : 2 sec : 45 sec :  2523.571 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2515.842 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2477.196 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2477.196 GB :  : &ccw : 1;
@@ -5026,7 +5026,7 @@ scan No0412;
 endscan;
 *
 scan No0413;
-     start = 2024y192d11h56m09s;
+     start = 2024y220d10h10m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  2529.368 GB :  :   &n : 1;
@@ -5037,7 +5037,7 @@ scan No0413;
 endscan;
 *
 scan No0414;
-     start = 2024y192d11h57m09s;
+     start = 2024y220d10h11m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 7 sec : 45 sec :  2535.165 GB :  :   &n : 1;
@@ -5048,7 +5048,7 @@ scan No0414;
 endscan;
 *
 scan No0415;
-     start = 2024y192d11h58m09s;
+     start = 2024y220d10h12m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  2540.961 GB :  :   &n : 1;
@@ -5059,7 +5059,7 @@ scan No0415;
 endscan;
 *
 scan No0416;
-     start = 2024y192d11h59m09s;
+     start = 2024y220d10h13m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  2546.758 GB :  :   &n : 1;
@@ -5070,7 +5070,7 @@ scan No0416;
 endscan;
 *
 scan No0417;
-     start = 2024y192d12h00m09s;
+     start = 2024y220d10h14m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  2552.555 GB :  :   &n : 1;
@@ -5081,10 +5081,10 @@ scan No0417;
 endscan;
 *
 scan No0418;
-     start = 2024y192d12h01m09s;
+     start = 2024y220d10h15m58s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 7 sec : 45 sec :  2558.352 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  2558.352 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2550.623 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2511.977 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2511.977 GB :  : &ccw : 1;
@@ -5092,7 +5092,7 @@ scan No0418;
 endscan;
 *
 scan No0419;
-     start = 2024y192d12h02m09s;
+     start = 2024y220d10h16m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 7 sec : 45 sec :  2564.149 GB :  :   &n : 1;
@@ -5103,7 +5103,7 @@ scan No0419;
 endscan;
 *
 scan No0420;
-     start = 2024y192d12h03m09s;
+     start = 2024y220d10h17m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  2569.946 GB :  :   &n : 1;
@@ -5114,7 +5114,7 @@ scan No0420;
 endscan;
 *
 scan No0421;
-     start = 2024y192d12h04m09s;
+     start = 2024y220d10h18m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  2575.743 GB :  :   &n : 1;
@@ -5125,10 +5125,10 @@ scan No0421;
 endscan;
 *
 scan No0422;
-     start = 2024y192d12h05m09s;
+     start = 2024y220d10h19m58s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 7 sec : 45 sec :  2581.540 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  2581.540 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2573.810 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2535.165 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2535.165 GB :  : &ccw : 1;
@@ -5136,10 +5136,10 @@ scan No0422;
 endscan;
 *
 scan No0423;
-     start = 2024y192d12h06m09s;
+     start = 2024y220d10h20m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 7 sec : 45 sec :  2587.336 GB :  :   &n : 1;
+     station = Cd : 6 sec : 45 sec :  2587.336 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2579.607 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2540.962 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2540.962 GB :  : &ccw : 1;
@@ -5147,7 +5147,7 @@ scan No0423;
 endscan;
 *
 scan No0424;
-     start = 2024y192d12h07m09s;
+     start = 2024y220d10h21m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  2593.133 GB :  :   &n : 1;
@@ -5158,7 +5158,7 @@ scan No0424;
 endscan;
 *
 scan No0425;
-     start = 2024y192d12h08m09s;
+     start = 2024y220d10h22m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  2598.930 GB :  :   &n : 1;
@@ -5169,7 +5169,7 @@ scan No0425;
 endscan;
 *
 scan No0426;
-     start = 2024y192d12h09m09s;
+     start = 2024y220d10h23m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  2604.727 GB :  :   &n : 1;
@@ -5180,7 +5180,7 @@ scan No0426;
 endscan;
 *
 scan No0427;
-     start = 2024y192d12h10m09s;
+     start = 2024y220d10h24m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  2610.524 GB :  :   &n : 1;
@@ -5191,7 +5191,7 @@ scan No0427;
 endscan;
 *
 scan No0428;
-     start = 2024y192d12h11m09s;
+     start = 2024y220d10h25m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  2616.321 GB :  :   &n : 1;
@@ -5202,7 +5202,7 @@ scan No0428;
 endscan;
 *
 scan No0429;
-     start = 2024y192d12h12m09s;
+     start = 2024y220d10h26m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  2622.118 GB :  :   &n : 1;
@@ -5213,7 +5213,7 @@ scan No0429;
 endscan;
 *
 scan No0430;
-     start = 2024y192d12h13m09s;
+     start = 2024y220d10h27m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  2627.915 GB :  :   &n : 1;
@@ -5224,7 +5224,7 @@ scan No0430;
 endscan;
 *
 scan No0431;
-     start = 2024y192d12h14m09s;
+     start = 2024y220d10h28m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  2633.711 GB :  :   &n : 1;
@@ -5235,7 +5235,7 @@ scan No0431;
 endscan;
 *
 scan No0432;
-     start = 2024y192d12h15m09s;
+     start = 2024y220d10h29m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  2639.508 GB :  :   &n : 1;
@@ -5246,7 +5246,7 @@ scan No0432;
 endscan;
 *
 scan No0433;
-     start = 2024y192d12h16m09s;
+     start = 2024y220d10h30m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 2 sec : 45 sec :  2645.305 GB :  :   &n : 1;
@@ -5257,7 +5257,7 @@ scan No0433;
 endscan;
 *
 scan No0434;
-     start = 2024y192d12h17m09s;
+     start = 2024y220d10h31m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  2651.102 GB :  :   &n : 1;
@@ -5268,7 +5268,7 @@ scan No0434;
 endscan;
 *
 scan No0435;
-     start = 2024y192d12h18m09s;
+     start = 2024y220d10h32m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  2656.899 GB :  :   &n : 1;
@@ -5279,7 +5279,7 @@ scan No0435;
 endscan;
 *
 scan No0436;
-     start = 2024y192d12h19m09s;
+     start = 2024y220d10h33m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 2 sec : 45 sec :  2662.696 GB :  :   &n : 1;
@@ -5290,10 +5290,10 @@ scan No0436;
 endscan;
 *
 scan No0437;
-     start = 2024y192d12h20m09s;
+     start = 2024y220d10h34m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 2 sec : 45 sec :  2668.493 GB :  :   &n : 1;
+     station = Cd : 1 sec : 45 sec :  2668.493 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2660.763 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2622.118 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2622.118 GB :  : &ccw : 1;
@@ -5301,7 +5301,7 @@ scan No0437;
 endscan;
 *
 scan No0438;
-     start = 2024y192d12h21m09s;
+     start = 2024y220d10h35m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  2674.290 GB :  :   &n : 1;
@@ -5312,7 +5312,7 @@ scan No0438;
 endscan;
 *
 scan No0439;
-     start = 2024y192d12h22m09s;
+     start = 2024y220d10h36m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  2680.086 GB :  :   &n : 1;
@@ -5323,10 +5323,10 @@ scan No0439;
 endscan;
 *
 scan No0440;
-     start = 2024y192d12h23m09s;
+     start = 2024y220d10h37m58s;
      mode = spirals3.meth;
      source = J1254-6111;
-     station = Cd : 2 sec : 45 sec :  2685.883 GB :  :   &n : 1;
+     station = Cd : 1 sec : 45 sec :  2685.883 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2678.154 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2639.509 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2639.509 GB :  : &ccw : 1;
@@ -5334,10 +5334,10 @@ scan No0440;
 endscan;
 *
 scan No0441;
-     start = 2024y192d12h24m09s;
+     start = 2024y220d10h38m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 2 sec : 45 sec :  2691.680 GB :  :   &n : 1;
+     station = Cd : 1 sec : 45 sec :  2691.680 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2683.951 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2645.305 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2645.305 GB :  : &ccw : 1;
@@ -5345,7 +5345,7 @@ scan No0441;
 endscan;
 *
 scan No0442;
-     start = 2024y192d12h25m09s;
+     start = 2024y220d10h39m58s;
      mode = spirals3.meth;
      source = J1337-6509;
      station = Cd : 6 sec : 45 sec :  2697.477 GB :  :   &n : 1;
@@ -5356,7 +5356,7 @@ scan No0442;
 endscan;
 *
 scan No0443;
-     start = 2024y192d12h26m09s;
+     start = 2024y220d10h40m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 6 sec : 45 sec :  2703.274 GB :  :   &n : 1;
@@ -5367,7 +5367,7 @@ scan No0443;
 endscan;
 *
 scan No0444;
-     start = 2024y192d12h27m09s;
+     start = 2024y220d10h41m58s;
      mode = spirals3.meth;
      source = J1254-6111;
      station = Cd : 1 sec : 45 sec :  2709.071 GB :  :   &n : 1;
@@ -5378,7 +5378,7 @@ scan No0444;
 endscan;
 *
 scan No0445;
-     start = 2024y192d12h28m09s;
+     start = 2024y220d10h42m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
      station = Cd : 1 sec : 45 sec :  2714.868 GB :  :   &n : 1;
@@ -5389,10 +5389,10 @@ scan No0445;
 endscan;
 *
 scan No0446;
-     start = 2024y192d12h29m09s;
+     start = 2024y220d10h43m58s;
      mode = spirals3.meth;
      source = J1337-6509;
-     station = Cd : 6 sec : 45 sec :  2720.665 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  2720.665 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2712.935 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2674.290 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2674.290 GB :  : &ccw : 1;
@@ -5400,10 +5400,10 @@ scan No0446;
 endscan;
 *
 scan No0447;
-     start = 2024y192d12h30m09s;
+     start = 2024y220d10h44m58s;
      mode = spirals3.meth;
      source = G305.20+0.01;
-     station = Cd : 6 sec : 45 sec :  2726.461 GB :  :   &n : 1;
+     station = Cd : 5 sec : 45 sec :  2726.461 GB :  :   &n : 1;
      station = Hb : 0 sec : 45 sec :  2718.732 GB :  : &ccw : 1;
      station = Ke : 0 sec : 45 sec :  2680.087 GB :  : &ccw : 1;
      station = Wa : 0 sec : 45 sec :  2680.087 GB :  : &ccw : 1;
@@ -5411,7 +5411,7 @@ scan No0447;
 endscan;
 *
 scan No0448;
-     start = 2024y192d12h31m40s;
+     start = 2024y220d10h46m29s;
      mode = spirals3.meth;
      source = 1022-665;
      station = Cd : 0 sec : 60 sec :  2732.258 GB :  :   &n : 1;
@@ -5422,7 +5422,7 @@ scan No0448;
 endscan;
 *
 scan No0449;
-     start = 2024y192d12h34m28s;
+     start = 2024y220d10h49m16s;
      mode = spirals3.meth;
      source = 1659-621;
      station = Cd : 0 sec : 60 sec :  2739.988 GB :  :   &n : 1;
@@ -5433,7 +5433,7 @@ scan No0449;
 endscan;
 *
 scan No0450;
-     start = 2024y192d12h37m14s;
+     start = 2024y220d10h52m03s;
      mode = spirals3.meth;
      source = 1245-454;
      station = Cd : 0 sec : 60 sec :  2747.717 GB :  :  &cw : 1;
@@ -5444,7 +5444,7 @@ scan No0450;
 endscan;
 *
 scan No0451;
-     start = 2024y192d12h39m14s;
+     start = 2024y220d10h54m02s;
      mode = spirals3.meth;
      source = 1213-172;
      station = Cd : 0 sec : 60 sec :  2755.446 GB :  :  &cw : 1;
@@ -5454,7 +5454,7 @@ scan No0451;
 endscan;
 *
 scan No0452;
-     start = 2024y192d12h40m47s;
+     start = 2024y220d10h55m35s;
      mode = spirals3.meth;
      source = 1145-071;
      station = Cd : 0 sec : 60 sec :  2763.175 GB :  :  &cw : 1;
@@ -5464,7 +5464,7 @@ scan No0452;
 endscan;
 *
 scan No0453;
-     start = 2024y192d12h44m21s;
+     start = 2024y220d10h59m08s;
      mode = spirals3.meth;
      source = 1725-795;
      station = Cd : 0 sec : 60 sec :  2770.905 GB :  :   &n : 1;
@@ -5475,7 +5475,7 @@ scan No0453;
 endscan;
 *
 scan No0454;
-     start = 2024y192d12h46m17s;
+     start = 2024y220d11h01m04s;
      mode = spirals3.meth;
      source = 2142-758;
      station = Cd : 0 sec : 60 sec :  2778.634 GB :  :   &n : 1;
@@ -5486,7 +5486,7 @@ scan No0454;
 endscan;
 *
 scan No0455;
-     start = 2024y192d12h48m03s;
+     start = 2024y220d11h02m51s;
      mode = spirals3.meth;
      source = 2353-686;
      station = Cd : 0 sec : 60 sec :  2786.363 GB :  :   &n : 1;
@@ -5497,7 +5497,7 @@ scan No0455;
 endscan;
 *
 scan No0456;
-     start = 2024y192d12h50m07s;
+     start = 2024y220d11h04m55s;
      mode = spirals3.meth;
      source = 0530-727;
      station = Cd : 0 sec : 60 sec :  2794.092 GB :  :   &n : 1;
@@ -5507,7 +5507,7 @@ scan No0456;
 endscan;
 *
 scan No0457;
-     start = 2024y192d12h52m47s;
+     start = 2024y220d11h07m35s;
      mode = spirals3.meth;
      source = F1252-6737;
      station = Cd : 0 sec : 180 sec :  2801.822 GB :  :   &n : 1;
@@ -5518,7 +5518,7 @@ scan No0457;
 endscan;
 *
 scan No0458;
-     start = 2024y192d12h56m08s;
+     start = 2024y220d11h10m56s;
      mode = spirals3.meth;
      source = F1254-7138;
      station = Cd : 0 sec : 180 sec :  2825.009 GB :  :   &n : 1;
@@ -5529,7 +5529,7 @@ scan No0458;
 endscan;
 *
 scan No0459;
-     start = 2024y192d13h00m00s;
+     start = 2024y220d11h14m48s;
      mode = spirals3.meth;
      source = F1329-5608;
      station = Cd : 0 sec : 180 sec :  2848.197 GB :  :  &cw : 1;
@@ -5540,7 +5540,7 @@ scan No0459;
 endscan;
 *
 scan No0460;
-     start = 2024y192d13h07m19s;
+     start = 2024y220d11h21m57s;
      mode = spirals3.meth;
      source = F1921-293;
      station = Cd : 0 sec : 60 sec :  2871.384 GB :  :   &n : 1;

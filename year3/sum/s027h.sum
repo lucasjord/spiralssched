@@ -1,0 +1,2374 @@
+                    SUMMARY FILE FOR PROJECT: s027h   
+
+COVER INFORMATION: 
+
+  Experiment: SPIRALS: parallax of methanol masers
+  Exp. Code:  s027h   
+  Start Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+  Schedule Version:       1.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
+
+  PI:       Lucas J. Hyland
+
+  Address:  School of Natural Sciences
+            University of Tasmania
+            Private Bag 37, Hobart, TAS 7001, AU
+   
+
+  Phone:    +61467332126
+  EMAIL:    lucas.hyland@utas.edu.au
+  Fax:
+  Phone during observation:
+
+  Observing mode: 6.7GHz-2p-2IF/64MHz
+
+  Notes:    Array: Cd-Hb-Ho-Ke-Wa-Yg
+            Parallax and PM of G305.20+0.01
+   
+   
+
+
+No cover letter provided.
+
+CORRELATION REQUESTS (Defaults in parentheses):
+
+  Correlator (Required if recording):          LBA
+  Correlator average time (2 sec):               2.000 sec.
+    Alternate average time (for spacecraft).     0.000 sec.
+  Output spectral channels per baseband (16):         128
+     Correlator FFT size (128):                       128
+  Number of antennas to be correlated:                  5
+  Polarization (ON):                           OFF
+  Correlator weighting function (UNIFORM):     UNIFORM
+  Distribution tape (DAT):                     DAT
+
+  Distribution format (FITS):                  FITS
+  Source positions from:             FROM SCHEDULE
+
+  Shipping address for correlator output:
+      University of Tasmania
+
+
+
+
+  Correlator Notes: Pass 1: Full band: 2x64 MHz. corchan=128, 0.5 MHz res.
+      Pass 2: zoom=4MHz 2kHz res.
+
+
+
+
+
+
+DERIVED INFORMATION FOR CORRELATION: 
+                                                All scans
+  Elapsed time for project (hours):                 9.13
+  Total time in scheduled scans (hours):            6.21
+  Total time in recording scans (hours):            6.21
+  Total baseline hours (recording scans):          91.81
+  Projected max correlator output rate (kB/s):      30.7
+  Projected correlator output data size (MB):      676.9
+ NOTES:  Above numbers assume the same correlator parameters are used for all data.
+         The 'baseline hours' include the autocorrelations (for data size calculations).
+         The correlator output data rate is for real-time processing.
+         Above numbers assume the same correlator parameters are used for all data.
+         The recordings for a scan are assumed to start at the scan START minus PRESTART.
+         Some stations (VLA, VLBA/MARK5C) wait for good data so the estimates may be high.
+
+
+
+STATIONS USED IN SCHEDULE:
+
+   Station  Code   Latitude Longitude  Elevation       X            Y            Z       Axis
+                                                                                       Offset
+
+   CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
+   HOBART12  Hb  -42.80557 -147.43814      41.   -3949990.840  2522421.219 -4311707.999  0.018
+   KATH12M   Ke  -14.37546 -132.15237     189.   -4147354.691  4581542.377 -1573303.157  0.003
+   WARK30M   Wa  -36.43316 -174.66295     122.   -5115425.818   477880.248 -3767042.055  2.477
+   YARRA12M  Yg  -29.04714 -115.34563     248.   -2388896.189  5043350.002 -3078590.804  0.000
+
+
+   Plate tectonic motion adjustments for MJD  60529
+   Station  Code      Station motions (m/yr)             Adjusted positions 
+                     X       Y       Z     MJD0        X            Y            Z 
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.897  3912709.827 -3348066.232
+   HOBART12  Hb  -0.0390  0.0080  0.0411  56658  -3949991.254  2522421.303 -4311707.563
+   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.091  4581542.254 -1573302.560
+   WARK30M   Wa  -0.0212 -0.0031  0.0360  57988  -5115425.966   477880.227 -3767041.804
+   YARRA12M  Yg  -0.0481  0.0096  0.0511  56658  -2388896.699  5043350.104 -3078590.263
+
+
+
+BASELINE LENGTHS (km)
+
+          Cd    Hb    Ke    Wa    Yg
+
+   Cd      0  1703  1937  3719  1792
+   Hb   1703     0  3432  2416  3211
+   Ke   1937  3432     0  4753  2360
+   Wa   3719  2416  4753     0  5362
+   Yg   1792  3211  2360  5362     0
+
+
+RECORDING SYSTEM AND CALIBRATION INFORMATION:
+
+  List of scan-dependent controls seen for recording timing.
+   MINPAUSE:   10.
+   PRESTART:    0.
+
+  DISKS - Stations potentially recording on disks.
+   Station    Drive type   DAR     NBBC    Tsys
+   CEDUNA       MARK5B     DBBC     14     CONT
+   HOBART12     MARK5B     DBBC3     8     CONT
+   KATH12M      MARK5B     DBBC3     8     CONT
+   WARK30M      MARK5B     DBBC      8     GAP 
+   YARRA12M     MARK5B     DBBC3     8     CONT
+
+
+
+
+EXPERIMENT SUMMARY:
+  Number of input scans:        460
+  Number of scans scheduled:    460
+  Number of stations:             5
+  Number of sources input:       36
+  Number of setup files used:     1
+
+
+STATION SCAN SUMMARIES:
+  Station  Control   Scans   Scan   Record  Record   Gbytes
+                            Hours   Hours   Scans
+  CEDUNA     VEX      460    6.21    6.21     460     2879.
+  HOBART12   VEX      459    6.19    6.19     459     2871.
+  KATH12M    VEX      453    6.09    6.09     453     2825.
+  WARK30M    VEX      452    6.07    6.07     452     2817.
+  YARRA12M   VEX      460    6.21    6.21     460     2879.
+
+  Notes on the station scan summaries: 
+
+    "Record Scans" are periods of recording with no gap.  The Mark5A disk systems 
+    have a limit of 1024 such scans.  There are often multiple projects on a disk pack.
+    If using MARK5A, try to keep above about 6 GB per record scan by using MINPAUSE 
+    and PRESTART to prevent short gaps.  However, also try to prevent record scans 
+    of more than an hour to minimize risk to data from playback problems.
+    MARK5C will have one observe scan per record scan and there is no limit to the number.
+
+
+
+
+
+
+ SETUP FILES:
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     cd4cm_dual
+
+   Setup group:    1         Station: CEDUNA            Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   7300.00   7300.00   7300.00   7300.00
+   Net SB=         U         U         L         L
+   IF SB =         L         L         L         L
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         5         1         5
+   BBC SB=         L         L         U         U
+   IF    =        A1        B1        A1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   1  Setup file default.  Used with PCAL = off
+   LO sum=   6644.00  6644.00  6644.00  6644.00
+   BBC fr=    656.00   656.00   656.00   656.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   1
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    2         Station: HOBART12          Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00
+   Net SB=         U         U         U         U
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       RCP       LCP       LCP 
+   BBC   =        25        26        33        34
+   BBC SB=         U         U         U         U
+   IF    =        D1        D1        E1        E1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
+   LO sum=   6580.00  6644.00  6580.00  6644.00
+   BBC fr=    580.00   644.00   580.00   644.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   2
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+The following setup groups are the same as group   3 below.
+   4:YARRA12M
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    3         Station: KATH12M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00
+   Net SB=         U         U         U         U
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       RCP       LCP       LCP 
+   BBC   =        33        34        41        42
+   BBC SB=         U         U         U         U
+   IF    =        E1        E1        F1        F1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   3  Setup file default.  Used with PCAL = off
+   LO sum=   6580.00  6644.00  6580.00  6644.00
+   BBC fr=    580.00   644.00   580.00   644.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   3   5
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     wa5cm_dual
+
+   Setup group:    5         Station: WARK30M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   5843.00   5843.00   5843.00   5843.00
+   Net SB=         U         U         L         L
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         5         1         5
+   BBC SB=         U         U         L         L
+   IF    =        A1        B2        A1        B2
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   4  Setup file default.  Used with PCAL = off
+   LO sum=   6644.00  6644.00  6644.00  6644.00
+   BBC fr=    801.00   801.00   801.00   801.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   4
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+   1  220 02:15:00 0537-441      -  -123  -110  -141  -124  -138
+      220 02:15:45 pirals3.meth  -    57    53    47    31    68
+
+   2  220 02:16:00 0537-441      -  -123  -111  -141  -124  -138
+      220 02:16:45 -             -    57    52    47    31    68
+
+   3  220 02:17:00 0537-441      -  -123  -111  -141  -124  -138
+      220 02:17:45 -             -    57    52    46    31    68
+
+   4  220 02:18:00 0537-441      -  -123  -111  -140  -125  -138
+      220 02:18:45 -             -    57    52    46    31    67
+
+   5  220 02:19:00 0537-441      -  -123  -111  -140  -125  -137
+      220 02:19:45 -             -    57    52    46    30    67
+
+   6  220 02:20:00 0537-441      -  -123  -111  -140  -125  -137
+      220 02:20:45 -             -    57    52    46    30    67
+
+   7  220 02:21:00 0537-441      -  -123  -111  -140  -125  -137
+      220 02:21:45 -             -    56    52    46    30    67
+
+   8  220 02:22:00 0537-441      -  -123  -111  -140  -125  -137
+      220 02:22:45 -             -    56    51    46    30    67
+
+   9  220 02:23:00 0537-441      -  -123  -111  -140  -125  -136
+      220 02:23:45 -             -    56    51    45    30    67
+
+  10  220 02:24:00 0537-441      -  -123  -111  -140  -125  -136
+      220 02:24:45 -             -    56    51    45    30    67
+
+  11  220 02:25:00 0537-441      -  -123  -111  -139  -125  -136
+      220 02:25:45 -             -    56    51    45    29    66
+
+  12  220 02:26:00 0537-441      -  -123  -111  -139  -125  -136
+      220 02:26:45 -             -    55    51    45    29    66
+
+  13  220 02:27:00 0537-441      -  -123  -112  -139  -125  -135
+      220 02:27:45 -             -    55    51    45    29    66
+
+  14  220 02:28:00 0537-441      -  -123  -112  -139  -125  -135
+      220 02:28:45 -             -    55    50    45    29    66
+
+  15  220 02:29:00 0537-441      -  -123  -112  -139  -125  -135
+      220 02:29:45 -             -    55    50    45    29    66
+
+  16  220 02:30:00 0537-441      -  -123  -112  -139  -126  -135
+      220 02:30:45 -             -    55    50    44    29    66
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+  17  220 02:31:00 0537-441      -  -123  -112  -139  -126  -134
+      220 02:31:45 pirals3.meth  -    55    50    44    28    66
+
+  18  220 02:32:00 0537-441      -  -123  -112  -139  -126  -134
+      220 02:32:45 -             -    54    50    44    28    65
+
+  19  220 02:33:00 0537-441      -  -123  -112  -139  -126  -134
+      220 02:33:45 -             -    54    49    44    28    65
+
+  20  220 02:34:00 0537-441      -  -123  -112  -138  -126  -134
+      220 02:34:45 -             -    54    49    44    28    65
+
+  21  220 02:35:00 0537-441      -  -123  -112  -138  -126  -134
+      220 02:35:45 -             -    54    49    44    28    65
+
+  22  220 02:36:00 0537-441      -  -122  -112  -138  -126  -133
+      220 02:36:45 -             -    54    49    43    28    65
+
+  23  220 02:37:00 0537-441      -  -122  -112  -138  -126  -133
+      220 02:37:45 -             -    54    49    43    28    65
+
+  24  220 02:38:00 0537-441      -  -122  -112  -138  -126  -133
+      220 02:38:45 -             -    53    49    43    27    64
+
+  25  220 02:39:00 0537-441      -  -122  -113  -138  -126  -133
+      220 02:39:45 -             -    53    48    43    27    64
+
+  26  220 02:40:00 0537-441      -  -122  -113  -138  -126  -133
+      220 02:40:45 -             -    53    48    43    27    64
+
+  27  220 02:41:00 0537-441      -  -122  -113  -138  -127  -132
+      220 02:41:45 -             -    53    48    43    27    64
+
+  28  220 02:42:00 0537-441      -  -122  -113  -138  -127  -132
+      220 02:42:45 -             -    53    48    42    27    64
+
+  29  220 02:43:00 0537-441      -  -122  -113  -137  -127  -132
+      220 02:43:45 -             -    52    48    42    27    64
+
+  30  220 02:44:00 0537-441      -  -122  -113  -137  -127  -132
+      220 02:44:45 -             -    52    48    42    26    63
+
+  31  220 02:45:00 0537-441      -  -122  -113  -137  -127  -132
+      220 02:45:45 -             -    52    47    42    26    63
+
+  32  220 02:46:00 0537-441      -  -122  -113  -137  -127  -132
+      220 02:46:45 -             -    52    47    42    26    63
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+  33  220 02:47:00 0537-441      -  -122  -113  -137  -127  -131
+      220 02:47:45 pirals3.meth  -    52    47    42    26    63
+
+  34  220 02:48:00 0537-441      -  -122  -113  -137  -127  -131
+      220 02:48:45 -             -    52    47    41    26    63
+
+  35  220 02:49:00 0537-441      -  -122  -113  -137  -127  -131
+      220 02:49:45 -             -    51    47    41    26    63
+
+  36  220 02:50:00 0537-441      -  -122  -114  -137  -127  -131
+      220 02:50:45 -             -    51    47    41    25    62
+
+  37  220 02:51:00 0537-441      -  -122  -114  -137  -127  -131
+      220 02:51:45 -             -    51    46    41    25    62
+
+  38  220 02:52:00 0537-441      -  -122  -114  -137  -128  -131
+      220 02:52:45 -             -    51    46    41    25    62
+
+  39  220 02:53:00 0537-441      -  -122  -114  -137  -128  -131
+      220 02:53:45 -             -    51    46    41    25    62
+
+  40  220 02:54:00 0537-441      -  -122  -114  -136  -128  -130
+      220 02:54:45 -             -    50    46    40    25    62
+
+  41  220 02:55:00 0537-441      -  -122  -114  -136  -128  -130
+      220 02:55:45 -             -    50    46    40    25    62
+
+  42  220 02:56:00 0537-441      -  -122  -114  -136  -128  -130
+      220 02:56:45 -             -    50    46    40    24    61
+
+  43  220 02:57:00 0537-441      -  -122  -114  -136  -128  -130
+      220 02:57:45 -             -    50    45    40    24    61
+
+  44  220 02:58:00 0537-441      -  -122  -114  -136  -128  -130
+      220 02:58:45 -             -    50    45    40    24    61
+
+  45  220 02:59:00 0537-441      -  -122  -114  -136  -128  -130
+      220 02:59:45 -             -    50    45    40    24    61
+
+  46  220 03:00:00 0537-441      -  -122  -115  -136  -128  -130
+      220 03:00:45 -             -    49    45    39    24    61
+
+  47  220 03:01:00 0537-441      -  -122  -115  -136  -128  -129
+      220 03:01:45 -             -    49    45    39    24    61
+
+  48  220 03:02:00 0537-441      -  -122  -115  -136  -128  -129
+      220 03:02:45 -             -    49    45    39    24    60
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+  49  220 03:03:00 0537-441      -  -122  -115  -136  -129  -129
+      220 03:03:45 pirals3.meth  -    49    44    39    23    60
+
+  50  220 03:04:00 0537-441      -  -122  -115  -136  -129  -129
+      220 03:04:45 -             -    49    44    39    23    60
+
+  51  220 03:13:20 0302-623      -   212  -149  -151  -159  -148
+      220 03:14:20 -             -    27    30    12    16    33
+
+  52  220 03:15:13 0454-810      -   190  -168  -171  -170  -172
+      220 03:16:13 -             -    35    44    18    33    35
+
+  53  220 03:17:20 1725-795      -   171  -192  -188  -193  -187
+      220 03:18:20 -             -    26    38     8    37    21
+
+  54  220 03:19:10 1758-651      -   161  -205   ---D -210  -192
+      220 03:20:10 -             -    14    28   ---D   32     7
+
+  55  220 03:21:19 2300-683      -   190  -175   ---D -186  -164
+      220 03:22:19 -             -    12    21   ---D   15    13
+
+  56  220 03:24:08 0534-611      -   214  -139  -153  -147  -152
+      220 03:25:08 -             -    43    45    29    28    49
+
+  57  220 03:26:12 0521-365      -   247  -110  -124  -126  -113
+      220 03:27:12 -             -    40    34    33    13    54
+
+  58  220 03:28:32 0446+112      -   291   ---D  -73   ---D  -58
+      220 03:29:32 -             -    11   ---D   18   ---D   26
+
+  59  220 03:30:32 0414-189      -   260  -105  -106   ---D  -93
+      220 03:31:32 -             -    20    11    17   ---D   35
+
+  60  220 03:34:21 F1252-6737    -   156  -205  -199  -187  -205
+      220 03:36:21 -             -    44    58    27    58    35
+
+  61  220 03:36:42 F1254-7138    -   161  -199  -196  -185  -201
+      220 03:38:42 -             -    42    56    25    54    34
+
+  62  220 03:39:40 F1329-5608    -   139  -229  -213  -205  -219
+      220 03:41:40 -             -    44    59    29    67    31
+
+  63  220 03:42:17 G305.20+0.01  -   149  -215  -205  -192  -211
+      220 03:43:17 -             -    45    60    29    63    34
+
+  64  220 03:43:32 J1254-6111    -   148  -216  -205  -188  -213
+      220 03:44:17 -             -    47    62    31    65    36
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+  65  220 03:44:32 G305.20+0.01  -   149  -215  -205  -191  -211
+      220 03:45:17 pirals3.meth  -    45    60    29    63    34
+
+  66  220 03:45:32 J1337-6509    -   151  -212  -204  -194  -209
+      220 03:46:17 -             -    42    57    25    59    32
+
+  67  220 03:46:32 G305.20+0.01  -   150  -214  -205  -191  -211
+      220 03:47:17 -             -    45    60    29    63    35
+
+  68  220 03:47:32 J1254-6111    -   148  -215  -205  -187  -213
+      220 03:48:17 -             -    48    63    32    65    37
+
+  69  220 03:48:32 G305.20+0.01  -   150  -214  -205  -190  -211
+      220 03:49:17 -             -    45    60    29    63    35
+
+  70  220 03:49:32 J1337-6509    -   152  -212  -203  -194  -209
+      220 03:50:17 -             -    42    57    26    60    32
+
+  71  220 03:50:32 G305.20+0.01  -   150  -214  -204  -190  -211
+      220 03:51:17 -             -    46    61    29    63    35
+
+  72  220 03:51:32 J1254-6111    -   149  -215  -205  -186  -213
+      220 03:52:17 -             -    48    63    32    65    37
+
+  73  220 03:52:32 G305.20+0.01  -   150  -214  -204  -189  -211
+      220 03:53:17 -             -    46    61    30    63    35
+
+  74  220 03:53:32 J1337-6509    -   152  -212  -203  -193  -209
+      220 03:54:17 -             -    42    57    26    60    32
+
+  75  220 03:54:32 G305.20+0.01  -   150  -214  -204  -189  -211
+      220 03:55:17 -             -    46    61    30    63    36
+
+  76  220 03:55:32 J1254-6111    -   149  -214  -204  -185  -213
+      220 03:56:17 -             -    49    64    32    65    38
+
+  77  220 03:56:32 G305.20+0.01  -   150  -213  -204  -188  -211
+      220 03:57:17 -             -    46    61    30    63    36
+
+  78  220 03:57:32 J1337-6509    -   152  -212  -203  -192  -209
+      220 03:58:17 -             -    43    58    26    60    33
+
+  79  220 03:58:32 G305.20+0.01  -   150  -213  -204  -188  -211
+      220 03:59:17 -             -    47    61    30    63    36
+
+  80  220 03:59:32 J1254-6111    -   149  -214  -204  -184  -213
+      220 04:00:17 -             -    49    64    33    65    38
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+  81  220 04:00:32 G305.20+0.01  -   150  -213  -204  -187  -211
+      220 04:01:17 pirals3.meth  -    47    62    30    63    36
+
+  82  220 04:01:32 J1337-6509    -   152  -211  -203  -191  -209
+      220 04:02:17 -             -    43    58    27    60    33
+
+  83  220 04:02:32 G305.20+0.01  -   150  -213  -204  -187  -211
+      220 04:03:17 -             -    47    62    31    63    36
+
+  84  220 04:03:32 J1254-6111    -   150  -213  -204  -183  -213
+      220 04:04:17 -             -    49    64    33    65    39
+
+  85  220 04:04:32 G305.20+0.01  -   151  -212  -203  -186  -211
+      220 04:05:17 -             -    47    62    31    63    37
+
+  86  220 04:05:32 J1337-6509    -   152  -211  -203  -191  -209
+      220 04:06:17 -             -    44    58    27    60    34
+
+  87  220 04:06:32 G305.20+0.01  -   151  -212  -203  -186  -211
+      220 04:07:17 -             -    47    62    31    63    37
+
+  88  220 04:07:32 J1254-6111    -   150  -213  -204  -182  -213
+      220 04:08:17 -             -    50    65    34    65    39
+
+  89  220 04:08:32 G305.20+0.01  -   151  -212  -203  -185  -211
+      220 04:09:17 -             -    48    62    31    63    37
+
+  90  220 04:09:32 J1337-6509    -   152  -211  -202  -190  -208
+      220 04:10:17 -             -    44    59    28    60    34
+
+  91  220 04:10:32 G305.20+0.01  -   151  -212  -203  -185  -211
+      220 04:11:17 -             -    48    63    31    63    37
+
+  92  220 04:11:32 J1254-6111    -   150  -212  -203  -180  -213
+      220 04:12:17 -             -    50    65    34    65    40
+
+  93  220 04:12:32 G305.20+0.01  -   151  -211  -203  -184  -211
+      220 04:13:17 -             -    48    63    32    63    38
+
+  94  220 04:13:32 J1337-6509    -   153  -210  -202  -189  -208
+      220 04:14:17 -             -    44    59    28    60    34
+
+  95  220 04:14:32 G305.20+0.01  -   151  -211  -203  -184  -211
+      220 04:15:17 -             -    48    63    32    63    38
+
+  96  220 04:15:32 J1254-6111    -   151  -211  -203  -179  -212
+      220 04:16:17 -             -    51    66    34    65    40
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+  97  220 04:16:32 G305.20+0.01  -   151  -211  -203  -183  -211
+      220 04:17:17 pirals3.meth  -    48    63    32    63    38
+
+  98  220 04:17:32 J1337-6509    -   153  -210  -202  -188  -208
+      220 04:18:17 -             -    45    60    28    61    35
+
+  99  220 04:18:32 G305.20+0.01  -   152  -211  -202  -183  -211
+      220 04:19:17 -             -    49    63    32    63    38
+
+ 100  220 04:19:32 J1254-6111    -   151  -211  -202  -178  -212
+      220 04:20:17 -             -    51    66    35    65    41
+
+ 101  220 04:20:32 G305.20+0.01  -   152  -210  -202  -182  -211
+      220 04:21:17 -             -    49    64    32    63    38
+
+ 102  220 04:21:32 J1337-6509    -   153  -209  -202  -187  -208
+      220 04:22:17 -             -    45    60    29    61    35
+
+ 103  220 04:22:32 G305.20+0.01  -   152  -210  -202  -182  -211
+      220 04:23:17 -             -    49    64    32    64    39
+
+ 104  220 04:23:32 J1254-6111    -   151  -210  -202  -177  -212
+      220 04:24:17 -             -    52    66    35    65    41
+
+ 105  220 04:24:32 G305.20+0.01  -   152  -210  -202  -181  -211
+      220 04:25:17 -             -    49    64    33    64    39
+
+ 106  220 04:25:32 J1337-6509    -   153  -209  -202  -187  -208
+      220 04:26:17 -             -    46    60    29    61    36
+
+ 107  220 04:26:32 G305.20+0.01  -   152  -209  -202  -181  -211
+      220 04:27:17 -             -    49    64    33    64    39
+
+ 108  220 04:27:32 J1254-6111    -   152  -209  -202  -176  -212
+      220 04:28:17 -             -    52    67    35    65    42
+
+ 109  220 04:28:32 G305.20+0.01  -   152  -209  -202  -180  -211
+      220 04:29:17 -             -    50    64    33    64    39
+
+ 110  220 04:29:32 J1337-6509    -   154  -208  -201  -186  -208
+      220 04:30:17 -             -    46    61    29    61    36
+
+ 111  220 04:30:32 G305.20+0.01  -   153  -209  -201  -180  -210
+      220 04:31:17 -             -    50    65    33    64    40
+
+ 112  220 04:31:32 J1254-6111    -   152  -208  -201  -175  -212
+      220 04:32:17 -             -    52    67    36    65    42
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 113  220 04:32:32 G305.20+0.01  -   153  -208  -201  -179  -210
+      220 04:33:17 pirals3.meth  -    50    65    33    64    40
+
+ 114  220 04:33:32 J1337-6509    -   154  -208  -201  -185  -208
+      220 04:34:17 -             -    46    61    30    61    37
+
+ 115  220 04:34:32 G305.20+0.01  -   153  -208  -201  -179  -210
+      220 04:35:17 -             -    50    65    34    64    40
+
+ 116  220 04:35:32 J1254-6111    -   153  -207  -201  -174  -212
+      220 04:36:17 -             -    53    67    36    65    42
+
+ 117  220 04:36:32 G305.20+0.01  -   153  -208  -201  -178  -210
+      220 04:37:17 -             -    50    65    34    64    40
+
+ 118  220 04:37:32 J1337-6509    -   154  -207  -201  -184  -208
+      220 04:38:17 -             -    47    61    30    61    37
+
+ 119  220 04:38:32 G305.20+0.01  -   153  -207  -201  -178  -210
+      220 04:39:17 -             -    51    65    34    63    40
+
+ 120  220 04:39:32 J1254-6111    -   153  -206  -200  -172  -211
+      220 04:40:17 -             -    53    68    36    65    43
+
+ 121  220 04:40:32 G305.20+0.01  -   154  -207  -201  -177  -210
+      220 04:41:17 -             -    51    65    34    63    41
+
+ 122  220 04:41:32 J1337-6509    -   154  -207  -200  -183  -208
+      220 04:42:17 -             -    47    62    30    61    37
+
+ 123  220 04:42:32 G305.20+0.01  -   154  -207  -200  -177  -210
+      220 04:43:17 -             -    51    66    34    63    41
+
+ 124  220 04:43:32 J1254-6111    -   154  -205  -200  -171  -211
+      220 04:44:17 -             -    54    68    37    65    43
+
+ 125  220 04:44:32 G305.20+0.01  -   154  -206  -200  -176  -210
+      220 04:45:17 -             -    51    66    34    63    41
+
+ 126  220 04:45:32 J1337-6509    -   155  -206  -200  -182  -208
+      220 04:46:17 -             -    47    62    31    61    38
+
+ 127  220 04:46:32 G305.20+0.01  -   154  -206  -200  -176  -210
+      220 04:47:17 -             -    51    66    35    63    41
+
+ 128  220 04:47:32 J1254-6111    -   154  -204  -200  -170  -211
+      220 04:48:17 -             -    54    68    37    65    44
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 129  220 04:48:32 G305.20+0.01  -   154  -205  -200  -175  -210
+      220 04:49:17 pirals3.meth  -    52    66    35    63    42
+
+ 130  220 04:49:32 J1337-6509    -   155  -206  -200  -181  -208
+      220 04:50:17 -             -    48    62    31    61    38
+
+ 131  220 04:50:32 G305.20+0.01  -   155  -205  -200  -175  -210
+      220 04:51:17 -             -    52    66    35    63    42
+
+ 132  220 04:51:32 J1254-6111    -   155  -203  -199  -169  -211
+      220 04:52:17 -             -    54    69    37    64    44
+
+ 133  220 04:52:32 G305.20+0.01  -   155  -205  -199  -174  -210
+      220 04:53:17 -             -    52    66    35    63    42
+
+ 134  220 04:53:32 J1337-6509    -   155  -205  -200  -181  -208
+      220 04:54:17 -             -    48    63    31    61    39
+
+ 135  220 04:54:32 G305.20+0.01  -   155  -204  -199  -174  -209
+      220 04:55:17 -             -    52    67    35    63    42
+
+ 136  220 04:55:32 J1254-6111    -   155  -202  -199  -168  -210
+      220 04:56:17 -             -    55    69    38    64    45
+
+ 137  220 04:56:32 G305.20+0.01  -   155  -204  -199  -173  -209
+      220 04:57:17 -             -    52    67    35    63    42
+
+ 138  220 04:57:32 J1337-6509    -   156  -205  -199  -180  -207
+      220 04:58:17 -             -    49    63    32    61    39
+
+ 139  220 04:58:32 G305.20+0.01  -   156  -203  -199  -173  -209
+      220 04:59:17 -             -    52    67    36    63    43
+
+ 140  220 04:59:32 J1254-6111    -   156  -201  -198  -167  -210
+      220 05:00:17 -             -    55    69    38    64    45
+
+ 141  220 05:00:32 G305.20+0.01  -   156  -203  -199  -172  -209
+      220 05:01:17 -             -    53    67    36    63    43
+
+ 142  220 05:01:32 J1337-6509    -   156  -204  -199  -179  -207
+      220 05:02:17 -             -    49    63    32    61    39
+
+ 143  220 05:02:32 G305.20+0.01  -   156  -202  -198  -172  -209
+      220 05:03:17 -             -    53    67    36    63    43
+
+ 144  220 05:03:32 J1254-6111    -   157  -200  -198  -166  -210
+      220 05:04:17 -             -    55    70    38    64    46
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 145  220 05:04:32 G305.20+0.01  -   156  -202  -198  -171  -209
+      220 05:05:17 pirals3.meth  -    53    67    36    63    43
+
+ 146  220 05:05:32 J1337-6509    -   157  -203  -199  -178  -207
+      220 05:06:17 -             -    49    64    32    61    40
+
+ 147  220 05:06:32 G305.20+0.01  -   157  -201  -198  -171  -209
+      220 05:07:17 -             -    53    67    36    63    43
+
+ 148  220 05:07:32 J1254-6111    -   157  -199  -197  -165  -210
+      220 05:08:17 -             -    56    70    39    64    46
+
+ 149  220 05:08:32 G305.20+0.01  -   157  -201  -198  -170  -209
+      220 05:09:17 -             -    53    67    36    63    44
+
+ 150  220 05:09:32 J1337-6509    -   157  -203  -198  -177  -207
+      220 05:10:17 -             -    50    64    33    61    40
+
+ 151  220 05:10:32 G305.20+0.01  -   157  -200  -198  -170  -209
+      220 05:11:17 -             -    53    68    36    63    44
+
+ 152  220 05:11:32 J1254-6111    -   158  -198  -197  -164  -209
+      220 05:12:17 -             -    56    70    39    63    46
+
+ 153  220 05:12:32 G305.20+0.01  -   157  -200  -197  -169  -208
+      220 05:13:17 -             -    54    68    37    63    44
+
+ 154  220 05:13:32 J1337-6509    -   157  -202  -198  -176  -207
+      220 05:14:17 -             -    50    64    33    61    41
+
+ 155  220 05:14:32 G305.20+0.01  -   158  -199  -197  -169  -208
+      220 05:15:17 -             -    54    68    37    63    44
+
+ 156  220 05:15:32 J1254-6111    -   158  -196  -196  -163  -209
+      220 05:16:17 -             -    56    70    39    63    47
+
+ 157  220 05:16:32 G305.20+0.01  -   158  -199  -197  -168  -208
+      220 05:17:17 -             -    54    68    37    63    45
+
+ 158  220 05:17:32 J1337-6509    -   158  -201  -198  -175  -207
+      220 05:18:17 -             -    50    64    33    61    41
+
+ 159  220 05:18:32 G305.20+0.01  -   158  -198  -197  -168  -208
+      220 05:19:17 -             -    54    68    37    62    45
+
+ 160  220 05:19:32 J1254-6111    -   159  -195  -196  -162  -209
+      220 05:20:17 -             -    57    70    40    63    47
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 161  220 05:20:32 G305.20+0.01  -   159  -198  -196  -167  -208
+      220 05:21:17 pirals3.meth  -    54    68    37    62    45
+
+ 162  220 05:21:32 J1337-6509    -   158  -200  -197  -175  -206
+      220 05:22:17 -             -    51    65    34    61    41
+
+ 163  220 05:22:32 G305.20+0.01  -   159  -197  -196  -167  -208
+      220 05:23:17 -             -    54    68    37    62    45
+
+ 164  220 05:23:32 J1254-6111    -   160  -194  -195  -161  -208
+      220 05:24:17 -             -    57    71    40    63    48
+
+ 165  220 05:24:32 G305.20+0.01  -   159  -197  -196  -167  -208
+      220 05:25:17 -             -    55    68    37    62    45
+
+ 166  220 05:25:32 J1337-6509    -   159  -200  -197  -174  -206
+      220 05:26:17 -             -    51    65    34    61    42
+
+ 167  220 05:26:32 G305.20+0.01  -   159  -196  -196  -166  -207
+      220 05:27:17 -             -    55    69    38    62    46
+
+ 168  220 05:27:32 J1254-6111    -   161  -192  -195  -161  -208
+      220 05:28:17 -             -    57    71    40    62    48
+
+ 169  220 05:28:32 G305.20+0.01  -   160  -196  -196  -166  -207
+      220 05:29:17 -             -    55    69    38    62    46
+
+ 170  220 05:29:32 J1337-6509    -   159  -199  -196  -173  -206
+      220 05:30:17 -             -    51    65    34    61    42
+
+ 171  220 05:30:32 G305.20+0.01  -   160  -195  -195  -165  -207
+      220 05:31:17 -             -    55    69    38    62    46
+
+ 172  220 05:31:32 J1254-6111    -   161  -191  -194  -160  -207
+      220 05:32:17 -             -    57    71    40    62    49
+
+ 173  220 05:32:32 G305.20+0.01  -   160  -194  -195  -165  -207
+      220 05:33:17 -             -    55    69    38    62    46
+
+ 174  220 05:33:32 J1337-6509    -   159  -198  -196  -172  -206
+      220 05:34:17 -             -    51    65    34    61    43
+
+ 175  220 05:34:32 G305.20+0.01  -   161  -194  -195  -164  -207
+      220 05:35:17 -             -    55    69    38    62    46
+
+ 176  220 05:35:32 J1254-6111    -   162  -190  -194  -159  -207
+      220 05:36:17 -             -    58    71    40    62    49
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 177  220 05:36:32 G305.20+0.01  -   161  -193  -195  -164  -207
+      220 05:37:17 pirals3.meth  -    55    69    38    62    47
+
+ 178  220 05:37:32 J1337-6509    -   160  -197  -196  -171  -206
+      220 05:38:17 -             -    52    66    35    60    43
+
+ 179  220 05:38:32 G305.20+0.01  -   161  -193  -194  -163  -206
+      220 05:39:17 -             -    56    69    38    61    47
+
+ 180  220 05:39:32 J1254-6111    -   163  -188  -193  -158  -207
+      220 05:40:17 -             -    58    71    41    62    49
+
+ 181  220 05:40:32 G305.20+0.01  -   162  -192  -194  -163  -206
+      220 05:41:17 -             -    56    69    38    61    47
+
+ 182  220 05:41:32 J1337-6509    -   160  -196  -195  -170  -205
+      220 05:42:17 -             -    52    66    35    60    43
+
+ 183  220 05:42:32 G305.20+0.01  -   162  -191  -194  -163  -206
+      220 05:43:17 -             -    56    69    39    61    47
+
+ 184  220 05:45:46 0302-623      -   201  -163   ---D -176  -153
+      220 05:46:46 -             -    12    19   ---D    9    16
+
+ 185  220 05:48:28 1022-665      -   193  -154  -171  -151  -178
+      220 05:49:28 -             -    53    60    36    44    52
+
+ 186  220 05:50:21 1057-797      -   183  -173  -178  -169  -181
+      220 05:51:21 -             -    41    51    24    42    39
+
+ 187  220 05:52:45 2300-683      -   175  -190   ---D -199  -178
+      220 05:53:45 -             -    10    22   ---D   22     7
+
+ 188  220 05:57:24 0920-397      -   244  -104  -136  -120  -129
+      220 05:58:24 -             -    58    51    49    30    70
+
+ 189  220 05:58:57 0826-373      -   247  -108  -127  -123  -116
+      220 05:59:57 -             -    47    40    39    19    60
+
+ 190  220 06:01:09 0627-199      -   256  -109  -108   ---D  -97
+      220 06:02:09 -             -    16     9    13   ---D   32
+
+ 191  220 06:02:37 0646-306      -   248  -115  -118   ---D -108
+      220 06:03:37 -             -    25    19    19   ---D   39
+
+ 192  220 06:04:45 0534-611      -   212  -149  -151  -161  -147
+      220 06:05:45 -             -    24    28    10    13    30
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 193  220 06:07:43 F1252-6737    -   173  -178  -186  -161  -196
+      220 06:09:43 pirals3.meth  -    53    65    36    55    47
+
+ 194  220 06:10:02 F1254-7138    -   174  -179  -185  -166  -193
+      220 06:12:02 -             -    50    61    32    52    44
+
+ 195  220 06:12:46 F1329-5608    -   157  -193  -196  -151  -214
+      220 06:14:46 -             -    62    76    45    65    52
+
+ 196  220 06:15:16 G305.20+0.01  -   168  -181  -189  -157  -203
+      220 06:16:16 -             -    58    70    40    59    50
+
+ 197  220 06:16:31 J1254-6111    -   171  -174  -187  -152  -202
+      220 06:17:16 -             -    60    71    42    58    53
+
+ 198  220 06:17:31 G305.20+0.01  -   168  -180  -189  -156  -202
+      220 06:18:16 -             -    58    70    40    59    50
+
+ 199  220 06:18:31 J1337-6509    -   166  -187  -191  -164  -202
+      220 06:19:16 -             -    54    67    37    59    47
+
+ 200  220 06:19:31 G305.20+0.01  -   169  -179  -189  -156  -202
+      220 06:20:16 -             -    58    70    40    59    50
+
+ 201  220 06:20:31 J1254-6111    -   172  -173  -187  -151  -201
+      220 06:21:16 -             -    60    71    42    58    53
+
+ 202  220 06:21:31 G305.20+0.01  -   169  -179  -189  -156  -202
+      220 06:22:16 -             -    58    70    40    58    51
+
+ 203  220 06:22:31 J1337-6509    -   166  -186  -191  -163  -202
+      220 06:23:16 -             -    55    67    37    58    47
+
+ 204  220 06:23:31 G305.20+0.01  -   169  -178  -188  -156  -202
+      220 06:24:16 -             -    58    70    40    58    51
+
+ 205  220 06:24:31 J1254-6111    -   172  -171  -186  -151  -201
+      220 06:25:16 -             -    60    71    43    58    53
+
+ 206  220 06:25:31 G305.20+0.01  -   170  -178  -188  -155  -201
+      220 06:26:16 -             -    58    70    41    58    51
+
+ 207  220 06:26:31 J1337-6509    -   167  -185  -190  -162  -202
+      220 06:27:16 -             -    55    67    37    58    47
+
+ 208  220 06:27:31 G305.20+0.01  -   170  -177  -188  -155  -201
+      220 06:28:16 -             -    58    70    41    58    51
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 209  220 06:28:31 J1254-6111    -   173  -170  -186  -150  -200
+      220 06:29:16 pirals3.meth  -    60    71    43    57    54
+
+ 210  220 06:29:31 G305.20+0.01  -   171  -176  -187  -155  -201
+      220 06:30:16 -             -    58    70    41    58    51
+
+ 211  220 06:30:31 J1337-6509    -   168  -184  -190  -162  -201
+      220 06:31:16 -             -    55    67    38    58    48
+
+ 212  220 06:31:31 G305.20+0.01  -   171  -176  -187  -154  -201
+      220 06:32:16 -             -    58    70    41    58    51
+
+ 213  220 06:32:31 J1254-6111    -   174  -169  -185  -150  -200
+      220 06:33:16 -             -    60    71    43    57    54
+
+ 214  220 06:33:31 G305.20+0.01  -   172  -175  -187  -154  -200
+      220 06:34:16 -             -    58    70    41    57    52
+
+ 215  220 06:34:31 J1337-6509    -   168  -183  -189  -161  -201
+      220 06:35:16 -             -    55    67    38    58    48
+
+ 216  220 06:35:31 G305.20+0.01  -   172  -174  -187  -154  -200
+      220 06:36:16 -             -    58    70    41    57    52
+
+ 217  220 06:36:31 J1254-6111    -   175  -167  -184  -149  -199
+      220 06:37:16 -             -    60    71    43    56    54
+
+ 218  220 06:37:31 G305.20+0.01  -   172  -174  -186  -154  -200
+      220 06:38:16 -             -    58    70    41    57    52
+
+ 219  220 06:38:31 J1337-6509    -   169  -182  -189  -160  -200
+      220 06:39:16 -             -    55    68    38    57    48
+
+ 220  220 06:39:31 G305.20+0.01  -   173  -173  -186  -153  -199
+      220 06:40:16 -             -    59    70    41    57    52
+
+ 221  220 06:40:31 J1254-6111    -   176  -166  -184  -149  -198
+      220 06:41:16 -             -    60    71    43    56    54
+
+ 222  220 06:41:31 G305.20+0.01  -   173  -172  -186  -153  -199
+      220 06:42:16 -             -    59    70    41    57    52
+
+ 223  220 06:42:31 J1337-6509    -   170  -181  -188  -160  -200
+      220 06:43:16 -             -    55    68    38    57    48
+
+ 224  220 06:43:31 G305.20+0.01  -   174  -172  -185  -153  -199
+      220 06:44:16 -             -    59    70    41    56    52
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 225  220 06:44:31 J1254-6111    -   177  -164  -183  -148  -198
+      220 06:45:16 pirals3.meth  -    60    70    43    56    55
+
+ 226  220 06:45:31 G305.20+0.01  -   174  -171  -185  -153  -199
+      220 06:46:16 -             -    59    70    41    56    52
+
+ 227  220 06:46:31 J1337-6509    -   170  -179  -188  -159  -199
+      220 06:47:16 -             -    56    68    38    57    49
+
+ 228  220 06:47:31 G305.20+0.01  -   175  -170  -185  -152  -198
+      220 06:48:16 -             -    59    69    41    56    53
+
+ 229  220 06:48:31 J1254-6111    -   178  -163  -182  -148  -197
+      220 06:49:16 -             -    61    70    43    55    55
+
+ 230  220 06:49:31 G305.20+0.01  -   175  -170  -184  -152  -198
+      220 06:50:16 -             -    59    69    41    56    53
+
+ 231  220 06:50:31 J1337-6509    -   171  -178  -187  -159  -199
+      220 06:51:16 -             -    56    68    38    57    49
+
+ 232  220 06:51:31 G305.20+0.01  -   175  -169  -184  -152  -198
+      220 06:52:16 -             -    59    69    41    56    53
+
+ 233  220 06:52:31 J1254-6111    -   179  -162  -182  -148  -196
+      220 06:53:16 -             -    61    70    43    55    55
+
+ 234  220 06:53:31 G305.20+0.01  -   176  -169  -184  -152  -197
+      220 06:54:16 -             -    59    69    41    56    53
+
+ 235  220 06:54:31 J1337-6509    -   172  -177  -187  -158  -199
+      220 06:55:16 -             -    56    67    38    56    49
+
+ 236  220 06:55:31 G305.20+0.01  -   176  -168  -184  -151  -197
+      220 06:56:16 -             -    59    69    41    55    53
+
+ 237  220 06:56:31 J1254-6111    -   180  -161  -181  -147  -195
+      220 06:57:16 -             -    61    70    43    54    56
+
+ 238  220 06:57:31 G305.20+0.01  -   177  -167  -183  -151  -197
+      220 06:58:16 -             -    59    69    41    55    53
+
+ 239  220 06:58:31 J1337-6509    -   172  -176  -186  -158  -198
+      220 06:59:16 -             -    56    67    38    56    50
+
+ 240  220 06:59:31 G305.20+0.01  -   177  -167  -183  -151  -196
+      220 07:00:16 -             -    59    69    41    55    53
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 241  220 07:00:31 J1254-6111    -   181  -160  -180  -147  -195
+      220 07:01:16 pirals3.meth  -    61    69    43    54    56
+
+ 242  220 07:01:31 G305.20+0.01  -   178  -166  -183  -151  -196
+      220 07:02:16 -             -    59    69    41    55    53
+
+ 243  220 07:02:31 J1337-6509    -   173  -175  -186  -157  -198
+      220 07:03:16 -             -    56    67    39    56    50
+
+ 244  220 07:03:31 G305.20+0.01  -   178  -166  -182  -151  -196
+      220 07:04:16 -             -    59    69    41    55    54
+
+ 245  220 07:04:31 J1254-6111    -   182  -158  -180  -147  -194
+      220 07:05:16 -             -    61    69    43    53    56
+
+ 246  220 07:05:31 G305.20+0.01  -   178  -165  -182  -150  -195
+      220 07:06:16 -             -    59    69    41    54    54
+
+ 247  220 07:06:31 J1337-6509    -   174  -174  -185  -157  -197
+      220 07:07:16 -             -    56    67    39    55    50
+
+ 248  220 07:07:31 G305.20+0.01  -   179  -164  -182  -150  -195
+      220 07:08:16 -             -    59    69    41    54    54
+
+ 249  220 07:08:31 J1254-6111    -   183  -157  -179  -146  -193
+      220 07:09:16 -             -    60    69    43    53    56
+
+ 250  220 07:09:31 G305.20+0.01  -   179  -164  -181  -150  -195
+      220 07:10:16 -             -    59    69    41    54    54
+
+ 251  220 07:10:31 J1337-6509    -   175  -173  -185  -156  -196
+      220 07:11:16 -             -    56    67    39    55    50
+
+ 252  220 07:11:31 G305.20+0.01  -   180  -163  -181  -150  -194
+      220 07:12:16 -             -    59    68    41    54    54
+
+ 253  220 07:12:31 J1254-6111    -   184  -156  -178  -146  -192
+      220 07:13:16 -             -    60    69    43    53    56
+
+ 254  220 07:13:31 G305.20+0.01  -   180  -163  -181  -150  -194
+      220 07:14:16 -             -    59    68    41    54    54
+
+ 255  220 07:14:31 J1337-6509    -   175  -172  -184  -156  -196
+      220 07:15:16 -             -    56    67    39    55    51
+
+ 256  220 07:15:31 G305.20+0.01  -   181  -162  -181  -150  -194
+      220 07:16:16 -             -    59    68    41    53    54
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 257  220 07:16:31 J1254-6111    -   185  -155  -178  -146  -192
+      220 07:17:16 pirals3.meth  -    60    68    43    52    57
+
+ 258  220 07:17:31 G305.20+0.01  -   181  -162  -180  -149  -193
+      220 07:18:16 -             -    59    68    41    53    54
+
+ 259  220 07:18:31 J1337-6509    -   176  -171  -184  -155  -195
+      220 07:19:16 -             -    56    67    39    54    51
+
+ 260  220 07:19:31 G305.20+0.01  -   182  -161  -180  -149  -193
+      220 07:20:16 -             -    59    68    41    53    54
+
+ 261  220 07:20:31 J1254-6111    -   186  -154  -177  -146  -191
+      220 07:21:16 -             -    60    68    43    52    57
+
+ 262  220 07:21:31 G305.20+0.01  -   182  -161  -180  -149  -193
+      220 07:22:16 -             -    59    68    41    53    55
+
+ 263  220 07:22:31 J1337-6509    -   177  -170  -183  -155  -195
+      220 07:23:16 -             -    56    67    39    54    51
+
+ 264  220 07:23:31 G305.20+0.01  -   182  -160  -179  -149  -192
+      220 07:24:16 -             -    59    68    41    53    55
+
+ 265  220 07:24:31 J1254-6111    -   187  -153  -176  -145  -190
+      220 07:25:16 -             -    60    68    43    51    57
+
+ 266  220 07:25:31 G305.20+0.01  -   183  -160  -179  -149  -192
+      220 07:26:16 -             -    59    68    41    52    55
+
+ 267  220 07:26:31 J1337-6509    -   178  -169  -183  -154  -194
+      220 07:27:16 -             -    57    67    39    54    51
+
+ 268  220 07:27:31 G305.20+0.01  -   183  -159  -179  -149  -192
+      220 07:28:16 -             -    59    67    41    52    55
+
+ 269  220 07:28:31 J1254-6111    -   188  -152  -176  -145  -189
+      220 07:29:16 -             -    60    67    43    51    57
+
+ 270  220 07:29:31 G305.20+0.01  -   184  -159  -178  -148  -191
+      220 07:30:16 -             -    59    67    41    52    55
+
+ 271  220 07:30:31 J1337-6509    -   178  -168  -182  -154  -194
+      220 07:31:16 -             -    57    67    39    53    52
+
+ 272  220 07:31:31 G305.20+0.01  -   184  -158  -178  -148  -191
+      220 07:32:16 -             -    59    67    41    52    55
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 273  220 07:32:31 J1254-6111    -   189  -152  -175  -145  -188
+      220 07:33:16 pirals3.meth  -    60    67    43    50    57
+
+ 274  220 07:33:31 G305.20+0.01  -   185  -158  -178  -148  -190
+      220 07:34:16 -             -    59    67    41    51    55
+
+ 275  220 07:34:31 J1337-6509    -   179  -167  -182  -154  -193
+      220 07:35:16 -             -    57    66    39    53    52
+
+ 276  220 07:35:31 G305.20+0.01  -   185  -157  -177  -148  -190
+      220 07:36:16 -             -    59    67    41    51    55
+
+ 277  220 07:36:31 J1254-6111    -   190  -151  -174  -145  -187
+      220 07:37:16 -             -    60    67    43    50    57
+
+ 278  220 07:37:31 G305.20+0.01  -   186  -157  -177  -148  -190
+      220 07:38:16 -             -    59    67    41    51    55
+
+ 279  220 07:38:31 J1337-6509    -   180  -166  -181  -153  -192
+      220 07:39:16 -             -    57    66    39    53    52
+
+ 280  220 07:39:31 G305.20+0.01  -   186  -156  -177  -148  -189
+      220 07:40:16 -             -    59    67    41    51    55
+
+ 281  220 07:40:31 J1254-6111    -   191  -150  -174  -145  -186
+      220 07:41:16 -             -    60    66    43    49    57
+
+ 282  220 07:41:31 G305.20+0.01  -   186  -156  -177  -148  -189
+      220 07:42:16 -             -    59    67    41    51    55
+
+ 283  220 07:42:31 J1337-6509    -   181  -165  -180  -153  -192
+      220 07:43:16 -             -    57    66    39    52    52
+
+ 284  220 07:43:31 G305.20+0.01  -   187  -155  -176  -148  -189
+      220 07:44:16 -             -    59    66    41    50    55
+
+ 285  220 07:44:31 J1254-6111    -   192  -149  -173  -144  -186
+      220 07:45:16 -             -    59    66    42    49    57
+
+ 286  220 07:45:31 G305.20+0.01  -   187  -155  -176  -147  -188
+      220 07:46:16 -             -    59    66    41    50    56
+
+ 287  220 07:46:31 J1337-6509    -   181  -164  -180  -153  -191
+      220 07:47:16 -             -    57    66    39    52    52
+
+ 288  220 07:47:31 G305.20+0.01  -   188  -155  -176  -147  -188
+      220 07:48:16 -             -    58    66    41    50    56
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 289  220 07:48:31 J1254-6111    -   192  -148  -173  -144  -185
+      220 07:49:16 pirals3.meth  -    59    66    42    48    58
+
+ 290  220 07:49:31 G305.20+0.01  -   188  -154  -175  -147  -187
+      220 07:50:16 -             -    58    66    41    50    56
+
+ 291  220 07:50:31 J1337-6509    -   182  -163  -179  -152  -191
+      220 07:51:16 -             -    57    66    39    51    52
+
+ 292  220 07:51:31 G305.20+0.01  -   189  -154  -175  -147  -187
+      220 07:52:16 -             -    58    66    41    50    56
+
+ 293  220 07:52:31 J1254-6111    -   193  -148  -172  -144  -184
+      220 07:53:16 -             -    59    65    42    48    58
+
+ 294  220 07:53:31 G305.20+0.01  -   189  -153  -175  -147  -187
+      220 07:54:16 -             -    58    66    41    49    56
+
+ 295  220 07:54:31 J1337-6509    -   183  -162  -179  -152  -190
+      220 07:55:16 -             -    56    65    39    51    53
+
+ 296  220 07:55:31 G305.20+0.01  -   189  -153  -174  -147  -186
+      220 07:56:16 -             -    58    65    41    49    56
+
+ 297  220 07:56:31 J1254-6111    -   194  -147  -171  -144  -183
+      220 07:57:16 -             -    59    65    42    47    58
+
+ 298  220 07:57:31 G305.20+0.01  -   190  -153  -174  -147  -186
+      220 07:58:16 -             -    58    65    41    49    56
+
+ 299  220 07:58:31 J1337-6509    -   184  -162  -178  -152  -189
+      220 07:59:16 -             -    56    65    39    51    53
+
+ 300  220 07:59:31 G305.20+0.01  -   190  -152  -174  -147  -185
+      220 08:00:16 -             -    58    65    41    49    56
+
+ 301  220 08:00:31 J1254-6111    -   195  -147  -171  -144  -182
+      220 08:01:16 -             -    59    64    42    47    58
+
+ 302  220 08:01:31 G305.20+0.01  -   191  -152  -174  -147  -185
+      220 08:02:16 -             -    58    65    41    48    56
+
+ 303  220 08:02:31 J1337-6509    -   184  -161  -178  -151  -189
+      220 08:03:16 -             -    56    65    39    50    53
+
+ 304  220 08:03:31 G305.20+0.01  -   191  -152  -173  -147  -185
+      220 08:04:16 -             -    58    65    41    48    56
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 305  220 08:04:31 J1254-6111    -   196  -146  -170  -144  -181
+      220 08:05:16 pirals3.meth  -    58    64    42    46    58
+
+ 306  220 08:05:31 G305.20+0.01  -   191  -151  -173  -146  -184
+      220 08:06:16 -             -    58    65    41    48    56
+
+ 307  220 08:06:31 J1337-6509    -   185  -160  -177  -151  -188
+      220 08:07:16 -             -    56    65    39    50    53
+
+ 308  220 08:07:31 G305.20+0.01  -   192  -151  -173  -146  -184
+      220 08:08:16 -             -    58    64    41    48    56
+
+ 309  220 08:08:31 J1254-6111    -   197  -145  -169  -144  -180
+      220 08:09:16 -             -    58    64    42    46    58
+
+ 310  220 08:09:31 G305.20+0.01  -   192  -151  -172  -146  -183
+      220 08:10:16 -             -    58    64    41    48    56
+
+ 311  220 08:10:31 J1337-6509    -   186  -159  -177  -151  -187
+      220 08:11:16 -             -    56    65    39    50    53
+
+ 312  220 08:11:31 G305.20+0.01  -   193  -150  -172  -146  -183
+      220 08:12:16 -             -    58    64    41    47    56
+
+ 313  220 08:12:31 J1254-6111    -   197  -145  -169  -144  -179
+      220 08:13:16 -             -    58    63    41    46    58
+
+ 314  220 08:13:31 G305.20+0.01  -   193  -150  -172  -146  -183
+      220 08:14:16 -             -    57    64    41    47    56
+
+ 315  220 08:14:31 J1337-6509    -   187  -158  -176  -151  -187
+      220 08:15:16 -             -    56    64    39    49    53
+
+ 316  220 08:15:31 G305.20+0.01  -   193  -150  -172  -146  -182
+      220 08:16:16 -             -    57    64    40    47    56
+
+ 317  220 08:18:09 0506-612      -   199  -166   ---D -179  -154
+      220 08:19:09 -             -     9    16   ---D    8    13
+
+ 318  220 08:20:07 0454-810      -   186  -176  -174  -181  -172
+      220 08:21:07 -             -    24    34     7    27    24
+
+ 319  220 08:22:22 2300-683      -   163  -203   ---D -207  -191
+      220 08:23:22 -             -    16    30   ---D   34    10
+
+ 320  220 08:26:28 1004-500      -   228  -128  -140  -140  -135
+      220 08:27:28 -             -    39    38    28    19    49
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 321  220 08:29:11 1124-186      -   276   -84  -103  -103   -74
+      220 08:30:11 pirals3.meth  -    47    35    48    14    64
+
+ 322  220 08:31:12 0925-203      -   259  -105  -107   ---D  -95
+      220 08:32:12 -             -    22    14    20   ---D   38
+
+ 323  220 08:33:18 1038+064      -   294   -73   -74   ---D  -54
+      220 08:34:18 -             -    23     9    31   ---D   38
+
+ 324  220 08:37:05 1251-713      -   191  -160  -172  -157  -177
+      220 08:38:05 -             -    48    55    31    42    47
+
+ 325  220 08:38:24 F1252-6737    -   195  -153  -169  -152  -175
+      220 08:40:24 -             -    51    57    34    42    51
+
+ 326  220 08:40:42 F1254-7138    -   192  -159  -171  -157  -176
+      220 08:42:42 -             -    48    55    31    41    47
+
+ 327  220 08:43:43 F1329-5608    -   202  -135  -167  -136  -180
+      220 08:45:43 -             -    62    66    46    46    63
+
+ 328  220 08:45:58 J1254-6111    -   203  -142  -164  -143  -172
+      220 08:46:43 -             -    56    59    39    42    57
+
+ 329  220 08:46:58 G305.20+0.01  -   199  -146  -167  -146  -176
+      220 08:47:43 -             -    56    61    39    43    56
+
+ 330  220 08:47:58 J1337-6509    -   192  -153  -172  -149  -181
+      220 08:48:43 -             -    55    62    38    46    54
+
+ 331  220 08:48:58 G305.20+0.01  -   199  -146  -167  -146  -175
+      220 08:49:43 -             -    55    60    39    43    56
+
+ 332  220 08:49:58 J1254-6111    -   204  -141  -164  -143  -171
+      220 08:50:43 -             -    55    59    39    41    57
+
+ 333  220 08:50:58 G305.20+0.01  -   200  -145  -167  -146  -175
+      220 08:51:43 -             -    55    60    39    43    56
+
+ 334  220 08:51:58 J1337-6509    -   193  -153  -171  -149  -180
+      220 08:52:43 -             -    55    61    38    45    54
+
+ 335  220 08:52:58 G305.20+0.01  -   200  -145  -167  -146  -175
+      220 08:53:43 -             -    55    60    39    43    56
+
+ 336  220 08:53:58 J1254-6111    -   204  -141  -163  -143  -170
+      220 08:54:43 -             -    55    58    39    41    57
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 337  220 08:54:58 G305.20+0.01  -   200  -145  -166  -146  -174
+      220 08:55:43 pirals3.meth  -    55    60    39    42    56
+
+ 338  220 08:55:58 J1337-6509    -   194  -152  -171  -149  -179
+      220 08:56:43 -             -    55    61    38    45    54
+
+ 339  220 08:56:58 G305.20+0.01  -   200  -145  -166  -146  -174
+      220 08:57:43 -             -    55    59    38    42    56
+
+ 340  220 08:57:58 J1254-6111    -   205  -141  -163  -144  -169
+      220 08:58:43 -             -    54    58    39    40    57
+
+ 341  220 08:58:58 G305.20+0.01  -   201  -145  -166  -146  -173
+      220 08:59:43 -             -    55    59    38    42    56
+
+ 342  220 08:59:58 J1337-6509    -   194  -152  -170  -149  -179
+      220 09:00:43 -             -    54    61    38    45    54
+
+ 343  220 09:00:58 G305.20+0.01  -   201  -145  -166  -146  -173
+      220 09:01:43 -             -    54    59    38    42    56
+
+ 344  220 09:01:58 J1254-6111    -   205  -141  -162  -144  -169
+      220 09:02:43 -             -    54    58    38    40    57
+
+ 345  220 09:02:58 G305.20+0.01  -   201  -144  -165  -146  -173
+      220 09:03:43 -             -    54    59    38    41    56
+
+ 346  220 09:03:58 J1337-6509    -   195  -151  -170  -149  -178
+      220 09:04:43 -             -    54    60    37    44    54
+
+ 347  220 09:04:58 G305.20+0.01  -   202  -144  -165  -146  -172
+      220 09:05:43 -             -    54    59    38    41    56
+
+ 348  220 09:05:58 J1254-6111    -   206  -140  -162  -144  -168
+      220 09:06:43 -             -    54    57    38    39    56
+
+ 349  220 09:06:58 G305.20+0.01  -   202  -144  -165  -146  -172
+      220 09:07:43 -             -    54    58    38    41    55
+
+ 350  220 09:07:58 J1337-6509    -   196  -151  -169  -149  -177
+      220 09:08:43 -             -    54    60    37    44    54
+
+ 351  220 09:08:58 G305.20+0.01  -   202  -144  -165  -146  -171
+      220 09:09:43 -             -    54    58    38    41    55
+
+ 352  220 09:09:58 J1254-6111    -   206  -140  -161  -144  -167
+      220 09:10:43 -             -    53    57    38    39    56
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 353  220 09:10:58 G305.20+0.01  -   202  -144  -164  -146  -171
+      220 09:11:43 pirals3.meth  -    54    58    38    41    55
+
+ 354  220 09:11:58 J1337-6509    -   196  -150  -169  -149  -177
+      220 09:12:43 -             -    54    60    37    43    54
+
+ 355  220 09:12:58 G305.20+0.01  -   203  -144  -164  -146  -171
+      220 09:13:43 -             -    54    58    37    40    55
+
+ 356  220 09:13:58 J1254-6111    -   207  -140  -161  -144  -166
+      220 09:14:43 -             -    53    56    37    38    56
+
+ 357  220 09:14:58 G305.20+0.01  -   203  -144  -164  -146  -170
+      220 09:15:43 -             -    53    58    37    40    55
+
+ 358  220 09:15:58 J1337-6509    -   197  -150  -168  -149  -176
+      220 09:16:43 -             -    53    59    37    43    54
+
+ 359  220 09:16:58 G305.20+0.01  -   203  -143  -164  -146  -170
+      220 09:17:43 -             -    53    57    37    40    55
+
+ 360  220 09:17:58 J1254-6111    -   207  -140  -160  -144  -165
+      220 09:18:43 -             -    53    56    37    38    56
+
+ 361  220 09:18:58 G305.20+0.01  -   203  -143  -163  -146  -169
+      220 09:19:43 -             -    53    57    37    40    55
+
+ 362  220 09:19:58 J1337-6509    -   197  -149  -168  -149  -175
+      220 09:20:43 -             -    53    59    37    42    54
+
+ 363  220 09:20:58 G305.20+0.01  -   204  -143  -163  -146  -169
+      220 09:21:43 -             -    53    57    37    39    55
+
+ 364  220 09:21:58 J1254-6111    -   208  -140  -160  -144  -165
+      220 09:22:43 -             -    52    55    37    37    56
+
+ 365  220 09:22:58 G305.20+0.01  -   204  -143  -163  -146  -169
+      220 09:23:43 -             -    53    57    37    39    55
+
+ 366  220 09:23:58 J1337-6509    -   198  -149  -167  -149  -175
+      220 09:24:43 -             -    53    58    36    42    53
+
+ 367  220 09:24:58 G305.20+0.01  -   204  -143  -163  -146  -168
+      220 09:25:43 -             -    53    56    37    39    55
+
+ 368  220 09:25:58 J1254-6111    -   208  -140  -159  -144  -164
+      220 09:26:43 -             -    52    55    36    37    55
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 369  220 09:26:58 G305.20+0.01  -   204  -143  -162  -146  -168
+      220 09:27:43 pirals3.meth  -    52    56    37    39    55
+
+ 370  220 09:27:58 J1337-6509    -   198  -149  -167  -149  -174
+      220 09:28:43 -             -    53    58    36    42    53
+
+ 371  220 09:28:58 G305.20+0.01  -   205  -143  -162  -146  -168
+      220 09:29:43 -             -    52    56    36    39    55
+
+ 372  220 09:29:58 J1254-6111    -   209  -139  -159  -144  -163
+      220 09:30:43 -             -    51    54    36    36    55
+
+ 373  220 09:30:58 G305.20+0.01  -   205  -143  -162  -146  -167
+      220 09:31:43 -             -    52    56    36    38    55
+
+ 374  220 09:31:58 J1337-6509    -   199  -148  -167  -149  -173
+      220 09:32:43 -             -    52    58    36    41    53
+
+ 375  220 09:32:58 G305.20+0.01  -   205  -143  -162  -146  -167
+      220 09:33:43 -             -    52    56    36    38    54
+
+ 376  220 09:33:58 J1254-6111    -   209  -139  -159  -144  -163
+      220 09:34:43 -             -    51    54    36    36    55
+
+ 377  220 09:34:58 G305.20+0.01  -   205  -143  -162  -146  -167
+      220 09:35:43 -             -    52    55    36    38    54
+
+ 378  220 09:35:58 J1337-6509    -   199  -148  -166  -149  -172
+      220 09:36:43 -             -    52    57    36    41    53
+
+ 379  220 09:36:58 G305.20+0.01  -   206  -142  -161  -146  -166
+      220 09:37:43 -             -    51    55    36    38    54
+
+ 380  220 09:37:58 J1254-6111    -   209  -139  -158  -144  -162
+      220 09:38:43 -             -    51    53    35    35    55
+
+ 381  220 09:38:58 G305.20+0.01  -   206  -142  -161  -146  -166
+      220 09:39:43 -             -    51    55    36    37    54
+
+ 382  220 09:39:58 J1337-6509    -   200  -148  -166  -149  -172
+      220 09:40:43 -             -    52    57    36    40    53
+
+ 383  220 09:40:58 G305.20+0.01  -   206  -142  -161  -146  -166
+      220 09:41:43 -             -    51    55    35    37    54
+
+ 384  220 09:41:58 J1254-6111    -   210  -139  -158  -145  -161
+      220 09:42:43 -             -    50    53    35    35    54
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 385  220 09:42:58 G305.20+0.01  -   206  -142  -161  -146  -165
+      220 09:43:43 pirals3.meth  -    51    54    35    37    54
+
+ 386  220 09:43:58 J1337-6509    -   200  -148  -165  -149  -171
+      220 09:44:43 -             -    52    57    35    40    53
+
+ 387  220 09:44:58 G305.20+0.01  -   206  -142  -161  -146  -165
+      220 09:45:43 -             -    51    54    35    37    54
+
+ 388  220 09:45:58 J1254-6111    -   210  -139  -158  -145  -160
+      220 09:46:43 -             -    50    52    35    34    54
+
+ 389  220 09:46:58 G305.20+0.01  -   207  -142  -160  -146  -165
+      220 09:47:43 -             -    51    54    35    36    54
+
+ 390  220 09:47:58 J1337-6509    -   201  -147  -165  -149  -170
+      220 09:48:43 -             -    51    56    35    40    53
+
+ 391  220 09:48:58 G305.20+0.01  -   207  -142  -160  -146  -164
+      220 09:49:43 -             -    50    54    35    36    54
+
+ 392  220 09:49:58 J1254-6111    -   211  -139  -157  -145  -160
+      220 09:50:43 -             -    49    52    34    34    54
+
+ 393  220 09:50:58 G305.20+0.01  -   207  -142  -160  -146  -164
+      220 09:51:43 -             -    50    54    35    36    53
+
+ 394  220 09:51:58 J1337-6509    -   201  -147  -165  -149  -170
+      220 09:52:43 -             -    51    56    35    39    53
+
+ 395  220 09:52:58 G305.20+0.01  -   207  -142  -160  -146  -164
+      220 09:53:43 -             -    50    53    34    36    53
+
+ 396  220 09:53:58 J1254-6111    -   211  -139  -157  -145  -159
+      220 09:54:43 -             -    49    51    34    33    53
+
+ 397  220 09:54:58 G305.20+0.01  -   207  -142  -160  -146  -163
+      220 09:55:43 -             -    50    53    34    36    53
+
+ 398  220 09:55:58 J1337-6509    -   202  -147  -164  -149  -169
+      220 09:56:43 -             -    51    55    35    39    52
+
+ 399  220 09:56:58 G305.20+0.01  -   208  -142  -159  -146  -163
+      220 09:57:43 -             -    50    53    34    35    53
+
+ 400  220 09:57:58 J1254-6111    -   211  -139  -156  -145  -159
+      220 09:58:43 -             -    48    51    34    33    53
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 401  220 09:58:58 G305.20+0.01  -   208  -142  -159  -146  -163
+      220 09:59:43 pirals3.meth  -    49    53    34    35    53
+
+ 402  220 09:59:58 J1337-6509    -   202  -147  -164  -149  -169
+      220 10:00:43 -             -    50    55    34    38    52
+
+ 403  220 10:00:58 G305.20+0.01  -   208  -142  -159  -147  -162
+      220 10:01:43 -             -    49    52    34    35    53
+
+ 404  220 10:01:58 J1254-6111    -   211  -139  -156  -145  -158
+      220 10:02:43 -             -    48    50    33    33    53
+
+ 405  220 10:02:58 G305.20+0.01  -   208  -142  -159  -147  -162
+      220 10:03:43 -             -    49    52    34    35    53
+
+ 406  220 10:03:58 J1337-6509    -   203  -147  -163  -149  -168
+      220 10:04:43 -             -    50    55    34    38    52
+
+ 407  220 10:04:58 G305.20+0.01  -   208  -142  -159  -147  -162
+      220 10:05:43 -             -    49    52    33    34    53
+
+ 408  220 10:05:58 J1254-6111    -   212  -139  -156  -146  -157
+      220 10:06:43 -             -    48    50    33    32    52
+
+ 409  220 10:06:58 G305.20+0.01  -   208  -142  -159  -147  -161
+      220 10:07:43 -             -    49    52    33    34    52
+
+ 410  220 10:07:58 J1337-6509    -   203  -146  -163  -149  -167
+      220 10:08:43 -             -    50    54    34    37    52
+
+ 411  220 10:08:58 G305.20+0.01  -   209  -142  -158  -147  -161
+      220 10:09:43 -             -    48    51    33    34    52
+
+ 412  220 10:09:58 J1254-6111    -   212  -139  -155  -146  -157
+      220 10:10:43 -             -    47    49    32    32    52
+
+ 413  220 10:10:58 G305.20+0.01  -   209  -142  -158  -147  -161
+      220 10:11:43 -             -    48    51    33    34    52
+
+ 414  220 10:11:58 J1337-6509    -   203  -146  -163  -149  -167
+      220 10:12:43 -             -    49    54    33    37    52
+
+ 415  220 10:12:58 G305.20+0.01  -   209  -142  -158  -147  -161
+      220 10:13:43 -             -    48    51    33    34    52
+
+ 416  220 10:13:58 J1254-6111    -   212  -139  -155  -146  -156
+      220 10:14:43 -             -    47    49    32    31    52
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 417  220 10:14:58 G305.20+0.01  -   209  -142  -158  -147  -160
+      220 10:15:43 pirals3.meth  -    48    51    33    33    52
+
+ 418  220 10:15:58 J1337-6509    -   204  -146  -162  -149  -166
+      220 10:16:43 -             -    49    53    33    37    51
+
+ 419  220 10:16:58 G305.20+0.01  -   209  -142  -158  -147  -160
+      220 10:17:43 -             -    48    51    32    33    52
+
+ 420  220 10:17:58 J1254-6111    -   212  -139  -155  -146  -156
+      220 10:18:43 -             -    46    48    32    31    51
+
+ 421  220 10:18:58 G305.20+0.01  -   209  -142  -158  -147  -160
+      220 10:19:43 -             -    47    50    32    33    52
+
+ 422  220 10:19:58 J1337-6509    -   204  -146  -162  -149  -166
+      220 10:20:43 -             -    49    53    33    36    51
+
+ 423  220 10:20:58 G305.20+0.01  -   209  -142  -157  -147  -159
+      220 10:21:43 -             -    47    50    32    33    51
+
+ 424  220 10:21:58 J1254-6111    -   213  -139  -155  -146  -155
+      220 10:22:43 -             -    46    48    31    30    51
+
+ 425  220 10:22:58 G305.20+0.01  -   210  -142  -157  -147  -159
+      220 10:23:43 -             -    47    50    32    33    51
+
+ 426  220 10:23:58 J1337-6509    -   205  -146  -162  -149  -165
+      220 10:24:43 -             -    48    52    32    36    51
+
+ 427  220 10:24:58 G305.20+0.01  -   210  -142  -157  -147  -159
+      220 10:25:43 -             -    47    50    32    32    51
+
+ 428  220 10:25:58 J1254-6111    -   213  -139  -154  -147  -155
+      220 10:26:43 -             -    45    48    31    30    51
+
+ 429  220 10:26:58 G305.20+0.01  -   210  -142  -157  -147  -159
+      220 10:27:43 -             -    46    49    31    32    51
+
+ 430  220 10:27:58 J1337-6509    -   205  -146  -161  -149  -164
+      220 10:28:43 -             -    48    52    32    35    51
+
+ 431  220 10:28:58 G305.20+0.01  -   210  -142  -157  -148  -158
+      220 10:29:43 -             -    46    49    31    32    51
+
+ 432  220 10:29:58 J1254-6111    -   213  -139  -154  -147  -154
+      220 10:30:43 -             -    45    47    30    29    50
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 433  220 10:30:58 G305.20+0.01  -   210  -142  -157  -148  -158
+      220 10:31:43 pirals3.meth  -    46    49    31    32    51
+
+ 434  220 10:31:58 J1337-6509    -   205  -146  -161  -149  -164
+      220 10:32:43 -             -    48    52    32    35    51
+
+ 435  220 10:32:58 G305.20+0.01  -   210  -142  -157  -148  -158
+      220 10:33:43 -             -    46    49    31    31    50
+
+ 436  220 10:33:58 J1254-6111    -   213  -140  -154  -147  -154
+      220 10:34:43 -             -    44    47    30    29    50
+
+ 437  220 10:34:58 G305.20+0.01  -   210  -142  -156  -148  -158
+      220 10:35:43 -             -    46    49    31    31    50
+
+ 438  220 10:35:58 J1337-6509    -   205  -146  -161  -150  -163
+      220 10:36:43 -             -    47    51    32    35    50
+
+ 439  220 10:36:58 G305.20+0.01  -   210  -142  -156  -148  -157
+      220 10:37:43 -             -    45    48    30    31    50
+
+ 440  220 10:37:58 J1254-6111    -   213  -140  -154  -147  -153
+      220 10:38:43 -             -    44    46    29    28    49
+
+ 441  220 10:38:58 G305.20+0.01  -   211  -142  -156  -148  -157
+      220 10:39:43 -             -    45    48    30    31    50
+
+ 442  220 10:39:58 J1337-6509    -   206  -145  -160  -150  -163
+      220 10:40:43 -             -    47    51    31    34    50
+
+ 443  220 10:40:58 G305.20+0.01  -   211  -142  -156  -148  -157
+      220 10:41:43 -             -    45    48    30    31    50
+
+ 444  220 10:41:58 J1254-6111    -   213  -140  -153  -147  -153
+      220 10:42:43 -             -    43    46    29    28    49
+
+ 445  220 10:42:58 G305.20+0.01  -   211  -142  -156  -148  -157
+      220 10:43:43 -             -    45    48    30    30    50
+
+ 446  220 10:43:58 J1337-6509    -   206  -145  -160  -150  -162
+      220 10:44:43 -             -    46    50    31    34    50
+
+ 447  220 10:44:58 G305.20+0.01  -   211  -142  -156  -148  -156
+      220 10:45:43 -             -    45    47    30    30    49
+
+ 448  220 10:46:29 1022-665      -   206  -154  -156  -164  -153
+      220 10:47:29 -             -    27    32    12    18    31
+
+
+
+ SCAN SUMMARY for experiment s027h   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Start azimuth.
+     Bottom item is: Start elevation.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 220 is Wed   7 Aug 2024   MJD  60529          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 449  220 10:49:16 1659-621      -   176  -167  -183  -150  -197
+      220 10:50:16 pirals3.meth  -    60    70    42    56    54
+
+ 450  220 10:52:03 1245-454      -   234  -121  -136  -134  -129
+      220 10:53:03 -             -    42    39    32    18    53
+
+ 451  220 10:54:02 1213-172      -   265   -99  -103   ---D  -88
+      220 10:55:02 -             -    26    17    25   ---D   42
+
+ 452  220 10:55:35 1145-071      -   270   -96   -94   ---D  -81
+      220 10:56:35 -             -    15     5    16   ---D   31
+
+ 453  220 10:59:08 1725-795      -   178  -179  -182  -172  -186
+      220 11:00:08 -             -    42    53    25    45    38
+
+ 454  220 11:01:04 2142-758      -   163  -199  -195  -191  -196
+      220 11:02:04 -             -    35    49    18    48    28
+
+ 455  220 11:02:51 2353-686      -   157  -209  -201  -207  -199
+      220 11:03:51 -             -    25    39     8    44    16
+
+ 456  220 11:04:55 0530-727      -   182  -183   ---D -191  -173
+      220 11:05:55 -             -    15    26   ---D   22    13
+
+ 457  220 11:07:35 F1252-6737    -   206  -149  -159  -155  -158
+      220 11:10:35 -             -    39    44    24    28    43
+
+ 458  220 11:10:56 F1254-7138    -   201  -155  -163  -160  -163
+      220 11:13:56 -             -    38    44    22    30    41
+
+ 459  220 11:14:48 F1329-5608    -   220  -133  -148  -142  -146
+      220 11:17:48 -             -    44    45    31    26    52
+
+ 460  220 11:21:57 F1921-293     -    92    51  -238   -52  -257
+      220 11:22:57 -             -    63    71    57    79    47
+
+
+
+ TIME RANGE OF RECORDINGS and TOTAL BYTES:
+
+                Obs. start time.     Obs. end time.      Total 
+ Station          Day    Time         Day    Time        GBytes
+                     (UT)                 (UT)
+  CEDUNA         220  02:15:00       220  11:22:57       2879.1
+  HOBART12       220  02:15:00       220  11:22:57       2871.4
+  KATH12M        220  02:15:00       220  11:22:57       2825.0
+  WARK30M        220  02:15:00       220  11:22:57       2817.3
+  YARRA12M       220  02:15:00       220  11:22:57       2879.1
+
+ POSITIONS OF SOURCES USED IN RECORDING SCANS
+     Catalog positions marked with *. 
+     Precession of date coordinates is based on stop time of first scan.
+     Names used in schedule marked with *. 
+     Observation date used in B1950/J2000 coordinate conversion (PRECDATE):  1979.900
+     No adjustments are made for rates (DRA, DDEC).
+
+   Source                         Source position (RA/Dec)                        Error
+                        (B1950)             (J2000)             (Date)            (mas)
+
+ * G305.20+0.01      13 08 04.521314   * 13 11 16.930000     13 12 49.952531       0.00
+                    -62 29 58.64003    *-62 45 55.10000     -62 53 59.23803        0.00
+                     ./sources.spirals.dat
+                     s27
+
+ * F1254-7138        12 51 40.098763   * 12 54 59.921479     12 56 35.642619       0.00
+                    -71 22 03.00272    *-71 38 18.43669     -71 46 32.84977        0.00
+                     ./sources.spirals.dat
+
+   1334-649          13 34 20.254810   * 13 37 52.445296     13 39 35.542053       0.45
+ * J1337-6509       -64 54 09.30217    *-65 09 24.89829     -65 17 10.45436        0.28
+                     ./sources.spirals.dat
+                     rfc_2020a Petrov and Kovalev, in preparation  105 observations
+
+   1325-558          13 25 50.489930   * 13 29 01.144904     13 30 33.775442       0.19
+ * F1329-5608       -55 52 32.31247    *-56 08 02.66565     -56 15 53.16764        0.11
+                     ./sources.spirals.dat
+                     rfc_2020a Petrov and Kovalev, in preparation  868 observations
+
+   1251-609          12 51 44.985726   * 12 54 46.577596     12 56 14.112863       2.65
+ * J1254-6111       -60 55 19.49564    *-61 11 34.96985     -61 19 47.32408        0.88
+                     ./sources.spirals.dat
+                     rfc_2021a Petrov and Kovalev, in preparation  29 observations
+
+   1249-673          12 49 33.766703   * 12 52 43.212061     12 54 14.156039       0.32
+ * F1252-6737       -67 21 21.15765    *-67 37 38.74663     -67 45 53.37057        0.13
+                     ./sources.spirals.dat
+                     rfc_2021a Petrov and Kovalev, in preparation  242 observations
+
+   1921-293          19 21 42.234126   * 19 24 51.055953     19 26 25.205248       0.00
+   J1924-2914       -29 20 26.35397    *-29 14 30.12107     -29 11 37.29811        0.01
+   F1924             ./sources.spirals.dat
+ * F1921-293         GSFC 2016a X/S astro solution,  63480 observations.
+
+ * 0537-441          05 37 21.071425   * 05 38 50.361559     05 39 33.111193       0.01
+   J0538-4405       -44 06 44.66633    *-44 05 08.93901     -44 04 01.10156        0.01
+   F0538             ./sources.spirals.dat
+                     GSFC 2016a X/S astro solution,  72326 observations.
+
+ * 0530-727          05 30 30.014330   * 05 29 30.042168     05 28 58.345885       0.00
+                    -72 47 39.42976    *-72 45 28.50735     -72 43 57.59715        0.00
+                     ./sources.spirals.dat
+
+ * 1057-797          10 57 49.713168   * 10 58 43.309768     10 58 59.341137       0.00
+                    -79 47 47.85435    *-80 03 54.15975     -80 11 55.86497        0.00
+                     ./sources.spirals.dat
+
+ * 1124-186          11 24 34.018126   * 11 27 04.392451     11 28 17.086766       0.00
+                    -18 40 46.35971    *-18 57 17.44178     -19 05 22.28627        0.00
+                     ./sources.spirals.dat
+
+ * 0925-203          09 25 33.543208   * 09 27 51.824320     09 28 58.242466       0.00
+                    -20 21 44.97460    *-20 34 51.23248     -20 41 09.99755        0.00
+                     ./sources.spirals.dat
+
+ * 1038+064          10 38 40.885150   * 10 41 17.162496     10 42 32.800208       0.00
+                     06 25 58.53299    * 06 10 16.92378      06 02 42.45992        0.00
+                     ./sources.spirals.dat
+
+ * 1213-172          12 13 11.668007   * 12 15 46.751761     12 17 02.009233       0.00
+                    -17 15 05.20071    *-17 31 45.40308     -17 39 56.34474        0.00
+                     ./sources.spirals.dat
+
+ * 0920-397          09 20 48.229712   * 09 22 46.418264     09 23 42.471254       0.00
+                    -39 46 42.27184    *-39 59 35.06825     -40 05 48.33299        0.00
+                     ./sources.spirals.dat
+
+ * 1145-071          11 45 18.293510   * 11 47 51.554032     11 49 05.877909       0.00
+                    -07 08 00.71495    *-07 24 41.14116     -07 32 48.59148        0.00
+                     ./sources.spirals.dat
+
+ * 0521-365          05 21 12.974093   * 05 22 57.984646     05 23 48.687790       0.00
+                    -36 30 15.95466    *-36 27 30.85126     -36 25 49.86592        0.00
+                     ./sources.spirals.dat
+
+ * 0826-373          08 26 12.001565   * 08 28 04.780228     08 28 58.305744       0.00
+                    -37 21 06.12619    *-37 31 06.28137     -37 35 50.57512        0.00
+                     ./sources.spirals.dat
+
+ * 0446+112          04 46 21.217283   * 04 49 07.671103     04 50 28.838931       0.00
+                     11 16 17.84557    * 11 21 28.59637      11 24 08.01810        0.00
+                     ./sources.spirals.dat
+
+ * 0414-189          04 14 23.350988   * 04 16 36.544453     04 17 41.609831       0.00
+                    -18 58 29.71006    *-18 51 08.34022     -18 47 15.27021        0.00
+                     ./sources.spirals.dat
+
+ * 0506-612          05 06 08.456554   * 05 06 43.988748     05 07 00.325883       0.00
+                    -61 13 33.22179    *-61 09 40.99393     -61 07 22.14118        0.00
+                     ./sources.spirals.dat
+
+ * 0627-199          06 27 14.114674   * 06 29 23.761865     06 30 26.322553       0.00
+                    -19 57 16.26225    *-19 59 19.72362     -20 00 05.60021        0.00
+                     ./sources.spirals.dat
+
+ * 0646-306          06 46 19.200704   * 06 48 14.096464     06 49 09.189404       0.00
+                    -30 40 54.42103    *-30 44 19.65964     -30 45 44.64074        0.00
+                     ./sources.spirals.dat
+
+ * 1004-500          10 04 18.727017   * 10 06 14.009315     10 07 08.194827       0.00
+                    -50 03 34.12037    *-50 18 13.47057     -50 25 23.77570        0.00
+                     ./sources.spirals.dat
+
+ * 2300-683          23 00 27.886433   * 23 03 43.564600     23 05 22.996610       0.00
+                    -68 23 48.05508    *-68 07 37.44311     -67 59 29.53079        0.00
+                     ./sources.spirals.dat
+
+ * 0302-623          03 02 48.121155   * 03 03 50.631370     03 04 22.135259       0.00
+                    -62 23 04.08369    *-62 11 25.54994     -62 05 17.31134        0.00
+                     ./sources.spirals.dat
+
+ * 0454-810          04 54 17.961957   * 04 50 05.440206     04 48 00.848272       0.00
+                    -81 05 54.60917    *-81 01 02.23139     -80 58 05.96902        0.00
+                     ./sources.spirals.dat
+
+ * 0534-611          05 34 02.404458   * 05 34 35.772494     05 34 50.614978       0.00
+                    -61 07 59.24395    *-61 06 07.07325     -61 04 48.21590        0.00
+                     ./sources.spirals.dat
+
+ * 1022-665          10 22 13.388837   * 10 23 43.533184     10 24 23.569898       0.00
+                    -66 31 34.81389    *-66 46 48.71762     -66 54 19.68438        0.00
+                     ./sources.spirals.dat
+
+ * 1251-713          12 51 40.098744   * 12 54 59.921460     12 56 35.642600       0.00
+                    -71 22 03.00262    *-71 38 18.43660     -71 46 32.84968        0.00
+                     ./sources.spirals.dat
+
+ * 1659-621          16 59 00.275393   * 17 03 36.541216     17 05 53.885763       0.00
+                    -62 08 26.03829    *-62 12 40.00852     -62 14 58.06393        0.00
+                     ./sources.spirals.dat
+
+ * 1725-795          17 25 06.732514   * 17 33 40.700280     17 37 58.650683       0.00
+                    -79 33 42.17365    *-79 35 55.71666     -79 37 09.94281        0.00
+                     ./sources.spirals.dat
+
+ * 1758-651          17 58 25.570841   * 18 03 23.496644     18 05 52.170051       0.00
+                    -65 07 40.68652    *-65 07 36.76134     -65 07 45.20019        0.00
+                     ./sources.spirals.dat
+
+ * 2142-758          21 42 12.803976   * 21 47 12.730623     21 49 44.422598       0.00
+                    -75 50 06.01949    *-75 36 13.22495     -75 29 18.57080        0.00
+                     ./sources.spirals.dat
+
+ * 2353-686          23 53 22.983555   * 23 56 00.681391     23 57 21.359022       0.00
+                    -68 36 45.65484    *-68 20 03.47179     -68 11 36.08774        0.00
+                     ./sources.spirals.dat
+
+ * 1245-454          12 45 40.687451   * 12 48 28.495148     12 49 49.737640       0.00
+                    -45 43 25.89171    *-45 59 47.17996     -46 07 58.31201        0.00
+                     ./sources.spirals.dat
+
+
+
+SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
+
+     Scan hours are for recording scans only. 
+     Baseline hours are only counted for scans above horizon at both ends.
+  Source       Setup file             Frequency sets                  Observing hours
+                                   (duplicates not shown)              Scan  Baseline
+  G305.20+0.0spirals3.meth         1 2 3 4                           2.283    21.670
+  F1254-7138 spirals3.meth         1 2 3 4                           0.150     1.500
+  J1337-6509 spirals3.meth         1 2 3 4                           1.125    10.413
+  F1329-5608 spirals3.meth         1 2 3 4                           0.150     1.500
+  J1254-6111 spirals3.meth         1 2 3 4                           1.125    10.919
+  F1252-6737 spirals3.meth         1 2 3 4                           0.150     1.500
+  F1921-293  spirals3.meth         1 2 3 4                           0.017     0.166
+  0537-441   spirals3.meth         1 2 3 4                           0.625     6.250
+  0530-727   spirals3.meth         1 2 3 4                           0.017     0.100
+  1057-797   spirals3.meth         1 2 3 4                           0.017     0.167
+  1124-186   spirals3.meth         1 2 3 4                           0.017     0.167
+  0925-203   spirals3.meth         1 2 3                             0.017     0.100
+  1038+064   spirals3.meth         1 2 3                             0.017     0.100
+  1213-172   spirals3.meth         1 2 3                             0.017     0.100
+  0920-397   spirals3.meth         1 2 3 4                           0.017     0.167
+  1145-071   spirals3.meth         1 2 3                             0.017     0.100
+  0521-365   spirals3.meth         1 2 3 4                           0.017     0.167
+  0826-373   spirals3.meth         1 2 3 4                           0.017     0.167
+  0446+112   spirals3.meth         1 3                               0.017     0.050
+  0414-189   spirals3.meth         1 2 3                             0.017     0.100
+  0506-612   spirals3.meth         1 2 3 4                           0.017     0.100
+  0627-199   spirals3.meth         1 2 3                             0.017     0.100
+  0646-306   spirals3.meth         1 2 3                             0.017     0.100
+  1004-500   spirals3.meth         1 2 3 4                           0.017     0.167
+  2300-683   spirals3.meth         1 2 3 4                           0.050     0.300
+  0302-623   spirals3.meth         1 2 3 4                           0.033     0.267
+  0454-810   spirals3.meth         1 2 3 4                           0.033     0.333
+  0534-611   spirals3.meth         1 2 3 4                           0.033     0.333
+  1022-665   spirals3.meth         1 2 3 4                           0.033     0.333
+  1251-713   spirals3.meth         1 2 3 4                           0.017     0.167
+  1659-621   spirals3.meth         1 2 3 4                           0.017     0.167
+  1725-795   spirals3.meth         1 2 3 4                           0.033     0.333
+  1758-651   spirals3.meth         1 2 3 4                           0.017     0.100
+  2142-758   spirals3.meth         1 2 3 4                           0.017     0.167
+  2353-686   spirals3.meth         1 2 3 4                           0.017     0.167
+  1245-454   spirals3.meth         1 2 3 4                           0.017     0.167
+
+
+EFFECT OF SOLAR CORONA
+
+  The solar corona can cause unstable phases for sources too close to the Sun.
+  SCHED provides warnings at individual scans for distances less than 10 degrees.
+  The distance from the Sun to each source in this schedule is:
+    Source         Sun distance (deg) 
+   G305.20+0.01        91.9
+   F1254-7138          95.7
+   J1337-6509          95.7
+   F1329-5608          90.4
+   J1254-6111          89.4
+   F1252-6737          93.2
+   F1921-293          152.7
+   0537-441            77.2
+   0530-727            96.1
+   1057-797            97.5
+   1124-186            48.9
+   0925-203            37.2
+   1038+064            24.6
+   1213-172            57.0
+   0920-397            56.4
+   1145-071            45.8
+   0521-365            75.1
+   0826-373            54.7
+   0446+112            63.2
+   0414-189            80.2
+   0506-612            91.2
+   0627-199            53.6
+   0646-306            58.1
+   1004-500            67.8
+   2300-683           125.1
+   0302-623           105.1
+   0454-810           102.4
+   0534-611            88.4
+   1022-665            84.3
+   1251-713            95.7
+   1659-621           117.6
+   1725-795           112.3
+   1758-651           122.2
+   2142-758           120.5
+   2353-686           121.8
+   1245-454            79.5
+
+  Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
+  that the Sun will cause amplitude reductions on the  longest VLBA baselines 
+  at a solar distance of 60deg F^(-0.6) where F is in GHz. 
+  For common VLBI bands, this is: 
+       327 MHz        117. deg 
+       610 MHz         81. deg 
+       1.6 GHz         45. deg 
+       2.3 GHz         36. deg 
+       5.0 GHz         23. deg 
+       8.4 GHz         17. deg 
+      15.0 GHz         12. deg 
+      22.0 GHz          9. deg 
+      43.0 GHz          6. deg 
+
+ SOURCE SEPARATIONS
+
+ Source separations in degrees for pairs closer than  15.00 degrees.
+
+     G305.20+0.01  F1254-7138      9.0078
+     G305.20+0.01  J1337-6509      3.7701
+     G305.20+0.01  F1329-5608      7.0003
+     G305.20+0.01  J1254-6111      2.4954
+     G305.20+0.01  F1252-6737      5.2343
+     G305.20+0.01  1251-713        9.0078
+     F1254-7138    J1337-6509      7.5642
+     F1254-7138    J1254-6111     10.4460
+     F1254-7138    F1252-6737      4.0161
+     F1254-7138    1057-797       10.7787
+     F1254-7138    1022-665       13.9947
+     F1254-7138    1251-713        0.0000
+     J1337-6509    F1329-5608      9.0871
+     J1337-6509    J1254-6111      6.2596
+     J1337-6509    F1252-6737      5.1415
+     J1337-6509    1251-713        7.5642
+     F1329-5608    J1254-6111      6.7288
+     F1329-5608    F1252-6737     12.2341
+     F1329-5608    1245-454       11.9461
+     J1254-6111    F1252-6737      6.4385
+     J1254-6111    1251-713       10.4460
+     F1252-6737    1057-797       14.4029
+     F1252-6737    1022-665       14.2394
+     F1252-6737    1251-713        4.0161
+     0537-441      0521-365        8.2032
+     0530-727      0506-612       11.7957
+     0530-727      0454-810        8.5274
+     0530-727      0534-611       11.6660
+     1057-797      0454-810       13.6129
+     1057-797      1022-665       13.4813
+     1057-797      1251-713       10.7787
+     1124-186      1213-172       11.6504
+     1124-186      1145-071       12.6004
+     1213-172      1145-071       12.1943
+     0920-397      0826-373       10.9344
+     0920-397      1004-500       12.8184
+     0506-612      0302-623       14.4748
+     0506-612      0534-611        3.3620
+     0627-199      0646-306       11.5574
+     2300-683      2142-758        9.4660
+     2300-683      2353-686        4.8431
+     1022-665      1251-713       13.9947
+     1659-621      1758-651        7.2200
+     1725-795      1758-651       14.6180
+     1725-795      2142-758       13.3962
+     2142-758      2353-686       12.0834
+
+
+CATALOGS, FILES, and CODE VERSIONS
+
+Catalogs: 
+  Station:   ./stations.spirals.dat
+                 Version:  
+  Location:  ./locations.spirals.dat
+                 Version:  Not known
+  Frequency: ./freq.spirals.dat
+                 Version:  
+  Source:   ./sources.spirals.dat
+                 Version:  Not given
+  Source2:  NONE
+                 Version:   ---
+
+
+Other external files: 
+  Ephemeris: NONE
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
+
+
+Code versions: 
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
+  Version of ephemeris code: 1.01
