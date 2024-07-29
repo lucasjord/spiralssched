@@ -44,10 +44,10 @@ c       for CD and WA.
 	character*32     geofile, qualfile, srcfile
 
 c       some parameters...
-	x_trials = 5000.d0
+	x_trials = 2000.d0
 	timespan =   20.d0                               ! min
         dwell_time =  1.0d0                          ! min
-	elev_min =   7.d0                               ! deg
+	elev_min =   7.d0                                ! deg
 
 c       Schedule in LST for a central station
 c       For AuScope antennas will use Ceduna's east longitude
@@ -225,7 +225,7 @@ c	print *,' Date (yyyy mm dd): ',iyr,imon,iday
 c	print *,' Using GST @0 UT (hhmmss) =',gast_hhmmss
 
 c       ------------------------------------------------------------------------
-	seed = 0.76549d0        ! random number generator seed value
+	seed = 0.76550d0        ! random number generator seed value
 	best_quality = 9.d9
 	n_trial = 0
 
@@ -1174,7 +1174,7 @@ C	Generate a trial geodetic-like data set...
 	if ( min_stats_per_scan .lt. 3 ) min_stats_per_scan = 3
 
 	max_dropped = 2       ! maximum number sources not observed at a station
-	angle_min   = 10.d0   ! [deg] minimum angular separation among sources
+	angle_min   = 5.d0   ! [deg] minimum angular separation among sources
 c                             ! (in order to try and get a big azimuth range)   
 c                             ! If too large, however, can put program into infinite loop!
 
