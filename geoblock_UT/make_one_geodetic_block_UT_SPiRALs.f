@@ -1763,10 +1763,14 @@ c       Az wrap numbers for VLBA and GBT...
 	   az_max = 295.d0
 	endif
 
+	if ( stat_code .eq. 'WA' ) then
+	   az_min =-177.d0
+	   az_max = 352.d0
+	endif
+
 	if ( stat_code .eq. 'HB' .or.
      +       stat_code .eq. 'KE' .or.
      +       stat_code .eq. 'YG' .or.
-     +       stat_code .eq. 'WA' .or.
      +       stat_code .eq. 'WW'      ) then
 	   az_min =-270.d0
 	   az_max = 270.d0
