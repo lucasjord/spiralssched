@@ -4,10 +4,10 @@ COVER INFORMATION:
 
   Experiment: SPIRALS: parallax of methanol masers
   Exp. Code:  s013k   
-  Start Day 358 is Mon  23 Dec 2024   MJD  60667          
+  Start Day 363 is Sat  28 Dec 2024   MJD  60672          
 
-  Schedule Version:       1.00
-  Processed by SCHED version:  11.80  Release 11.8; April 2023
+  Schedule Version:       2.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
 
   PI:       Lucas J. Hyland
 
@@ -62,12 +62,12 @@ CORRELATION REQUESTS (Defaults in parentheses):
 
 DERIVED INFORMATION FOR CORRELATION: 
                                                 All scans
-  Elapsed time for project (hours):                 9.01
-  Total time in scheduled scans (hours):            6.02
-  Total time in recording scans (hours):            6.02
-  Total baseline hours (recording scans):         124.30
-  Projected max correlator output rate (kB/s):      43.0
-  Projected correlator output data size (MB):      916.4
+  Elapsed time for project (hours):                 9.46
+  Total time in scheduled scans (hours):            6.55
+  Total time in recording scans (hours):            6.55
+  Total baseline hours (recording scans):          97.22
+  Projected max correlator output rate (kB/s):      30.7
+  Projected correlator output data size (MB):      716.8
  NOTES:  Above numbers assume the same correlator parameters are used for all data.
          The 'baseline hours' include the autocorrelations (for data size calculations).
          The correlator output data rate is for real-time processing.
@@ -83,35 +83,32 @@ STATIONS USED IN SCHEDULE:
                                                                                        Offset
 
    CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
-   HOBART26  Ho  -42.80358 -147.44052      65.   -3950237.403  2522347.684 -4311561.833  8.194
+   HOBART12  Hb  -42.80557 -147.43814      41.   -3949990.840  2522421.219 -4311707.999  0.018
    KATH12M   Ke  -14.37546 -132.15237     189.   -4147354.691  4581542.377 -1573303.157  0.003
    WARK30M   Wa  -36.43316 -174.66295     122.   -5115425.818   477880.248 -3767042.055  2.477
    YARRA12M  Yg  -29.04714 -115.34563     248.   -2388896.189  5043350.002 -3078590.804  0.000
-   HOBART12  Hb  -42.80557 -147.43814      41.   -3949990.840  2522421.219 -4311707.999  0.018
 
 
-   Plate tectonic motion adjustments for MJD  60667
+   Plate tectonic motion adjustments for MJD  60672
    Station  Code      Station motions (m/yr)             Adjusted positions 
                      X       Y       Z     MJD0        X            Y            Z 
-   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.913  3912709.828 -3348066.214
-   HOBART26  Ho  -0.0390  0.0080  0.0411  56658  -3950237.831  2522347.771 -4311561.382
-   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.105  4581542.250 -1573302.539
-   WARK30M   Wa  -0.0212 -0.0031  0.0360  57988  -5115425.974   477880.225 -3767041.791
-   YARRA12M  Yg  -0.0481  0.0096  0.0511  56658  -2388896.717  5043350.107 -3078590.243
-   HOBART12  Hb  -0.0390  0.0080  0.0411  56658  -3949991.268  2522421.306 -4311707.548
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.914  3912709.828 -3348066.213
+   HOBART12  Hb  -0.0390  0.0080  0.0411  56658  -3949991.269  2522421.307 -4311707.547
+   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.106  4581542.250 -1573302.538
+   WARK30M   Wa  -0.0212 -0.0031  0.0360  57988  -5115425.974   477880.225 -3767041.790
+   YARRA12M  Yg  -0.0481  0.0096  0.0511  56658  -2388896.718  5043350.107 -3078590.243
 
 
 
 BASELINE LENGTHS (km)
 
-          Cd    Ho    Ke    Wa    Yg    Hb
+          Cd    Hb    Ke    Wa    Yg
 
-   Cd      0  1703  1937  3719  1792  1703
-   Ho   1703     0  3432  2415  3211     0
-   Ke   1937  3432     0  4753  2360  3432
-   Wa   3719  2415  4753     0  5362  2416
-   Yg   1792  3211  2360  5362     0  3211
-   Hb   1703     0  3432  2416  3211     0
+   Cd      0  1703  1937  3719  1792
+   Hb   1703     0  3432  2416  3211
+   Ke   1937  3432     0  4753  2360
+   Wa   3719  2416  4753     0  5362
+   Yg   1792  3211  2360  5362     0
 
 
 RECORDING SYSTEM AND CALIBRATION INFORMATION:
@@ -122,33 +119,31 @@ RECORDING SYSTEM AND CALIBRATION INFORMATION:
 
   DISKS - Stations potentially recording on disks.
    Station    Drive type   DAR     NBBC    Tsys
-   CEDUNA       MARK5B     DBBC     14     GAP 
-   HOBART26     MARK5B     DBBC      8     GAP 
-   KATH12M      MARK5B     DBBC      8     GAP 
+   CEDUNA       MARK5B     DBBC     14     CONT
+   HOBART12     MARK5B     DBBC3     8     CONT
+   KATH12M      MARK5B     DBBC3     8     CONT
    WARK30M      MARK5B     DBBC      8     GAP 
-   YARRA12M     MARK5B     DBBC      8     GAP 
-   HOBART12     MARK5B     DBBC      8     GAP 
+   YARRA12M     MARK5B     DBBC3     8     CONT
 
 
 
 
 EXPERIMENT SUMMARY:
-  Number of input scans:        376
-  Number of scans scheduled:    376
-  Number of stations:             6
-  Number of sources input:       49
+  Number of input scans:        408
+  Number of scans scheduled:    408
+  Number of stations:             5
+  Number of sources input:       39
   Number of setup files used:     1
 
 
 STATION SCAN SUMMARIES:
   Station  Control   Scans   Scan   Record  Record   Gbytes
                             Hours   Hours   Scans
-  CEDUNA     VEX      376    6.02    6.02     376     2777.
-  HOBART26   VEX      376    6.02    6.02     376     2777.
-  KATH12M    VEX      365    5.83    5.83     365     2692.
-  WARK30M    VEX      370    5.92    5.92     370     2731.
-  YARRA12M   VEX      372    5.95    5.95     372     2746.
-  HOBART12   VEX      376    6.02    6.02     376     2777.
+  CEDUNA     VEX      408    6.55    6.55     408     3038.
+  HOBART12   VEX      408    6.55    6.55     408     3038.
+  KATH12M    VEX      401    6.43    6.43     401     2983.
+  WARK30M    VEX      402    6.45    6.45     402     2991.
+  YARRA12M   VEX      408    6.55    6.55     408     3038.
 
   Notes on the station scan summaries: 
 
@@ -172,7 +167,7 @@ STATION SCAN SUMMARIES:
      cd4cm_dual
 
    Setup group:    1         Station: CEDUNA            Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
    Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
 
    Disk used to record data.
@@ -194,38 +189,7 @@ STATION SCAN SUMMARIES:
     Matching frequency sets:   1
 
    Track assignments are: 
-    track1=   6,  8,  2,  4
-    barrel=roll_off 
-
-
- ======== Setup file: spirals3.meth
-   Matching groups in ./freq.spirals.dat:
-     hob5cm_pol      Added by Jamie MC Jul 2018
-
-   Setup group:    2         Station: HOBART26          Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
-   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
-
-   Disk used to record data.
-
-   1st LO=   7000.00   7000.00   7000.00   7000.00
-   Net SB=         U         U         L         L
-   IF SB =         L         L         L         L
-   Pol.  =      RCP       LCP       RCP       LCP 
-   BBC   =         1         9         1         9
-   BBC SB=         L         L         U         U
-   IF    =        A3        B3        A3        B3
-
-  The following frequency sets based on these setups were used.
-
-   Frequency Set:   2  Setup file default.  Used with PCAL = off
-   LO sum=   6644.00  6644.00  6644.00  6644.00
-   BBC fr=    356.00   356.00   356.00   356.00
-   Bandwd=     64.00    64.00    64.00    64.00
-    Matching frequency sets:   2
-
-   Track assignments are: 
-    track1=   6,  8,  2,  4
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
@@ -233,9 +197,9 @@ STATION SCAN SUMMARIES:
    Matching groups in ./freq.spirals.dat:
      aus5cm_dual
 
-   Setup group:    3         Station: HOBART12          Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
-   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+   Setup group:    2         Station: HOBART12          Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
 
    Disk used to record data.
 
@@ -249,28 +213,28 @@ STATION SCAN SUMMARIES:
 
   The following frequency sets based on these setups were used.
 
-   Frequency Set:   6  Setup file default.  Used with PCAL = off
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
    LO sum=   6580.00  6644.00  6580.00  6644.00
    BBC fr=    580.00   644.00   580.00   644.00
    Bandwd=     64.00    64.00    64.00    64.00
-    Matching frequency sets:   6
+    Matching frequency sets:   2
 
    Track assignments are: 
-    track1=   2,  4,  6,  8
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
-The following setup groups are the same as group   4 below.
-   5:YARRA12M
+The following setup groups are the same as group   3 below.
+   4:YARRA12M
 
 
  ======== Setup file: spirals3.meth
    Matching groups in ./freq.spirals.dat:
      aus5cm_dual
 
-   Setup group:    4         Station: KATH12M           Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
-   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+   Setup group:    3         Station: KATH12M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
 
    Disk used to record data.
 
@@ -291,16 +255,16 @@ The following setup groups are the same as group   4 below.
     Matching frequency sets:   3   5
 
    Track assignments are: 
-    track1=   2,  4,  6,  8
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
  ======== Setup file: spirals3.meth
    Matching groups in ./freq.spirals.dat:
-     wa5cm_dual      Changed from 5900 to 5843 re request from Stuart Weston, 20200813.
+     wa5cm_dual
 
-   Setup group:    6         Station: WARK30M           Total bit rate:  1024
-   Format: MARK5B            Bits per sample: 2         Sample rate:128.000
+   Setup group:    5         Station: WARK30M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
    Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
 
    Disk used to record data.
@@ -322,1423 +286,1543 @@ The following setup groups are the same as group   4 below.
     Matching frequency sets:   4
 
    Track assignments are: 
-    track1=   2,  4,  6,  8
+    track1=   1,  2,  3,  4
     barrel=roll_off 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-   1  358 14:30:00 0537-441      -   177   258  -184  -117  -220  -102
-      358 14:30:45 pirals3.meth  -    78    81    60    59    68    81
+   1  363 14:00:00 0537-441      -     0     0     0     0     0
+      363 14:00:45 pirals3.meth  -   168  -103  -188  -117  -223
 
-   2  358 14:31:00 0537-441      -   178   258  -183  -117  -220  -102
-      358 14:31:45 -             -    78    80    60    59    69    80
+   2  363 14:01:00 0537-441      -     4     2     2     2     2
+      363 14:01:45 -             -   169  -103  -187  -117  -223
 
-   3  358 14:32:00 0537-441      -   179   258  -183  -117  -220  -102
-      358 14:32:45 -             -    78    80    60    59    69    80
+   3  363 14:02:00 0537-441      -     4     2     2     2     2
+      363 14:02:45 -             -   170  -103  -187  -117  -223
 
-   4  358 14:33:00 0537-441      -   180   258  -183  -117  -220  -102
-      358 14:33:45 -             -    78    80    60    58    69    80
+   4  363 14:03:00 0537-441      -     4     2     2     2     2
+      363 14:03:45 -             -   171  -103  -186  -117  -223
 
-   5  358 14:34:00 0537-441      -   180   258  -182  -117  -219  -102
-      358 14:34:45 -             -    78    80    60    58    69    80
+   5  363 14:04:00 0537-441      -     4     2     2     2     2
+      363 14:04:45 -             -   171  -103  -186  -117  -222
 
-   6  358 14:35:00 0537-441      -   181   258  -182  -117  -219  -102
-      358 14:35:45 -             -    78    80    60    58    69    80
+   6  363 14:05:00 0537-441      -     4     2     2     2     2
+      363 14:05:45 -             -   172  -103  -186  -117  -222
 
-   7  358 14:36:00 0537-441      -   182   258  -181  -117  -219  -102
-      358 14:36:45 -             -    78    80    60    58    69    80
+   7  363 14:06:00 0537-441      -     4     2     2     2     2
+      363 14:06:45 -             -   173  -103  -185  -117  -222
 
-   8  358 14:37:00 0537-441      -   183   258  -181  -117  -218  -102
-      358 14:37:45 -             -    78    79    60    58    69    79
+   8  363 14:07:00 0537-441      -     4     2     2     2     2
+      363 14:07:45 -             -   174  -102  -185  -117  -222
 
-   9  358 14:38:00 0537-441      -   184   258  -181  -117  -218  -102
-      358 14:38:45 -             -    78    79    60    57    70    79
+   9  363 14:08:00 0537-441      -     4     2     2     2     2
+      363 14:08:45 -             -   175  -102  -185  -117  -221
 
-  10  358 14:39:00 0537-441      -   185   258  -180  -117  -218  -102
-      358 14:39:45 -             -    78    79    60    57    70    79
+  10  363 14:09:00 0537-441      -     4     2     2     2     2
+      363 14:09:45 -             -   176  -102  -184  -117  -221
 
-  11  358 14:40:00 0537-441      -   186   258  -180  -117  -217  -102
-      358 14:40:45 -             -    78    79    60    57    70    79
+  11  363 14:10:00 0537-441      -     4     2     2     2     2
+      363 14:10:45 -             -   176  -102  -184  -117  -221
 
-  12  358 14:41:00 0537-441      -   186   258  -180  -117  -217  -102
-      358 14:41:45 -             -    78    79    60    57    70    79
+  12  363 14:11:00 0537-441      -     4     2     2     2     2
+      363 14:11:45 -             -   177  -102  -184  -117  -220
 
-  13  358 14:42:00 0537-441      -   187   258  -179  -117  -216  -102
-      358 14:42:45 -             -    78    79    60    57    70    79
+  13  363 14:12:00 0537-441      -     4     2     2     2     2
+      363 14:12:45 -             -   178  -102  -183  -117  -220
 
-  14  358 14:43:00 0537-441      -   188   258  -179  -117  -216  -102
-      358 14:43:45 -             -    78    78    60    57    70    78
+  14  363 14:13:00 0537-441      -     4     2     2     2     2
+      363 14:13:45 -             -   179  -102  -183  -117  -220
 
-  15  358 14:44:00 0537-441      -   189   258  -179  -117  -216  -102
-      358 14:44:45 -             -    78    78    60    56    70    78
+  15  363 14:14:00 0537-441      -     4     2     2     2     2
+      363 14:14:45 -             -   180  -102  -182  -117  -219
 
-  16  358 14:45:00 0537-441      -   190   258  -178  -117  -215  -102
-      358 14:45:45 -             -    78    78    60    56    71    78
+  16  363 14:15:00 0537-441      -     4     2     2     2     2
+      363 14:15:45 -             -   181  -102  -182  -117  -219
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-  17  358 14:46:00 0537-441      -   191   258  -178  -117  -215  -102
-      358 14:46:45 pirals3.meth  -    78    78    60    56    71    78
+  17  363 14:16:00 0537-441      -     4     2     2     2     2
+      363 14:16:45 pirals3.meth  -   182  -102  -182  -117  -219
 
-  18  358 14:47:00 0537-441      -   191   258  -177  -117  -215  -102
-      358 14:47:45 -             -    78    78    60    56    71    78
+  18  363 14:17:00 0537-441      -     4     2     2     2     2
+      363 14:17:45 -             -   182  -102  -181  -117  -218
 
-  19  358 14:48:00 0537-441      -   192   258  -177  -117  -214  -102
-      358 14:48:45 -             -    77    77    60    56    71    77
+  19  363 14:18:00 0537-441      -     4     2     2     2     2
+      363 14:18:45 -             -   183  -102  -181  -117  -218
 
-  20  358 14:49:00 0537-441      -   193   258  -177  -117  -214  -102
-      358 14:49:45 -             -    77    77    60    55    71    77
+  20  363 14:19:00 0537-441      -     4     2     2     2     2
+      363 14:19:45 -             -   184  -102  -181  -117  -218
 
-  21  358 14:50:00 0537-441      -   194   258  -176  -117  -213  -102
-      358 14:50:45 -             -    77    77    60    55    71    77
+  21  363 14:20:00 0537-441      -     4     2     2     2     2
+      363 14:20:45 -             -   185  -102  -180  -117  -217
 
-  22  358 14:51:00 0537-441      -   195   258  -176  -117  -213  -102
-      358 14:51:45 -             -    77    77    60    55    71    77
+  22  363 14:21:00 0537-441      -     4     2     2     2     2
+      363 14:21:45 -             -   186  -102  -180  -117  -217
 
-  23  358 14:52:00 0537-441      -   195   258  -176  -117  -213  -102
-      358 14:52:45 -             -    77    77    60    55    71    77
+  23  363 14:22:00 0537-441      -     4     2     2     2     2
+      363 14:22:45 -             -   187  -102  -180  -117  -217
 
-  24  358 14:53:00 0537-441      -   196   258  -175  -117  -212  -102
-      358 14:53:45 -             -    77    77    60    55    71    77
+  24  363 14:23:00 0537-441      -     4     2     2     2     2
+      363 14:23:45 -             -   187  -102  -179  -117  -216
 
-  25  358 14:54:00 0537-441      -   197   258  -175  -117  -212  -102
-      358 14:54:45 -             -    77    76    60    55    72    76
+  25  363 14:24:00 0537-441      -     4     2     2     2     2
+      363 14:24:45 -             -   188  -102  -179  -117  -216
 
-  26  358 14:55:00 0537-441      -   198   258  -175  -117  -211  -102
-      358 14:55:45 -             -    77    76    60    54    72    76
+  26  363 14:25:00 0537-441      -     4     2     2     2     2
+      363 14:25:45 -             -   189  -102  -178  -117  -216
 
-  27  358 14:56:00 0537-441      -   198   258  -174  -117  -211  -102
-      358 14:56:45 -             -    77    76    60    54    72    76
+  27  363 14:26:00 0537-441      -     4     2     2     2     2
+      363 14:26:45 -             -   190  -102  -178  -117  -215
 
-  28  358 14:57:00 0537-441      -   199   258  -174  -117  -210  -102
-      358 14:57:45 -             -    77    76    60    54    72    76
+  28  363 14:27:00 0537-441      -     4     2     2     2     2
+      363 14:27:45 -             -   191  -102  -178  -117  -215
 
-  29  358 14:58:00 0537-441      -   200   258  -174  -117  -210  -102
-      358 14:58:45 -             -    77    76    60    54    72    76
+  29  363 14:28:00 0537-441      -     4     2     2     2     2
+      363 14:28:45 -             -   192  -102  -177  -117  -214
 
-  30  358 14:59:00 0537-441      -   201   258  -173  -117  -209  -102
-      358 14:59:45 -             -    77    75    60    54    72    75
+  30  363 14:29:00 0537-441      -     4     2     2     2     2
+      363 14:29:45 -             -   192  -102  -177  -117  -214
 
-  31  358 15:00:00 0537-441      -   201   258  -173  -117  -209  -102
-      358 15:00:45 -             -    77    75    60    53    72    75
+  31  363 14:30:00 0537-441      -     4     2     2     2     2
+      363 14:30:45 -             -   193  -102  -177  -117  -214
 
-  32  358 15:01:00 0537-441      -   202   258  -172  -117  -208  -102
-      358 15:01:45 -             -    77    75    60    53    72    75
+  32  363 14:31:00 0537-441      -     4     2     2     2     2
+      363 14:31:45 -             -   194  -102  -176  -117  -213
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-  33  358 15:02:00 0537-441      -   203   258  -172  -117  -208  -102
-      358 15:02:45 pirals3.meth  -    77    75    60    53    72    75
+  33  363 14:32:00 0537-441      -     4     2     2     2     2
+      363 14:32:45 pirals3.meth  -   195  -102  -176  -117  -213
 
-  34  358 15:03:00 0537-441      -   203   258  -172  -117  -207  -102
-      358 15:03:45 -             -    76    75    60    53    73    75
+  34  363 14:33:00 0537-441      -     4     2     2     2     2
+      363 14:33:45 -             -   196  -102  -176  -117  -212
 
-  35  358 15:04:00 0537-441      -   204   258  -171  -117  -207  -102
-      358 15:04:45 -             -    76    75    60    53    73    75
+  35  363 14:34:00 0537-441      -     4     2     2     2     2
+      363 14:34:45 -             -   196  -102  -175  -117  -212
 
-  36  358 15:05:00 0537-441      -   205   258  -171  -117  -206  -102
-      358 15:05:45 -             -    76    74    60    53    73    74
+  36  363 14:35:00 0537-441      -     4     2     2     2     2
+      363 14:35:45 -             -   197  -102  -175  -117  -212
 
-  37  358 15:06:00 0537-441      -   205   258  -171  -117  -206  -102
-      358 15:06:45 -             -    76    74    60    52    73    74
+  37  363 14:36:00 0537-441      -     4     2     2     2     2
+      363 14:36:45 -             -   198  -102  -175  -117  -211
 
-  38  358 15:07:00 0537-441      -   206   258  -170  -117  -205  -102
-      358 15:07:45 -             -    76    74    60    52    73    74
+  38  363 14:37:00 0537-441      -     4     2     2     2     2
+      363 14:37:45 -             -   199  -102  -174  -117  -211
 
-  39  358 15:08:00 0537-441      -   207   258  -170  -117  -205  -102
-      358 15:08:45 -             -    76    74    60    52    73    74
+  39  363 14:38:00 0537-441      -     4     2     2     2     2
+      363 14:38:45 -             -   199  -102  -174  -117  -210
 
-  40  358 15:09:00 0537-441      -   207   258  -170  -117  -204  -102
-      358 15:09:45 -             -    76    74    60    52    73    74
+  40  363 14:39:00 0537-441      -     4     2     2     2     2
+      363 14:39:45 -             -   200  -102  -173  -117  -210
 
-  41  358 15:10:00 0537-441      -   208   258  -169  -117  -204  -102
-      358 15:10:45 -             -    76    73    60    52    73    73
+  41  363 14:40:00 0537-441      -     4     2     2     2     2
+      363 14:40:45 -             -   201  -102  -173  -117  -209
 
-  42  358 15:11:00 0537-441      -   208   258  -169  -117  -203  -102
-      358 15:11:45 -             -    76    73    60    52    73    73
+  42  363 14:41:00 0537-441      -     4     2     2     2     2
+      363 14:41:45 -             -   201  -102  -173  -117  -209
 
-  43  358 15:12:00 0537-441      -   209   258  -169  -117  -203  -102
-      358 15:12:45 -             -    76    73    60    51    73    73
+  43  363 14:42:00 0537-441      -     4     2     2     2     2
+      363 14:42:45 -             -   202  -102  -172  -117  -208
 
-  44  358 15:13:00 0537-441      -   210   258  -168  -118  -202  -102
-      358 15:13:45 -             -    76    73    59    51    73    73
+  44  363 14:43:00 0537-441      -     4     2     2     2     2
+      363 14:43:45 -             -   203  -102  -172  -117  -208
 
-  45  358 15:14:00 0537-441      -   210   258  -168  -118  -202  -102
-      358 15:14:45 -             -    75    73    59    51    74    73
+  45  363 14:44:00 0537-441      -     4     2     2     2     2
+      363 14:44:45 -             -   204  -102  -172  -117  -207
 
-  46  358 15:15:00 0537-441      -   211   258  -168  -118  -201  -102
-      358 15:15:45 -             -    75    73    59    51    74    73
+  46  363 14:45:00 0537-441      -     4     2     2     2     2
+      363 14:45:45 -             -   204  -102  -171  -117  -207
 
-  47  358 15:16:00 0537-441      -   211   258  -167  -118  -200  -102
-      358 15:16:45 -             -    75    72    59    51    74    72
+  47  363 14:46:00 0537-441      -     4     2     2     2     2
+      363 14:46:45 -             -   205  -102  -171  -117  -206
 
-  48  358 15:17:00 0537-441      -   212   257  -167  -118  -200  -103
-      358 15:17:45 -             -    75    72    59    50    74    72
+  48  363 14:47:00 0537-441      -     4     2     2     2     2
+      363 14:47:45 -             -   206  -102  -171  -117  -206
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-  49  358 15:18:00 0537-441      -   212   257  -167  -118  -199  -103
-      358 15:18:45 pirals3.meth  -    75    72    59    50    74    72
+  49  363 14:48:00 0537-441      -     4     2     2     2     2
+      363 14:48:45 pirals3.meth  -   206  -102  -170  -117  -205
 
-  50  358 15:19:00 0537-441      -   213   257  -166  -118  -199  -103
-      358 15:19:45 -             -    75    72    59    50    74    72
+  50  363 14:49:00 0537-441      -     4     2     2     2     2
+      363 14:49:45 -             -   207  -102  -170  -117  -205
 
-  51  358 15:20:00 0537-441      -   214   257  -166  -118  -198  -103
-      358 15:20:45 -             -    75    72    59    50    74    72
+  51  363 14:50:00 0537-441      -     4     2     2     2     2
+      363 14:50:45 -             -   207  -102  -170  -117  -204
 
-  52  358 15:21:00 0537-441      -   214   257  -166  -118  -197  -103
-      358 15:21:45 -             -    75    71    59    50    74    71
+  52  363 14:51:00 0537-441      -     4     2     2     2     2
+      363 14:51:45 -             -   208  -102  -169  -117  -204
 
-  53  358 15:22:00 0537-441      -   215   257  -165  -118  -197  -103
-      358 15:22:45 -             -    75    71    59    50    74    71
+  53  363 14:52:00 0537-441      -     4     2     2     2     2
+      363 14:52:45 -             -   209  -102  -169  -117  -203
 
-  54  358 15:23:00 0537-441      -   215   257  -165  -118  -196  -103
-      358 15:23:45 -             -    74    71    59    49    74    71
+  54  363 14:53:00 0537-441      -     4     2     2     2     2
+      363 14:53:45 -             -   209  -102  -169  -117  -203
 
-  55  358 15:24:00 0537-441      -   216   257  -165  -118  -196  -103
-      358 15:24:45 -             -    74    71    59    49    74    71
+  55  363 14:54:00 0537-441      -     4     2     2     2     2
+      363 14:54:45 -             -   210  -102  -168  -118  -202
 
-  56  358 15:25:00 0537-441      -   216   257  -164  -118  -195  -103
-      358 15:25:45 -             -    74    71    59    49    74    71
+  56  363 14:55:00 0537-441      -     3     2     2     2     2
+      363 14:55:45 -             -   210  -102  -168  -118  -201
 
-  57  358 15:26:00 0537-441      -   216   257  -164  -118  -194  -103
-      358 15:26:45 -             -    74    71    59    49    74    71
+  57  363 14:56:00 0537-441      -     3     2     2     2     2
+      363 14:56:45 -             -   211  -102  -168  -118  -201
 
-  58  358 15:27:00 0537-441      -   217   257  -164  -118  -194  -103
-      358 15:27:45 -             -    74    70    59    49    74    70
+  58  363 14:57:00 0537-441      -     3     2     2     2     2
+      363 14:57:45 -             -   212  -102  -167  -118  -200
 
-  59  358 15:28:00 0537-441      -   217   257  -163  -118  -193  -103
-      358 15:28:45 -             -    74    70    59    48    74    70
+  59  363 14:58:00 0537-441      -     3     2     2     2     2
+      363 14:58:45 -             -   212  -103  -167  -118  -200
 
-  60  358 15:29:00 0537-441      -   218   257  -163  -118  -192  -103
-      358 15:29:45 -             -    74    70    59    48    75    70
+  60  363 14:59:00 0537-441      -     3     2     2     2     2
+      363 14:59:45 -             -   213  -103  -167  -118  -199
 
-  61  358 15:35:36 0952+179      -    50    36    59     9    63    36
-      358 15:36:36 -             -    22    22    31    35    10    22
+  61  363 15:01:00 0534-611      -    45    15    16    75    16
+      363 15:02:00 -             -   192  -148  -173  -144  -185
 
-  62  358 15:37:20 1040+244      -    54    42    58    20   ---D   42
-      358 15:38:20 -             -    10    11    18    27   ---D   11
+  62  363 15:03:25 2353-686      -    77    30    28    85    25
+      363 15:04:25 -             -   204  -156  -158  -165  -155
 
-  63  358 15:40:18 1027-186      -    90    70   103    41   100    70
-      358 15:41:18 -             -    38    47    35    68    22    47
+  63  363 15:05:19 2329-384      -    54    22   ---   ---    12
+      363 15:06:19 -             -   231  -135   ---D  ---D -123
 
-  64  358 15:42:20 1055+018      -    74    59    82    33    84    59
-      358 15:43:20 -             -    22    28    24    47     7    28
+  64  363 15:19:33 1831-711      -    89    16   ---   908    16
+      363 15:20:33 -             -   180  -185   ---D  167  -174
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-  65  358 15:45:27 1243-160      -   103    93   ---D   78   ---D   93
-      358 15:46:27 pirals3.meth  -    10    22   ---D   43   ---D   22
+  65  363 15:21:44 0454-810      -    64    23    12    71    25
+      363 15:22:44 pirals3.meth  -   186  -171  -175   191  -178
 
-  66  358 15:47:19 1124-186      -    96    81   105    62   106    81
-      358 15:48:19 -             -    28    38    23    60    12    38
+  66  363 15:24:47 0524-485      -    66    17    27   123    29
+      363 15:25:47 -             -   217  -115  -159   235  -175
 
-  67  358 15:49:00 1149-084      -    89    76    95    56   ---D   76
-      358 15:50:00 -             -    18    27    15    49   ---D   27
+  67  363 15:26:47 0422-380      -    60    14    11    42    16
+      363 15:27:47 -             -   248  -100  -134   243  -125
 
-  68  358 15:52:59 1245-454      -   131   121   135   121   137   121
-      358 15:53:59 -             -    24    39    11    54    11    39
+  68  363 15:28:47 0227-369      -    57    20    20    60    21
+      363 15:29:47 -             -   245  -113  -124   231  -114
 
-  69  358 15:56:05 1831-711      -   178   173   ---D  165   184   173
-      358 15:57:05 -             -    13    25   ---D   22    11    25
+  69  363 15:31:18 0534-340      -    85    29    32    91    31
+      363 15:32:18 -             -   257   -83  -143   254  -167
 
-  70  358 15:58:17 1251-713      -   159   155   161   160   161   155
-      358 15:59:17 -             -    31    45    14    47    23    45
+  70  363 15:35:41 F0940-6107    -   174    32    27   203    39
+      363 15:36:41 -             -   151  -211  -203   181  -212
 
-  71  358 16:00:39 1004-500      -   133   121   144   169   133   121
-      358 16:01:39 -             -    52    67    38    76    39    67
+  71  363 15:37:54 F1038-5311    -    37    10     8    74     9
+      363 15:38:54 -             -   136  -234  -215   156  -223
 
-  72  358 16:02:33 F0940-6107    -   151   150   158   183   148   150
-      358 16:03:33 -             -    52    66    35    65    41    66
+  72  363 15:39:34 F1041-4740    -    26     8     6    39     6
+      363 15:40:34 -             -   128  -246  -222   143  -229
 
-  73  358 16:04:45 F1038-5311    -   136   126   145   159   137   126
-      358 16:05:45 -             -    47    63    33    71    34    63
+  73  363 15:41:26 G287.37+0.64  -    37    10     8    52     8
+      363 15:42:26 -             -   143  -224  -210   161  -217
 
-  74  358 16:06:23 F1041-4740    -   128   114   139   147   130   114
-      358 16:07:23 -             -    48    63    34    76    33    63
+  74  363 15:42:41 J1103-5626    -    17     6     5    23     5
+      363 15:43:41 -             -   140  -228  -213   155  -219
 
-  75  358 16:08:12 G287.37+0.64  -   143   137   150   163   143   137
-      358 16:09:12 -             -    46    61    30    66    34    61
+  75  363 15:43:56 G287.37+0.64  -    17     6     5    23     5
+      363 15:44:56 -             -   143  -224  -210   162  -217
 
-  76  358 16:09:27 J1103-5626    -   140   132   147   157   141   132
-      358 16:10:27 -             -    44    59    29    67    32    59
+  76  363 15:45:11 J1131-5818    -    22     7     7    33     8
+      363 15:46:11 -             -   142  -225  -212   152  -216
 
-  77  358 16:10:42 G287.37+0.64  -   143   137   151   164   143   137
-      358 16:11:42 -             -    46    61    30    66    34    61
+  77  363 15:46:26 G287.37+0.64  -    22     7     7    34     8
+      363 15:47:26 -             -   143  -224  -210   163  -217
 
-  78  358 16:11:57 J1131-5818    -   142   135   148   153   144   135
-      358 16:12:57 -             -    40    56    25    63    28    56
+  78  363 15:47:41 J1047-6217    -    21     7     6    15     6
+      363 15:48:41 -             -   148  -216  -206   167  -212
 
-  79  358 16:13:12 G287.37+0.64  -   143   137   151   165   143   137
-      358 16:14:12 -             -    46    61    31    67    34    61
+  79  363 15:48:56 G287.37+0.64  -    21     7     6    14     6
+      363 15:49:56 -             -   143  -223  -210   163  -217
 
-  80  358 16:14:27 J1047-6217    -   149   145   155   169   148   145
-      358 16:15:27 -             -    45    60    29    63    34    60
+  80  363 15:50:11 J1019-6047    -    21     7     6    32     6
+      363 15:51:11 -             -   148  -216  -205   174  -214
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-  81  358 16:15:42 G287.37+0.64  -   144   137   151   166   143   137
-      358 16:16:42 pirals3.meth  -    46    62    31    67    35    62
+  81  363 15:51:26 G287.37+0.64  -    21     7     6    31     6
+      363 15:52:26 pirals3.meth  -   143  -223  -209   164  -217
 
-  82  358 16:16:57 J1019-6047    -   149   145   155   176   147   145
-      358 16:17:57 -             -    49    64    33    65    38    64
+  82  363 15:52:41 J1044-5440    -    21     7     5    14     6
+      363 15:53:41 -             -   138  -231  -213   161  -221
 
-  83  358 16:18:12 G287.37+0.64  -   144   137   151   166   143   137
-      358 16:19:12 -             -    47    62    31    67    35    62
+  83  363 15:53:56 G287.37+0.64  -    21     7     5    14     6
+      363 15:54:56 -             -   143  -223  -209   165  -217
 
-  84  358 16:19:27 J1044-5440    -   138   130   147   164   139   130
-      358 16:20:27 -             -    48    64    33    71    36    64
+  84  363 15:55:11 J1103-5626    -    18     6     5    23     5
+      363 15:56:11 -             -   140  -228  -212   158  -219
 
-  85  358 16:20:42 G287.37+0.64  -   144   138   151   167   143   138
-      358 16:21:42 -             -    47    62    31    67    35    62
+  85  363 15:56:26 G287.37+0.64  -    18     6     5    23     5
+      363 15:57:26 -             -   144  -223  -209   166  -217
 
-  86  358 16:21:57 J1103-5626    -   140   133   148   161   141   133
-      358 16:22:57 -             -    46    61    31    68    33    61
+  86  363 15:57:41 J1131-5818    -    22     7     7    36     8
+      363 15:58:41 -             -   142  -225  -211   154  -216
 
-  87  358 16:23:12 G287.37+0.64  -   144   138   151   168   143   138
-      358 16:24:12 -             -    47    63    32    67    36    63
+  87  363 15:58:56 G287.37+0.64  -    22     7     7    37     8
+      363 15:59:56 -             -   144  -223  -209   166  -217
 
-  88  358 16:24:27 J1131-5818    -   142   135   149   156   144   135
-      358 16:25:27 -             -    42    57    27    65    30    57
+  88  363 16:00:11 J1047-6217    -    22     7     6    13     6
+      363 16:01:11 -             -   149  -215  -205   170  -212
 
-  89  358 16:25:42 G287.37+0.64  -   144   138   152   169   143   138
-      358 16:26:42 -             -    48    63    32    67    36    63
+  89  363 16:01:26 G287.37+0.64  -    22     7     6    14     6
+      363 16:02:26 -             -   144  -222  -209   167  -217
 
-  90  358 16:26:57 J1047-6217    -   150   146   156   172   148   146
-      358 16:27:57 -             -    47    62    30    64    36    62
+  90  363 16:02:41 J1019-6047    -    21     7     6    31     6
+      363 16:03:41 -             -   149  -214  -204   177  -213
 
-  91  358 16:28:12 G287.37+0.64  -   144   138   152   170   143   138
-      358 16:29:12 -             -    48    63    32    67    36    63
+  91  363 16:03:56 G287.37+0.64  -    21     7     6    30     6
+      363 16:04:56 -             -   144  -222  -209   168  -217
 
-  92  358 16:29:27 J1019-6047    -   150   147   156   180   147   147
-      358 16:30:27 -             -    51    66    34    66    40    66
+  92  363 16:05:11 J1044-5440    -    21     7     5    14     6
+      363 16:06:11 -             -   139  -230  -212   166  -221
 
-  93  358 16:30:42 G287.37+0.64  -   144   139   152   170   143   139
-      358 16:31:42 -             -    48    64    33    67    37    64
+  93  363 16:06:26 G287.37+0.64  -    22     7     5    14     6
+      363 16:07:26 -             -   144  -222  -209   169  -217
 
-  94  358 16:31:57 J1044-5440    -   139   131   148   169   139   131
-      358 16:32:57 -             -    50    65    35    71    37    65
+  94  363 16:07:41 J1103-5626    -    18     6     5    23     5
+      363 16:08:41 -             -   141  -227  -212   162  -219
 
-  95  358 16:33:12 G287.37+0.64  -   145   139   152   171   143   139
-      358 16:34:12 -             -    49    64    33    67    37    64
+  95  363 16:08:56 G287.37+0.64  -    18     6     5    23     5
+      363 16:09:56 -             -   144  -222  -208   170  -217
 
-  96  358 16:34:27 J1103-5626    -   141   133   149   165   141   133
-      358 16:35:27 -             -    47    63    32    69    35    63
+  96  363 16:10:11 J1131-5818    -    22     7     7    38     8
+      363 16:11:11 -             -   142  -225  -211   157  -217
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
-  97  358 16:35:42 G287.37+0.64  -   145   139   152   172   144   139
-      358 16:36:42 pirals3.meth  -    49    64    33    68    37    64
+  97  363 16:11:26 G287.37+0.64  -    22     7     7    40     8
+      363 16:12:26 pirals3.meth  -   144  -221  -208   170  -217
 
-  98  358 16:36:57 J1131-5818    -   143   136   149   159   143   136
-      358 16:37:57 -             -    44    59    28    65    32    59
+  98  363 16:12:41 J1047-6217    -    22     7     5    14     6
+      363 16:13:41 -             -   150  -214  -204   173  -212
 
-  99  358 16:38:12 G287.37+0.64  -   145   139   152   173   144   139
-      358 16:39:12 -             -    49    65    33    68    38    65
+  99  363 16:13:56 G287.37+0.64  -    22     7     5    14     6
+      363 16:14:56 -             -   145  -221  -208   171  -217
 
- 100  358 16:39:27 J1047-6217    -   150   147   156   175   148   147
-      358 16:40:27 -             -    48    63    32    64    37    63
+ 100  363 16:15:11 J1019-6047    -    22     7     6    30     6
+      363 16:16:11 -             -   150  -212  -203   181  -213
 
- 101  358 16:40:42 G287.37+0.64  -   145   140   153   174   144   140
-      358 16:41:42 -             -    50    65    34    68    38    65
+ 101  363 16:16:26 G287.37+0.64  -    22     7     6    29     6
+      363 16:17:26 -             -   145  -221  -208   172  -216
 
- 102  358 16:41:57 J1019-6047    -   151   149   158   183   147   149
-      358 16:42:57 -             -    52    67    35    65    41    67
+ 102  363 16:17:41 J1044-5440    -    22     7     5    14     6
+      363 16:18:41 -             -   139  -229  -211   172  -221
 
- 103  358 16:43:12 G287.37+0.64  -   145   140   153   175   144   140
-      358 16:44:12 -             -    50    65    34    68    38    65
+ 103  363 16:18:56 G287.37+0.64  -    22     7     5    14     6
+      363 16:19:56 -             -   145  -221  -208   173  -216
 
- 104  358 16:44:27 J1044-5440    -   140   132   149   175   139   132
-      358 16:45:27 -             -    52    67    37    72    39    67
+ 104  363 16:20:11 J1103-5626    -    19     6     5    22     5
+      363 16:21:11 -             -   141  -226  -211   166  -219
 
- 105  358 16:45:42 G287.37+0.64  -   145   140   153   175   144   140
-      358 16:46:42 -             -    50    65    34    68    39    65
+ 105  363 16:21:26 G287.37+0.64  -    19     6     5    23     5
+      363 16:22:26 -             -   145  -220  -207   174  -216
 
- 106  358 16:46:57 J1103-5626    -   142   134   150   169   141   134
-      358 16:47:57 -             -    49    64    34    69    37    64
+ 106  363 16:22:41 J1131-5818    -    22     7     7    41     8
+      363 16:23:41 -             -   143  -224  -210   160  -217
 
- 107  358 16:48:12 G287.37+0.64  -   146   141   153   176   144   141
-      358 16:49:12 -             -    50    66    35    68    39    66
+ 107  363 16:23:56 G287.37+0.64  -    22     7     7    42     8
+      363 16:24:56 -             -   145  -220  -207   175  -216
 
- 108  358 16:49:27 J1131-5818    -   143   136   150   163   143   136
-      358 16:50:27 -             -    45    61    30    66    33    61
+ 108  363 16:25:11 J1047-6217    -    22     7     5    14     6
+      363 16:26:11 -             -   151  -212  -203   176  -212
 
- 109  358 16:50:42 G287.37+0.64  -   146   141   154   177   144   141
-      358 16:51:42 -             -    51    66    35    68    39    66
+ 109  363 16:26:26 G287.37+0.64  -    22     7     5    14     6
+      363 16:27:26 -             -   145  -220  -207   175  -216
 
- 110  358 16:51:57 J1047-6217    -   151   149   157   178   149   149
-      358 16:52:57 -             -    49    64    33    64    39    64
+ 110  363 16:27:41 J1019-6047    -    23     7     6    29     5
+      363 16:28:41 -             -   152  -210  -202   185  -212
 
- 111  358 16:53:12 G287.37+0.64  -   146   142   154   178   144   142
-      358 16:54:12 -             -    51    66    35    68    40    66
+ 111  363 16:28:56 G287.37+0.64  -    23     8     6    28     5
+      363 16:29:56 -             -   146  -219  -207   176  -216
 
- 112  358 16:54:27 J1019-6047    -   152   152   159   187   148   152
-      358 16:55:27 -             -    53    68    37    65    43    68
+ 112  363 16:30:11 J1044-5440    -    22     7     5    14     6
+      363 16:31:11 -             -   140  -227  -210   177  -221
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 113  358 16:55:42 G287.37+0.64  -   146   142   154   179   144   142
-      358 16:56:42 pirals3.meth  -    51    67    35    68    40    67
+ 113  363 16:31:26 G287.37+0.64  -    22     7     5    14     6
+      363 16:32:26 pirals3.meth  -   146  -219  -206   177  -216
 
- 114  358 16:56:57 J1044-5440    -   141   134   151   181   139   134
-      358 16:57:57 -             -    54    69    38    72    41    69
+ 114  363 16:32:41 J1103-5626    -    19     6     5    21     5
+      363 16:33:41 -             -   142  -225  -210   171  -219
 
- 115  358 16:58:12 G287.37+0.64  -   146   142   154   180   144   142
-      358 16:59:12 -             -    52    67    36    68    40    67
+ 115  363 16:33:56 G287.37+0.64  -    19     6     5    21     5
+      363 16:34:56 -             -   146  -218  -206   178  -216
 
- 116  358 16:59:27 J1103-5626    -   142   136   151   174   141   136
-      358 17:00:27 -             -    51    66    35    70    39    66
+ 116  363 16:35:11 J1131-5818    -    22     7     7    43     8
+      363 16:36:11 -             -   143  -223  -210   164  -217
 
- 117  358 17:00:42 G287.37+0.64  -   147   143   154   181   144   143
-      358 17:01:42 -             -    52    67    36    68    41    67
+ 117  363 16:36:26 G287.37+0.64  -    22     7     7    44     8
+      363 16:37:26 -             -   146  -218  -206   179  -216
 
- 118  358 17:01:57 J1131-5818    -   144   137   151   166   143   137
-      358 17:02:57 -             -    47    62    31    67    35    62
+ 118  363 16:37:41 J1047-6217    -    22     7     5    14     6
+      363 16:38:41 -             -   152  -210  -202   180  -211
 
- 119  358 17:03:12 G287.37+0.64  -   147   143   155   181   144   143
-      358 17:04:12 -             -    52    67    36    68    41    67
+ 119  363 16:38:56 G287.37+0.64  -    22     7     5    14     6
+      363 16:39:56 -             -   146  -218  -206   180  -216
 
- 120  358 17:04:27 J1047-6217    -   152   151   158   182   149   151
-      358 17:05:27 -             -    51    65    34    64    40    65
+ 120  363 16:40:11 J1019-6047    -    23     8     6    26     6
+      363 16:41:11 -             -   153  -207  -201   188  -212
 
- 121  358 17:05:42 G287.37+0.64  -   147   144   155   182   144   144
-      358 17:06:42 -             -    53    68    36    68    41    68
+ 121  363 16:41:26 G287.37+0.64  -    23     8     6    26     6
+      363 16:42:26 -             -   147  -217  -206   181  -216
 
- 122  358 17:06:57 J1019-6047    -   154   155   160   190   149   155
-      358 17:07:57 -             -    54    69    38    65    44    69
+ 122  363 16:42:41 J1044-5440    -    22     7     5    14     6
+      363 16:43:41 -             -   141  -225  -209   183  -221
 
- 123  358 17:08:12 G287.37+0.64  -   147   144   155   183   144   144
-      358 17:09:12 -             -    53    68    37    68    41    68
+ 123  363 16:43:56 G287.37+0.64  -    22     7     5    14     6
+      363 16:44:56 -             -   147  -217  -205   181  -216
 
- 124  358 17:09:27 J1044-5440    -   142   136   152   186   139   136
-      358 17:10:27 -             -    55    70    40    71    43    70
+ 124  363 16:45:11 J1103-5626    -    20     7     5    19     5
+      363 16:46:11 -             -   143  -224  -209   176  -219
 
- 125  358 17:10:42 G287.37+0.64  -   148   145   155   184   144   145
-      358 17:11:42 -             -    53    68    37    68    42    68
+ 125  363 16:46:26 G287.37+0.64  -    20     7     5    20     5
+      363 16:47:26 -             -   147  -216  -205   182  -216
 
- 126  358 17:11:57 J1103-5626    -   143   138   152   179   141   138
-      358 17:12:57 -             -    52    68    37    70    40    68
+ 126  363 16:47:41 J1131-5818    -    21     7     7    44     7
+      363 16:48:41 -             -   144  -222  -209   168  -217
 
- 127  358 17:13:12 G287.37+0.64  -   148   145   156   185   144   145
-      358 17:14:12 -             -    53    68    37    68    42    68
+ 127  363 16:48:56 G287.37+0.64  -    22     7     7    45     7
+      363 16:49:56 -             -   147  -216  -205   183  -216
 
- 128  358 17:14:27 J1131-5818    -   144   138   152   170   143   138
-      358 17:15:27 -             -    48    64    33    67    37    64
+ 128  363 16:50:11 J1047-6217    -    22     7     5    14     6
+      363 16:51:11 -             -   153  -208  -201   183  -211
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 129  358 17:15:42 G287.37+0.64  -   148   146   156   186   145   146
-      358 17:16:42 pirals3.meth  -    54    69    37    68    42    69
+ 129  363 16:51:26 G287.37+0.64  -    22     7     5    14     6
+      363 16:52:26 pirals3.meth  -   148  -215  -205   184  -216
 
- 130  358 17:16:57 J1047-6217    -   154   154   160   185   150   154
-      358 17:17:57 -             -    52    66    35    64    42    66
+ 130  363 16:52:41 J1019-6047    -    24     8     6    24     6
+      363 16:53:41 -             -   155  -204  -199   192  -211
 
- 131  358 17:18:12 G287.37+0.64  -   149   146   156   187   145   146
-      358 17:19:12 -             -    54    69    38    68    43    69
+ 131  363 16:53:56 G287.37+0.64  -    24     8     6    23     6
+      363 16:54:56 -             -   148  -215  -204   185  -216
 
- 132  358 17:19:27 J1019-6047    -   156   159   162   194   149   159
-      358 17:20:27 -             -    55    70    39    64    46    70
+ 132  363 16:55:11 J1044-5440    -    21     7     5    14     6
+      363 16:56:11 -             -   143  -223  -207   189  -220
 
- 133  358 17:20:42 G287.37+0.64  -   149   147   157   187   145   147
-      358 17:21:42 -             -    54    69    38    68    43    69
+ 133  363 16:56:26 G287.37+0.64  -    22     7     5    13     6
+      363 16:57:26 -             -   148  -214  -204   186  -215
 
- 134  358 17:21:57 J1044-5440    -   144   139   153   192   140   139
-      358 17:22:57 -             -    57    72    41    71    45    72
+ 134  363 16:57:41 J1103-5626    -    20     7     5    17     5
+      363 16:58:41 -             -   144  -222  -207   181  -219
 
- 135  358 17:23:12 G287.37+0.64  -   149   148   157   188   145   148
-      358 17:24:12 -             -    55    69    38    68    43    69
+ 135  363 16:58:56 G287.37+0.64  -    20     7     5    18     5
+      363 16:59:56 -             -   149  -214  -204   187  -215
 
- 136  358 17:24:27 J1103-5626    -   145   140   153   184   142   140
-      358 17:25:27 -             -    54    69    38    70    42    69
+ 136  363 17:00:11 J1131-5818    -    21     7     7    44     7
+      363 17:01:11 -             -   145  -221  -208   172  -217
 
- 137  358 17:25:42 G287.37+0.64  -   149   148   157   189   145   148
-      358 17:26:42 -             -    55    70    38    67    44    70
+ 137  363 17:01:26 G287.37+0.64  -    21     7     7    46     7
+      363 17:02:26 -             -   149  -213  -203   187  -215
 
- 138  358 17:26:57 J1131-5818    -   145   140   153   175   143   140
-      358 17:27:57 -             -    50    65    34    68    38    65
+ 138  363 17:02:41 J1047-6217    -    22     7     5    14     6
+      363 17:03:41 -             -   154  -205  -200   186  -210
 
- 139  358 17:28:12 G287.37+0.64  -   150   149   157   190   145   149
-      358 17:29:12 -             -    55    70    39    67    44    70
+ 139  363 17:03:56 G287.37+0.64  -    21     7     5    14     6
+      363 17:04:56 -             -   149  -213  -203   188  -215
 
- 140  358 17:29:27 J1047-6217    -   155   156   161   188   150   156
-      358 17:30:27 -             -    53    67    36    64    43    67
+ 140  363 17:05:11 J1019-6047    -    25     8     6    21     6
+      363 17:06:11 -             -   156  -200  -198   195  -210
 
- 141  358 17:30:42 G287.37+0.64  -   150   149   158   191   145   149
-      358 17:31:42 -             -    55    70    39    67    44    70
+ 141  363 17:06:26 G287.37+0.64  -    25     8     6    21     6
+      363 17:07:26 -             -   149  -212  -203   189  -215
 
- 142  358 17:31:57 J1019-6047    -   158   163   163   197   150   163
-      358 17:32:57 -             -    57    71    39    64    47    71
+ 142  363 17:07:41 J1044-5440    -    21     7     5    16     6
+      363 17:08:41 -             -   144  -220  -206   194  -220
 
- 143  358 17:33:12 G287.37+0.64  -   150   150   158   192   145   150
-      358 17:34:12 -             -    56    70    39    67    45    70
+ 143  363 17:08:56 G287.37+0.64  -    21     7     5    16     6
+      363 17:09:56 -             -   150  -211  -203   190  -215
 
- 144  358 17:34:27 J1044-5440    -   146   143   155   197   141   143
-      358 17:35:27 -             -    58    73    42    70    46    73
+ 144  363 17:10:11 J1103-5626    -    21     7     5    15     5
+      363 17:11:11 -             -   145  -219  -206   186  -218
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 145  358 17:35:42 G287.37+0.64  -   151   151   158   192   146   151
-      358 17:36:42 pirals3.meth  -    56    71    39    67    45    71
+ 145  363 17:11:26 G287.37+0.64  -    21     7     5    16     5
+      363 17:12:26 pirals3.meth  -   150  -211  -202   191  -215
 
- 146  358 17:36:57 J1103-5626    -   146   143   155   189   142   143
-      358 17:37:57 -             -    55    71    39    69    44    71
+ 146  363 17:12:41 J1131-5818    -    21     7     6    44     7
+      363 17:13:41 -             -   145  -219  -207   176  -216
 
- 147  358 17:38:12 G287.37+0.64  -   151   152   159   193   146   152
-      358 17:39:12 -             -    56    71    40    67    45    71
+ 147  363 17:13:56 G287.37+0.64  -    21     7     6    45     7
+      363 17:14:56 -             -   150  -210  -202   192  -215
 
- 148  358 17:39:27 J1131-5818    -   146   142   154   179   144   142
-      358 17:40:27 -             -    51    67    35    68    40    67
+ 148  363 17:15:11 J1047-6217    -    21     7     5    14     6
+      363 17:16:11 -             -   156  -202  -199   189  -209
 
- 149  358 17:40:42 G287.37+0.64  -   152   152   159   194   146   152
-      358 17:41:42 -             -    56    71    40    67    46    71
+ 149  363 17:16:26 G287.37+0.64  -    21     7     5    14     6
+      363 17:17:26 -             -   151  -209  -202   192  -214
 
- 150  358 17:41:57 J1047-6217    -   157   159   162   191   151   159
-      358 17:42:57 -             -    54    68    37    63    44    68
+ 150  363 17:17:41 J1019-6047    -    25     8     6    19     6
+      363 17:18:41 -             -   159  -196  -196   198  -209
 
- 151  358 17:43:12 G287.37+0.64  -   152   153   159   195   146   153
-      358 17:44:12 -             -    57    71    40    67    46    71
+ 151  363 17:18:56 G287.37+0.64  -    25     8     6    18     6
+      363 17:19:56 -             -   151  -208  -201   193  -214
 
- 152  358 17:44:27 J1019-6047    -   160   167   165   200   151   167
-      358 17:45:27 -             -    57    71    40    63    48    71
+ 152  363 17:20:11 J1044-5440    -    21     7     5    19     6
+      363 17:21:11 -             -   146  -216  -204   199  -219
 
- 153  358 17:45:42 G287.37+0.64  -   152   154   160   195   146   154
-      358 17:46:42 -             -    57    72    40    67    46    72
+ 153  363 17:21:26 G287.37+0.64  -    21     7     5    19     6
+      363 17:22:26 -             -   152  -208  -201   194  -214
 
- 154  358 17:46:57 J1044-5440    -   148   147   157   202   141   147
-      358 17:47:57 -             -    60    75    44    70    48    75
+ 154  363 17:22:41 J1103-5626    -    21     7     5    13     5
+      363 17:23:41 -             -   147  -216  -205   191  -218
 
- 155  358 17:48:12 G287.37+0.64  -   153   155   160   196   146   155
-      358 17:49:12 -             -    57    72    40    66    46    72
+ 155  363 17:23:56 G287.37+0.64  -    21     7     5    13     5
+      363 17:24:56 -             -   152  -207  -201   195  -214
 
- 156  358 17:50:35 1549-790      -   168   166   170   167   170   166
-      358 17:51:35 -             -    28    41    11    40    23    41
+ 156  363 17:25:11 J1131-5818    -    22     8     6    43     7
+      363 17:26:11 -             -   147  -217  -206   181  -216
 
- 157  358 17:52:50 2300-683      -   192   187   ---D  176   197   187
-      358 17:53:50 -             -    13    22   ---D   15    14    22
+ 157  363 17:26:26 G287.37+0.64  -    22     8     6    44     7
+      363 17:27:26 -             -   152  -206  -200   195  -214
 
- 158  358 17:54:50 1831-711      -   169   164   ---D  159   175   164
-      358 17:55:50 -             -    16    29   ---D   30    11    29
+ 158  363 17:27:41 J1047-6217    -    21     6     5    13     6
+      363 17:28:41 -             -   158  -199  -197   192  -209
 
- 159  358 17:57:26 0131-522      -   216   211   ---D  ---D  221   211
-      358 17:58:26 -             -    12    16   ---D  ---D   20    16
+ 159  363 17:28:56 G287.37+0.64  -    21     6     5    14     6
+      363 17:29:56 -             -   153  -205  -200   196  -214
 
- 160  358 18:00:05 1022-665      -   167   175   170   195   160   175
-      358 18:01:05 -             -    53    66    36    57    46    66
+ 160  363 17:30:11 J1019-6047    -    26     8     6    16     6
+      363 17:31:11 -             -   161  -191  -194   201  -208
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 161  358 18:03:26 1659-621      -   155   148   ---D  145   161   148
-      358 18:04:26 pirals3.meth  -    16    31   ---D   37     7    31
+ 161  363 17:31:26 G287.37+0.64  -    26     8     6    15     6
+      363 17:32:26 pirals3.meth  -   153  -204  -200   197  -213
 
- 162  358 18:06:14 1057-797      -   174   176   175   183   171   176
-      358 18:07:14 -             -    41    52    23    46    36    52
+ 162  363 17:32:41 J1044-5440    -    21     7     6    21     6
+      363 17:33:41 -             -   148  -211  -202   203  -218
 
- 163  358 18:09:39 0521-365      -   248   251   235   235   247   251
-      358 18:10:39 -             -    42    36    35    15    56    36
+ 163  363 17:33:56 G287.37+0.64  -    21     7     6    21     6
+      363 17:34:56 -             -   154  -204  -199   198  -213
 
- 164  358 18:11:48 0347-211      -   256   251   252   ---D  262   251
-      358 18:12:48 -             -    18    10    14   ---D   33    10
+ 164  363 17:35:11 J1103-5626    -    21     7     5    11     5
+      363 17:36:11 -             -   148  -213  -203   195  -217
 
- 165  358 18:14:37 0606-223      -   270   271   253   252   -83   -89
-      358 18:15:37 -             -    47    36    46    14    63    36
+ 165  363 17:36:26 G287.37+0.64  -    22     7     5    11     5
+      363 17:37:26 -             -   154  -203  -199   198  -213
 
- 166  358 18:17:42 0334-546      -   221   220   217   208  -138  -140
-      358 18:18:42 -             -    27    28    14    11    36    28
+ 166  363 17:37:41 J1131-5818    -    23     8     6    41     7
+      363 17:38:41 -             -   148  -215  -204   185  -216
 
- 167  358 18:20:50 F0940-6107    -   177   195   177   211  -198  -165
-      358 18:21:50 -             -    61    71    43    56    55    71
+ 167  363 17:38:56 G287.37+0.64  -    24     8     6    42     7
+      363 17:39:56 -             -   154  -202  -199   199  -213
 
- 168  358 18:22:49 F1038-5311    -   155   168   163   217  -217  -192
-      358 18:23:49 -             -    65    79    48    67    54    79
+ 168  363 17:40:11 J1047-6217    -    21     6     5    15     6
+      363 17:41:11 -             -   159  -196  -196   195  -208
 
- 169  358 18:24:30 F1041-4740    -   145   151   158   229  -226  -209
-      358 18:25:30 -             -    69    84    53    70    56    84
+ 169  363 17:41:26 G287.37+0.64  -    20     6     5    15     6
+      363 17:42:26 -             -   155  -201  -198   200  -213
 
- 170  358 18:26:36 G287.37+0.64  -   160   170   165   206  -210  -190
-      358 18:27:36 -             -    60    74    43    64    51    74
+ 170  363 17:42:41 J1019-6047    -    26     8     6    15     6
+      363 17:43:41 -             -   163  -187  -193   203  -207
 
- 171  358 18:27:51 J1103-5626    -   154   161   162   206  -214  -199
-      358 18:28:51 -             -    61    75    44    66    50    75
+ 171  363 17:43:56 G287.37+0.64  -    26     8     6    15     6
+      363 17:44:56 -             -   155  -200  -198   200  -212
 
- 172  358 18:29:06 G287.37+0.64  -   161   171   166   207  -210  -189
-      358 18:30:06 -             -    61    74    43    63    51    74
+ 172  363 17:45:11 J1044-5440    -    20     6     6    22     6
+      363 17:46:11 -             -   151  -205  -200   207  -217
 
- 173  358 18:30:21 J1131-5818    -   152   154   160   196  -214  -206
-      358 18:31:21 -             -    57    72    40    67    46    72
+ 173  363 17:46:26 G287.37+0.64  -    20     6     6    22     6
+      363 17:47:26 -             -   156  -199  -198   201  -212
 
- 174  358 18:31:36 G287.37+0.64  -   161   172   166   207  -210  -188
-      358 18:32:36 -             -    61    74    44    63    51    74
+ 174  363 17:49:50 0308-611      -   100    37    26   143    19
+      363 17:50:50 -             -   213  -147  -150   202  -146
 
- 175  358 18:32:51 J1047-6217    -   165   175   169   202  -205  -185
-      358 18:33:51 -             -    58    70    40    60    49    70
+ 175  363 17:51:34 0227-369      -    44    20   ---   ---    12
+      363 17:52:34 -             -   233  -133   ---D  ---D -121
 
- 176  358 18:34:06 G287.37+0.64  -   162   174   167   208  -209  -186
-      358 18:35:06 -             -    61    74    44    63    52    74
+ 176  363 17:53:52 2300-683      -    79    14   ---    78    15
+      363 17:54:52 -             -   190  -175   ---D  174  -164
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 177  358 18:35:21 J1019-6047    -   171   186   173   209  -202  -174
-      358 18:36:21 pirals3.meth  -    60    72    43    59    53    72
+ 177  363 17:56:12 1619-680      -    63    17    16    80    13
+      363 17:57:12 pirals3.meth  -   157  -208  -201   153  -198
 
- 178  358 18:36:36 G287.37+0.64  -   162   175   167   208  -209  -185
-      358 18:37:36 -             -    61    74    44    63    52    74
+ 178  363 17:57:55 1725-795      -    34     9     8    43     8
+      363 17:58:55 -             -   170  -193  -189   167  -187
 
- 179  358 18:37:51 J1044-5440    -   159   176   166   216  -214  -184
-      358 18:38:51 -             -    65    78    48    65    55    78
+ 179  363 18:00:50 0334-546      -    89    16    15   115    16
+      363 18:01:50 -             -   221  -140  -143   208  -138
 
- 180  358 18:39:06 G287.37+0.64  -   163   176   167   209  -209  -184
-      358 18:40:06 -             -    61    74    44    62    52    74
+ 180  363 18:03:08 0511-220      -    78    14    17   ---    15
+      363 18:04:08 -             -   263   -98  -107   ---D  -91
 
- 181  358 18:40:21 J1103-5626    -   157   167   164   209  -213  -193
-      358 18:41:21 -             -    62    76    45    65    52    76
+ 181  363 18:05:09 0524-485      -    62    16    12    48    14
+      363 18:06:09 -             -   231  -124  -138   223  -133
 
- 182  358 18:41:36 G287.37+0.64  -   163   177   168   209  -208  -183
-      358 18:42:36 -             -    61    74    44    62    53    74
+ 182  363 18:07:53 1022-665      -   103    24    16   104    19
+      363 18:08:53 -             -   172  -179  -187   199  -198
 
- 183  358 18:42:51 J1131-5818    -   154   158   161   199  -213  -202
-      358 18:43:51 -             -    58    73    41    66    48    73
+ 183  363 18:09:32 F0940-6107    -    24     9     8    39     9
+      363 18:10:32 -             -   179  -163  -182   212  -197
 
- 184  358 18:44:06 G287.37+0.64  -   164   178   168   209  -208  -182
-      358 18:45:06 -             -    62    74    44    62    53    74
+ 184  363 18:11:19 F1038-5311    -    47    11     9    33    10
+      363 18:12:19 -             -   157  -186  -196   218  -216
 
- 185  358 18:45:21 J1047-6217    -   168   179   170   204  -203  -181
-      358 18:46:21 -             -    58    70    41    59    50    70
+ 185  363 18:12:56 F1041-4740    -    29     8     7    37     7
+      363 18:13:56 -             -   147  -197  -200   230  -225
 
- 186  358 18:46:36 G287.37+0.64  -   165   180   169   210  -208  -180
-      358 18:47:36 -             -    62    74    44    62    53    74
+ 186  363 18:15:02 G287.37+0.64  -    35    12    11    66     9
+      363 18:16:02 -             -   162  -186  -193   208  -209
 
- 187  358 18:47:51 J1019-6047    -   174   191   175   211  -200  -169
-      358 18:48:51 -             -    61    71    43    57    54    71
+ 187  363 18:16:17 J1103-5626    -    22     7     5    11     6
+      363 18:17:17 -             -   156  -195  -197   208  -214
 
- 188  358 18:49:06 G287.37+0.64  -   165   181   169   210  -207  -179
-      358 18:50:06 -             -    62    74    44    61    53    74
+ 188  363 18:17:32 G287.37+0.64  -    23     7     5    11     6
+      363 18:18:32 -             -   162  -185  -193   208  -209
 
- 189  358 18:50:21 J1044-5440    -   163   184   168   218  -212  -176
-      358 18:51:21 -             -    66    78    48    63    56    78
+ 189  363 18:18:47 J1131-5818    -    27    10     7    32     7
+      363 18:19:47 -             -   154  -203  -199   198  -213
 
- 190  358 18:51:36 G287.37+0.64  -   166   182   170   211  -207  -178
-      358 18:52:36 -             -    62    74    45    61    54    74
+ 190  363 18:20:02 G287.37+0.64  -    28    10     7    32     7
+      363 18:21:02 -             -   163  -184  -193   209  -209
 
- 191  358 18:52:51 J1103-5626    -   160   174   166   212  -212  -186
-      358 18:53:51 -             -    63    76    46    64    53    76
+ 191  363 18:21:17 J1047-6217    -    18     6     6    19     6
+      363 18:22:17 -             -   167  -182  -190   203  -204
 
- 192  358 18:54:06 G287.37+0.64  -   167   183   170   211  -207  -177
-      358 18:55:06 -             -    62    74    45    61    54    74
+ 192  363 18:22:32 G287.37+0.64  -    18     6     6    19     6
+      363 18:23:32 -             -   164  -183  -192   209  -208
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 193  358 18:55:21 J1131-5818    -   157   163   163   203  -212  -197
-      358 18:56:21 pirals3.meth  -    59    73    42    65    49    73
+ 193  363 18:23:47 J1019-6047    -    27     8     6    15     7
+      363 18:24:47 pirals3.meth  -   172  -171  -186   210  -201
 
- 194  358 18:56:36 G287.37+0.64  -   167   184   170   212  -206  -176
-      358 18:57:36 -             -    62    74    45    61    54    74
+ 194  363 18:25:02 G287.37+0.64  -    27     8     6    15     7
+      363 18:26:02 -             -   164  -182  -192   210  -208
 
- 195  358 18:57:51 J1047-6217    -   170   184   172   206  -201  -176
-      358 18:58:51 -             -    59    70    41    58    52    70
+ 195  363 18:26:17 J1044-5440    -    18     6     6    24     6
+      363 18:27:17 -             -   162  -179  -193   217  -212
 
- 196  358 18:59:06 G287.37+0.64  -   168   185   171   212  -206  -175
-      358 19:00:06 -             -    62    74    45    60    54    74
+ 196  363 18:27:32 G287.37+0.64  -    18     6     6    24     6
+      363 18:28:32 -             -   165  -180  -191   210  -208
 
- 197  358 19:00:21 J1019-6047    -   177   195   177   212  -198  -165
-      358 19:01:21 -             -    61    71    43    56    55    71
+ 197  363 18:28:47 J1103-5626    -    22     7     5    11     6
+      363 18:29:47 -             -   159  -189  -195   211  -212
 
- 198  358 19:01:36 G287.37+0.64  -   169   187   171   212  -205  -173
-      358 19:02:36 -             -    62    74    45    60    55    74
+ 198  363 18:30:02 G287.37+0.64  -    23     7     5    11     6
+      363 18:31:02 -             -   165  -179  -191   210  -207
 
- 199  358 19:02:51 J1044-5440    -   167   193   171   220  -210  -167
-      358 19:03:51 -             -    66    78    49    61    58    78
+ 199  363 18:31:17 J1131-5818    -    29    10     7    28     7
+      363 18:32:17 -             -   156  -199  -198   201  -212
 
- 200  358 19:04:06 G287.37+0.64  -   169   188   172   213  -205  -172
-      358 19:05:06 -             -    63    74    45    60    55    74
+ 200  363 18:32:32 G287.37+0.64  -    29    10     7    29     7
+      363 18:33:32 -             -   166  -178  -190   211  -207
 
- 201  358 19:05:21 J1103-5626    -   164   181   168   214  -210  -179
-      358 19:06:21 -             -    64    76    46    63    55    76
+ 201  363 18:33:47 J1047-6217    -    18     6     6    20     6
+      363 18:34:47 -             -   169  -178  -188   205  -202
 
- 202  358 19:06:36 G287.37+0.64  -   170   189   172   213  -205  -171
-      358 19:07:36 -             -    63    74    45    60    55    74
+ 202  363 18:35:02 G287.37+0.64  -    18     6     6    20     6
+      363 18:36:02 -             -   167  -177  -190   211  -207
 
- 203  358 19:07:51 J1131-5818    -   159   169   165   206  -211  -191
-      358 19:08:51 -             -    60    74    43    64    51    74
+ 203  363 18:36:17 J1019-6047    -    27     8     6    15     7
+      363 18:37:17 -             -   175  -166  -184   211  -199
 
- 204  358 19:09:06 G287.37+0.64  -   171   190   173   213  -204  -170
-      358 19:10:06 -             -    63    74    45    59    55    74
+ 204  363 18:37:32 G287.37+0.64  -    27     7     6    15     7
+      363 18:38:32 -             -   167  -176  -190   212  -206
 
- 205  358 19:10:21 J1047-6217    -   173   188   174   208  -200  -172
-      358 19:11:21 -             -    59    70    41    57    52    70
+ 205  363 18:38:47 J1044-5440    -    18     6     6    24     6
+      363 18:39:47 -             -   166  -170  -190   219  -210
 
- 206  358 19:11:36 G287.37+0.64  -   171   191   173   214  -204  -169
-      358 19:12:36 -             -    63    74    45    59    55    74
+ 206  363 18:40:02 G287.37+0.64  -    18     6     6    23     6
+      363 18:41:02 -             -   168  -174  -189   212  -206
 
- 207  358 19:12:51 J1019-6047    -   180   199   179   213  -196  -161
-      358 19:13:51 -             -    61    70    43    55    56    70
+ 207  363 18:41:17 J1103-5626    -    22     7     5    11     6
+      363 18:42:17 -             -   162  -181  -193   213  -211
 
- 208  358 19:14:06 G287.37+0.64  -   172   192   174   214  -203  -168
-      358 19:15:06 -             -    63    74    45    59    56    74
+ 208  363 18:42:32 G287.37+0.64  -    23     7     5    11     6
+      363 18:43:32 -             -   169  -173  -189   212  -205
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 209  358 19:15:21 J1044-5440    -   172   200   173   221  -207  -160
-      358 19:16:21 pirals3.meth  -    67    77    49    60    59    77
+ 209  363 18:43:47 J1131-5818    -    30    10     7    25     7
+      363 18:44:47 pirals3.meth  -   158  -193  -196   205  -211
 
- 210  358 19:16:36 G287.37+0.64  -   173   194   174   214  -203  -166
-      358 19:17:36 -             -    63    74    45    58    56    74
+ 210  363 18:45:02 G287.37+0.64  -    30    10     7    26     7
+      363 18:46:02 -             -   169  -172  -188   213  -205
 
- 211  358 19:17:51 J1103-5626    -   167   189   171   216  -208  -171
-      358 19:18:51 -             -    64    76    47    61    56    76
+ 211  363 18:46:17 J1047-6217    -    18     6     6    20     6
+      363 18:47:17 -             -   172  -174  -187   207  -200
 
- 212  358 19:19:06 G287.37+0.64  -   173   195   175   215  -203  -165
-      358 19:20:06 -             -    63    73    45    58    56    73
+ 212  363 18:47:32 G287.37+0.64  -    18     6     6    20     6
+      363 18:48:32 -             -   170  -171  -188   213  -205
 
- 213  358 19:20:21 J1131-5818    -   162   175   167   208  -209  -185
-      358 19:21:21 -             -    61    74    44    63    52    74
+ 213  363 18:48:47 J1019-6047    -    27     7     6    15     7
+      363 18:49:47 -             -   179  -162  -182   213  -197
 
- 214  358 19:21:36 G287.37+0.64  -   174   196   175   215  -202  -164
-      358 19:22:36 -             -    63    73    46    58    56    73
+ 214  363 18:50:02 G287.37+0.64  -    26     7     6    15     7
+      363 18:51:02 -             -   171  -170  -187   213  -204
 
- 215  358 19:22:51 J1047-6217    -   176   192   176   209  -198  -168
-      358 19:23:51 -             -    59    70    42    56    53    70
+ 215  363 18:51:17 J1044-5440    -    19     7     6    23     6
+      363 18:52:17 -             -   170  -162  -188   221  -208
 
- 216  358 19:24:06 G287.37+0.64  -   175   197   175   215  -202  -163
-      358 19:25:06 -             -    63    73    46    58    57    73
+ 216  363 18:52:32 G287.37+0.64  -    18     7     6    23     6
+      363 18:53:32 -             -   171  -169  -187   214  -204
 
- 217  358 19:25:21 J1019-6047    -   183   203   181   214  -194  -157
-      358 19:26:21 -             -    61    69    43    53    56    69
+ 217  363 18:53:47 J1103-5626    -    22     6     5    11     6
+      363 18:54:47 -             -   166  -174  -190   215  -209
 
- 218  358 19:26:36 G287.37+0.64  -   176   198   176   216  -201  -162
-      358 19:27:36 -             -    63    73    46    57    57    73
+ 218  363 18:55:02 G287.37+0.64  -    22     6     5    11     6
+      363 18:56:02 -             -   172  -168  -186   214  -203
 
- 219  358 19:27:51 J1044-5440    -   176   207   176   223  -205  -153
-      358 19:28:51 -             -    67    76    49    58    60    76
+ 219  363 18:56:17 J1131-5818    -    31    10     7    23     6
+      363 18:57:17 -             -   161  -188  -194   207  -210
 
- 220  358 19:29:06 G287.37+0.64  -   176   199   176   216  -201  -161
-      358 19:30:06 -             -    63    73    46    57    57    73
+ 220  363 18:57:32 G287.37+0.64  -    31    10     7    23     7
+      363 18:58:32 -             -   173  -166  -186   214  -203
 
- 221  358 19:30:21 J1103-5626    -   171   195   173   218  -206  -165
-      358 19:31:21 -             -    65    76    47    60    57    76
+ 221  363 18:58:47 J1047-6217    -    18     6     6    20     6
+      363 18:59:47 -             -   175  -170  -185   209  -199
 
- 222  358 19:31:36 G287.37+0.64  -   177   200   177   216  -200  -160
-      358 19:32:36 -             -    63    73    46    57    57    73
+ 222  363 19:00:02 G287.37+0.64  -    18     6     6    20     6
+      363 19:01:02 -             -   173  -165  -185   215  -203
 
- 223  358 19:32:51 J1131-5818    -   165   181   169   211  -207  -179
-      358 19:33:51 -             -    62    74    45    62    53    74
+ 223  363 19:01:17 J1019-6047    -    26     7     6    15     7
+      363 19:02:17 -             -   182  -158  -180   214  -195
 
- 224  358 19:34:06 G287.37+0.64  -   178   201   177   216  -200  -159
-      358 19:35:06 -             -    63    73    46    56    57    73
+ 224  363 19:02:32 G287.37+0.64  -    26     6     6    15     7
+      363 19:03:32 -             -   174  -164  -185   215  -202
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 225  358 19:35:21 J1047-6217    -   179   196   178   210  -196  -164
-      358 19:36:21 pirals3.meth  -    59    69    42    55    54    69
+ 225  363 19:03:47 J1044-5440    -    19     7     6    23     6
+      363 19:04:47 pirals3.meth  -   174  -155  -185   222  -206
 
- 226  358 19:36:36 G287.37+0.64  -   178   202   178   217  -199  -158
-      358 19:37:36 -             -    63    72    46    56    57    72
+ 226  363 19:05:02 G287.37+0.64  -    19     7     6    23     6
+      363 19:06:02 -             -   175  -163  -185   215  -202
 
- 227  358 19:37:51 J1019-6047    -   186   206   183   215  -191  -154
-      358 19:38:51 -             -    61    68    43    52    57    68
+ 227  363 19:06:17 J1103-5626    -    22     6     5    11     6
+      363 19:07:17 -             -   170  -167  -188   217  -207
 
- 228  358 19:39:06 G287.37+0.64  -   179   203   178   217  -199  -157
-      358 19:40:06 -             -    63    72    46    56    58    72
+ 228  363 19:07:32 G287.37+0.64  -    22     6     5    11     6
+      363 19:08:32 -             -   176  -162  -184   216  -201
 
- 229  358 19:40:21 J1044-5440    -   181   213   179   224  -202  -147
-      358 19:41:21 -             -    67    75    50    56    61    75
+ 229  363 19:08:47 J1131-5818    -    32    10     7    20     7
+      363 19:09:47 -             -   164  -182  -192   210  -208
 
- 230  358 19:41:36 G287.37+0.64  -   180   203   179   217  -198  -157
-      358 19:42:36 -             -    63    72    46    56    58    72
+ 230  363 19:10:02 G287.37+0.64  -    32    10     7    20     7
+      363 19:11:02 -             -   176  -161  -184   216  -201
 
- 231  358 19:42:51 J1103-5626    -   175   201   176   219  -203  -159
-      358 19:43:51 -             -    65    75    48    58    58    75
+ 231  363 19:11:17 J1047-6217    -    19     6     6    20     5
+      363 19:12:17 -             -   177  -166  -183   210  -197
 
- 232  358 19:44:06 G287.37+0.64  -   181   204   179   217  -198  -156
-      358 19:45:06 -             -    63    72    46    55    58    72
+ 232  363 19:12:32 G287.37+0.64  -    19     6     6    20     5
+      363 19:13:32 -             -   177  -160  -183   216  -200
 
- 233  358 19:45:21 J1131-5818    -   169   187   171   213  -206  -173
-      358 19:46:21 -             -    63    74    45    60    55    74
+ 233  363 19:13:47 J1019-6047    -    25     6     6    15     7
+      363 19:14:47 -             -   185  -155  -178   215  -192
 
- 234  358 19:46:36 G287.37+0.64  -   181   205   180   217  -197  -155
-      358 19:47:36 -             -    63    72    46    55    58    72
+ 234  363 19:15:02 G287.37+0.64  -    25     6     6    15     7
+      363 19:16:02 -             -   178  -159  -183   216  -200
 
- 235  358 19:47:51 J1047-6217    -   181   199   180   211  -194  -161
-      358 19:48:51 -             -    59    68    42    53    55    68
+ 235  363 19:16:17 J1044-5440    -    19     7     6    22     6
+      363 19:17:17 -             -   179  -149  -182   223  -203
 
- 236  358 19:49:06 G287.37+0.64  -   182   206   180   218  -197  -154
-      358 19:50:06 -             -    63    72    46    55    58    72
+ 236  363 19:17:32 G287.37+0.64  -    19     7     6    22     6
+      363 19:18:32 -             -   178  -158  -182   217  -199
 
- 237  358 19:50:21 J1019-6047    -   189   209   185   216  -188  -151
-      358 19:51:21 -             -    60    67    43    50    58    67
+ 237  363 19:18:47 J1103-5626    -    21     5     5    11     6
+      363 19:19:47 -             -   174  -161  -185   219  -204
 
- 238  358 19:51:36 G287.37+0.64  -   183   207   181   218  -196  -153
-      358 19:52:36 -             -    63    71    46    54    58    71
+ 238  363 19:20:02 G287.37+0.64  -    21     5     5    11     6
+      363 19:21:02 -             -   179  -157  -182   217  -199
 
- 239  358 19:52:51 J1044-5440    -   185   217   182   224  -198  -143
-      358 19:53:51 -             -    67    74    50    55    62    74
+ 239  363 19:21:17 J1131-5818    -    32    10     7    18     7
+      363 19:22:17 -             -   167  -176  -190   212  -206
 
- 240  358 19:54:06 G287.37+0.64  -   184   208   181   218  -195  -152
-      358 19:55:06 -             -    63    71    46    54    59    71
+ 240  363 19:22:32 G287.37+0.64  -    33    10     7    18     7
+      363 19:23:32 -             -   180  -157  -181   217  -198
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 241  358 19:55:21 J1103-5626    -   179   207   178   220  -201  -153
-      358 19:56:21 pirals3.meth  -    65    74    48    56    59    74
+ 241  363 19:23:47 J1047-6217    -    19     6     6    20     6
+      363 19:24:47 pirals3.meth  -   180  -162  -181   211  -194
 
- 242  358 19:56:36 G287.37+0.64  -   184   208   182   218  -195  -152
-      358 19:57:36 -             -    63    71    46    54    59    71
+ 242  363 19:25:02 G287.37+0.64  -    19     6     6    20     6
+      363 19:26:02 -             -   181  -156  -181   217  -198
 
- 243  358 19:57:51 J1131-5818    -   172   193   174   214  -204  -167
-      358 19:58:51 -             -    63    74    45    59    56    74
+ 243  363 19:26:17 J1019-6047    -    24     6     6    15     7
+      363 19:27:17 -             -   188  -152  -176   215  -189
 
- 244  358 19:59:06 G287.37+0.64  -   185   209   182   218  -194  -151
-      358 20:00:06 -             -    63    71    46    53    59    71
+ 244  363 19:27:32 G287.37+0.64  -    24     6     6    15     7
+      363 19:28:32 -             -   181  -155  -180   217  -197
 
- 245  358 20:00:21 J1047-6217    -   184   203   182   212  -191  -157
-      358 20:01:21 -             -    59    68    42    52    55    68
+ 245  363 19:28:47 J1044-5440    -    18     8     6    22     6
+      363 19:29:47 -             -   184  -144  -179   224  -200
 
- 246  358 20:01:36 G287.37+0.64  -   186   210   182   218  -194  -150
-      358 20:02:36 -             -    63    70    46    53    59    70
+ 246  363 19:30:02 G287.37+0.64  -    18     8     6    22     6
+      363 19:31:02 -             -   182  -154  -180   218  -197
 
- 247  358 20:02:51 J1019-6047    -   192   212   187   216  -186  -148
-      358 20:03:51 -             -    60    66    43    49    58    66
+ 247  363 19:31:17 J1103-5626    -    20     5     5    11     6
+      363 19:32:17 -             -   178  -155  -183   220  -202
 
- 248  358 20:04:06 G287.37+0.64  -   186   210   183   219  -193  -150
-      358 20:05:06 -             -    63    70    46    53    59    70
+ 248  363 19:32:32 G287.37+0.64  -    20     5     5    11     6
+      363 19:33:32 -             -   183  -153  -179   218  -196
 
- 249  358 20:05:21 J1044-5440    -   190   221   185   225  -195  -139
-      358 20:06:21 -             -    67    72    49    53    63    72
+ 249  363 19:33:47 J1131-5818    -    33     9     7    18     7
+      363 19:34:47 -             -   171  -170  -187   214  -204
 
- 250  358 20:06:36 G287.37+0.64  -   187   211   183   219  -193  -149
-      358 20:07:36 -             -    63    70    46    52    59    70
+ 250  363 19:35:02 G287.37+0.64  -    33     9     7    18     7
+      363 19:36:02 -             -   184  -152  -179   218  -195
 
- 251  358 20:09:39 0302-623      -   204   200   ---D  188  -151  -160
-      358 20:10:39 -             -    14    21   ---D    9    19    21
+ 251  363 19:36:17 J1047-6217    -    19     7     6    20     6
+      363 19:37:17 -             -   183  -159  -179   212  -192
 
- 252  358 20:12:41 1143-696      -   176   185   177   198  -192  -175
-      358 20:13:41 -             -    52    63    34    52    47    63
+ 252  363 19:37:32 G287.37+0.64  -    19     7     6    20     6
+      363 19:38:32 -             -   184  -152  -178   218  -195
 
- 253  358 20:15:20 2353-686      -   183   178   ---D  168  -170  -182
-      358 20:16:20 -             -    10    21   ---D   17     9    21
+ 253  363 19:38:47 J1019-6047    -    23     6     6    15     7
+      363 19:39:47 -             -   191  -149  -174   216  -187
 
- 254  358 20:18:08 0521-365      -   238   234   235   ---D -117  -126
-      358 20:19:08 -             -    18    15    10   ---D   30    15
+ 254  363 19:40:02 G287.37+0.64  -    23     6     6    15     7
+      363 19:41:02 -             -   185  -151  -178   218  -194
 
- 255  358 20:20:10 0534-611      -   213   214   210   203  -146  -146
-      358 20:21:10 -             -    28    32    14    16    35    32
+ 255  363 19:41:17 J1044-5440    -    18     8     6    21     6
+      363 19:42:17 -             -   188  -141  -177   225  -196
 
- 256  358 20:23:41 1758-651      -   153   147   155   149  -203  -213
-      358 20:24:41 -             -    25    40     9    46    16    40
+ 256  363 19:42:32 G287.37+0.64  -    18     8     6    21     6
+      363 19:43:32 -             -   186  -150  -178   218  -194
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 257  358 20:28:58 0920-397      -   243   258   221   242  -137  -102
-      358 20:29:58 pirals3.meth  -    62    55    52    34    74    55
+ 257  363 19:43:47 J1103-5626    -    19     5     5    10     6
+      363 19:44:47 pirals3.meth  -   182  -150  -180   221  -199
 
- 258  358 20:31:25 0627-199      -   259   255   253   ---D  -94  -105
-      358 20:32:25 -             -    21    13    18   ---D   36    13
+ 258  363 19:45:02 G287.37+0.64  -    19     5     5    11     6
+      363 19:46:02 -             -   186  -150  -177   219  -193
 
- 259  358 20:33:55 0823-223      -   270   271   252   252   -84   -89
-      358 20:34:55 -             -    46    35    45    14    62    35
+ 259  363 19:46:17 J1131-5818    -    33     9     7    18     7
+      363 19:47:17 -             -   174  -164  -185   215  -202
 
- 260  358 20:36:18 0808+019      -   293   288   -77   ---D  -53   -72
-      358 20:37:18 -             -    30    16    37   ---D   45    16
+ 260  363 19:47:32 G287.37+0.64  -    33     9     7    18     7
+      363 19:48:32 -             -   187  -149  -177   219  -193
 
- 261  358 20:39:56 F0940-6107    -   205   220  -162   217  -169  -140
-      358 20:40:56 -             -    54    58    38    40    57    58
+ 261  363 19:48:47 J1047-6217    -    18     7     6    20     6
+      363 19:49:47 -             -   186  -156  -177   213  -190
 
- 262  358 20:41:38 F1038-5311    -   205   232  -166   228  -182  -128
-      358 20:42:38 -             -    65    67    49    47    66    67
+ 262  363 19:50:02 G287.37+0.64  -    18     7     6    20     6
+      363 19:51:02 -             -   188  -148  -176   219  -192
 
- 263  358 20:43:15 F1041-4740    -   214   246  -162   236  -183  -114
-      358 20:44:15 -             -    70    68    54    47    71    68
+ 263  363 19:51:17 J1019-6047    -    22     6     6    15     7
+      363 19:52:17 -             -   194  -147  -172   217  -184
 
- 264  358 20:45:07 G287.37+0.64  -   197   219  -170   220  -183  -141
-      358 20:46:07 -             -    61    66    45    47    60    66
+ 264  363 19:52:32 G287.37+0.64  -    22     6     6    14     7
+      363 19:53:32 -             -   189  -148  -176   219  -191
 
- 265  358 20:46:22 J1103-5626    -   195   221  -171   223  -187  -139
-      358 20:47:22 -             -    64    69    47    50    62    69
+ 265  363 19:53:47 J1044-5440    -    18     8     6    21     6
+      363 19:54:47 -             -   192  -137  -174   225  -193
 
- 266  358 20:47:37 G287.37+0.64  -   198   219  -169   220  -182  -141
-      358 20:48:37 -             -    61    66    44    47    60    66
+ 266  363 19:55:02 G287.37+0.64  -    18     8     6    20     6
+      363 19:56:02 -             -   189  -147  -175   219  -191
 
- 267  358 20:48:52 J1131-5818    -   187   211  -177   219  -193  -149
-      358 20:49:52 -             -    63    70    46    53    59    70
+ 267  363 19:56:17 J1103-5626    -    18     5     5    10     6
+      363 19:57:17 -             -   186  -146  -178   222  -196
 
- 268  358 20:50:07 G287.37+0.64  -   198   220  -169   220  -181  -140
-      358 20:51:07 -             -    61    65    44    47    60    65
+ 268  363 19:57:32 G287.37+0.64  -    18     5     5    10     6
+      363 19:58:32 -             -   190  -146  -175   219  -190
 
- 269  358 20:51:22 J1047-6217    -   195   212  -170   215  -181  -148
-      358 20:52:22 -             -    57    63    41    46    57    63
+ 269  363 19:58:47 J1131-5818    -    33     8     7    19     8
+      363 19:59:47 -             -   178  -159  -183   217  -200
 
- 270  358 20:52:37 G287.37+0.64  -   199   220  -168   220  -181  -140
-      358 20:53:37 -             -    61    65    44    47    60    65
+ 270  363 20:00:02 G287.37+0.64  -    33     8     7    19     8
+      363 20:01:02 -             -   191  -146  -174   219  -189
 
- 271  358 20:53:52 J1019-6047    -   202   218  -165   217  -174  -142
-      358 20:54:52 -             -    57    61    40    43    58    61
+ 271  363 20:01:17 J1047-6217    -    18     7     6    20     6
+      363 20:02:17 -             -   189  -153  -175   214  -187
 
- 272  358 20:55:07 G287.37+0.64  -   199   220  -168   220  -180  -140
-      358 20:56:07 -             -    61    65    44    46    60    65
+ 272  363 20:02:32 G287.37+0.64  -    18     7     6    20     6
+      363 20:03:32 -             -   191  -145  -174   219  -189
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 273  358 20:56:22 J1044-5440    -   205   229  -165   226  -179  -131
-      358 20:57:22 pirals3.meth  -    63    65    47    46    64    65
+ 273  363 20:03:47 J1019-6047    -    21     6     6    14     7
+      363 20:04:47 pirals3.meth  -   196  -145  -170   217  -181
 
- 274  358 20:57:37 G287.37+0.64  -   200   221  -168   220  -179  -139
-      358 20:58:37 -             -    60    64    44    46    60    64
+ 274  363 20:05:02 G287.37+0.64  -    20     6     6    14     7
+      363 20:06:02 -             -   192  -145  -173   220  -188
 
- 275  358 20:58:52 J1103-5626    -   199   223  -169   223  -184  -137
-      358 20:59:52 -             -    63    67    47    48    62    67
+ 275  363 20:06:17 J1044-5440    -    20     7     6    20     6
+      363 20:07:17 -             -   197  -135  -171   226  -189
 
- 276  358 21:00:07 G287.37+0.64  -   201   221  -167   220  -179  -139
-      358 21:01:07 -             -    60    64    44    46    60    64
+ 276  363 20:07:32 G287.37+0.64  -    20     7     6    20     6
+      363 20:08:32 -             -   193  -144  -173   220  -188
 
- 277  358 21:01:22 J1131-5818    -   190   214  -175   219  -190  -146
-      358 21:02:22 -             -    63    69    46    51    60    69
+ 277  363 20:08:47 J1103-5626    -    16     5     5    11     6
+      363 20:09:47 -             -   190  -143  -175   222  -192
 
- 278  358 21:02:37 G287.37+0.64  -   201   221  -167   220  -178  -139
-      358 21:03:37 -             -    60    64    44    45    60    64
+ 278  363 20:10:02 G287.37+0.64  -    17     5     5    11     6
+      363 20:11:02 -             -   193  -144  -172   220  -187
 
- 279  358 21:03:52 J1047-6217    -   197   214  -169   215  -178  -146
-      358 21:04:52 -             -    57    62    40    45    57    62
+ 279  363 20:11:17 J1131-5818    -    32     8     7    19     8
+      363 20:12:17 -             -   181  -155  -180   218  -197
 
- 280  358 21:05:07 G287.37+0.64  -   202   221  -166   220  -177  -139
-      358 21:06:07 -             -    60    64    44    45    60    64
+ 280  363 20:12:32 G287.37+0.64  -    32     8     7    19     8
+      363 20:13:32 -             -   194  -143  -172   220  -186
 
- 281  358 21:06:22 J1019-6047    -   204   219  -164   217  -171  -141
-      358 21:07:22 -             -    56    59    40    41    57    59
+ 281  363 20:13:47 J1047-6217    -    18     7     6    19     6
+      363 20:14:47 -             -   191  -151  -173   214  -185
 
- 282  358 21:07:37 G287.37+0.64  -   202   222  -166   220  -177  -138
-      358 21:08:37 -             -    60    63    43    45    60    63
+ 282  363 20:15:02 G287.37+0.64  -    18     7     6    19     6
+      363 20:16:02 -             -   194  -143  -172   220  -186
 
- 283  358 21:08:52 J1044-5440    -   208   230  -163   226  -174  -130
-      358 21:09:52 -             -    62    64    46    44    64    64
+ 283  363 20:16:17 J1019-6047    -    19     6     6    14     7
+      363 20:17:17 -             -   199  -143  -168   217  -178
 
- 284  358 21:10:07 G287.37+0.64  -   203   222  -166   220  -176  -138
-      358 21:11:07 -             -    59    63    43    44    60    63
+ 284  363 20:17:32 G287.37+0.64  -    19     6     6    14     7
+      363 20:18:32 -             -   195  -142  -171   220  -185
 
- 285  358 21:11:22 J1103-5626    -   202   225  -167   223  -180  -135
-      358 21:12:22 -             -    62    65    46    46    62    65
+ 285  363 20:18:47 J1044-5440    -    21     7     6    19     6
+      363 20:19:47 -             -   200  -133  -169   226  -185
 
- 286  358 21:12:37 G287.37+0.64  -   203   222  -165   220  -176  -138
-      358 21:13:37 -             -    59    63    43    44    60    63
+ 286  363 20:20:02 G287.37+0.64  -    21     7     6    19     6
+      363 20:21:02 -             -   196  -142  -171   220  -184
 
- 287  358 21:13:52 J1131-5818    -   194   217  -172   220  -187  -143
-      358 21:14:52 -             -    62    68    45    49    60    68
+ 287  363 20:22:34 0826-373      -    92    22    14    80    19
+      363 20:23:34 -             -   248  -106  -128   238  -116
 
- 288  358 21:15:07 G287.37+0.64  -   204   222  -165   220  -175  -138
-      358 21:16:07 -             -    59    62    43    44    60    62
+ 288  363 20:24:52 0606-223      -    78    30    27   ---    28
+      363 20:25:52 -             -   253  -112  -110   ---D -100
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 289  358 21:16:22 J1047-6217    -   199   215  -167   215  -176  -145
-      358 21:17:22 pirals3.meth  -    56    61    39    43    56    61
+ 289  363 20:27:38 1004-500      -   106    46    33    61    33
+      363 20:28:38 pirals3.meth  -   219  -120  -156   231  -166
 
- 290  358 21:17:37 G287.37+0.64  -   204   223  -164   220  -174  -137
-      358 21:18:37 -             -    59    62    43    43    60    62
+ 290  363 20:30:06 0534-611      -    86    29    33    88    32
+      363 20:31:06 -             -   212  -149  -151   200  -147
 
- 291  358 21:18:52 J1019-6047    -   206   220  -162   217  -169  -140
-      358 21:19:52 -             -    54    58    39    40    57    58
+ 291  363 20:31:55 0308-611      -    40    12   ---    49    16
+      363 20:32:55 -             -   202  -163   ---D  184  -153
 
- 292  358 21:20:07 G287.37+0.64  -   205   223  -164   220  -174  -137
-      358 21:21:07 -             -    59    62    43    43    60    62
+ 292  363 20:34:01 2300-683      -    54    11   ---    66    11
+      363 20:35:01 -             -   175  -191   ---D  161  -178
 
- 293  358 21:21:22 J1044-5440    -   211   231  -160   225  -170  -129
-      358 21:22:22 -             -    61    62    45    42    64    62
+ 293  363 20:36:15 1824-582      -    58    15    18    74    12
+      363 20:37:15 -             -   145  -222  -212   139  -209
 
- 294  358 21:22:37 G287.37+0.64  -   205   223  -164   220  -173  -137
-      358 21:23:37 -             -    58    61    42    43    60    61
+ 294  363 20:40:29 1022-665      -    90    20    25   194    35
+      363 20:41:29 -             -   196  -152  -169   209  -175
 
- 295  358 21:23:52 J1103-5626    -   205   226  -164   223  -176  -134
-      358 21:24:52 -             -    61    64    45    44    62    64
+ 295  363 20:42:01 F0940-6107    -    32     8     7    23     8
+      363 20:43:01 -             -   208  -140  -160   216  -165
 
- 296  358 21:25:07 G287.37+0.64  -   205   223  -163   220  -172  -137
-      358 21:26:07 -             -    58    61    42    42    60    61
+ 296  363 20:43:36 F1038-5311    -    33    10    12    35    11
+      363 20:44:36 -             -   210  -126  -162   228  -174
 
- 297  358 21:26:22 J1131-5818    -   197   219  -170   220  -183  -141
-      358 21:27:22 -             -    61    66    45    48    61    66
+ 297  363 20:45:05 F1041-4740    -    28     8     7    25     7
+      363 20:46:05 -             -   220  -114  -157   235  -172
 
- 298  358 21:27:37 G287.37+0.64  -   206   223  -163   220  -172  -137
-      358 21:28:37 -             -    58    61    42    42    60    61
+ 298  363 20:46:49 G287.37+0.64  -    42    11    10    44    11
+      363 20:47:49 -             -   202  -138  -166   220  -177
 
- 299  358 21:28:52 J1047-6217    -   201   216  -165   215  -173  -144
-      358 21:29:52 -             -    55    59    39    42    56    59
+ 299  363 20:48:04 J1103-5626    -    16     5     5    11     6
+      363 20:49:04 -             -   201  -136  -167   223  -181
 
- 300  358 21:30:07 G287.37+0.64  -   206   224  -162   220  -171  -136
-      358 21:31:07 -             -    58    60    42    42    60    60
+ 300  363 20:49:19 G287.37+0.64  -    16     5     5    11     6
+      363 20:50:19 -             -   202  -138  -166   220  -177
 
- 301  358 21:31:22 J1019-6047    -   207   221  -161   217  -166  -139
-      358 21:32:22 -             -    53    56    38    38    56    56
+ 301  363 20:50:34 J1131-5818    -    29     7     7    19     8
+      363 20:51:34 -             -   192  -144  -173   220  -188
 
- 302  358 21:32:37 G287.37+0.64  -   207   224  -162   220  -170  -136
-      358 21:33:37 -             -    57    60    42    41    60    60
+ 302  363 20:51:49 G287.37+0.64  -    29     7     7    19     8
+      363 20:52:49 -             -   203  -138  -165   220  -176
 
- 303  358 21:33:52 J1044-5440    -   213   231  -158   225  -167  -129
-      358 21:34:52 -             -    59    60    44    40    63    60
+ 303  363 20:53:04 J1047-6217    -    20     7     6    18     6
+      363 20:54:04 -             -   199  -145  -168   215  -176
 
- 304  358 21:35:07 G287.37+0.64  -   207   224  -162   220  -170  -136
-      358 21:36:07 -             -    57    60    42    41    60    60
+ 304  363 20:54:19 G287.37+0.64  -    20     7     6    18     6
+      363 20:55:19 -             -   203  -138  -165   220  -175
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 305  358 21:36:22 J1103-5626    -   207   227  -162   223  -172  -133
-      358 21:37:22 pirals3.meth  -    60    62    44    43    62    62
+ 305  363 20:55:34 J1019-6047    -    19     6     6    13     6
+      363 20:56:34 pirals3.meth  -   205  -140  -163   217  -169
 
- 306  358 21:37:37 G287.37+0.64  -   208   224  -161   220  -169  -136
-      358 21:38:37 -             -    57    59    41    41    60    59
+ 306  363 20:56:49 G287.37+0.64  -    19     6     6    13     6
+      363 20:57:49 -             -   204  -137  -165   220  -175
 
- 307  358 21:38:52 J1131-5818    -   200   221  -168   220  -180  -139
-      358 21:39:52 -             -    61    65    44    46    61    65
+ 307  363 20:58:04 J1044-5440    -    23     7     5    18     6
+      363 20:59:04 -             -   210  -129  -161   225  -172
 
- 308  358 21:40:07 G287.37+0.64  -   208   224  -161   220  -169  -136
-      358 21:41:07 -             -    57    59    41    40    59    59
+ 308  363 20:59:19 G287.37+0.64  -    23     7     5    18     6
+      363 21:00:19 -             -   204  -137  -164   220  -174
 
- 309  358 21:41:22 J1047-6217    -   203   217  -164   215  -170  -143
-      358 21:42:22 -             -    54    58    38    40    56    58
+ 309  363 21:00:34 J1103-5626    -    16     5     5    12     5
+      363 21:01:34 -             -   204  -134  -165   223  -177
 
- 310  358 21:42:37 G287.37+0.64  -   208   224  -161   220  -168  -136
-      358 21:43:37 -             -    56    59    41    40    59    59
+ 310  363 21:01:49 G287.37+0.64  -    16     5     5    12     5
+      363 21:02:49 -             -   205  -137  -164   220  -173
 
- 311  358 21:43:52 J1019-6047    -   209   221  -159   216  -164  -139
-      358 21:44:52 -             -    52    55    37    37    56    55
+ 311  363 21:03:04 J1131-5818    -    28     7     7    19     8
+      363 21:04:04 -             -   196  -142  -171   220  -185
 
- 312  358 21:45:07 G287.37+0.64  -   209   224  -160   220  -167  -136
-      358 21:46:07 -             -    56    59    41    40    59    59
+ 312  363 21:04:19 G287.37+0.64  -    28     7     7    19     8
+      363 21:05:19 -             -   205  -137  -163   220  -173
 
- 313  358 21:46:22 J1044-5440    -   215   232  -156   225  -163  -128
-      358 21:47:22 -             -    58    58    43    38    62    58
+ 313  363 21:05:34 J1047-6217    -    20     7     6    18     6
+      363 21:06:34 -             -   201  -144  -166   215  -174
 
- 314  358 21:47:37 G287.37+0.64  -   209   224  -160   220  -167  -136
-      358 21:48:37 -             -    56    58    41    39    59    58
+ 314  363 21:06:49 G287.37+0.64  -    20     7     6    18     6
+      363 21:07:49 -             -   206  -137  -163   220  -172
 
- 315  358 21:48:52 J1103-5626    -   210   228  -160   223  -169  -132
-      358 21:49:52 -             -    59    60    43    41    62    60
+ 315  363 21:08:04 J1019-6047    -    19     6     6    13     6
+      363 21:09:04 -             -   207  -139  -161   217  -167
 
- 316  358 21:50:07 G287.37+0.64  -   209   225  -160   220  -166  -135
-      358 21:51:07 -             -    56    58    40    39    59    58
+ 316  363 21:09:19 G287.37+0.64  -    19     6     6    13     6
+      363 21:10:19 -             -   206  -137  -163   220  -171
 
- 317  358 21:51:22 J1131-5818    -   202   222  -166   221  -177  -138
-      358 21:52:22 -             -    60    63    44    45    61    63
+ 317  363 21:10:34 J1044-5440    -    23     7     5    17     6
+      363 21:11:34 -             -   212  -129  -159   225  -168
 
- 318  358 21:52:37 G287.37+0.64  -   210   225  -159   220  -166  -135
-      358 21:53:37 -             -    55    58    40    39    59    58
+ 318  363 21:11:49 G287.37+0.64  -    23     7     5    17     6
+      363 21:12:49 -             -   206  -136  -162   220  -171
 
- 319  358 21:53:52 J1047-6217    -   205   218  -162   215  -168  -142
-      358 21:54:52 -             -    53    57    37    39    55    57
+ 319  363 21:13:04 J1103-5626    -    16     5     5    12     5
+      363 21:14:04 -             -   207  -133  -163   223  -174
 
- 320  358 21:55:07 G287.37+0.64  -   210   225  -159   220  -165  -135
-      358 21:56:07 -             -    55    57    40    38    59    57
+ 320  363 21:14:19 G287.37+0.64  -    16     5     5    12     5
+      363 21:15:19 -             -   207  -136  -162   220  -170
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 321  358 21:56:22 J1019-6047    -   210   221  -158   216  -161  -139
-      358 21:57:22 pirals3.meth  -    51    53    36    35    55    53
+ 321  363 21:15:34 J1131-5818    -    26     7     7    19     8
+      363 21:16:34 pirals3.meth  -   199  -140  -169   220  -181
 
- 322  358 21:57:37 G287.37+0.64  -   210   225  -159   220  -164  -135
-      358 21:58:37 -             -    55    57    40    38    59    57
+ 322  363 21:16:49 G287.37+0.64  -    27     7     7    19     8
+      363 21:17:49 -             -   207  -136  -162   220  -170
 
- 323  358 21:58:52 J1044-5440    -   217   232  -155   224  -160  -128
-      358 21:59:52 -             -    56    56    42    37    62    56
+ 323  363 21:18:04 J1047-6217    -    21     7     5    18     6
+      363 21:19:04 -             -   203  -143  -164   215  -171
 
- 324  358 22:00:07 G287.37+0.64  -   211   225  -158   220  -164  -135
-      358 22:01:07 -             -    55    57    39    38    58    57
+ 324  363 21:19:19 G287.37+0.64  -    21     7     5    18     6
+      363 21:20:19 -             -   208  -136  -161   220  -169
 
- 325  358 22:01:22 J1103-5626    -   212   228  -159   223  -166  -132
-      358 22:02:22 -             -    57    59    42    39    61    59
+ 325  363 21:20:34 J1019-6047    -    20     6     6    14     6
+      363 21:21:34 -             -   208  -139  -160   217  -164
 
- 326  358 22:02:37 G287.37+0.64  -   211   225  -158   220  -163  -135
-      358 22:03:37 -             -    54    56    39    37    58    56
+ 326  363 21:21:49 G287.37+0.64  -    19     6     6    14     6
+      363 21:22:49 -             -   208  -136  -161   220  -168
 
- 327  358 22:03:52 J1131-5818    -   205   223  -164   221  -174  -137
-      358 22:04:52 -             -    59    62    43    43    60    62
+ 327  363 21:23:04 J1044-5440    -    23     7     5    17     6
+      363 21:24:04 -             -   214  -128  -157   225  -164
 
- 328  358 22:05:07 G287.37+0.64  -   211   225  -158   220  -163  -135
-      358 22:06:07 -             -    54    56    39    37    58    56
+ 328  363 21:24:19 G287.37+0.64  -    23     7     5    17     6
+      363 21:25:19 -             -   208  -136  -161   220  -168
 
- 329  358 22:06:22 J1047-6217    -   206   218  -161   215  -166  -142
-      358 22:07:22 -             -    52    55    36    38    55    55
+ 329  363 21:25:34 J1103-5626    -    16     5     5    12     5
+      363 21:26:34 -             -   209  -132  -161   223  -170
 
- 330  358 22:07:37 G287.37+0.64  -   212   225  -158   219  -162  -135
-      358 22:08:37 -             -    54    56    39    37    58    56
+ 330  363 21:26:49 G287.37+0.64  -    16     5     5    12     5
+      363 21:27:49 -             -   209  -136  -160   220  -167
 
- 331  358 22:08:52 J1019-6047    -   211   221  -157   216  -159  -139
-      358 22:09:52 -             -    49    52    34    34    54    52
+ 331  363 21:28:04 J1131-5818    -    25     7     6    19     8
+      363 21:29:04 -             -   201  -138  -167   221  -178
 
- 332  358 22:10:07 G287.37+0.64  -   212   225  -157   219  -162  -135
-      358 22:11:07 -             -    53    55    39    36    58    55
+ 332  363 21:29:19 G287.37+0.64  -    25     7     6    19     8
+      363 21:30:19 -             -   209  -135  -160   220  -167
 
- 333  358 22:11:22 J1044-5440    -   218   232  -153   224  -157  -128
-      358 22:12:22 -             -    55    55    41    35    61    55
+ 333  363 21:30:34 J1047-6217    -    21     7     5    17     6
+      363 21:31:34 -             -   204  -142  -163   215  -169
 
- 334  358 22:12:37 G287.37+0.64  -   212   225  -157   219  -161  -135
-      358 22:13:37 -             -    53    55    38    36    58    55
+ 334  363 21:31:49 G287.37+0.64  -    21     7     5    17     6
+      363 21:32:49 -             -   210  -135  -160   220  -166
 
- 335  358 22:13:52 J1103-5626    -   214   229  -157   222  -162  -131
-      358 22:14:52 -             -    56    57    41    38    60    57
+ 335  363 21:33:04 J1019-6047    -    20     6     6    14     6
+      363 21:34:04 -             -   210  -139  -158   216  -162
 
- 336  358 22:15:07 G287.37+0.64  -   212   225  -157   219  -161  -135
-      358 22:16:07 -             -    53    55    38    36    57    55
+ 336  363 21:34:19 G287.37+0.64  -    19     6     6    14     6
+      363 21:35:19 -             -   210  -135  -159   220  -165
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 337  358 22:16:22 J1131-5818    -   207   224  -162   220  -170  -136
-      358 22:17:22 pirals3.meth  -    57    60    42    41    60    60
+ 337  363 21:35:34 J1044-5440    -    23     7     5    16     6
+      363 21:36:34 pirals3.meth  -   216  -128  -155   224  -161
 
- 338  358 22:17:37 G287.37+0.64  -   213   225  -156   219  -160  -135
-      358 22:18:37 -             -    53    54    38    35    57    54
+ 338  363 21:36:49 G287.37+0.64  -    23     7     5    16     6
+      363 21:37:49 -             -   210  -135  -159   220  -165
 
- 339  358 22:18:52 J1047-6217    -   208   219  -160   214  -164  -141
-      358 22:19:52 -             -    51    54    35    36    54    54
+ 339  363 21:38:04 J1103-5626    -    16     5     5    12     5
+      363 21:39:04 -             -   211  -132  -159   223  -167
 
- 340  358 22:20:07 G287.37+0.64  -   213   225  -156   219  -160  -135
-      358 22:21:07 -             -    52    54    38    35    57    54
+ 340  363 21:39:19 G287.37+0.64  -    16     5     5    12     5
+      363 21:40:19 -             -   211  -135  -159   220  -164
 
- 341  358 22:21:22 J1019-6047    -   212   221  -156   215  -157  -139
-      358 22:22:22 -             -    48    50    33    32    53    50
+ 341  363 21:40:34 J1131-5818    -    24     7     6    19     8
+      363 21:41:34 -             -   204  -137  -165   221  -175
 
- 342  358 22:22:37 G287.37+0.64  -   213   225  -156   219  -159  -135
-      358 22:23:37 -             -    52    54    37    35    57    54
+ 342  363 21:41:49 G287.37+0.64  -    24     7     6    19     8
+      363 21:42:49 -             -   211  -135  -158   220  -164
 
- 343  358 22:23:52 J1044-5440    -   219   232  -152   223  -154  -128
-      358 22:24:52 -             -    53    53    39    33    59    53
+ 343  363 21:43:04 J1047-6217    -    21     7     5    17     6
+      363 21:44:04 -             -   206  -142  -161   215  -167
 
- 344  358 22:25:07 G287.37+0.64  -   213   225  -156   219  -159  -135
-      358 22:26:07 -             -    52    53    37    35    57    53
+ 344  363 21:44:19 G287.37+0.64  -    21     7     5    17     6
+      363 21:45:19 -             -   211  -135  -158   220  -163
 
- 345  358 22:26:22 J1103-5626    -   215   229  -155   222  -159  -131
-      358 22:27:22 -             -    54    55    40    36    59    55
+ 345  363 21:45:34 J1019-6047    -    20     6     6    14     6
+      363 21:46:34 -             -   211  -139  -157   216  -160
 
- 346  358 22:27:37 G287.37+0.64  -   214   225  -155   219  -158  -135
-      358 22:28:37 -             -    51    53    37    34    56    53
+ 346  363 21:46:49 G287.37+0.64  -    19     6     6    14     6
+      363 21:47:49 -             -   211  -135  -158   219  -163
 
- 347  358 22:28:52 J1131-5818    -   209   225  -160   220  -167  -135
-      358 22:29:52 -             -    56    59    41    40    59    59
+ 347  363 21:48:04 J1044-5440    -    23     7     6    16     6
+      363 21:49:04 -             -   218  -128  -154   224  -157
 
- 348  358 22:30:07 G287.37+0.64  -   214   225  -155   219  -158  -135
-      358 22:31:07 -             -    51    53    37    34    56    53
+ 348  363 21:49:19 G287.37+0.64  -    23     7     6    16     6
+      363 21:50:19 -             -   212  -135  -157   219  -162
 
- 349  358 22:31:22 J1047-6217    -   209   219  -159   214  -162  -141
-      358 22:32:22 -             -    49    52    34    35    53    52
+ 349  363 21:50:34 J1103-5626    -    16     5     5    12     5
+      363 21:51:34 -             -   213  -132  -157   222  -163
 
- 350  358 22:32:37 G287.37+0.64  -   214   225  -155   218  -157  -135
-      358 22:33:37 -             -    51    52    36    34    56    52
+ 350  363 21:51:49 G287.37+0.64  -    16     5     5    12     5
+      363 21:52:49 -             -   212  -135  -157   219  -162
 
- 351  358 22:33:52 J1019-6047    -   213   221  -155   214  -156  -139
-      358 22:34:52 -             -    47    49    32    31    52    49
+ 351  363 21:53:04 J1131-5818    -    23     7     6    19     8
+      363 21:54:04 -             -   206  -136  -163   220  -171
 
- 352  358 22:35:07 G287.37+0.64  -   214   225  -155   218  -157  -135
-      358 22:36:07 -             -    51    52    36    33    56    52
+ 352  363 21:54:19 G287.37+0.64  -    23     8     6    19     8
+      363 21:55:19 -             -   212  -135  -157   219  -161
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 353  358 22:36:22 J1044-5440    -   220   231  -150   222  -151  -129
-      358 22:37:22 pirals3.meth  -    51    51    38    31    58    51
+ 353  363 21:55:34 J1047-6217    -    21     6     5    17     6
+      363 21:56:34 pirals3.meth  -   207  -141  -160   215  -164
 
- 354  358 22:37:37 G287.37+0.64  -   215   225  -154   218  -157  -135
-      358 22:38:37 -             -    50    52    36    33    56    52
+ 354  363 21:56:49 G287.37+0.64  -    22     6     5    17     6
+      363 21:57:49 -             -   213  -135  -157   219  -161
 
- 355  358 22:38:52 J1103-5626    -   216   229  -154   221  -157  -131
-      358 22:39:52 -             -    53    53    39    34    58    53
+ 355  363 21:58:04 J1019-6047    -    20     6     6    14     6
+      363 21:59:04 -             -   212  -139  -156   215  -158
 
- 356  358 22:40:07 G287.37+0.64  -   215   225  -154   218  -156  -135
-      358 22:41:07 -             -    50    51    36    33    55    51
+ 356  363 21:59:19 G287.37+0.64  -    19     6     6    14     6
+      363 22:00:19 -             -   213  -135  -156   219  -160
 
- 357  358 22:41:22 J1131-5818    -   211   225  -159   220  -164  -135
-      358 22:42:22 -             -    55    57    40    38    59    57
+ 357  363 22:00:34 J1044-5440    -    23     6     6    15     6
+      363 22:01:34 -             -   219  -128  -152   223  -155
 
- 358  358 22:42:37 G287.37+0.64  -   215   225  -154   218  -156  -135
-      358 22:43:37 -             -    50    51    35    32    55    51
+ 358  363 22:01:49 G287.37+0.64  -    23     6     6    15     6
+      363 22:02:49 -             -   213  -135  -156   219  -160
 
- 359  358 22:43:52 J1047-6217    -   210   219  -157   214  -160  -141
-      358 22:44:52 -             -    48    51    33    33    52    51
+ 359  363 22:03:04 J1103-5626    -    16     5     5    12     5
+      363 22:04:04 -             -   215  -131  -156   222  -160
 
- 360  358 22:45:07 G287.37+0.64  -   215   225  -154   218  -155  -135
-      358 22:46:07 -             -    49    51    35    32    55    51
+ 360  363 22:04:19 G287.37+0.64  -    16     5     5    12     5
+      363 22:05:19 -             -   213  -135  -156   219  -159
 
- 361  358 22:46:22 J1019-6047    -   213   221  -154   214  -154  -139
-      358 22:47:22 -             -    45    47    31    29    51    47
+ 361  363 22:05:34 J1131-5818    -    21     8     6    19     7
+      363 22:06:34 -             -   208  -136  -161   220  -168
 
- 362  358 22:47:37 G287.37+0.64  -   215   225  -153   218  -155  -135
-      358 22:48:37 -             -    49    50    35    32    55    50
+ 362  363 22:06:49 G287.37+0.64  -    21     8     6    19     7
+      363 22:07:49 -             -   214  -135  -155   219  -159
 
- 363  358 22:48:52 J1044-5440    -   221   231  -149   222  -149  -129
-      358 22:49:52 -             -    50    49    36    30    57    49
+ 363  363 22:08:04 J1047-6217    -    22     6     5    16     5
+      363 22:09:04 -             -   208  -141  -159   214  -162
 
- 364  358 22:50:07 G287.37+0.64  -   215   225  -153   218  -154  -135
-      358 22:51:07 -             -    49    50    34    31    55    50
+ 364  363 22:09:19 G287.37+0.64  -    22     6     5    16     5
+      363 22:10:19 -             -   214  -135  -155   219  -158
 
- 365  358 22:52:12 1325-558      -   190   218  -175   223  -193  -142
-      358 22:53:12 -             -    65    71    48    52    62    71
+ 365  363 22:10:34 J1019-6047    -    19     6     6    15     6
+      363 22:11:34 -             -   213  -139  -155   215  -156
 
- 366  358 22:55:31 1657-562      -   142   135  -210   173  -219  -225
-      358 22:56:31 -             -    50    66    35    70    38    66
+ 366  363 22:11:49 G287.37+0.64  -    19     6     6    15     6
+      363 22:12:49 -             -   214  -135  -155   219  -158
 
- 367  358 22:58:01 2142-758      -   166   162  -193   162  -191  -198
-      358 22:59:01 -             -    25    38     7    39    18    38
+ 367  363 22:13:04 J1044-5440    -    23     6     6    15     6
+      363 22:14:04 -             -   220  -129  -151   223  -152
 
- 368  358 23:00:10 0530-727      -   194   192   ---D  183  -163  -168
-      358 23:01:10 -             -    20    28   ---D   19    22    28
+ 368  363 22:14:19 G287.37+0.64  -    23     6     6    15     6
+      363 22:15:19 -             -   214  -135  -155   218  -157
 
 
 
  SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
      Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
-     Top item is:    Average azimuth.
-     Bottom item is: Average elevation.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
      TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
-     Day 358 is Mon  23 Dec 2024   MJD  60667          
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
 
 SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
-           STOP UT                    Cd    Ho    Ke    Wa    Yg    Hb
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
 
- 369  358 23:02:21 1251-713      -   189   198  -174   202  -180  -162
-      358 23:03:21 pirals3.meth  -    49    57    32    44    47    57
+ 369  363 22:15:34 J1103-5626    -    16     5     5    12     5
+      363 22:16:34 pirals3.meth  -   216  -131  -154   221  -158
 
- 370  358 23:06:28 2204-540      -   148   141   ---D  135   ---D -219
-      358 23:07:28 -             -    11    26   ---D   35   ---D   26
+ 370  363 22:16:49 G287.37+0.64  -    16     5     5    12     5
+      363 22:17:49 -             -   214  -135  -154   218  -157
 
- 371  358 23:08:30 2353-686      -   167   162   ---D  156  -186  -198
-      358 23:09:30 -             -    13    27   ---D   28     8    27
+ 371  363 22:18:04 J1131-5818    -    21     8     6    19     7
+      363 22:19:04 -             -   210  -135  -159   220  -165
 
- 372  358 23:13:29 1144-379      -   247   258  -134   242  -125  -102
-      358 23:14:29 -             -    58    51    50    29    71    51
+ 372  363 22:19:19 G287.37+0.64  -    21     8     6    19     7
+      363 22:20:19 -             -   215  -135  -154   218  -156
 
- 373  358 23:15:30 1045-188      -   271   270  -103   252   -81   -90
-      358 23:16:30 -             -    41    30    40     8    57    30
+ 373  363 22:20:34 J1047-6217    -    22     6     5    16     6
+      363 22:21:34 -             -   209  -141  -158   214  -160
 
- 374  358 23:17:53 1055+018      -   294   289   -76   ---D  -52   -71
-      358 23:18:53 -             -    31    17    38   ---D   46    17
+ 374  363 22:21:49 G287.37+0.64  -    22     6     5    16     6
+      363 22:22:49 -             -   215  -135  -154   218  -156
 
- 375  358 23:19:58 1213-172      -   288   288  -101   265   -52   -72
-      358 23:20:58 -             -    57    44    60    23    73    44
+ 375  363 22:23:04 J1019-6047    -    19     6     6    15     6
+      363 22:24:04 -             -   213  -139  -154   214  -155
 
- 376  358 23:29:47 F1256-0547    -   -47   306   -72   280   -16   -54
-      358 23:30:47 -             -    55    40    66    23    66    40
+ 376  363 22:24:19 G287.37+0.64  -    19     6     6    15     6
+      363 22:25:19 -             -   215  -135  -154   218  -156
+
+ 377  363 22:25:34 J1044-5440    -    22     6     6    15     6
+      363 22:26:34 -             -   221  -129  -149   222  -150
+
+ 378  363 22:26:49 G287.37+0.64  -    22     6     6    15     6
+      363 22:27:49 -             -   215  -135  -154   218  -155
+
+ 379  363 22:28:04 J1103-5626    -    16     5     5    12     5
+      363 22:29:04 -             -   217  -131  -153   221  -155
+
+ 380  363 22:29:19 G287.37+0.64  -    16     5     5    12     5
+      363 22:30:19 -             -   215  -135  -153   218  -155
+
+ 381  363 22:30:34 J1131-5818    -    21     8     7    19     7
+      363 22:31:34 -             -   212  -135  -158   220  -162
+
+ 382  363 22:31:49 G287.37+0.64  -    22     8     7    19     7
+      363 22:32:49 -             -   215  -135  -153   218  -154
+
+ 383  363 22:33:04 J1047-6217    -    22     6     5    16     6
+      363 22:34:04 -             -   210  -141  -157   213  -159
+
+ 384  363 22:34:19 G287.37+0.64  -    22     6     5    15     6
+      363 22:35:19 -             -   216  -135  -153   217  -154
+
+
+
+ SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 385  363 22:35:34 J1019-6047    -    19     6     6    15     6
+      363 22:36:34 pirals3.meth  -   214  -139  -153   213  -153
+
+ 386  363 22:36:49 G287.37+0.64  -    19     6     6    15     6
+      363 22:37:49 -             -   216  -135  -153   217  -154
+
+ 387  363 22:38:04 J1044-5440    -    22     6     6    14     6
+      363 22:39:04 -             -   222  -129  -148   221  -148
+
+ 388  363 22:39:19 G287.37+0.64  -    22     6     6    14     6
+      363 22:40:19 -             -   216  -135  -152   217  -153
+
+ 389  363 22:40:34 J1103-5626    -    15     5     5    12     5
+      363 22:41:34 -             -   218  -132  -152   220  -153
+
+ 390  363 22:41:49 G287.37+0.64  -    16     5     5    12     5
+      363 22:42:49 -             -   216  -135  -152   217  -153
+
+ 391  363 22:43:04 J1131-5818    -    22     8     7    18     7
+      363 22:44:04 -             -   213  -135  -156   219  -160
+
+ 392  363 22:44:19 G287.37+0.64  -    22     8     7    19     7
+      363 22:45:19 -             -   216  -135  -152   217  -153
+
+ 393  363 22:45:34 J1047-6217    -    21     6     5    15     6
+      363 22:46:34 -             -   211  -141  -156   213  -157
+
+ 394  363 22:46:49 G287.37+0.64  -    22     6     5    15     6
+      363 22:47:49 -             -   216  -135  -152   217  -152
+
+ 395  363 22:48:04 J1019-6047    -    19     6     6    15     6
+      363 22:49:04 -             -   214  -139  -152   213  -152
+
+ 396  363 22:49:19 G287.37+0.64  -    19     6     6    15     6
+      363 22:50:19 -             -   216  -135  -152   217  -152
+
+ 397  363 22:50:34 J1044-5440    -    22     6     6    14     6
+      363 22:51:34 -             -   222  -130  -147   220  -146
+
+ 398  363 22:51:49 G287.37+0.64  -    22     6     6    14     6
+      363 22:52:49 -             -   217  -135  -152   216  -152
+
+ 399  363 22:59:33 F1256-0547    -   404    23    33   184    35
+      363 23:00:33 -             -   -43   -51   -69   282    -9
+
+ 400  363 23:01:19 1145-071      -    46    11    16    39    13
+      363 23:02:19 -             -   -65   -69   -84   269   -47
+
+
+
+ SCAN SUMMARY for experiment s013k   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day 363 is Sat  28 Dec 2024   MJD  60672          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Hb    Ke    Wa    Yg
+
+ 401  363 23:03:22 1244-255      -    54    21    14    63    21
+      363 23:04:22 pirals3.meth  -   -82   -75  -121   261   -65
+
+ 402  363 23:05:29 1034-293      -    64    20    26    67    25
+      363 23:06:29 -             -  -104  -102  -116   241  -101
+
+ 403  363 23:07:14 0919-260      -    45    15    16   ---    17
+      363 23:08:14 -             -  -108  -111  -113   ---D -102
+
+ 404  363 23:09:40 1243-160      -    87    27    41    82    33
+      363 23:10:40 -             -   -65   -66   -98   269   -35
+
+ 405  363 23:12:06 1144-379      -    86    13    17    82    23
+      363 23:13:06 -             -  -113  -104  -131   240  -121
+
+ 406  363 23:14:08 1004-500      -    46    12    19    62    19
+      363 23:15:08 -             -  -132  -129  -139   219  -134
+
+ 407  363 23:23:43 0549-575      -   516    20   ---   ---    31
+      363 23:24:43 -             -   202  -163   ---D  ---D -151
+
+ 408  363 23:26:43 1124-186      -   119    21    19   102    41
+      363 23:27:43 -             -   273   -88  -103   253   -79
 
 
 
@@ -1747,12 +1831,11 @@ SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
                 Obs. start time.     Obs. end time.      Total 
  Station          Day    Time         Day    Time        GBytes
                      (UT)                 (UT)
-  CEDUNA         358  14:30:00       358  23:30:47       2776.9
-  HOBART26       358  14:30:00       358  23:30:47       2776.9
-  KATH12M        358  14:30:00       358  23:30:47       2692.3
-  WARK30M        358  14:30:00       358  23:30:47       2730.8
-  YARRA12M       358  14:30:00       358  23:30:47       2746.2
-  HOBART12       358  14:30:00       358  23:30:47       2776.9
+  CEDUNA         363  14:00:00       363  23:27:43       3037.6
+  HOBART12       363  14:00:00       363  23:27:43       3037.6
+  KATH12M        363  14:00:00       363  23:27:43       2983.5
+  WARK30M        363  14:00:00       363  23:27:43       2991.2
+  YARRA12M       363  14:00:00       363  23:27:43       3037.6
 
  POSITIONS OF SOURCES USED IN RECORDING SCANS
      Catalog positions marked with *. 
@@ -1764,214 +1847,172 @@ SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
    Source                         Source position (RA/Dec)                        Error
                         (B1950)             (J2000)             (Date)            (mas)
 
- * G287.37+0.64      10 46 04.562330   * 10 48 04.440000     10 49 04.521097       0.00
-                    -58 11 08.93724    *-58 27 01.00000     -58 34 38.09351        0.00
+ * G287.37+0.64      10 46 04.562330   * 10 48 04.440000     10 49 04.776907       0.00
+   G287.371         -58 11 08.93724    *-58 27 01.00000     -58 34 39.39538        0.00
                      ./sources.spirals.dat
-                     s13
+                     s3
 
-   1101-561          11 01 06.649680   * 11 03 15.384704     11 04 19.769359       1.11
- * J1103-5626       -56 10 24.90276    *-56 26 35.55332     -56 34 22.34991        0.73
+   1101-561          11 01 06.649680   * 11 03 15.384704     11 04 20.021389       1.11
+ * J1103-5626       -56 10 24.90276    *-56 26 35.55332     -56 34 23.56933        0.73
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  20 observations
 
-   1129-580          11 29 23.329881   * 11 31 43.287999     11 32 53.011880       0.21
- * J1131-5818       -58 02 19.31314    *-58 18 53.44344     -58 26 51.77851        0.12
+   1129-580          11 29 23.329881   * 11 31 43.287999     11 32 53.286588       0.21
+ * J1131-5818       -58 02 19.31314    *-58 18 53.44344     -58 26 52.80287        0.12
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  409 observations
 
-   1045-620          10 45 48.941341   * 10 47 42.952276     10 48 40.075716       0.25
- * J1047-6217       -62 01 22.98352    *-62 17 14.63402     -62 24 50.80170        0.12
+   1045-620          10 45 48.941341   * 10 47 42.952276     10 48 40.357219       0.25
+ * J1047-6217       -62 01 22.98352    *-62 17 14.63402     -62 24 52.08529        0.12
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  384 observations
 
-   1018-605          10 18 10.473118   * 10 19 53.502690     10 20 45.423279       0.50
- * J1019-6047       -60 32 41.66969    *-60 47 48.33930     -60 55 02.44036        0.30
+   1018-605          10 18 10.473118   * 10 19 53.502690     10 20 45.675942       0.50
+ * J1019-6047       -60 32 41.66969    *-60 47 48.33930     -60 55 03.89649        0.30
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  96 observations
 
-   1042-544          10 42 21.313446   * 10 44 24.273871     10 45 25.946424       0.81
- * J1044-5440       -54 24 50.45894    *-54 40 37.32853     -54 48 12.60455        0.76
+   1042-544          10 42 21.313446   * 10 44 24.273871     10 45 26.180738       0.81
+ * J1044-5440       -54 24 50.45894    *-54 40 37.32853     -54 48 13.94375        0.76
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  23 observations
 
-   0939-608          09 39 22.752557   * 09 40 47.359031     09 41 30.469869       0.74
- * F0940-6107       -60 53 47.07772    *-61 07 28.38035     -61 14 00.31979        0.51
+   0939-608          09 39 22.752557   * 09 40 47.359031     09 41 30.694124       0.74
+ * F0940-6107       -60 53 47.07772    *-61 07 28.38035     -61 14 01.97763        0.51
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  35 observations
 
-   1036-529          10 36 38.158899   * 10 38 40.657131     10 39 42.152075       0.20
- * F1038-5311       -52 56 04.91528    *-53 11 43.27065     -53 19 14.62724        0.14
+   1036-529          10 36 38.158899   * 10 38 40.657131     10 39 42.377133       0.20
+ * F1038-5311       -52 56 04.91528    *-53 11 43.27065     -53 19 16.00321        0.14
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  331 observations
 
-   1039-474          10 39 35.669373   * 10 41 44.649896     10 42 49.372226       0.16
- * F1041-4740       -47 24 17.17872    *-47 40 00.06604     -47 47 34.95076        0.13
+   1039-474          10 39 35.669373   * 10 41 44.649896     10 42 49.579130       0.16
+ * F1041-4740       -47 24 17.17872    *-47 40 00.06604     -47 47 36.32121        0.13
                      ./sources.spirals.dat
                      rfc_2020a Petrov and Kovalev, in preparation  394 observations
 
- * 1325-558          13 25 50.489930   * 13 29 01.144904     13 30 35.278474       0.19
-   F1329-5608       -55 52 32.31247    *-56 08 02.66565     -56 15 32.37044        0.11
-                     ./sources.spirals.dat
-                     rfc_2020a Petrov and Kovalev, in preparation  868 observations
-
- * 1657-562          16 57 34.225196   * 17 01 44.858128     17 03 47.628378       0.19
-   F1701-5621       -56 17 34.97861    *-56 21 55.90283     -56 24 03.22380        0.11
-                     ./sources.spirals.dat
-                     rfc_2020a Petrov and Kovalev, in preparation  894 observations
-
- * 0537-441          05 37 21.071425   * 05 38 50.361559     05 39 36.930155       0.01
-   J0538-4405       -44 06 44.66633    *-44 05 08.93901     -44 04 17.11383        0.01
+ * 0537-441          05 37 21.071425   * 05 38 50.361559     05 39 36.932286       0.01
+   J0538-4405       -44 06 44.66633    *-44 05 08.93901     -44 04 18.91894        0.01
    F0538             ./sources.spirals.dat
                      GSFC 2016a X/S astro solution,  72326 observations.
 
-   3C279             12 53 35.831310   * 12 56 11.166577     12 57 28.426315       0.34
-   1253-055         -05 31 07.99627    *-05 47 21.52513     -05 55 26.95376        0.56
+   3C279             12 53 35.831310   * 12 56 11.166577     12 57 28.590491       0.34
+   1253-055         -05 31 07.99627    *-05 47 21.52513     -05 55 27.92860        0.56
    J1256-0547        ./sources.spirals.dat
    F1256             GSFC 2016a X/S astro solution,  13160 observations.
  * F1256-0547
 
- * 0530-727          05 30 30.014330   * 05 29 30.042168     05 29 05.219502       0.00
-                    -72 47 39.42976    *-72 45 28.50735     -72 44 16.57046        0.00
+ * 1034-293          10 34 55.824626   * 10 37 16.079738     10 38 26.671164       0.00
+                    -29 18 26.97257    *-29 34 02.81346     -29 41 40.49307        0.00
                      ./sources.spirals.dat
 
- * 0808+019          08 08 51.138133   * 08 11 26.707316     08 12 45.530252       0.00
-                     01 55 51.17954    * 01 46 52.22023      01 42 26.10119        0.00
+ * 1124-186          11 24 34.018126   * 11 27 04.392451     11 28 19.779440       0.00
+                    -18 40 46.35971    *-18 57 17.44178     -19 05 26.42637        0.00
                      ./sources.spirals.dat
 
- * 1057-797          10 57 49.713168   * 10 58 43.309768     10 59 08.822813       0.00
-                    -79 47 47.85435    *-80 03 54.15975     -80 11 35.07196        0.00
+ * 1144-379          11 44 30.859604   * 11 47 01.370707     11 48 16.629919       0.00
+                    -37 55 30.64420    *-38 12 11.02349     -38 20 18.66672        0.00
                      ./sources.spirals.dat
 
- * 1124-186          11 24 34.018126   * 11 27 04.392451     11 28 19.609711       0.00
-                    -18 40 46.35971    *-18 57 17.44178     -19 05 25.26292        0.00
+ * 0422-380          04 22 56.162238   * 04 24 42.243707     04 25 36.958049       0.00
+                    -38 03 09.25392    *-37 56 20.78425     -37 52 58.99058        0.00
                      ./sources.spirals.dat
 
- * 1144-379          11 44 30.859604   * 11 47 01.370707     11 48 16.429085       0.00
-                    -37 55 30.64420    *-38 12 11.02349     -38 20 17.61092        0.00
+ * 0919-260          09 19 16.702137   * 09 21 29.353858     09 22 36.556832       0.00
+                    -26 05 54.56409    *-26 18 43.38625     -26 24 58.96909        0.00
                      ./sources.spirals.dat
 
- * 0952+179          09 52 11.803346   * 09 54 56.823613     09 56 20.034144       0.00
-                     17 57 44.59520    * 17 43 31.22219      17 36 21.58613        0.00
+ * 1145-071          11 45 18.293510   * 11 47 51.554032     11 49 08.314813       0.00
+                    -07 08 00.71495    *-07 24 41.14116     -07 32 59.15951        0.00
                      ./sources.spirals.dat
 
- * 1045-188          10 45 40.093277   * 10 48 06.620617     10 49 20.140525       0.00
-                    -18 53 44.08740    *-19 09 35.72703     -19 17 23.30872        0.00
+ * 0308-611          03 08 51.270260   * 03 09 56.099151     03 10 31.161577       0.00
+                    -61 09 58.29651    *-60 58 39.05636     -60 53 09.16232        0.00
                      ./sources.spirals.dat
 
- * 1055+018          10 55 55.313730   * 10 58 29.605207     10 59 47.032195       0.00
-                     01 50 03.53720    * 01 33 58.82370      01 25 57.41559        0.00
+ * 0826-373          08 26 12.001565   * 08 28 04.780228     08 29 02.387705       0.00
+                    -37 21 06.12619    *-37 31 06.28137     -37 35 56.24252        0.00
                      ./sources.spirals.dat
 
- * 1213-172          12 13 11.668007   * 12 15 46.751761     12 17 04.046043       0.00
-                    -17 15 05.20071    *-17 31 45.40308     -17 39 59.12396        0.00
+ * 2329-384          23 29 18.955382   * 23 31 59.476152     23 33 19.445650       0.00
+                    -38 28 21.80088    *-38 11 47.65091     -38 03 44.82563        0.00
                      ./sources.spirals.dat
 
- * 0920-397          09 20 48.229712   * 09 22 46.418264     09 23 46.297393       0.00
-                    -39 46 42.27184    *-39 59 35.06825     -40 05 47.64815        0.00
+ * 1244-255          12 44 06.713924   * 12 46 46.802038     12 48 06.543651       0.00
+                    -25 31 26.67455    *-25 47 49.28889     -25 55 52.94483        0.00
                      ./sources.spirals.dat
 
- * 0521-365          05 21 12.974093   * 05 22 57.984646     05 23 52.193221       0.00
-                    -36 30 15.95466    *-36 27 30.85126     -36 26 05.46395        0.00
+ * 0227-369          02 27 24.899484   * 02 29 28.449062     02 30 31.357365       0.00
+                    -36 57 16.19802    *-36 43 56.82227     -36 37 25.94357        0.00
                      ./sources.spirals.dat
 
- * 1549-790          15 49 28.104115   * 15 56 58.869889     16 00 39.795809       0.00
-                    -79 05 17.52603    *-79 14 04.28143     -79 18 13.26270        0.00
+ * 0534-340          05 34 39.559072   * 05 36 28.432368     05 37 24.515938       0.00
+                    -34 02 58.18777    *-34 01 11.46842     -34 00 16.13124        0.00
                      ./sources.spirals.dat
 
- * 1040+244          10 40 25.199375   * 10 43 09.035776     10 44 31.459953       0.00
-                     24 24 19.59858    * 24 08 35.40944      24 00 37.01256        0.00
+ * 0606-223          06 06 53.376438   * 06 08 59.686845     06 10 04.289231       0.00
+                    -22 19 46.28511    *-22 20 20.95671     -22 20 34.88414        0.00
                      ./sources.spirals.dat
 
- * 0347-211          03 47 45.776741   * 03 49 57.826675     03 51 05.121800       0.00
-                    -21 11 50.48638    *-21 02 47.74160     -20 58 17.09196        0.00
+ * 1004-500          10 04 18.727017   * 10 06 14.009315     10 07 12.362915       0.00
+                    -50 03 34.12037    *-50 18 13.47057     -50 25 17.77291        0.00
                      ./sources.spirals.dat
 
- * 0606-223          06 06 53.376438   * 06 08 59.686845     06 10 04.251461       0.00
-                    -22 19 46.28511    *-22 20 20.95671     -22 20 33.39378        0.00
+ * 1243-160          12 43 16.239099   * 12 45 53.742269     12 47 12.252559       0.00
+                    -16 00 22.40927    *-16 16 45.70517     -16 24 52.99505        0.00
                      ./sources.spirals.dat
 
- * 0627-199          06 27 14.114674   * 06 29 23.761865     06 30 29.940313       0.00
-                    -19 57 16.26225    *-19 59 19.72362     -20 00 15.99374        0.00
+ * 2300-683          23 00 27.886433   * 23 03 43.564600     23 05 20.308962       0.00
+                    -68 23 48.05508    *-68 07 37.44311     -67 59 51.82472        0.00
                      ./sources.spirals.dat
 
- * 1004-500          10 04 18.727017   * 10 06 14.009315     10 07 12.165218       0.00
-                    -50 03 34.12037    *-50 18 13.47057     -50 25 16.22810        0.00
+ * 1831-711          18 31 41.230759   * 18 37 28.714948     18 40 17.820751       0.00
+                    -71 11 14.19566    *-71 08 43.55459     -71 07 28.73592        0.00
                      ./sources.spirals.dat
 
- * 1027-186          10 27 08.177129   * 10 29 33.097709     10 30 45.920960       0.00
-                    -18 37 27.17365    *-18 52 50.28907     -19 00 23.56101        0.00
+ * 0334-546          03 34 36.029404   * 03 35 53.924834     03 36 35.125295       0.00
+                    -54 40 17.03062    *-54 30 25.11488     -54 25 36.45506        0.00
                      ./sources.spirals.dat
 
- * 1149-084          11 49 43.843433   * 11 52 17.209513     11 53 33.827051       0.00
-                    -08 24 21.93416    *-08 41 03.31390     -08 49 20.33712        0.00
+ * 0454-810          04 54 17.961957   * 04 50 05.440206     04 48 10.743955       0.00
+                    -81 05 54.60917    *-81 01 02.23139     -80 58 30.44696        0.00
                      ./sources.spirals.dat
 
- * 1243-160          12 43 16.239099   * 12 45 53.742269     12 47 12.080610       0.00
-                    -16 00 22.40927    *-16 16 45.70517     -16 24 52.06271        0.00
+ * 0524-485          05 24 57.685525   * 05 26 16.671324     05 26 58.278898       0.00
+                    -48 33 06.67015    *-48 30 36.79180     -48 29 20.49063        0.00
                      ./sources.spirals.dat
 
- * 2300-683          23 00 27.886433   * 23 03 43.564600     23 05 20.553118       0.00
-                    -68 23 48.05508    *-68 07 37.44311     -67 59 52.41899        0.00
+ * 0534-611          05 34 02.404458   * 05 34 35.772494     05 34 55.417298       0.00
+                    -61 07 59.24395    *-61 06 07.07325     -61 05 08.22713        0.00
                      ./sources.spirals.dat
 
- * 1831-711          18 31 41.230759   * 18 37 28.714948     18 40 17.740391       0.00
-                    -71 11 14.19566    *-71 08 43.55459     -71 07 30.30649        0.00
+ * 0549-575          05 49 20.807614   * 05 50 09.580191     05 50 36.567974       0.00
+                    -57 33 09.27411    *-57 32 24.39653     -57 31 58.27080        0.00
                      ./sources.spirals.dat
 
- * 0131-522          01 31 05.605001   * 01 33 05.762512     01 34 07.106476       0.00
-                    -52 15 26.53344    *-52 00 03.94553     -51 52 36.77620        0.00
+ * 1022-665          10 22 13.388837   * 10 23 43.533184     10 24 29.241139       0.00
+                    -66 31 34.81389    *-66 46 48.71762     -66 54 06.74255        0.00
                      ./sources.spirals.dat
 
- * 0302-623          03 02 48.121155   * 03 03 50.631370     03 04 24.793420       0.00
-                    -62 23 04.08369    *-62 11 25.54994     -62 05 45.35213        0.00
+ * 1619-680          16 19 13.497154   * 16 24 18.436988     16 26 47.868435       0.00
+                    -68 02 15.80593    *-68 09 12.49649     -68 12 31.45650        0.00
                      ./sources.spirals.dat
 
- * 0334-546          03 34 36.029404   * 03 35 53.924834     03 36 35.233465       0.00
-                    -54 40 17.03062    *-54 30 25.11488     -54 25 35.06513        0.00
+ * 1725-795          17 25 06.732514   * 17 33 40.700280     17 37 50.677438       0.00
+                    -79 33 42.17365    *-79 35 55.71666     -79 36 52.67301        0.00
                      ./sources.spirals.dat
 
- * 0534-611          05 34 02.404458   * 05 34 35.772494     05 34 55.453115       0.00
-                    -61 07 59.24395    *-61 06 07.07325     -61 05 06.30884        0.00
+ * 1824-582          18 24 51.388707   * 18 29 12.402362     18 31 20.129473       0.00
+                    -58 15 53.07848    *-58 13 55.16177     -58 12 58.44719        0.00
                      ./sources.spirals.dat
 
- * 1022-665          10 22 13.388837   * 10 23 43.533184     10 24 28.937170       0.00
-                    -66 31 34.81389    *-66 46 48.71762     -66 54 05.33812        0.00
+ * 2353-686          23 53 22.983555   * 23 56 00.681391     23 57 19.647820       0.00
+                    -68 36 45.65484    *-68 20 03.47179     -68 12 02.49267        0.00
                      ./sources.spirals.dat
 
- * 1143-696          11 43 31.954192   * 11 45 53.624161     11 47 03.808674       0.00
-                    -69 37 21.59654    *-69 54 01.79762     -70 02 01.42408        0.00
-                     ./sources.spirals.dat
-
- * 1251-713          12 51 40.098744   * 12 54 59.921460     12 56 38.420497       0.00
-                    -71 22 03.00262    *-71 38 18.43660     -71 46 06.87733        0.00
-                     ./sources.spirals.dat
-
- * 1659-621          16 59 00.275393   * 17 03 36.541216     17 05 51.696907       0.00
-                    -62 08 26.03829    *-62 12 40.00852     -62 14 43.00304        0.00
-                     ./sources.spirals.dat
-
- * 1758-651          17 58 25.570841   * 18 03 23.496644     18 05 48.929302       0.00
-                    -65 07 40.68652    *-65 07 36.76134     -65 07 35.18708        0.00
-                     ./sources.spirals.dat
-
- * 2142-758          21 42 12.803976   * 21 47 12.730623     21 49 38.484189       0.00
-                    -75 50 06.01949    *-75 36 13.22495     -75 29 34.36878        0.00
-                     ./sources.spirals.dat
-
- * 2204-540          22 04 26.258601   * 22 07 43.733290     22 09 21.265369       0.00
-                    -54 01 14.91316    *-53 46 33.81998     -53 39 30.24052        0.00
-                     ./sources.spirals.dat
-
- * 2353-686          23 53 22.983555   * 23 56 00.681391     23 57 19.922383       0.00
-                    -68 36 45.65484    *-68 20 03.47179     -68 12 02.71760        0.00
-                     ./sources.spirals.dat
-
- * 0823-223          08 23 50.069560   * 08 26 01.572935     08 27 08.326344       0.00
-                    -22 20 34.85157    *-22 30 27.20293     -22 35 14.69664        0.00
-                     ./sources.spirals.dat
-
- * 1245-454          12 45 40.687451   * 12 48 28.495148     12 49 51.696948       0.00
-                    -45 43 25.89171    *-45 59 47.17996     -46 07 43.38556        0.00
+ * 0511-220          05 11 41.814307   * 05 13 49.114325     05 14 54.201890       0.00
+                    -22 02 41.28434    *-21 59 16.09221     -21 57 32.13356        0.00
                      ./sources.spirals.dat
 
 
@@ -1982,55 +2023,45 @@ SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
      Baseline hours are only counted for scans above horizon at both ends.
   Source       Setup file             Frequency sets                  Observing hours
                                    (duplicates not shown)              Scan  Baseline
-  G287.37+0.6spirals3.meth         1 2 3 4 6                         2.217    29.472
-  J1103-5626 spirals3.meth         1 2 3 4 6                         0.433     6.048
-  J1131-5818 spirals3.meth         1 2 3 4 6                         0.433     5.246
-  J1047-6217 spirals3.meth         1 2 3 4 6                         0.433     5.904
-  J1019-6047 spirals3.meth         1 2 3 4 6                         0.433     5.717
-  J1044-5440 spirals3.meth         1 2 3 4 6                         0.433     5.835
-  F0940-6107 spirals3.meth         1 2 3 4 6                         0.050     0.750
-  F1038-5311 spirals3.meth         1 2 3 4 6                         0.050     0.750
-  F1041-4740 spirals3.meth         1 2 3 4 6                         0.050     0.750
-  1325-558   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1657-562   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0537-441   spirals3.meth         1 2 3 4 6                         0.750    11.250
-  F1256-0547 spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0530-727   spirals3.meth         1 2 3 4 6                         0.017     0.167
-  0808+019   spirals3.meth         1 2 3 6                           0.017     0.167
-  1057-797   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1124-186   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1144-379   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0952+179   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1045-188   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1055+018   spirals3.meth         1 2 3 4 6                         0.033     0.417
-  1213-172   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0920-397   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0521-365   spirals3.meth         1 2 3 4 6                         0.033     0.417
-  1549-790   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1040+244   spirals3.meth         1 2 3 4 6                         0.017     0.167
-  0347-211   spirals3.meth         1 2 3 6                           0.017     0.167
-  0606-223   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0627-199   spirals3.meth         1 2 3 6                           0.017     0.167
-  1004-500   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1027-186   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1149-084   spirals3.meth         1 2 3 4 6                         0.017     0.167
-  1243-160   spirals3.meth         1 2 4 6                           0.017     0.100
-  2300-683   spirals3.meth         1 2 3 4 6                         0.017     0.167
-  1831-711   spirals3.meth         1 2 3 4 6                         0.033     0.333
-  0131-522   spirals3.meth         1 2 3 6                           0.017     0.100
-  0302-623   spirals3.meth         1 2 3 4 6                         0.017     0.167
-  0334-546   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  0534-611   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1022-665   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1143-696   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1251-713   spirals3.meth         1 2 3 4 6                         0.033     0.500
-  1659-621   spirals3.meth         1 2 3 4 6                         0.017     0.167
-  1758-651   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  2142-758   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  2204-540   spirals3.meth         1 2 4 6                           0.017     0.100
-  2353-686   spirals3.meth         1 2 3 4 6                         0.033     0.333
-  0823-223   spirals3.meth         1 2 3 4 6                         0.017     0.250
-  1245-454   spirals3.meth         1 2 3 4 6                         0.017     0.250
+  G287.37+0.6spirals3.meth         1 2 3 4                           2.550    23.753
+  J1103-5626 spirals3.meth         1 2 3 4                           0.500     4.837
+  J1131-5818 spirals3.meth         1 2 3 4                           0.500     4.290
+  J1047-6217 spirals3.meth         1 2 3 4                           0.500     4.765
+  J1019-6047 spirals3.meth         1 2 3 4                           0.500     4.665
+  J1044-5440 spirals3.meth         1 2 3 4                           0.500     4.712
+  F0940-6107 spirals3.meth         1 2 3 4                           0.050     0.500
+  F1038-5311 spirals3.meth         1 2 3 4                           0.050     0.500
+  F1041-4740 spirals3.meth         1 2 3 4                           0.050     0.500
+  0537-441   spirals3.meth         1 2 3 4                           0.750     7.500
+  F1256-0547 spirals3.meth         1 2 3 4                           0.017     0.167
+  1034-293   spirals3.meth         1 2 3 4                           0.017     0.167
+  1124-186   spirals3.meth         1 2 3 4                           0.017     0.167
+  1144-379   spirals3.meth         1 2 3 4                           0.017     0.167
+  0422-380   spirals3.meth         1 2 3 4                           0.017     0.167
+  0919-260   spirals3.meth         1 2 3                             0.017     0.100
+  1145-071   spirals3.meth         1 2 3 4                           0.017     0.167
+  0308-611   spirals3.meth         1 2 3 4                           0.033     0.267
+  0826-373   spirals3.meth         1 2 3 4                           0.017     0.167
+  2329-384   spirals3.meth         1 2 3                             0.017     0.050
+  1244-255   spirals3.meth         1 2 3 4                           0.017     0.167
+  0227-369   spirals3.meth         1 2 3 4                           0.033     0.217
+  0534-340   spirals3.meth         1 2 3 4                           0.017     0.167
+  0606-223   spirals3.meth         1 2 3                             0.017     0.100
+  1004-500   spirals3.meth         1 2 3 4                           0.033     0.333
+  1243-160   spirals3.meth         1 2 3 4                           0.017     0.167
+  2300-683   spirals3.meth         1 2 3 4                           0.033     0.200
+  1831-711   spirals3.meth         1 2 3 4                           0.017     0.100
+  0334-546   spirals3.meth         1 2 3 4                           0.017     0.167
+  0454-810   spirals3.meth         1 2 3 4                           0.017     0.167
+  0524-485   spirals3.meth         1 2 3 4                           0.033     0.333
+  0534-611   spirals3.meth         1 2 3 4                           0.033     0.333
+  0549-575   spirals3.meth         1 2 3                             0.017     0.050
+  1022-665   spirals3.meth         1 2 3 4                           0.033     0.333
+  1619-680   spirals3.meth         1 2 3 4                           0.017     0.167
+  1725-795   spirals3.meth         1 2 3 4                           0.017     0.167
+  1824-582   spirals3.meth         1 2 3 4                           0.017     0.167
+  2353-686   spirals3.meth         1 2 3 4                           0.017     0.167
+  0511-220   spirals3.meth         1 2 3                             0.017     0.100
 
 
 EFFECT OF SOLAR CORONA
@@ -2039,55 +2070,45 @@ EFFECT OF SOLAR CORONA
   SCHED provides warnings at individual scans for distances less than 10 degrees.
   The distance from the Sun to each source in this schedule is:
     Source         Sun distance (deg) 
-   G287.37+0.64        80.1
-   J1103-5626          79.2
-   J1131-5818          74.9
-   J1047-6217          78.3
-   J1019-6047          81.9
-   J1044-5440          82.4
-   F0940-6107          85.4
-   F1038-5311          83.9
-   F1041-4740          86.3
-   1325-558            59.7
-   1657-562            35.2
-   0537-441           112.1
-   F1256-0547          76.9
-   0530-727            83.6
-   0808+019           143.3
-   1057-797            69.9
-   1124-186            91.7
-   1144-379            79.9
-   0952+179           127.2
-   1045-188            99.8
-   1055+018           106.8
-   1213-172            81.7
-   0920-397           102.2
-   0521-365           119.1
-   1549-790            57.7
-   1040+244           118.0
-   0347-211           124.1
-   0606-223           134.2
-   0627-199           136.3
-   1004-500            89.6
-   1027-186           103.7
-   1149-084            90.4
-   1243-160            75.4
-   2300-683            62.3
+   G287.37+0.64        82.7
+   J1103-5626          82.0
+   J1131-5818          77.8
+   J1047-6217          80.6
+   J1019-6047          84.2
+   J1044-5440          85.2
+   F0940-6107          87.4
+   F1038-5311          86.8
+   F1041-4740          89.6
+   0537-441           111.6
+   F1256-0547          82.0
+   1034-293           100.8
+   1124-186            96.4
+   1144-379            84.0
+   0422-380           112.0
+   0919-260           115.6
+   1145-071            96.9
+   0308-611            86.5
+   0826-373           113.3
+   2329-384            64.6
+   1244-255            76.9
+   0227-369            97.3
+   0534-340           121.3
+   0606-223           134.1
+   1004-500            92.5
+   1243-160            80.4
+   2300-683            60.4
    1831-711            47.9
-   0131-522            83.6
-   0302-623            86.8
-   0334-546            95.4
-   0534-611            95.2
-   1022-665            78.2
-   1143-696            70.0
-   1251-713            64.2
-   1659-621            40.4
-   1758-651            41.7
-   2142-758            58.8
-   2204-540            53.5
-   2353-686            67.1
-   0823-223           123.3
-   1245-454            66.8
+   0334-546            93.6
+   0454-810            74.9
+   0524-485           106.8
+   0534-611            94.9
+   0549-575            98.8
+   1022-665            80.1
+   1619-680            48.9
+   1725-795            56.7
+   1824-582            35.0
+   2353-686            65.2
+   0511-220           131.0
 
   Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
   that the Sun will cause amplitude reductions on the  longest VLBA baselines 
@@ -2130,31 +2151,24 @@ EFFECT OF SOLAR CORONA
      J1047-6217    F0940-6107      7.9920
      J1047-6217    F1038-5311      9.1698
      J1047-6217    1022-665        5.1749
-     J1047-6217    1143-696        9.5763
-     J1019-6047    J1044-5440      6.9321
+     J1019-6047    J1044-5440      6.9320
      J1019-6047    F0940-6107      4.7518
      J1019-6047    F1038-5311      8.0149
      J1019-6047    1022-665        5.9980
-     J1044-5440    F1038-5311      1.7045
+     J1044-5440    F1038-5311      1.7044
      J1044-5440    F1041-4740      7.0222
      J1044-5440    1004-500        7.2618
      F0940-6107    1022-665        7.3418
      F1038-5311    F1041-4740      5.5498
      F1038-5311    1004-500        5.7893
      F1041-4740    1004-500        6.3893
-     1657-562      1659-621        5.8503
-     0537-441      0521-365        8.2036
-     1124-186      1045-188        9.2071
-     1045-188      1027-186        4.3947
-     1213-172      1243-160        7.3101
-     0606-223      0627-199        5.3047
-     2300-683      2142-758        9.4661
-     2300-683      2353-686        4.8433
-     1831-711      1758-651        6.7894
-     0302-623      0334-546        8.7446
-     1022-665      1143-696        8.1488
-     1143-696      1251-713        5.9258
-     1659-621      1758-651        7.2196
+     0537-441      0524-485        4.9268
+     0308-611      0334-546        7.3318
+     1244-255      1243-160        9.5190
+     2300-683      2353-686        4.8432
+     1831-711      1725-795        9.2879
+     0524-485      0549-575        9.7088
+     0534-611      0549-575        4.0761
 
 
 CATALOGS, FILES, and CODE VERSIONS
@@ -2174,16 +2188,13 @@ Catalogs:
 
 Other external files: 
   Ephemeris: NONE
-  PEAKFILE:  /home/observer/SCHED/sched-11.8/catalogs/peak_RDBE_DDC.cmd
-  MSGFILE:   /home/observer/SCHED/sched-11.8/catalogs/messages.txt
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
 
 
 Code versions: 
-  Release version:           11.80  Release 11.8; April 2023
-  Version of VEX standard:   1.50
-  Version of VEX code:       0.88
-  Version of plot code:      1.06
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
   Version of ephemeris code: 1.01
-  Version of PGPLOT:        v5.2.2
-
-This schedule produced on: Fri Jan 12 15:51:29 2024      
