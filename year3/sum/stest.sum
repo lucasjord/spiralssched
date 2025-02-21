@@ -1,0 +1,788 @@
+                    SUMMARY FILE FOR PROJECT: stest   
+
+COVER INFORMATION: 
+
+  Experiment: SPIRALS: parallax of methanol masers
+  Exp. Code:  stest   
+  Start Day  50 is Wed  19 Feb 2025   MJD  60725          
+
+  Schedule Version:       1.00
+  Processed by SCHED version:  11.60  Release 11.6; Feburary 2020
+
+  PI:       Lucas J. Hyland
+
+  Address:  School of Natural Sciences
+            University of Tasmania
+            Private Bag 37, Hobart, TAS 7001, AU
+   
+
+  Phone:    +61467332126
+  EMAIL:    lucas.hyland@utas.edu.au
+  Fax:
+  Phone during observation:
+
+  Observing mode: 6.7GHz-2p-2IF/64MHz
+
+  Notes:    Array: Cd-Hb-Ho-Ke-Wa-Yg
+   
+   
+   
+
+
+No cover letter provided.
+
+CORRELATION REQUESTS (Defaults in parentheses):
+
+  Correlator (Required if recording):          LBA
+  Correlator average time (2 sec):               2.000 sec.
+    Alternate average time (for spacecraft).     0.000 sec.
+  Output spectral channels per baseband (16):         128
+     Correlator FFT size (128):                       128
+  Number of antennas to be correlated:                  5
+  Polarization (ON):                           OFF
+  Correlator weighting function (UNIFORM):     UNIFORM
+  Distribution tape (DAT):                     DAT
+
+  Distribution format (FITS):                  FITS
+  Source positions from:             FROM SCHEDULE
+
+  Shipping address for correlator output:
+      University of Tasmania
+
+
+
+
+  Correlator Notes: Pass 1: Full band: 2x64 MHz. corchan=128, 0.5 MHz res.
+      Pass 2: zoom=4MHz 2kHz res.
+
+
+
+
+
+
+DERIVED INFORMATION FOR CORRELATION: 
+                                                All scans
+  Elapsed time for project (hours):                 2.11
+  Total time in scheduled scans (hours):            0.67
+  Total time in recording scans (hours):            0.67
+  Total baseline hours (recording scans):           6.20
+  Projected max correlator output rate (kB/s):      20.5
+  Projected correlator output data size (MB):       45.7
+ NOTES:  Above numbers assume the same correlator parameters are used for all data.
+         The 'baseline hours' include the autocorrelations (for data size calculations).
+         The correlator output data rate is for real-time processing.
+         Above numbers assume the same correlator parameters are used for all data.
+         The recordings for a scan are assumed to start at the scan START minus PRESTART.
+         Some stations (VLA, VLBA/MARK5C) wait for good data so the estimates may be high.
+
+
+
+STATIONS USED IN SCHEDULE:
+
+   Station  Code   Latitude Longitude  Elevation       X            Y            Z       Axis
+                                                                                       Offset
+
+   CEDUNA    Cd  -31.86769 -133.80983     165.   -3753442.746  3912709.753 -3348067.609  0.002
+   KATH12M   Ke  -14.37546 -132.15237     189.   -4147354.691  4581542.377 -1573303.157  0.003
+   YARRA12M  Yg  -29.04714 -115.34563     248.   -2388896.189  5043350.002 -3078590.804  0.000
+   HOBART12  Hb  -42.80557 -147.43814      41.   -3949990.840  2522421.219 -4311707.999  0.018
+
+
+   Plate tectonic motion adjustments for MJD  60725
+   Station  Code      Station motions (m/yr)             Adjusted positions 
+                     X       Y       Z     MJD0        X            Y            Z 
+   CEDUNA    Cd  -0.0417  0.0027  0.0499  50449  -3753443.920  3912709.828 -3348066.206
+   KATH12M   Ke  -0.0377 -0.0116  0.0563  56658  -4147355.111  4581542.248 -1573302.530
+   YARRA12M  Yg  -0.0481  0.0096  0.0511  56658  -2388896.725  5043350.109 -3078590.235
+   HOBART12  Hb  -0.0390  0.0080  0.0411  56658  -3949991.275  2522421.308 -4311707.541
+
+
+
+BASELINE LENGTHS (km)
+
+          Cd    Ke    Yg    Hb
+
+   Cd      0  1937  1792  1703
+   Ke   1937     0  2360  3432
+   Yg   1792  2360     0  3211
+   Hb   1703  3432  3211     0
+
+
+RECORDING SYSTEM AND CALIBRATION INFORMATION:
+
+  List of scan-dependent controls seen for recording timing.
+   MINPAUSE:   10.
+   PRESTART:    0.
+
+  DISKS - Stations potentially recording on disks.
+   Station    Drive type   DAR     NBBC    Tsys
+   CEDUNA       MARK5B     DBBC     14     CONT
+   KATH12M      MARK5B     DBBC3     8     CONT
+   YARRA12M     MARK5B     DBBC3     8     CONT
+   HOBART12     MARK5B     DBBC3     8     CONT
+
+
+
+
+EXPERIMENT SUMMARY:
+  Number of input scans:         40
+  Number of scans scheduled:     40
+  Number of stations:             4
+  Number of sources input:       40
+  Number of setup files used:     1
+
+
+STATION SCAN SUMMARIES:
+  Station  Control   Scans   Scan   Record  Record   Gbytes
+                            Hours   Hours   Scans
+  CEDUNA     VEX       40    0.67    0.67      40      309.
+  KATH12M    VEX       37    0.62    0.62      37      286.
+  YARRA12M   VEX       38    0.63    0.63      38      294.
+  HOBART12   VEX       38    0.63    0.63      38      294.
+
+  Notes on the station scan summaries: 
+
+    "Record Scans" are periods of recording with no gap.  The Mark5A disk systems 
+    have a limit of 1024 such scans.  There are often multiple projects on a disk pack.
+    If using MARK5A, try to keep above about 6 GB per record scan by using MINPAUSE 
+    and PRESTART to prevent short gaps.  However, also try to prevent record scans 
+    of more than an hour to minimize risk to data from playback problems.
+    MARK5C will have one observe scan per record scan and there is no limit to the number.
+
+
+
+
+
+
+ SETUP FILES:
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     cd4cm_dual
+
+   Setup group:    1         Station: CEDUNA            Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type: DBBC_DDC         Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   7300.00   7300.00   7300.00   7300.00
+   Net SB=         U         U         L         L
+   IF SB =         L         L         L         L
+   Pol.  =      RCP       LCP       RCP       LCP 
+   BBC   =         1         5         1         5
+   BBC SB=         L         L         U         U
+   IF    =        A1        B1        A1        B1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   1  Setup file default.  Used with PCAL = off
+   LO sum=   6644.00  6644.00  6644.00  6644.00
+   BBC fr=    656.00   656.00   656.00   656.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   1
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    2         Station: HOBART12          Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00
+   Net SB=         U         U         U         U
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       RCP       LCP       LCP 
+   BBC   =        25        26        33        34
+   BBC SB=         U         U         U         U
+   IF    =        D1        D1        E1        E1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   4  Setup file default.  Used with PCAL = off
+   LO sum=   6580.00  6644.00  6580.00  6644.00
+   BBC fr=    580.00   644.00   580.00   644.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   4
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+The following setup groups are the same as group   3 below.
+   4:YARRA12M
+
+
+ ======== Setup file: spirals3.meth
+   Matching groups in ./freq.spirals.dat:
+     aus5cm_dual
+
+   Setup group:    3         Station: KATH12M           Total bit rate:  1024
+   Format: VDIF              Bits per sample: 2         Sample rate:128.000
+   Number of channels:  4    DBE type:                  Speedup factor:   1.00
+
+   Disk used to record data.
+
+   1st LO=   6000.00   6000.00   6000.00   6000.00
+   Net SB=         U         U         U         U
+   IF SB =         U         U         U         U
+   Pol.  =      RCP       RCP       LCP       LCP 
+   BBC   =        33        34        41        42
+   BBC SB=         U         U         U         U
+   IF    =        E1        E1        F1        F1
+
+  The following frequency sets based on these setups were used.
+
+   Frequency Set:   2  Setup file default.  Used with PCAL = off
+   LO sum=   6580.00  6644.00  6580.00  6644.00
+   BBC fr=    580.00   644.00   580.00   644.00
+   Bandwd=     64.00    64.00    64.00    64.00
+    Matching frequency sets:   2   3
+
+   Track assignments are: 
+    track1=   1,  2,  3,  4
+    barrel=roll_off 
+
+
+ SCAN SUMMARY for experiment stest   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  50 is Wed  19 Feb 2025   MJD  60725          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+   1   50 20:30:00 1824-582      -     0     0     0     0
+       50 20:31:00 pirals3.meth  -   144  -208  -217  -222
+
+   2   50 20:32:03 2106-413      -    63    21    26    24
+       50 20:33:03 -             -   125  -230  -228  -246
+
+   3   50 20:33:50 2236-572      -    47   ---    10    11
+       50 20:34:50 -             -   147   ---D -206  -220
+
+   4   50 20:40:16 1222+037      -   326    38    38    37
+       50 20:41:16 -             -   -61   -72   -45   -67
+
+   5   50 20:46:40 1606-398      -   324    31    40    57
+       50 20:47:40 -             -   146  -196   124   -61
+
+   6   50 20:49:19 1817-254      -    99    16    25    30
+       50 20:50:19 -             -    90  -247   101    59
+
+   7   50 20:54:57 1124-186      -   278    35    43    37
+       50 20:55:57 -             -   265  -104   -88   -97
+
+   8   50 21:04:03 1156+295      -   486    17    23   ---
+       50 21:05:03 -             -   -49   -52   -38   ---D
+
+   9   50 21:06:45 1334-127      -   102    34    41    19
+       50 21:07:45 -             -   -68   -92   -49   -70
+
+  10   50 21:09:13 1451-375      -    88    18    34    26
+       50 21:10:13 -             -  -118  -153  -187   -89
+
+  11   50 21:14:12 1622-253      -   239    17    60    19
+       50 21:15:12 -             -    32  -206    86   -27
+
+  12   50 21:16:44 1749+096      -    92    57    32    31
+       50 21:17:44 -             -    34    49    54    14
+
+  13   50 21:19:20 1958-179      -    96    20    15    17
+       50 21:20:20 -             -    89   102    99    69
+
+  14   50 21:21:10 2126-158      -    50    20   ---    17
+       50 21:22:10 -             -    98   103   ---D   85
+
+  15   50 21:23:13 2029+121      -    63    12   ---    12
+       50 21:24:13 -             -    65    71   ---D   52
+
+  16   50 21:27:11 1318+225      -   178    30    31   ---
+       50 21:28:11 -             -   -45   -50   -30   ---D
+
+
+
+ SCAN SUMMARY for experiment stest   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  50 is Wed  19 Feb 2025   MJD  60725          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+  17   50 21:29:30 1557+032      -    79    34    21    21
+       50 21:30:30 pirals3.meth  -   -11   -14    22   -26
+
+  18   50 21:31:19 1655+077      -    49    14    12    10
+       50 21:32:19 -             -    13    24    39    -7
+
+  19   50 21:34:54 1237-101      -   154    29    28    21
+       50 21:35:54 -             -   -81   -93   -71   -85
+
+  20   50 21:38:31 1717+178      -   158    29    27    23
+       50 21:39:31 -             -    14    23    36    -2
+
+  21   50 21:43:26 0920-397      -   235   ---    38    33
+       50 21:44:26 -             -  -133   ---D -126  -139
+
+  22   50 21:45:57 1313-333      -    91    35    38    29
+       50 21:46:57 -             -  -107  -123  -108  -102
+
+  23   50 21:48:45 1508-055      -   108    24    25    16
+       50 21:49:45 -             -   -44   -70   -11   -52
+
+  24   50 21:50:43 1514-241      -    58    16    18    15
+       50 21:51:43 -             -   -74  -121   -34   -69
+
+  25   50 21:52:58 1244-255      -    74    30    28    24
+       50 21:53:58 -             -  -100  -112   -95  -100
+
+  26   50 21:56:28 1617+229      -   150    26    27    22
+       50 21:57:28 -             -    -9   -10    12   -21
+
+  27   50 21:58:17 1441+252      -    49    12    11    12
+       50 21:59:17 -             -   -32   -37   -15   -41
+
+  28   50 22:00:46 1639-062      -    89    36    26    35
+       50 22:01:46 -             -    -7   -11    35   -27
+
+  29   50 22:06:04 2300-683      -   258    59    38    41
+       50 22:07:04 -             -   155   157   158   150
+
+  30   50 22:08:34 1022-665      -    90    15    16    17
+       50 22:09:34 -             -   205   203   207   205
+
+  31   50 22:10:12 1251-713      -    38    13    12    14
+       50 22:11:12 -             -   201   197   197   205
+
+  32   50 22:11:55 1325-558      -    43    11    12    10
+       50 22:12:55 -             -   220   211   213   228
+
+
+
+ SCAN SUMMARY for experiment stest   SPIRALS: parallax of methanol masers
+     Flags: D=>Down, H=>Below Horizon, R=>Rises, S=>Sets, W=>Slew too long, t=>Tape Chg.
+     Top item is:    Slew time in seconds from previous source.
+     Bottom item is: Start azimuth.
+     TYPE top: -=> normal scan, P=>Pointing or Ta;  bottom: -=>recording, N=>not recording.
+     Day  50 is Wed  19 Feb 2025   MJD  60725          
+
+SCAN  DAY START UT  SOURCE     TYPE  STATIONS    t => tape change
+           STOP UT                    Cd    Ke    Yg    Hb
+
+  33   50 22:14:49 1443-162      -   114    23    59    66
+       50 22:15:49 pirals3.meth  -   287   262   -56   -74
+
+  34   50 22:18:27 1624-617      -   159    21    32    24
+       50 22:19:27 -             -   190   186  -187  -151
+
+  35   50 22:21:40 2002-375      -   133    17    17    53
+       50 22:22:40 -             -   111   129  -244    86
+
+  36   50 22:23:56 2131-021      -    75    20    72    34
+       50 22:24:56 -             -    77    85    88    62
+
+  37   50 22:26:13 2244-372      -    78    14    14    15
+       50 22:27:13 -             -   119   125   127   108
+
+  38   50 22:27:59 2355-534      -    46   ---    10    11
+       50 22:28:59 -             -   141   ---D  147   133
+
+  39   50 22:32:57 1330+022      -   237    47    47    48
+       50 22:33:57 -             -   290   -79   -58   -76
+
+  40   50 22:35:28 1144-379      -    92    17    18    16
+       50 22:36:28 -             -   238  -127  -119  -125
+
+
+
+ TIME RANGE OF RECORDINGS and TOTAL BYTES:
+
+                Obs. start time.     Obs. end time.      Total 
+ Station          Day    Time         Day    Time        GBytes
+                     (UT)                 (UT)
+  CEDUNA          50  20:30:00        50  22:36:28        309.2
+  KATH12M         50  20:30:00        50  22:36:28        286.0
+  YARRA12M        50  20:30:00        50  22:36:28        293.7
+  HOBART12        50  20:30:00        50  22:36:28        293.7
+
+ POSITIONS OF SOURCES USED IN RECORDING SCANS
+     Catalog positions marked with *. 
+     Precession of date coordinates is based on stop time of first scan.
+     Names used in schedule marked with *. 
+     Observation date used in B1950/J2000 coordinate conversion (PRECDATE):  1979.900
+     No adjustments are made for rates (DRA, DDEC).
+
+   Source                         Source position (RA/Dec)                        Error
+                        (B1950)             (J2000)             (Date)            (mas)
+
+ * 1325-558          13 25 50.489930   * 13 29 01.144904     13 30 38.202581       0.19
+   F1329-5608       -55 52 32.31247    *-56 08 02.66565     -56 15 43.21408        0.11
+                     ./sources.spirals.dat
+                     rfc_2020a Petrov and Kovalev, in preparation  868 observations
+
+ * 1624-617          16 24 26.371109   * 16 28 54.689807     16 31 09.358828       0.22
+   F1628-6152       -61 45 59.34694    *-61 52 36.39812     -61 55 44.43356        0.11
+                     ./sources.spirals.dat
+                     rfc_2020a Petrov and Kovalev, in preparation  928 observations
+
+ * 1124-186          11 24 34.018126   * 11 27 04.392451     11 28 21.180021       0.00
+                    -18 40 46.35971    *-18 57 17.44178     -19 05 39.67308        0.00
+                     ./sources.spirals.dat
+
+ * 1144-379          11 44 30.859604   * 11 47 01.370707     11 48 18.273143       0.00
+                    -37 55 30.64420    *-38 12 11.02349     -38 20 33.96462        0.00
+                     ./sources.spirals.dat
+
+ * 1156+295          11 56 57.786211   * 11 59 31.833912     12 00 50.803499       0.00
+                     29 31 25.73880    * 29 14 43.82690      29 06 08.29371        0.00
+                     ./sources.spirals.dat
+
+ * 1334-127          13 34 59.803874   * 13 37 39.782779     13 39 00.998245       0.00
+                    -12 42 09.74308    *-12 57 24.69336     -13 05 10.52566        0.00
+                     ./sources.spirals.dat
+
+ * 1451-375          14 51 18.280376   * 14 54 27.409757     14 56 02.926296       0.00
+                    -37 35 22.70856    *-37 47 33.14483     -37 53 37.66537        0.00
+                     ./sources.spirals.dat
+
+ * 1622-253          16 22 44.105299   * 16 25 46.891640     16 27 18.653355       0.00
+                    -25 20 51.69568    *-25 27 38.32688     -25 31 05.12602        0.00
+                     ./sources.spirals.dat
+
+ * 1749+096          17 49 10.387930   * 17 51 32.818574     17 52 43.833940       0.00
+                     09 39 42.82587    * 09 39 00.72842      09 38 24.14459        0.00
+                     ./sources.spirals.dat
+
+ * 1958-179          19 58 04.608274   * 20 00 57.090443     20 02 22.659769       0.00
+                    -17 57 16.95837    *-17 48 57.67264     -17 44 54.50954        0.00
+                     ./sources.spirals.dat
+
+ * 2126-158          21 26 26.777528   * 21 29 12.175895     21 30 34.059828       0.00
+                    -15 51 50.34777    *-15 38 41.04160     -15 32 13.22451        0.00
+                     ./sources.spirals.dat
+
+ * 2029+121          20 29 32.681260   * 20 31 54.994267     20 33 05.236486       0.00
+                     12 09 28.75302    * 12 19 41.34018      12 24 36.84760        0.00
+                     ./sources.spirals.dat
+
+ * 1318+225          13 18 46.850231   * 13 21 11.202552     13 22 24.880731       0.00
+                     22 31 53.67212    * 22 16 12.10831      22 08 03.88487        0.00
+                     ./sources.spirals.dat
+
+ * 1557+032          15 57 00.361038   * 15 59 30.972618     16 00 46.775969       0.00
+                     03 13 15.85200    * 03 04 48.25679      03 00 20.06216        0.00
+                     ./sources.spirals.dat
+
+ * 1655+077          16 55 43.951810   * 16 58 09.011467     16 59 21.672113       0.00
+                     07 45 59.75710    * 07 41 27.54045      07 38 55.71959        0.00
+                     ./sources.spirals.dat
+
+ * 1237-101          12 37 07.280406   * 12 39 43.061480     12 41 02.391868       0.00
+                    -10 07 00.57792    *-10 23 28.69257     -10 31 51.53073        0.00
+                     ./sources.spirals.dat
+
+ * 1717+178          17 17 00.324731   * 17 19 13.048480     17 20 19.368122       0.00
+                     17 48 08.51599    * 17 45 06.43722      17 43 16.78144        0.00
+                     ./sources.spirals.dat
+
+ * 0920-397          09 20 48.229712   * 09 22 46.418264     09 23 47.208692       0.00
+                    -39 46 42.27184    *-39 59 35.06825     -40 06 07.19154        0.00
+                     ./sources.spirals.dat
+
+ * 1313-333          13 13 20.042361   * 13 16 07.985941     13 17 33.330331       0.00
+                    -33 23 09.68789    *-33 38 59.17260     -33 46 56.07552        0.00
+                     ./sources.spirals.dat
+
+ * 1508-055          15 08 14.970132   * 15 10 53.591423     15 12 13.677780       0.00
+                    -05 31 49.00787    *-05 43 07.41746     -05 48 57.75535        0.00
+                     ./sources.spirals.dat
+
+ * 1514-241          15 14 45.267385   * 15 17 41.813133     15 19 10.843849       0.00
+                    -24 11 22.67815    *-24 22 19.47610     -24 27 51.99440        0.00
+                     ./sources.spirals.dat
+
+ * 1244-255          12 44 06.713924   * 12 46 46.802038     12 48 08.273826       0.00
+                    -25 31 26.67455    *-25 47 49.28889     -25 56 05.35911        0.00
+                     ./sources.spirals.dat
+
+ * 1617+229          16 17 06.466943   * 16 19 14.824600     16 20 19.367755       0.00
+                     22 54 58.47378    * 22 47 47.85103      22 43 51.70431        0.00
+                     ./sources.spirals.dat
+
+ * 1441+252          14 41 43.558251   * 14 43 56.892188     14 45 04.609462       0.00
+                     25 14 23.98284    * 25 01 44.49070      24 55 04.12179        0.00
+                     ./sources.spirals.dat
+
+ * 1639-062          16 39 21.443868   * 16 42 02.177715     16 43 22.797551       0.00
+                    -06 15 43.81937    *-06 21 23.69501     -06 24 24.44121        0.00
+                     ./sources.spirals.dat
+
+ * 2300-683          23 00 27.886433   * 23 03 43.564600     23 05 19.148111       0.00
+                    -68 23 48.05508    *-68 07 37.44311     -67 59 38.28370        0.00
+                     ./sources.spirals.dat
+
+ * 1022-665          10 22 13.388837   * 10 23 43.533184     10 24 30.900687       0.00
+                    -66 31 34.81389    *-66 46 48.71762     -66 54 26.15356        0.00
+                     ./sources.spirals.dat
+
+ * 1251-713          12 51 40.098744   * 12 54 59.921460     12 56 42.885633       0.00
+                    -71 22 03.00262    *-71 38 18.43660     -71 46 19.16206        0.00
+                     ./sources.spirals.dat
+
+ * 1443-162          14 43 06.684442   * 14 45 53.376293     14 47 17.632902       0.00
+                    -16 16 26.68225    *-16 29 01.61904     -16 35 26.26587        0.00
+                     ./sources.spirals.dat
+
+ * 1824-582          18 24 51.388707   * 18 29 12.402362     18 31 22.149955       0.00
+                    -58 15 53.07848    *-58 13 55.16177     -58 12 48.98487        0.00
+                     ./sources.spirals.dat
+
+ * 2002-375          20 02 37.420571   * 20 05 55.070903     20 07 33.077452       0.00
+                    -37 32 18.72150    *-37 23 41.47791     -37 19 25.00612        0.00
+                     ./sources.spirals.dat
+
+ * 2106-413          21 06 19.394835   * 21 09 33.188579     21 11 09.069235       0.00
+                    -41 22 33.48694    *-41 10 20.60548     -41 04 17.63181        0.00
+                     ./sources.spirals.dat
+
+ * 2131-021          21 31 35.130685   * 21 34 10.309596     21 35 27.040729       0.00
+                    -02 06 39.92004    *-01 53 17.23893     -01 46 43.46126        0.00
+                     ./sources.spirals.dat
+
+ * 2236-572          22 36 01.894437   * 22 39 12.075901     22 40 45.701641       0.00
+                    -57 16 39.17859    *-57 01 00.83955     -56 53 17.38406        0.00
+                     ./sources.spirals.dat
+
+ * 2244-372          22 44 14.034974   * 22 47 03.917331     22 48 27.984864       0.00
+                    -37 13 36.36298    *-36 57 46.30412     -36 49 58.25409        0.00
+                     ./sources.spirals.dat
+
+ * 2355-534          23 55 18.159715   * 23 57 53.266056     23 59 09.913916       0.00
+                    -53 27 55.99482    *-53 11 13.68949     -53 03 01.84689        0.00
+                     ./sources.spirals.dat
+
+ * 1330+022          13 30 20.472743   * 13 32 53.270539     13 34 10.952707       0.00
+                     02 16 08.78140    * 02 00 45.69923      01 52 51.38941        0.00
+                     ./sources.spirals.dat
+
+ * 1222+037          12 22 19.097172   * 12 24 52.421938     12 26 10.629974       0.00
+                     03 47 27.06606    * 03 30 50.29292      03 22 20.20270        0.00
+                     ./sources.spirals.dat
+
+ * 1606-398          16 06 58.660714   * 16 10 21.879081     16 12 03.985630       0.00
+                    -39 51 10.33105    *-39 58 58.32823     -40 02 50.19114        0.00
+                     ./sources.spirals.dat
+
+ * 1817-254          18 17 52.332225   * 18 20 57.848693     18 22 30.322309       0.00
+                    -25 29 37.39986    *-25 28 12.58414     -25 27 33.98492        0.00
+                     ./sources.spirals.dat
+
+
+
+SOURCE SCAN SUMMARY FOR SOURCES LISTED ABOVE
+
+     Scan hours are for recording scans only. 
+     Baseline hours are only counted for scans above horizon at both ends.
+  Source       Setup file             Frequency sets                  Observing hours
+                                   (duplicates not shown)              Scan  Baseline
+  1325-558   spirals3.meth         1 2 4                             0.017     0.100
+  1624-617   spirals3.meth         1 2 4                             0.017     0.100
+  1124-186   spirals3.meth         1 2 4                             0.017     0.100
+  1144-379   spirals3.meth         1 2 4                             0.017     0.100
+  1156+295   spirals3.meth         1 2                               0.017     0.050
+  1334-127   spirals3.meth         1 2 4                             0.017     0.100
+  1451-375   spirals3.meth         1 2 4                             0.017     0.100
+  1622-253   spirals3.meth         1 2 4                             0.017     0.100
+  1749+096   spirals3.meth         1 2 4                             0.017     0.100
+  1958-179   spirals3.meth         1 2 4                             0.017     0.100
+  2126-158   spirals3.meth         1 2 4                             0.017     0.050
+  2029+121   spirals3.meth         1 2 4                             0.017     0.050
+  1318+225   spirals3.meth         1 2                               0.017     0.050
+  1557+032   spirals3.meth         1 2 4                             0.017     0.100
+  1655+077   spirals3.meth         1 2 4                             0.017     0.100
+  1237-101   spirals3.meth         1 2 4                             0.017     0.100
+  1717+178   spirals3.meth         1 2 4                             0.017     0.100
+  0920-397   spirals3.meth         1 2 4                             0.017     0.050
+  1313-333   spirals3.meth         1 2 4                             0.017     0.100
+  1508-055   spirals3.meth         1 2 4                             0.017     0.100
+  1514-241   spirals3.meth         1 2 4                             0.017     0.100
+  1244-255   spirals3.meth         1 2 4                             0.017     0.100
+  1617+229   spirals3.meth         1 2 4                             0.017     0.100
+  1441+252   spirals3.meth         1 2 4                             0.017     0.100
+  1639-062   spirals3.meth         1 2 4                             0.017     0.100
+  2300-683   spirals3.meth         1 2 4                             0.017     0.100
+  1022-665   spirals3.meth         1 2 4                             0.017     0.100
+  1251-713   spirals3.meth         1 2 4                             0.017     0.100
+  1443-162   spirals3.meth         1 2 4                             0.017     0.100
+  1824-582   spirals3.meth         1 2 4                             0.017     0.100
+  2002-375   spirals3.meth         1 2 4                             0.017     0.100
+  2106-413   spirals3.meth         1 2 4                             0.017     0.100
+  2131-021   spirals3.meth         1 2 4                             0.017     0.100
+  2236-572   spirals3.meth         1 2 4                             0.017     0.050
+  2244-372   spirals3.meth         1 2 4                             0.017     0.100
+  2355-534   spirals3.meth         1 2 4                             0.017     0.050
+  1330+022   spirals3.meth         1 2 4                             0.017     0.100
+  1222+037   spirals3.meth         1 2 4                             0.017     0.100
+  1606-398   spirals3.meth         1 2 4                             0.017     0.100
+  1817-254   spirals3.meth         1 2 4                             0.017     0.100
+
+
+EFFECT OF SOLAR CORONA
+
+  The solar corona can cause unstable phases for sources too close to the Sun.
+  SCHED provides warnings at individual scans for distances less than 10 degrees.
+  The distance from the Sun to each source in this schedule is:
+    Source         Sun distance (deg) 
+   1325-558           101.5
+   1624-617            78.4
+   1124-186           144.8
+   1144-379           126.0
+   1156+295           149.2
+   1334-127           123.8
+   1451-375            98.2
+   1622-253            82.4
+   1749+096            68.1
+   1958-179            32.6
+   2126-158            11.5
+   2029+121            34.3
+   1318+225           133.7
+   1557+032            93.8
+   1655+077            80.5
+   1237-101           137.6
+   1717+178            77.9
+   0920-397           127.6
+   1313-333           117.6
+   1508-055           104.0
+   1514-241            97.7
+   1244-255           127.4
+   1617+229            92.8
+   1441+252           114.7
+   1639-062            81.6
+   2300-683            57.7
+   1022-665           102.1
+   1251-713            93.0
+   1443-162           107.1
+   1824-582            63.1
+   2002-375            38.8
+   2106-413            33.2
+   2131-021            13.3
+   2236-572            46.2
+   2244-372            27.0
+   2355-534            47.1
+   1330+022           129.5
+   1222+037           146.4
+   1606-398            83.4
+   1817-254            56.4
+
+  Barry Clark estimates from predictions by Ketan Desai of IPM scattering sizes 
+  that the Sun will cause amplitude reductions on the  longest VLBA baselines 
+  at a solar distance of 60deg F^(-0.6) where F is in GHz. 
+  For common VLBI bands, this is: 
+       327 MHz        117. deg 
+       610 MHz         81. deg 
+       1.6 GHz         45. deg 
+       2.3 GHz         36. deg 
+       5.0 GHz         23. deg 
+       8.4 GHz         17. deg 
+      15.0 GHz         12. deg 
+      22.0 GHz          9. deg 
+      43.0 GHz          6. deg 
+
+SOLAR CORONA AFFECTED SCANS
+
+ Source       Separation Threshold Frequency
+ 2126-158     11.5       19.3      6644.00
+ 2131-021     13.3       19.3      6644.00
+
+ SOURCE SEPARATIONS
+
+ Source separations in degrees for pairs closer than  20.00 degrees.
+
+     1325-558      1251-713       15.9119
+     1624-617      1824-582       15.2963
+     1124-186      1144-379       19.7304
+     1124-186      1237-101       19.5216
+     1124-186      1244-255       19.6262
+     1144-379      1313-333       18.5540
+     1144-379      1244-255       17.6849
+     1156+295      1318+225       19.6282
+     1334-127      1237-101       14.4128
+     1334-127      1244-255       17.5480
+     1334-127      1443-162       16.8611
+     1334-127      1330+022       15.0152
+     1451-375      1514-241       14.3033
+     1451-375      1606-398       14.9022
+     1622-253      1514-241       15.4632
+     1622-253      1639-062       19.4932
+     1622-253      1606-398       14.8741
+     1749+096      1655+077       13.3388
+     1749+096      1717+178       11.2761
+     1958-179      2002-375       19.6081
+     2126-158      2131-021       13.8108
+     1318+225      1441+252       19.1319
+     1557+032      1655+077       15.2993
+     1557+032      1508-055       14.9923
+     1557+032      1639-062       14.2007
+     1655+077      1717+178       11.2922
+     1655+077      1617+229       17.7635
+     1655+077      1639-062       14.6096
+     1237-101      1244-255       15.4950
+     1237-101      1330+022       18.1344
+     1237-101      1222+037       14.3870
+     1717+178      1617+229       14.9295
+     1313-333      1244-255       10.1056
+     1508-055      1514-241       18.7229
+     1508-055      1443-162       12.3837
+     1514-241      1443-162       10.8441
+     1514-241      1606-398       19.1306
+     2300-683      2236-572       11.4497
+     2300-683      2355-534       16.2617
+     1022-665      1251-713       13.9934
+     2002-375      2106-413       12.8579
+     2106-413      2244-372       19.3209
+     2236-572      2355-534       11.8386
+     1330+022      1222+037       17.0482
+
+
+CATALOGS, FILES, and CODE VERSIONS
+
+Catalogs: 
+  Station:   ./stations.spirals.dat
+                 Version:  
+  Location:  ./locations.spirals.dat
+                 Version:  Not known
+  Frequency: ./freq.spirals.dat
+                 Version:  
+  Source:   ./sources.spirals.dat
+                 Version:  Not given
+  Source2:  NONE
+                 Version:   ---
+
+
+Other external files: 
+  Ephemeris: NONE
+  PEAKFILE:  /Users/lucas3/sched/catalogs/peak.cmd
+  MSGFILE:   /Users/lucas3/sched/catalogs/messages.txt
+
+
+Code versions: 
+  pySCHED version:           1.26.2
+  Based on SCHED version:    11.60  Release 11.6; Feburary 2020
+  Version of VEX standard:   1.5/2.0
+  Version of VEX code:       5
+  Version of ephemeris code: 1.01
