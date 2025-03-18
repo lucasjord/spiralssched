@@ -42,7 +42,7 @@ c                selected source, in order to get better azimuth coverage
 
 c       some parameters...
 	x_trials = 5000.d0
-	timespan =   20.d0                               ! min
+	timespan =   300.d0                               ! min
         dwell_time =  1.0d0                          ! min
 	elev_min =   7.d0                               ! deg
 
