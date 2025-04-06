@@ -44,7 +44,7 @@ c       for CD and WA.
 	character*32     geofile, qualfile, srcfile
 
 c       some parameters...
-	x_trials = 2000.d0
+	x_trials = 5000.d0
 	timespan =   20.d0                               ! min
         dwell_time =  1.0d0                          ! min
 	elev_min =   7.d0                                ! deg
@@ -1173,7 +1173,7 @@ C	Generate a trial geodetic-like data set...
 	min_stats_per_scan = 0.75d0 * n_stats
 	if ( min_stats_per_scan .lt. 3 ) min_stats_per_scan = 3
 
-	max_dropped = 2       ! maximum number sources not observed at a station
+	max_dropped = 1       ! maximum number sources not observed at a station
 	angle_min   = 5.d0   ! [deg] minimum angular separation among sources
 c                             ! (in order to try and get a big azimuth range)   
 c                             ! If too large, however, can put program into infinite loop!

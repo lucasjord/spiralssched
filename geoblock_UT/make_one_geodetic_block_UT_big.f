@@ -42,8 +42,8 @@ c                selected source, in order to get better azimuth coverage
 
 c       some parameters...
 	x_trials = 1000.d0
-	timespan =  120.d0                               ! min
-        dwell_time =  1.0d0                          ! min
+	timespan =  60.d0                               ! min
+        dwell_time =  .1d0                          ! min
 	elev_min =   10.d0                               ! deg
 
 c       Schedule in LST for a central station
